@@ -7,8 +7,21 @@ body { background-color: $color_main; margin: 0;
 }
 
 div.block.footer {
-	display: flex; justify-content: center; background-color: $color_main_green;
+	display: flex; justify-content: center; text-align: center; background-color: $color_main_green;
 	> div {
 		padding: 20px;
 	}
+	> div.footer_logo { background-color: darkgray; margin-top: auto; margin-bottom: auto; }
+	> div.footer_contact {
+		div {
+			display: flex; justify-content: center;
+			> div {
+				&:nth-of-type(1) {background-color: brown; width: 20px; height: 20px; margin: 2px;}
+				&:nth-of-type(2) {background-color: darkgray; width: 20px; height: 20px; margin: 2px;}
+				&:nth-of-type(3) {background-color: brown; width: 20px; height: 20px; margin: 2px;}
+				&:nth-of-type(4) {background-color: darkgray; width: 20px; height: 20px; margin: 2px;}
+			}
+		}
+	}
+	> input { height: 30px; margin-top: auto; margin-bottom: auto; }
 }
