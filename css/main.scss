@@ -1,3 +1,14 @@
-body { background-color: darkgray;
+$color_main_green: #365f41;
+$color_main: #ece9e0;
+
+
+body { background-color: $color_main; margin: 0;
 	> header.hat { background-image: url("pic/hat.jpg"); background-size: cover; height: 400px;}
+}
+
+div.block.footer {
+	display: flex; justify-content: center; background-color: $color_main_green;
+	> div {
+		padding: 20px;
+	}
 }
