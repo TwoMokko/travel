@@ -1,10 +1,41 @@
 $color_main_green: #365f41;
 $color_main: #ece9e0;
+$color_text_main: #2d2c2c;
+$color_light_gray: #fdfdfd;
 
 
 body { background-color: $color_main; margin: 0;
 	> header.hat { background-image: url("pic/hat.jpg"); background-size: cover; height: 400px;}
 }
+
+
+main {
+	> div.check_tour {
+		height: 100px; background-color: white; display: flex; justify-content: center; text-align: center;
+		> div {}
+		> input {
+			height: 30px; margin-top: auto; margin-bottom: auto; background-color: $color_main_green; border: none; color: white;
+		}
+	}
+	> div.about_us {
+		> div { text-align: center;
+			&:nth-of-type(1) { color: $color_main_green; }
+			&:nth-of-type(2) { color: $color_text_main; font-size: x-large; }
+			&:nth-of-type(3) { color: $color_text_main; }
+		}
+	}
+	> div.tour { display: flex; justify-content: center; text-align: center;
+		> div > div { margin: 0 50px;
+			&:nth-of-type(1) { background-color: darkgray; height: 200px; width: 290px; }
+			&:nth-of-type(2) { color: $color_text_main; font-size: large; }
+			&:nth-of-type(3) { color: $color_text_main; }
+		}
+	}
+
+	> div.adventure { height: 200px; background-color: $color_main_green; }
+	> div.photo { height: 400px; }
+}
+
 
 div.block.footer {
 	display: flex; justify-content: center; text-align: center; background-color: $color_main_green;
