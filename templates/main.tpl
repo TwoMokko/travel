@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://time.inteh.tech/plugins/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <header class = "hat"><?php Head(); ?></header>
+    <header><?php Head(); ?></header>
     <main>
         <div class = "check_tour">
             <div></div>
@@ -27,17 +27,17 @@
         </div>
         <div class = "tour">
             <div>
-                <div>Фото</div>
+                <div></div>
                 <div>Индивидуальное сопровождение</div>
                 <div>Краткое описание</div>
             </div>
             <div>
-                <div>Фото</div>
+                <div></div>
                 <div>Путешествия</div>
                 <div>Краткое описание</div>
             </div>
             <div>
-                <div>Фото</div>
+                <div></div>
                 <div>Короткие путешествия</div>
                 <div>Краткое описание</div>
             </div>
