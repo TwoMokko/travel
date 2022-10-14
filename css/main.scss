@@ -26,39 +26,58 @@ body { background-color: $color_main; margin: 0; }
 }
 
 
-main {
-	> div.check_tour {
-		height: 100px; background-color: white; display: flex; justify-content: center; text-align: center;
-		> div {}
-		> input {
-			height: 30px; margin-top: auto; margin-bottom: auto; background-color: $color_main_green; border: none; color: white;
-		}
-	}
-	> div.about_us {
-		padding: 20px;
-		> div { text-align: center;
-			&:nth-of-type(1) { color: $color_main_green; }
-			&:nth-of-type(2) { color: $color_text_main; font-size: x-large; margin: 0 100px; }
-			&:nth-of-type(3) { color: $color_text_main; margin: 20px 100px; }
-		}
-	}
-	> div.tour { display: flex; margin: 0 auto; padding: 0 10%; max-width: 1200px;
-		> div { width: 30%;
-			&:not(:last-child) { margin-right: 5%; }
+
+.block.check_tour { position: relative;
+	height: 0;
+	> div { position: absolute; left: 0; right: 0; top: -50px; text-align: center;
+		> form {
+			padding: 24px 40px; margin: 0 auto; background-color: white; display: inline-flex; justify-content: center;
 			> div {
-				&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
-				&:nth-of-type(2) { color: $color_text_main; font-size: large; }
-				&:nth-of-type(3) { color: $color_text_main; }
+				margin-top: auto; margin-bottom: auto; padding: 0 24px;
+				&:nth-of-type(1) {
+					> div { padding-bottom: 10px; }
+				}
+				&:nth-of-type(2) {
+					> div { padding-bottom: 10px; }
+				}
+				&:nth-of-type(3) {
+					> div { padding-bottom: 10px; }
+				}
+				&:nth-of-type(4) {
+					> input {
+						padding: 5px; background-color: $color_main_green; border: none; color: white;
+					}
+				}
 			}
 		}
 	}
 
-	> div.adventure { height: 200px; background-color: $color_main_green; }
-	> div.photo { height: 400px; }
 }
 
+.block.about_us {
+	margin: 0 auto; padding: 120px 20% 20px; max-width: 1200px;
+	> div { text-align: center;
+		&:nth-of-type(1) { color: $color_main_green; }
+		&:nth-of-type(2) { color: $color_text_main; font-size: x-large; }
+		&:nth-of-type(3) { color: $color_text_main; margin: 20px 0; }
+	}
+}
+.block.tour { display: flex; margin: 0 auto; padding: 0 10%; max-width: 1200px; text-align: center;
+	> div { width: 30%;
+		&:not(:last-child) { margin-right: 5%; }
+		> div {
+			&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
+			&:nth-of-type(2) { color: $color_text_main; font-size: large; }
+			&:nth-of-type(3) { color: $color_text_main; }
+		}
+	}
+}
+.block.adventure { height: 200px; background-color: $color_main_green; }
+.block.photo { height: 400px; }
 
-div.block.footer {
+
+
+.block.footer {
 	background-color: $color_main_green;
 	> div {
 		display: flex; justify-content: space-evenly; text-align: center;  width: 100%; max-width: 1200px; margin: 0 auto;
