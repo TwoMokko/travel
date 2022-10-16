@@ -9,17 +9,33 @@ $color_light_gray: #fdfdfd;
 html, input { font-family: Inter_Tight, sans-serif; }
 body { background-color: $color_main; margin: 0; }
 
+.block.top {
+	position: relative; display: flex;
+	> div {
+		&:first-child { flex: auto; padding-top: 30px; padding-left: 100px; }
+		&:last-child {
+			flex: none; display: flex; padding-top: 30px; padding-right: 100px;
+			> div {  }
+		}
+	}
+}
+
+.block.menu {
+	> div {	color: white; padding: 10px; }
+}
+
 .block.hat {
 	position: relative;
 	> div {
 		&:first-child { background-position: bottom; background-image: url("pic/hat.jpg"); background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
 		&:last-child {
-			padding: 150px 50px; position: relative;
+			padding: 70px 150px 150px; position: relative;
 			> div {
-				&:nth-of-type(1) { color: white; }
-				&:nth-of-type(2) { color: white; font-family: Intro, sans-serif; font-size: xx-large; }
-				&:nth-of-type(3) { color: white; }
-				&:nth-of-type(4) { color: white;}
+				color: white;
+				&:nth-of-type(1) {}
+				&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: xx-large; }
+				&:nth-of-type(3) {}
+				&:nth-of-type(4) {}
 			}
 		}
 	}
@@ -44,9 +60,7 @@ body { background-color: $color_main; margin: 0; }
 					> div { padding-bottom: 10px; }
 				}
 				&:nth-of-type(4) {
-					> input {
-						padding: 5px; background-color: $color_main_green; border: none; color: white;
-					}
+					> input { padding: 10px 15px; border-radius: 5px; background-color: $color_main_green; border: none; color: white; }
 				}
 			}
 		}
@@ -63,22 +77,29 @@ body { background-color: $color_main; margin: 0; }
 	}
 }
 .block.tour { display: flex; margin: 0 auto; padding: 0 10%; max-width: 1200px; text-align: center;
-	> div { width: 30%;
+	> div { width: 30%; padding-bottom: 50px;
 		&:not(:last-child) { margin-right: 5%; }
 		> div {
 			&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
 			&:nth-of-type(2) { color: $color_text_main; font-size: large; }
 			&:nth-of-type(3) { color: $color_text_main; }
 		}
+		> input { padding: 10px 15px; border-radius: 5px; background-color: $color_main_green; border: none; color: white; }
 	}
 }
-.block.adventure { height: 200px; background-color: $color_main_green; }
+.block.adventure {
+	padding: 50px; background-position: center; background-image: url("pic/story.jpg"); background-size: cover;
+	> div { text-align: center;
+		> div { font-family: Intro, sans-serif; font-size: xx-large; color: white; margin-bottom: 10px; }
+		> input { padding: 10px 15px; border-radius: 5px; background-color: transparent; border: 2px solid white; color: white; }
+	}
+}
 .block.photo { height: 400px; }
 
 
 
 .block.footer {
-	background-color: $color_main_green;
+	background-color: $color_main_green; color: white;
 	> div {
 		display: flex; justify-content: space-evenly; text-align: center;  width: 100%; max-width: 1200px; margin: 0 auto;
 		> div {
@@ -86,16 +107,28 @@ body { background-color: $color_main; margin: 0; }
 		}
 		> div.footer_logo { background-color: darkgray; margin-top: auto; margin-bottom: auto; }
 		> div.footer_contact {
-			div {
+			> div {
 				display: flex; justify-content: center;
-				> div {
-					&:nth-of-type(1) {background-color: brown; width: 20px; height: 20px; margin: 2px;}
-					&:nth-of-type(2) {background-color: darkgray; width: 20px; height: 20px; margin: 2px;}
-					&:nth-of-type(3) {background-color: brown; width: 20px; height: 20px; margin: 2px;}
-					&:nth-of-type(4) {background-color: darkgray; width: 20px; height: 20px; margin: 2px;}
+				&:first-child {
+					margin-bottom: 5px;
+					> div {
+						width: 20px; height: 20px;
+						&:nth-of-type(1) {background-color: brown; }
+						&:nth-of-type(2) {background-color: darkgray; }
+						&:nth-of-type(3) {background-color: brown; }
+						&:nth-of-type(4) {background-color: darkgray; }
+						&:not(:last-child) { margin-right: 4px; }
+					}
 				}
 			}
 		}
-		> input { height: 30px; margin-top: auto; margin-bottom: auto; }
+		> div {
+			&:nth-of-type(3) { text-align: left;
+				> div {
+				&:not(:last-child) { margin-bottom: 5px; }
+			}
+			}
+		}
+		> input { padding: 10px 15px; border-radius: 5px; margin-top: auto; margin-bottom: auto;  background-color: transparent; border: 2px solid white; color: white; }
 	}
 }

@@ -1,5 +1,10 @@
 <?php
 
+    require 'templates/top.tpl';
+    require 'templates/footer.tpl';
+    require 'templates/main.tpl';
+
+
     function Title(): string {
         return 'Главная';
     }
@@ -7,11 +12,12 @@
     function Head() {
         ?><div class = "block hat">
             <div></div>
+            <?php Top(); ?>
             <div>
                 <div>Авторские туры</div>
                 <div>АйДаПоход</div>
                 <div>Организуем путешествия на основе ваших пожеланий,
-					а так же по подготовленным нами маршрутам</div>
+					<br>а так же по подготовленным нами маршрутам</div>
                 <div>Смотреть видео</div>
             </div>
         </div><?php
@@ -52,8 +58,9 @@
 
 		</div>
 		<div class = "block about_us">
-			<div>О нас</div>
-			<div>Наша команда организует путешествия по различным маршутам и направлениям</div>
+			<div>О НАС</div>
+			<div>Наша команда организует путешествия
+                <br>по различным маршутам и направлениям</div>
 			<div>
 				Для нас важно показать уникальность посещаемых мест и зарядить положительными эмоциями и впечатлениями
 				В наших приключениях мы стараемся отключиться от влияния внешнего мира, чтобы ничего не мешало нам получать удовольствие и умиротворение от происходящего
@@ -66,21 +73,31 @@
 				<div></div>
 				<div>Индивидуальное сопровождение</div>
 				<div>Краткое описание</div>
+                <input type = "button" value = "Выбрать путешествие">
 			</div>
 			<div>
 				<div></div>
 				<div>Путешествия</div>
 				<div>Краткое описание</div>
+                <input type = "button" value = "Выбрать путешествие">
 			</div>
 			<div>
 				<div></div>
 				<div>Короткие путешествия</div>
 				<div>Краткое описание</div>
+                <input type = "button" value = "Выбрать путешествие">
 			</div>
 		</div>
-		<div class = "block adventure"></div>
+		<div class = "block adventure">
+            <div>
+                <div>Наши приключения</div>
+                <input type = "button" value = "Читать">
+            </div>
+
+
+
+        </div>
 		<div class = "block photo"><?php
 	}
 
-    require 'templates/footer.tpl';
-    require 'templates/main.tpl';
+
