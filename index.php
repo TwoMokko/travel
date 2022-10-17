@@ -93,11 +93,16 @@
                 <div>Наши приключения</div>
                 <input type = "button" value = "Читать">
             </div>
-
-
-
         </div>
-		<div class = "block photo"><?php
+		<div class = "block photo">
+			<div></div>
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div><?php
 	}
 
 
