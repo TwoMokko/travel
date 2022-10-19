@@ -12,7 +12,10 @@ body { background-color: $color_main; margin: 0; }
 .block.top {
 	position: relative; display: flex;
 	> div {
-		&:first-child { flex: auto; padding-top: 30px; padding-left: 100px; }
+		&:first-child {
+			flex: auto; padding-top: 30px; padding-left: 150px;
+			> a { display: inline-block; background-image: url("pic/logo.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 80px; width: 80px; }
+		}
 		&:last-child {
 			flex: none; display: flex; padding-top: 30px; padding-right: 100px;
 			> div {  }
@@ -29,7 +32,7 @@ body { background-color: $color_main; margin: 0; }
 	> div {
 		&:first-child { background-position: bottom; background-image: url("pic/hat.jpg"); background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
 		&:last-child {
-			padding: 70px 150px 150px; position: relative;
+			padding: 50px 350px 150px; position: relative;
 			> div {
 				color: white;
 				&:nth-of-type(1) {}
@@ -116,11 +119,9 @@ body { background-color: $color_main; margin: 0; }
 	background-color: $color_main_green; color: white;
 	> div {
 		display: flex; justify-content: space-evenly; text-align: center;  width: 100%; max-width: 1200px; margin: 0 auto;
-		> div {
-			padding: 20px;
-		}
-		> div.footer_logo { background-color: darkgray; margin-top: auto; margin-bottom: auto; }
+		> div.footer_logo > a { display: inline-block; width: 60px; height: 60px; background-image: url("pic/logo.png"); background-position: left; background-size: cover; background-repeat: no-repeat; }
 		> div.footer_contact {
+			padding: 20px;
 			> div {
 				display: flex; justify-content: center;
 				&:first-child {
@@ -137,7 +138,9 @@ body { background-color: $color_main; margin: 0; }
 			}
 		}
 		> div {
-			&:nth-of-type(3) { text-align: left;
+			margin-top: auto; margin-bottom: auto;
+			&:nth-of-type(3) {
+				text-align: left; padding: 20px;
 				> div {
 				&:not(:last-child) { margin-bottom: 5px; }
 			}

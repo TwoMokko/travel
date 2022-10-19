@@ -3,7 +3,7 @@
     function Footer() {
         ?><div class = "block footer">
             <div>
-                <div class = "footer_logo">Лого</div>
+                <div class = "footer_logo"><a href = "/"></a></div>
                 <div class = "footer_contact">
                     <div>
                         <div></div>

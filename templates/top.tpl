@@ -3,7 +3,7 @@
     function Top() {
         ?><div class = "block top">
             <div>
-                <div>Лого</div>
+                <a href = "/"></a>
             </div>
            <?php Menu(); ?>
         </div><?php
