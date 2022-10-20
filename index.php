@@ -48,7 +48,14 @@
 					</div>
 					<div>
 						<div>Количество человек</div>
-						<input type = "text">
+						<select>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>группа</option>
+						</select>
 					</div>
 					<div>
 						<input type = "submit" value = "Забронировать">
@@ -95,8 +102,14 @@
             </div>
         </div>
 		<div class = "block photo">
-			<div></div>
-			<div>
+			<div class = "main">
+				<div class = "header photo">Фотографии с путешествий</div>
+				<div class = "main_photo">
+					<div>Ак-туру</div>
+					<div></div>
+				</div>
+			</div>
+			<div class = "mini_photo">
 				<div></div>
 				<div></div>
 				<div></div>

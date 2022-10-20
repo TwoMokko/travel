@@ -1,20 +1,21 @@
 $color_main_green: #365f41;
 $color_main: #ece9e0;
 $color_text_main: #2d2c2c;
+//$color_text_main: #161413;
 $color_light_gray: #fdfdfd;
 
 @font-face { font-family: Intro; src: url(fonts/IntroDemo-BlackCAPS.otf);  font-style: normal; font-weight: 400; }
 @font-face { font-family: Inter_Tight; src: url(fonts/InterTight-Regular.ttf); font-style: normal; font-weight: 400; }
 
 html, input { font-family: Inter_Tight, sans-serif; }
-body { background-color: $color_main; margin: 0; }
+body { background-color: $color_main; margin: 0; color: $color_text_main; }
 
 .block.top {
 	position: relative; display: flex;
 	> div {
 		&:first-child {
 			flex: auto; padding-top: 30px; padding-left: 150px;
-			> a { display: inline-block; background-image: url("pic/logo.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 80px; width: 80px; }
+			> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 80px; width: 80px; }
 		}
 		&:last-child {
 			flex: none; display: flex; padding-top: 30px; padding-right: 100px;
@@ -69,14 +70,20 @@ body { background-color: $color_main; margin: 0; }
 		}
 	}
 
+	div > form > div {
+		text-align: left;
+		> select {	padding-bottom: 6px; border: none; border-bottom: 2px solid darkgray; padding-right: 30px; appearance: none; background-image: url('pic/arrow.png'); background-repeat: no-repeat; background-position: right; background-size: contain; }
+		> div { color: $color_main_green; font-weight: bold; }
+	}
+
 }
 
 .block.about_us {
 	margin: 0 auto; padding: 120px 20% 20px; max-width: 1200px;
 	> div { text-align: center;
 		&:nth-of-type(1) { color: $color_main_green; }
-		&:nth-of-type(2) { color: $color_text_main; font-size: x-large; }
-		&:nth-of-type(3) { color: $color_text_main; margin: 20px 0; }
+		&:nth-of-type(2) { font-size: x-large; }
+		&:nth-of-type(3) { margin: 20px 0; }
 	}
 }
 .block.tour { display: flex; margin: 0 auto; padding: 0 10%; max-width: 1200px; text-align: center;
@@ -84,8 +91,8 @@ body { background-color: $color_main; margin: 0; }
 		&:not(:last-child) { margin-right: 5%; }
 		> div {
 			&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
-			&:nth-of-type(2) { color: $color_text_main; font-size: large; }
-			&:nth-of-type(3) { color: $color_text_main; }
+			&:nth-of-type(2) { font-size: large; }
+			&:nth-of-type(3) {  }
 		}
 		> input { padding: 10px 15px; border-radius: 5px; background-color: $color_main_green; border: none; color: white; }
 	}
@@ -98,20 +105,24 @@ body { background-color: $color_main; margin: 0; }
 	}
 }
 .block.photo {
-	> div {
-		&:first-child {
-
-		}
-		&:last-child {
-			> div {
-				&:nth-of-type(1) {}
-				&:nth-of-type(2) {}
-				&:nth-of-type(3) {}
-				&:nth-of-type(4) {}
-			}
+	display: flex; margin: 0 auto; padding: 0 10%; max-width: 1200px;
+	div.main { width: 40%; }
+	div.header.photo { font-family: Intro, sans-serif; font-size: large; padding: 20px 0; }
+	div.main_photo {
+		div {
+			&:first-child { color: $color_main_green; padding-bottom: 10px; }
+			&:last-child { background-color: darkgray; padding-top: 80%; margin-bottom: 10%; }
 		}
 	}
+	div.mini_photo {
+		width: 60%;
+		&:nth-of-type(1) {}
+		&:nth-of-type(2) {}
+		&:nth-of-type(3) {}
+		&:nth-of-type(4) {}
+	}
 }
+
 
 
 
@@ -119,7 +130,7 @@ body { background-color: $color_main; margin: 0; }
 	background-color: $color_main_green; color: white;
 	> div {
 		display: flex; justify-content: space-evenly; text-align: center;  width: 100%; max-width: 1200px; margin: 0 auto;
-		> div.footer_logo > a { display: inline-block; width: 60px; height: 60px; background-image: url("pic/logo.png"); background-position: left; background-size: cover; background-repeat: no-repeat; }
+		> div.footer_logo > a { display: inline-block; width: 60px; height: 60px; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; }
 		> div.footer_contact {
 			padding: 20px;
 			> div {
@@ -127,11 +138,11 @@ body { background-color: $color_main; margin: 0; }
 				&:first-child {
 					margin-bottom: 5px;
 					> div {
-						width: 20px; height: 20px;
-						&:nth-of-type(1) {background-color: brown; }
-						&:nth-of-type(2) {background-color: darkgray; }
-						&:nth-of-type(3) {background-color: brown; }
-						&:nth-of-type(4) {background-color: darkgray; }
+						width: 30px; height: 30px; background-position: center; background-size: 30px; background-repeat: no-repeat;
+						&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
+						&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
+						&:nth-of-type(3) { background-image: url("pic/vk.png"); }
+						&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
 						&:not(:last-child) { margin-right: 4px; }
 					}
 				}
