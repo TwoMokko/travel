@@ -2,7 +2,8 @@
 
     require 'templates/top.tpl';
     require 'templates/footer.tpl';
-    require 'templates/main.tpl';
+	require 'templates/main.tpl';
+
 
 
     function Title(): string {

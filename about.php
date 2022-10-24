@@ -1,13 +1,25 @@
 <?php
+
+	require 'templates/top.tpl';
+	require 'templates/footer.tpl';
+	require 'templates/main.tpl';
+
     function Title(): string {
         return 'О нас';
     }
 
     function Head() {
-        ?><div>
-            <div>О нас</div>
+        ?><div class = "about block hat">
+			<?php Top(); ?>
+			<div></div>
+            <div>
+				<div>О нас</div>
+			</div>
         </div><?php
     }
 
-    require 'templates/footer.tpl';
-    require 'templates/main.tpl';
+    function Main() {
+    	?><div>
+			<div>Описание</div>
+		</div><?php
+	}
