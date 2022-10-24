@@ -15,9 +15,11 @@
             <?php Top(); ?>
             <div>
                 <div>Авторские туры</div>
-                <div>АйДаПоход</div>
-                <div>Организуем путешествия на основе ваших пожеланий,
-					<br>а так же по подготовленным нами маршрутам</div>
+                <div>iDa Travel</div>
+                <div>Организуем путешествия
+                    <br>на основе ваших пожеланий,
+					<br>а так же по подготовленным
+                    <br>нами маршрутам</div>
                 <div>Смотреть видео</div>
             </div>
         </div><?php
@@ -79,25 +81,34 @@
 			<div>
 				<div></div>
 				<div>Индивидуальное сопровождение</div>
-				<div>Краткое описание</div>
-                <input type = "button" value = "Выбрать путешествие">
+				<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+                <div>
+                    <input type = "button" value = "Выбрать путешествие">
+                </div>
 			</div>
 			<div>
 				<div></div>
 				<div>Путешествия</div>
 				<div>Краткое описание</div>
-                <input type = "button" value = "Выбрать путешествие">
+                <div>
+                    <input type = "button" value = "Выбрать путешествие">
+                </div>
 			</div>
 			<div>
 				<div></div>
 				<div>Короткие путешествия</div>
-				<div>Краткое описание</div>
-                <input type = "button" value = "Выбрать путешествие">
+				<div>Поездки и прогулки на выходных. Например, в Томской области. Или трех-дневная поездка на Алтай.</div>
+                <div>
+                    <input type = "button" value = "Выбрать путешествие">
+                </div>
+
 			</div>
 		</div>
 		<div class = "block adventure">
             <div>
                 <div>Наши приключения</div>
+                <div>Истории из наших путешествий,
+                    <br>рассказанные участниками</div>
                 <input type = "button" value = "Читать">
             </div>
         </div>
@@ -110,10 +121,32 @@
 				</div>
 			</div>
 			<div class = "mini_photo">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
+				<div>
+                    <div>
+                        <div>
+                            <div>Байкал, остров Ольхон</div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div>Дагестан</div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div>Каракольские озера</div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div>Карелия, Санкт-Петербург</div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+				<div>
+                    <div><</div>
+                    <div>></div>
+                </div>
 			</div>
 		</div><?php
 	}
