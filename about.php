@@ -9,17 +9,18 @@
     }
 
     function Head() {
-        ?><div class = "about block hat">
+        ?><div class = "block hat other">
+			<div class = "about"></div>
 			<?php Top(); ?>
-			<div></div>
             <div>
 				<div>О нас</div>
+				<div>Возможно, текст</div>
 			</div>
         </div><?php
     }
 
     function Main() {
-    	?><div>
+    	?><div class = "block page_about_us">
 			<div>Описание</div>
 		</div><?php
 	}

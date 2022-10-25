@@ -17,7 +17,9 @@
                     <div>Путешествия</div>
                     <div>О нас</div>
                 </div>
-                <input type = "button" value = "Написать">
+                <div>
+					<input type = "button" value = "Написать" class = "transparent">
+				</div>
             </div>
 
         </div><?php

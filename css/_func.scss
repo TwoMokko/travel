@@ -1,0 +1,12 @@
+@use "variable" as *;
+
+@mixin button($bg_color, $border_color) { padding: 0.4rem 0.7rem; border-radius: 5px; color: white; background-color: $bg_color; border: 3px solid $border_color; cursor: pointer; }
+
+@mixin  button_solid {
+	@include button($color_main_green, $color_main_green); transition: all 500ms ease;
+	&:hover {
+		background: rgba(0, 0, 0, 0); color: $color_main_green;
+	}
+}
+
+@mixin button_transparent { @include button(transparent, white); }

@@ -11,7 +11,7 @@
     }
 
     function Head() {
-        ?><div class = "block hat">
+        ?><div class = "block hat main">
             <div></div>
             <?php Top(); ?>
             <div>
@@ -110,7 +110,7 @@
                 <div>Наши приключения</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
-                <input type = "button" value = "Читать">
+                <input type = "button" value = "Читать" class = "transparent">
             </div>
         </div>
 		<div class = "block photo">
