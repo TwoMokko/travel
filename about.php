@@ -19,8 +19,9 @@
         </div><?php
     }
 
+
     function Main() {
-    	?><div class = "block page_about_us">
-			<div>Описание</div>
-		</div><?php
-	}
+        ?><div class = "block page_about_us">
+            <div>Описание</div>
+        </div><?php
+    }
