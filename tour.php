@@ -4,7 +4,7 @@
     require 'templates/footer.tpl';
     require 'templates/main.tpl';
 
-    function Title(): string {
+    function Title() {
         return 'Путешествия';
     }
 
@@ -25,29 +25,129 @@
             <div>Индивидуальное сопровождение</div>
             <div class = "cards_tour">
                 <div>
-                    <div>Картинка</div>
-                    <div>
-                        <div>Название</div>
-                        <div>Дата</div>
-                        <div>Цена</div>
-                    </div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
                     <div>Описание</div>
                     <div>
-                        <input type = "button" value = "Подробнее">
-                        <input type = "button" value = "Оставить заявку">
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <div>Картинка</div>
-                    <div>
-                        <div>Название</div>
-                        <div>Дата</div>
-                        <div>Цена</div>
-                    </div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
                     <div>Описание</div>
                     <div>
-                        <input type = "button" value = "Подробнее">
-                        <input type = "button" value = "Оставить заявку">
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
+                    <div>Описание</div>
+                    <div>
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,16 +156,17 @@
             <div>Путешествия</div>
             <div class = "cards_tour">
                 <div>
-                    <div>Картинка</div>
-                    <div>
-                        <div>Название</div>
-                        <div>Дата</div>
-                        <div>Цена</div>
-                    </div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
                     <div>Описание</div>
                     <div>
-                        <input type = "button" value = "Подробнее">
-                        <input type = "button" value = "Оставить заявку">
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,16 +175,17 @@
             <div>Короткие путешествия</div>
             <div class = "cards_tour">
                 <div>
-                    <div>Картинка</div>
-                    <div>
-                        <div>Название</div>
-                        <div>Дата</div>
-                        <div>Цена</div>
-                    </div>
+                    <div></div>
+                    <div>Название</div>
+                    <div>Дата</div>
                     <div>Описание</div>
                     <div>
-                        <input type = "button" value = "Подробнее">
-                        <input type = "button" value = "Оставить заявку">
+                        <div>
+                            <div>Цена</div>
+                        </div>
+                        <div>
+                            <input type = "button" value = "Оставить заявку">
+                        </div>
                     </div>
                 </div>
             </div>

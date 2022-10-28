@@ -6,7 +6,7 @@
 
 
 
-    function Title(): string {
+    function Title() {
         return 'Главная';
     }
 
@@ -61,7 +61,7 @@
 						</select>
 					</div>
 					<div>
-						<input type = "submit" value = "Забронировать">
+						<input type = "submit" value = "Оставить заявку">
 					</div>
 				</form>
 			</div>
