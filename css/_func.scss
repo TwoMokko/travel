@@ -1,5 +1,7 @@
 @use "variable" as *;
 
+@use "sass:map";
+
 @mixin button($bg_color, $border_color) { padding: 0.4rem 0.7rem; border-radius: 5px; color: white; background-color: $bg_color; border: 3px solid $border_color; cursor: pointer; }
 
 @mixin  button_solid {
@@ -10,3 +12,9 @@
 }
 
 @mixin button_transparent { @include button(transparent, white); }
+
+@mixin mix-screens($size) {
+	@media only screen and (min-width: map-get($size, 'min')) and (max-width: map-get($size, 'max')) {
+		@content
+	}
+}

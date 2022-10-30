@@ -1,5 +1,6 @@
 @use "_variable" as *;
 @use "_func" as *;
+@use "sass:map";
 
 html, input { font-family: MoshitaMono, sans-serif; font-size: x-large; }
 body { background-color: $color_main; margin: 0; color: $color_text_main; }
@@ -102,16 +103,23 @@ button, input[type="button"], input[type="submit"] {
 		&:nth-of-type(3) {}
 	}
 }
-.block.tour { display: flex; margin: 0 auto; padding: 0 10% 5%; max-width: 1200px;
-	> div { width: 30%; display: flex; flex-direction: column; flex: auto;
-		&:not(:last-child) { margin-right: 5%; }
-		> div {
-			&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
-			&:nth-of-type(2) { font-size: 1.2rem; padding-top: 0.8rem; }
-			&:nth-of-type(3) { padding: 1rem 0; flex: auto; }
+
+@mixin mix-tour($flex-col) {
+	.block.tour { display: flex; flex-direction: $flex-col; margin: 0 auto; padding: 0 10% 5%; max-width: 1200px;
+		> div { width: 30%; display: flex; flex-direction: column; flex: auto;
+			&:not(:last-child) { margin-right: 5%; }
+			> div {
+				&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
+				&:nth-of-type(2) { font-size: 1.2rem; padding-top: 0.8rem; }
+				&:nth-of-type(3) { padding: 1rem 0; flex: auto; }
+			}
 		}
 	}
 }
+
+@include mix-screens($screenXXL) { @include mix-tour(initial); }
+@include mix-screens($screenXL) { @include mix-tour(column); }
+
 .block.adventure {
 	padding: 80px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
 	> div { text-align: center;

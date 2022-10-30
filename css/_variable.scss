@@ -1,7 +1,18 @@
-$color_main_green: #365f41;
-$color_main: #ece9e0;
-$color_text_main: #2d2c2c;
-$color_light_gray: #fdfdfd;
+@use "sass:map";
+
+$color_main_green : #365f41;
+$color_main       : #ece9e0;
+$color_text_main  : #2d2c2c;
+$color_light_gray : #fdfdfd;
+
+$size: (
+  1920            : 1920px,
+  950             : 950px,
+  0               : 0px
+);
+
+$screenXXL        : (min: map.get($size, 950), max: map.get($size, 1920));
+$screenXL         : (min: map.get($size, 0), max: map.get($size, 950) - 1);
 
 @font-face { font-family: Intro; src: url("fonts/IntroDemo-BlackCAPS.otf");  font-style: normal; font-weight: 400; }
 @font-face { font-family: MoshitaMono; src: url("fonts/MoshitaMono.ttf"); font-style: normal; font-weight: 400; }
