@@ -1,18 +1,30 @@
 @use "sass:map";
 
-$color_main_green : #365f41;
-$color_main       : #ece9e0;
-$color_text_main  : #2d2c2c;
-$color_light_gray : #fdfdfd;
+$color_main_green	: #365f41;
+$color_main			: #ece9e0;
+$color_text_main 	: #2d2c2c;
+$color_light_gray	: #fdfdfd;
 
 $size: (
-  1920            : 1920px,
-  950             : 950px,
-  0               : 0px
+	1920			: 1920px,
+	1600			: 1600px,
+	1280			: 1280px,
+	1024			: 1024px,
+	768 			: 768px,
+	600 			: 600px,
+	480 			: 480px,
+	320 			: 320px,
+	0   			: 0px
 );
 
-$screenXXL        : (min: map.get($size, 950), max: map.get($size, 1920));
-$screenXL         : (min: map.get($size, 0), max: map.get($size, 950) - 1);
+$screenXXL			: (min: map.get($size, 1600), max: map.get($size, 1920));
+$screenXL       	: (min: map.get($size, 1280), max: map.get($size, 1600) - 1);
+$screenL        	: (min: map.get($size, 1024), max: map.get($size, 1280) - 1);
+$screenM        	: (min: map.get($size, 768), max: map.get($size, 1024) - 1);
+$screenS         	: (min: map.get($size, 600), max: map.get($size, 768) - 1);
+$screenXS         	: (min: map.get($size, 480), max: map.get($size, 600) - 1);
+$screenXXS         	: (min: map.get($size, 320), max: map.get($size, 480) - 1);
+$screenXXXS         : (min: map.get($size, 0), max: map.get($size, 320) - 1);
 
 @font-face { font-family: Intro; src: url("fonts/IntroDemo-BlackCAPS.otf");  font-style: normal; font-weight: 400; }
 @font-face { font-family: MoshitaMono; src: url("fonts/MoshitaMono.ttf"); font-style: normal; font-weight: 400; }

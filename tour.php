@@ -4,11 +4,11 @@
     require 'templates/footer.tpl';
     require 'templates/main.tpl';
 
-    function Title() {
+    function Title(): string {
         return 'Путешествия';
     }
 
-    function Head() {
+    function Head(): void {
         ?><div class = "block hat other">
         <div class = "tour"></div>
         <?php Top(); ?>
@@ -19,9 +19,9 @@
         </div><?php
     }
 
-    function Main() {
+    function Main(): void {
         ?>
-        <div class = "block travels">
+        <div class = "block page_travels p">
             <div>Индивидуальное сопровождение</div>
             <div class = "cards_tour">
                 <div>
@@ -152,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class = "block travels">
+        <div class = "block page_travels p">
             <div>Путешествия</div>
             <div class = "cards_tour">
                 <div>
@@ -171,7 +171,7 @@
                 </div>
             </div>
         </div>
-        <div class = "block travels">
+        <div class = "block page_travels p">
             <div>Короткие путешествия</div>
             <div class = "cards_tour">
                 <div>

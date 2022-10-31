@@ -4,11 +4,11 @@ require 'templates/top.tpl';
 require 'templates/footer.tpl';
 require 'templates/main.tpl';
 
-function Title() {
+function Title(): string {
     return 'Наши приключения';
 }
 
-function Head() {
+function Head(): void {
     ?><div class = "block hat other">
     <div class = ""></div>
     <?php Top(); ?>
@@ -20,48 +20,58 @@ function Head() {
 }
 
 
-function Main() {
-    ?><div class = "block page_adventure">
+function Main(): void {
+    ?><div class = "block page_adventure p">
         <div class = "cards_adventure">
             <div>
-                <div>Картинка</div>
-                <div>Название тура</div>
-                <div>Описание</div>
-                <div>
-                    <input type = "button" value = "Подробнее">
-                </div>
+				<div></div>
+				<div>
+					<div>Происшествие на грибах</div>
+					<div>Спускались мы с Каменных грибов и натолкнулись на одну девушку, которая "застряла" на полпути.</div>
+					<div>
+						<input type = "button" value = "Читать">
+					</div>
+				</div>
             </div>
             <div>
-                <div>Картинка</div>
-                <div>Название тура</div>
-                <div>Описание</div>
-                <div>
-                    <input type = "button" value = "Подробнее">
-                </div>
+				<div></div>
+				<div>
+					<div>Байкальские байки</div>
+					<div>Однажды во время поездки на Байкал произошла такая вот история. Пошли прогуляться мы до такого-то места, а по пути нам встретилась необычная компания. Мы разговорились.</div>
+					<div>
+						<input type = "button" value = "Читать">
+					</div>
+				</div>
             </div>
             <div>
-                <div>Картинка</div>
-                <div>Название тура</div>
-                <div>Описание</div>
-                <div>
-                    <input type = "button" value = "Подробнее">
-                </div>
+				<div></div>
+				<div>
+					<div>Зеленые тапочки</div>
+					<div>Из путешествий часто привозят различные сувениры. Обычно их покупают в лавках. Этот сувенир необычным образом оказался у нас.</div>
+					<div>
+						<input type = "button" value = "Читать">
+					</div>
+				</div>
             </div>
             <div>
-                <div>Картинка</div>
-                <div>Название тура</div>
-                <div>Описание</div>
-                <div>
-                    <input type = "button" value = "Подробнее">
-                </div>
+				<div></div>
+				<div>
+					<div>Чую на чуе ночую</div>
+					<div>В пути случаеются разные ситуации, которые немного сдвигают планы. Так произошло и в той-то поездке. Нам пришлось искать ночлег, не доехав до забронированных домиков на базе.</div>
+					<div>
+						<input type = "button" value = "Читать">
+					</div>
+				</div>
             </div>
             <div>
-                <div>Картинка</div>
-                <div>Название тура</div>
-                <div>Описание</div>
-                <div>
-                    <input type = "button" value = "Подробнее">
-                </div>
+				<div></div>
+				<div>
+					<div>Рыбья удача</div>
+					<div>Описание</div>
+					<div>
+						<input type = "button" value = "Читать">
+					</div>
+				</div>
             </div>
         </div>
     </div><?php

@@ -6,7 +6,7 @@
 
 
 
-    function Title() {
+    function Title(): string {
         return 'Главная';
     }
 
@@ -26,7 +26,7 @@
         </div><?php
     }
 
-    function Main() {
+    function Main(): void {
     	?><div class = "block check_tour">
 			<div>
 				<form>
@@ -67,7 +67,7 @@
 			</div>
 
 		</div>
-		<div class = "block about_us">
+		<div class = "block about_us p">
 			<div>О НАС</div>
 			<div>Наша команда организует путешествия
                 <br>по различным маршутам и направлениям</div>
@@ -78,7 +78,7 @@
 				Мы считаем, что в путешествиях человек познает себя и заряжается для свершений в жизни
 			</div>
 		</div>
-		<div class = "block tour">
+		<div class = "block tour p">
 			<div>
 				<div></div>
 				<div>Индивидуальное сопровождение</div>
@@ -113,7 +113,7 @@
                 <input type = "button" value = "Читать" class = "transparent">
             </div>
         </div>
-		<div class = "block photo">
+		<div class = "block photo p">
 			<div class = "main">
 				<div class = "header photo">Фотографии с путешествий</div>
 				<div class = "main_photo">

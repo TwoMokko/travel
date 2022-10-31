@@ -1,6 +1,6 @@
 <?php
 
-    function Footer() {
+    function Footer(): void {
         ?><div class = "block footer">
             <div>
                 <div class = "footer_logo"><a href = "/"></a></div>

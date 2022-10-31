@@ -4,11 +4,11 @@ require 'templates/top.tpl';
 require 'templates/footer.tpl';
 require 'templates/main.tpl';
 
-function Title() {
+function Title(): string {
     return 'Фотографии';
 }
 
-function Head() {
+function Head(): void {
     ?><div class = "block hat other">
     <div class = ""></div>
     <?php Top(); ?>
@@ -20,8 +20,8 @@ function Head() {
 }
 
 
-function Main() {
-    ?><div class = "block page_photo">
+function Main(): void {
+    ?><div class = "block page_photo p">
         <div></div>
         <div></div>
         <div></div>

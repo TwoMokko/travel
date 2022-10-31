@@ -4,11 +4,11 @@
 	require 'templates/footer.tpl';
 	require 'templates/main.tpl';
 
-    function Title() {
+    function Title(): string {
         return 'О нас';
     }
 
-    function Head() {
+    function Head(): void {
         ?><div class = "block hat other">
 			<div class = "about"></div>
 			<?php Top(); ?>
@@ -20,8 +20,8 @@
     }
 
 
-    function Main() {
-        ?><div class = "block page_about_us">
+    function Main(): void {
+        ?><div class = "block page_about_us p">
             <div>Описание</div>
         </div><?php
     }

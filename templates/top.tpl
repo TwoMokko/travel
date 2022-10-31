@@ -1,6 +1,6 @@
 <?php
 
-    function Top() {
+    function Top(): void {
         ?><div class = "block top">
             <div>
                 <a href = "/"></a>
@@ -9,7 +9,7 @@
         </div><?php
     }
 
-    function Menu() {
+    function Menu(): void {
         ?><div class = "block menu">
             <a href = "/">Главная</a>
             <a href = "/tour">Путешествия</a>

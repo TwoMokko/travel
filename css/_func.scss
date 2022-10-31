@@ -1,10 +1,13 @@
 @use "variable" as *;
-
 @use "sass:map";
 
-@mixin button($bg_color, $border_color) { padding: 0.4rem 0.7rem; border-radius: 5px; color: white; background-color: $bg_color; border: 3px solid $border_color; cursor: pointer; }
+@mixin button($bg_color, $border_color) {
+	padding: 0.4rem 0.7rem; border-radius: 5px; color: white; background-color: $bg_color; border: 3px solid $border_color; cursor: pointer;
+	@include mix-limit(map.get($size, 0), map.get($size, 1024) - 1) { font-size: 0.8rem; border: 2px solid $border_color; };
+}
 
-@mixin  button_solid {
+
+@mixin button_solid {
 	@include button($color_main_green, $color_main_green); transition: all 500ms ease;
 	&:hover {
 		background: rgba(0, 0, 0, 0); color: $color_main_green;
@@ -13,8 +16,12 @@
 
 @mixin button_transparent { @include button(transparent, white); }
 
+@mixin mix-limit($min, $max) {
+	@include mix-screens((min: $min, max: $max)) { @content; }
+}
+
 @mixin mix-screens($size) {
 	@media only screen and (min-width: map-get($size, 'min')) and (max-width: map-get($size, 'max')) {
-		@content
+		@content;
 	}
 }
