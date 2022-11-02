@@ -22,6 +22,14 @@
 
     function Main(): void {
         ?><div class = "block page_about_us p">
-            <div>Описание</div>
+            <div class = "about_header">
+                <div>Маленькая зел надпись</div>
+                <div>
+                    <div>Мы семья
+                        <br>тыры пыры</div>
+                    <div>Какой-то тект про нас
+                        <br>справа другим шрифтом</div>
+                </div>
+            </div>
         </div><?php
     }

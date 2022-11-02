@@ -135,13 +135,22 @@ button, input[type="button"], input[type="submit"] {
 	@if map.has-key($params, _font-size) { $_font-size: map.get($params, _font-size); }
 
 	.block.tour { display: flex; flex-direction: $_flex-col; padding-bottom: 5%;
-		> div { width: 30%; display: flex; flex-direction: column; flex: auto; border: 3px solid rgba(0,0,0,0); padding: 20px; transition: all 200ms ease;
+		> div {
+			overflow: hidden; border-radius: 5px; width: 30%; display: flex; flex-direction: column; flex: auto; background-color: white; transition: all 200ms ease;
+			&:hover { box-shadow: 0 0 7px #2d2c2c21; }
 			//&:hover { border: 3px solid $color_main_green; border-radius: 5px; }
 			&:not(:last-child) { margin-right: 5%; }
 			> div {
-				&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; border-radius: 5px; }
-				&:nth-of-type(2) { font-size: $_font-size-h; padding-top: 0.8rem; }
-				&:nth-of-type(3) { padding: 1rem 0; flex: auto; font-size: $_font-size; }
+				&:first-child { background-color: darkgray;  padding-top: 80%; }
+				&:last-child {
+					flex: auto; display: flex; flex-direction: column; padding: 0 20px 20px;
+					> div {
+
+						&:nth-of-type(1) { font-size: $_font-size-h; padding-top: 0.8rem; flex: none; }
+						&:nth-of-type(2) { padding: 1rem 0; flex: auto; font-size: $_font-size; }
+						&:nth-of-type(3) { flex: none; }
+					}
+				}
 			}
 		}
 		//input { font-size: $_font-size; }
@@ -301,18 +310,21 @@ button, input[type="button"], input[type="submit"] {
 //}
 
 .block.page_travels {
-	> div:first-child { text-align: center; font-family: Intro, sans-serif; padding-bottom: 20px; }
+	> div:first-child { text-align: center; font-family: Intro, sans-serif; padding: 50px 0 30px; }
 	.cards_tour {
 		display: grid; grid-template-columns: repeat(3, 1fr); grid-column-gap: 2%; width: 100%; max-width: 1200px; margin: 0 auto;
 		> div {
-			overflow: hidden; margin-bottom: 50px; background-color: white; border-radius: 5px; transition: all 200ms ease;
+			overflow: hidden; margin-bottom: 50px; background-color: white; border-radius: 5px; transition: all 200ms ease; cursor: pointer;
 			&:hover { box-shadow: 0 0 7px #2d2c2c21; }
 			> div {
 				&:first-child { background-color: darkgray; height: 200px; }
 				&:last-child {
 					padding: 20px;
 					> div {
-						&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 0.8rem; padding-bottom: 0.3rem; }
+						&:nth-of-type(1) {
+							font-family: Intro, sans-serif; font-size: 0.8rem; padding-bottom: 0.3rem;
+							&:hover { color: $color_main_green; }
+						}
 						&:nth-of-type(2) { color: darkgray; font-size: 0.8rem; }
 						&:nth-of-type(3) { padding: 0.8rem 0; }
 						&:nth-of-type(4) {
@@ -347,6 +359,21 @@ button, input[type="button"], input[type="submit"] {
 						&:nth-of-type(3) { flex: none; text-align: right; }
 					}
 				}
+			}
+		}
+	}
+}
+
+.block.page_about_us {
+	.about_header {
+		> div {
+			&:first-child { color: $color_main_green; text-align: left; }
+			&:last-child {
+				display: flex;
+				> div {
+					&:first-child { flex: auto; font-family: Intro, sans-serif; font-size: 0.8rem; text-align: left; }
+					&:last-child { flex: none; }
+			}
 			}
 		}
 	}
