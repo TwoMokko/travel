@@ -115,13 +115,20 @@
         </div>
 		<div class = "block photo p">
 			<div class = "main">
-				<div class = "header photo">Фотографии с путешествий</div>
+				<div class = "header photo">
+					<div>Фотографии</div>
+					<div>с наших путешествий</div>
+				</div>
 				<div class = "main_photo">
 					<div>Ак-туру</div>
 					<div></div>
 				</div>
 			</div>
 			<div class = "mini_photo">
+				<div>
+					<div><</div>
+					<div>></div>
+				</div>
 				<div>
                     <div>
                         <div>
@@ -143,10 +150,6 @@
                             <div></div>
                         </div>
                     </div>
-                </div>
-				<div>
-                    <div><</div>
-                    <div>></div>
                 </div>
 			</div>
 		</div><?php
