@@ -1,0 +1,810 @@
+@font-face {
+  font-family: Intro;
+  src: url("fonts/IntroDemo-BlackCAPS.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: MoshitaMono;
+  src: url("fonts/MoshitaMono.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: InterTight;
+  src: url("fonts/InterTight-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+html, input {
+  font-family: MoshitaMono, sans-serif;
+  font-size: x-large;
+}
+
+body {
+  background-color: #ece9e0;
+  margin: 0;
+  color: #2d2c2c;
+}
+
+button, input[type=button], input[type=submit] {
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #365f41;
+  border: 2px solid #365f41;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+@media only screen and (min-width: 0px) and (max-width: 1023px) {
+  button, input[type=button], input[type=submit] {
+    font-size: 0.8rem;
+    border: 2px solid #365f41;
+  }
+}
+button:hover, input[type=button]:hover, input[type=submit]:hover {
+  background: rgba(0, 0, 0, 0);
+  color: #365f41;
+}
+button.transparent, input[type=button].transparent, input[type=submit].transparent {
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+}
+@media only screen and (min-width: 0px) and (max-width: 1023px) {
+  button.transparent, input[type=button].transparent, input[type=submit].transparent {
+    font-size: 0.8rem;
+    border: 2px solid white;
+  }
+}
+
+.block.top {
+  position: relative;
+  display: flex;
+}
+.block.top > div:first-child {
+  flex: auto;
+  padding-top: 2%;
+  padding-left: 8%;
+}
+.block.top > div:first-child > a {
+  display: inline-block;
+  background-image: url("pic/logo_travel.png");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 80px;
+}
+.block.top > div:last-child {
+  flex: none;
+  display: flex;
+  padding-top: 2%;
+  padding-right: 6%;
+}
+.block.menu > a {
+  color: white;
+  padding: 0.5rem;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+.block.menu > a:hover {
+  text-decoration: underline;
+}
+
+.block.hat.main {
+  position: relative;
+}
+.block.hat.main > div:first-child {
+  background-position: bottom;
+  background-image: url("pic/hat.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.block.hat.main > div:last-child {
+  padding: 30px 350px 150px;
+  position: relative;
+}
+.block.hat.main > div:last-child > div {
+  color: white;
+}
+.block.hat.main > div:last-child > div:nth-of-type(2) {
+  font-family: Intro, sans-serif;
+  font-size: 2rem;
+  padding: 0.3rem 0 0.6rem 0;
+}
+.block.hat.main > div:last-child > div:nth-of-type(3) {
+  font-family: Intro, sans-serif;
+}
+.block.hat.main > div:last-child > div:nth-of-type(4) {
+  padding-top: 1rem;
+}
+
+.block.hat.other {
+  position: relative;
+}
+.block.hat.other > div:first-child.about {
+  background-position: center;
+  background-image: url("pic/about.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.block.hat.other > div:last-child {
+  padding: 100px 350px 200px;
+  position: relative;
+  text-align: center;
+}
+.block.hat.other > div:last-child > div {
+  color: white;
+}
+.block.hat.other > div:last-child > div:nth-of-type(1) {
+  font-family: Intro, sans-serif;
+  font-size: 2rem;
+}
+.block.check_tour {
+  position: relative;
+  height: 0;
+}
+.block.check_tour > div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  text-align: center;
+}
+.block.check_tour > div > form {
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  background-color: white;
+  display: inline-flex;
+  justify-content: center;
+}
+.block.check_tour > div > form > div {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0 0.9rem;
+}
+.block.check_tour > div > form > div:nth-of-type(1) > div {
+  padding-bottom: 0.5rem;
+}
+.block.check_tour > div > form > div:nth-of-type(2) > div {
+  padding-bottom: 0.5rem;
+}
+.block.check_tour > div > form > div:nth-of-type(3) > div {
+  padding-bottom: 0.5rem;
+}
+.block.check_tour div > form > div {
+  text-align: left;
+}
+.block.check_tour div > form > div > select {
+  font-family: MoshitaMono, sans-serif;
+  font-size: x-large;
+  outline: none;
+  padding-bottom: 6px;
+  border: none;
+  border-bottom: 2px solid darkgray;
+  padding-right: 30px;
+  appearance: none;
+  background-image: url("pic/arrow.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 15px;
+}
+.block.check_tour div > form > div > div {
+  color: #365f41;
+  font-weight: bold;
+}
+
+.block.p {
+  margin: 0 auto;
+  padding: 0 10%;
+  max-width: 1200px;
+}
+
+.block.about_us {
+  padding: 10% 10% 5%;
+}
+.block.about_us > div {
+  text-align: center;
+}
+.block.about_us > div:nth-of-type(1) {
+  color: #365f41;
+}
+.block.about_us > div:nth-of-type(2) {
+  font-family: Intro, sans-serif;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  line-height: 1.5;
+}
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: initial;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1.2rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: x-large;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1280px) and (max-width: 1599px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: initial;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1.2rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: x-large;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: initial;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1.2rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: x-large;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: initial;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: 0.8rem;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: 0.8rem;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: 0.8rem;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: 0.8rem;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 319px) {
+  /* Default */
+  /* Get from $params */
+  .block.tour > div:first-child {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+  }
+  .block.tour > div:first-child > div {
+    border-radius: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    transition: all 200ms ease;
+  }
+  .block.tour > div:first-child > div:not(:last-child) {
+    margin-right: 5%;
+  }
+  .block.tour > div:first-child > div > div:first-child {
+    background-color: darkgray;
+    padding-top: 80%;
+  }
+  .block.tour > div:first-child > div > div:last-child {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
+    font-size: 1rem;
+    padding-top: 0.8rem;
+    flex: none;
+    color: #365f41;
+    font-weight: bold;
+  }
+  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
+    padding: 1rem 0;
+    flex: auto;
+    font-size: 0.8rem;
+  }
+  .block.tour > div:last-child {
+    text-align: center;
+  }
+}
+.block.adventure {
+  padding: 80px;
+  background-position: center;
+  background-image: url("pic/adventure.jpg");
+  background-size: cover;
+}
+.block.adventure > div {
+  text-align: center;
+}
+.block.adventure > div > div {
+  color: white;
+}
+.block.adventure > div > div:nth-of-type(1) {
+  font-family: Intro, sans-serif;
+  font-size: 1.5rem;
+}
+.block.adventure > div > div:nth-of-type(2) {
+  padding: 0.7rem 0 1.4rem 0;
+}
+
+.block.photo > div:nth-of-type(1) {
+  text-align: center;
+  font-family: Intro, sans-serif;
+  font-size: 1.2rem;
+  padding: 80px 0 20px;
+}
+.block.photo > div:nth-of-type(2) {
+  text-align: right;
+  color: #365f41;
+}
+.block.photo > div:nth-of-type(3) {
+  padding: 10px 0 100px;
+}
+.block.photo > div:nth-of-type(3) .mini_photo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.5%;
+}
+.block.photo > div:nth-of-type(3) .mini_photo > div {
+  background-color: darkgray;
+  padding-bottom: 70%;
+}
+.block.footer {
+  background-color: #365f41;
+  color: white;
+}
+.block.footer > div {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.block.footer > div > div.footer_logo > a {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-image: url("pic/logo_travel.png");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.block.footer > div > div.footer_contact {
+  padding: 2%;
+}
+.block.footer > div > div.footer_contact > div {
+  display: flex;
+  justify-content: center;
+}
+.block.footer > div > div.footer_contact > div:first-child {
+  margin-bottom: 0.3rem;
+}
+.block.footer > div > div.footer_contact > div:first-child > div {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+.block.footer > div > div.footer_contact > div:first-child > div:nth-of-type(1) {
+  background-image: url("pic/telegram.png");
+}
+.block.footer > div > div.footer_contact > div:first-child > div:nth-of-type(2) {
+  background-image: url("pic/youtube.png");
+}
+.block.footer > div > div.footer_contact > div:first-child > div:nth-of-type(3) {
+  background-image: url("pic/vk.png");
+}
+.block.footer > div > div.footer_contact > div:first-child > div:nth-of-type(4) {
+  background-image: url("pic/instagram.png");
+}
+.block.footer > div > div.footer_contact > div:first-child > div:not(:last-child) {
+  margin-right: 4px;
+}
+.block.footer > div > div {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+}
+.block.footer > div > div:nth-of-type(3) > a {
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+.block.footer > div > div:nth-of-type(3) > a:hover {
+  text-decoration: underline;
+}
+.block.footer > div > div:nth-of-type(3) > a:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.block.page_about_us {
+  text-align: center;
+}
+
+.block.page_tour > div:first-child {
+  text-align: center;
+  font-family: Intro, sans-serif;
+  padding: 50px 0 30px;
+}
+.block.page_tour .cards_tour {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2%;
+  width: 100%;
+}
+.block.page_tour .cards_tour > div {
+  overflow: hidden;
+  margin-bottom: 50px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+.block.page_tour .cards_tour > div:hover {
+  box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
+}
+.block.page_tour .cards_tour > div > div:first-child {
+  background-color: darkgray;
+  height: 200px;
+}
+.block.page_tour .cards_tour > div > div:last-child {
+  padding: 20px;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(1) {
+  font-family: Intro, sans-serif;
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(1):hover {
+  color: #365f41;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(2) {
+  color: darkgray;
+  font-size: 0.8rem;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(3) {
+  padding: 0.8rem 0;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(4) {
+  display: flex;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(4) > div:first-child {
+  flex: auto;
+  position: relative;
+}
+.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(4) > div:first-child > div {
+  position: absolute;
+  bottom: 0;
+}
+.block.page_adventure .cards_adventure > div {
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 40px;
+  transition: all 200ms ease;
+  background-color: white;
+  border-radius: 5px;
+}
+.block.page_adventure .cards_adventure > div:hover {
+  box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
+}
+.block.page_adventure .cards_adventure > div > div:first-child {
+  background-color: darkgray;
+  padding-top: 20%;
+  width: 30%;
+  flex: none;
+}
+.block.page_adventure .cards_adventure > div > div:last-child {
+  flex: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.block.page_adventure .cards_adventure > div > div:last-child > div:nth-of-type(1) {
+  flex: none;
+  font-family: Intro, sans-serif;
+  font-size: 0.8rem;
+}
+.block.page_adventure .cards_adventure > div > div:last-child > div:nth-of-type(2) {
+  flex: auto;
+  padding: 20px 0;
+}
+.block.page_adventure .cards_adventure > div > div:last-child > div:nth-of-type(3) {
+  flex: none;
+  text-align: right;
+}
+
+.block.page_about_us .about_header > div:first-child {
+  color: #365f41;
+  text-align: left;
+}
+.block.page_about_us .about_header > div:last-child {
+  display: flex;
+}
+.block.page_about_us .about_header > div:last-child > div:first-child {
+  flex: auto;
+  font-family: Intro, sans-serif;
+  font-size: 0.8rem;
+  text-align: left;
+}
+.block.page_about_us .about_header > div:last-child > div:last-child {
+  flex: none;
+}
+
+/*# sourceMappingURL=main.css.map */

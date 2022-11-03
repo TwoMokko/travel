@@ -68,7 +68,7 @@
 
 		</div>
 		<div class = "block about_us p">
-			<div>О НАС</div>
+			<div></div>
 			<div>Наша команда организует путешествия
                 <br>по различным маршутам и направлениям</div>
 			<div>
@@ -80,34 +80,30 @@
 		</div>
 		<div class = "block tour p">
 			<div>
-				<div></div>
 				<div>
-                    <div>Индивидуальное сопровождение</div>
-                    <div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
-                    <div>
-                        <input type = "button" value = "Выбрать путешествие">
-                    </div>
-                </div>
+					<div></div>
+					<div>
+						<div>Индивидуальное сопровождение</div>
+						<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+					</div>
+				</div>
+				<div>
+					<div></div>
+					<div>
+						<div>Путешествия</div>
+						<div>Краткое описание</div>
+					</div>
+				</div>
+				<div>
+					<div></div>
+					<div>
+						<div>Короткие путешествия</div>
+						<div>Поездки и прогулки на выходных. Например, в Томской области. Или трех-дневная поездка на Алтай.</div>
+					</div>
+				</div>
 			</div>
 			<div>
-				<div></div>
-				<div>
-                    <div>Путешествия</div>
-                    <div>Краткое описание</div>
-                    <div>
-                        <input type = "button" value = "Выбрать путешествие">
-                    </div>
-                </div>
-			</div>
-			<div>
-				<div></div>
-				<div>
-                    <div>Короткие путешествия</div>
-                    <div>Поездки и прогулки на выходных. Например, в Томской области. Или трех-дневная поездка на Алтай.</div>
-                    <div>
-                        <input type = "button" value = "Выбрать путешествие">
-                    </div>
-                </div>
+				<input type = "button" value = "Выбрать путешествие">
 			</div>
 		</div>
 		<div class = "block adventure">
@@ -119,44 +115,55 @@
             </div>
         </div>
 		<div class = "block photo p">
-			<div class = "main">
-				<div class = "header photo">
-					<div>Фотографии</div>
-					<div>с наших путешествий</div>
-				</div>
-				<div class = "main_photo">
-					<div>Ак-туру</div>
+			<div>Фотографии с наших путешествий</div>
+			<div>Посмотреть еще</div>
+			<div>
+				<div></div>
+				<div class = "mini_photo">
+					<div></div>
+					<div></div>
+					<div></div>
 					<div></div>
 				</div>
 			</div>
-			<div class = "mini_photo">
-				<div>
-					<div><</div>
-					<div>></div>
-				</div>
-				<div>
-                    <div>
-                        <div>
-                            <div>Байкал, остров Ольхон</div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div>Дагестан</div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>Каракольские озера</div>
-                            <div></div>
-                        </div>
-                        <div>
-                            <div>Карелия, Санкт-Петербург</div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-			</div>
+<!--			<div class = "main">-->
+<!--				<div class = "header photo">-->
+<!--					<div>Фотографии</div>-->
+<!--					<div>с наших путешествий</div>-->
+<!--				</div>-->
+<!--				<div class = "main_photo">-->
+<!--					<div>Ак-туру</div>-->
+<!--					<div></div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class = "mini_photo">-->
+<!--				<div>-->
+<!--					<div><</div>-->
+<!--					<div>></div>-->
+<!--				</div>-->
+<!--				<div>-->
+<!--                    <div>-->
+<!--                        <div>-->
+<!--                            <div>Байкал, остров Ольхон</div>-->
+<!--                            <div></div>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <div>Дагестан</div>-->
+<!--                            <div></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <div>-->
+<!--                            <div>Каракольские озера</div>-->
+<!--                            <div></div>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <div>Карелия, Санкт-Петербург</div>-->
+<!--                            <div></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--			</div>-->
 		</div><?php
 	}
 

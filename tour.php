@@ -21,7 +21,7 @@
 
     function Main(): void {
         ?>
-        <div class = "block page_travels p">
+        <div class = "block page_tour p">
             <div>Индивидуальное сопровождение</div>
             <div class = "cards_tour">
                 <div>
@@ -171,7 +171,7 @@
                 </div>
             </div>
         </div>
-        <div class = "block page_travels p">
+        <div class = "block page_tour p">
             <div>Путешествия</div>
             <div class = "cards_tour">
                 <div>
@@ -192,7 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class = "block page_travels p">
+        <div class = "block page_tour p">
             <div>Короткие путешествия</div>
             <div class = "cards_tour">
                 <div>
@@ -203,9 +203,10 @@
 						<div>Описание</div>
 						<div>
 							<div>
-								<div>Цена</div>
+								<div></div>
 							</div>
 							<div>
+								<input type = "button" value = "Оставить заявку">
 								<input type = "button" value = "Оставить заявку">
 							</div>
 						</div>
