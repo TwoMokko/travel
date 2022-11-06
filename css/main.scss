@@ -2,12 +2,16 @@
 @use "_func" as *;
 @use "sass:map";
 
+html { height: 100%; }
 html, input { font-family: MoshitaMono, sans-serif; font-size: x-large; }
-body { background-color: $color_main; margin: 0; color: $color_text_main; }
+body { background-color: $color_main; margin: 0; color: $color_text_main; height: 100%; display: flex; flex-direction: column; }
+main { flex: auto; }
 button, input[type="button"], input[type="submit"] {
 	@include button_solid;
 	//&.solid { @include button_solid; }
-	&.transparent { @include button_transparent; }
+	&.transparent
+	{ @include button_transparent; }
+	&.border { @include button_border; }
 }
 //@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
 //@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((_font-size)); };
@@ -45,7 +49,15 @@ button, input[type="button"], input[type="submit"] {
 				&:nth-of-type(1) {}
 				&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 2rem; padding: 0.3rem 0 0.6rem 0; }
 				&:nth-of-type(3) { font-family: Intro, sans-serif; }
-				&:nth-of-type(4) { padding-top: 1rem; }
+				&:nth-of-type(4) {
+					> span {
+						margin-top: 1rem; display: inline-flex; align-items: center; cursor: pointer;
+						> span {
+							&:first-child { background-image: url(pic/play.png); width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; margin-right: 0.3rem; }
+							&:last-child {}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -55,7 +67,11 @@ button, input[type="button"], input[type="submit"] {
 	position: relative;
 	> div {
 		&:first-child {
-			&.about { background-position: center; background-image: url("pic/about.jpg"); background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+			  background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
+			&.tour_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
+			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
+			&.photo_hat { background-image: url("pic/photo_hat.jpg"); background-position: center; }
 		}
 		&:last-child {
 			padding: 100px 350px 200px; position: relative; text-align: center;
@@ -137,26 +153,26 @@ button, input[type="button"], input[type="submit"] {
 	.block.tour {
 		> div {
 			&:first-child {
-				display: flex; flex-direction: $_flex-col; padding-bottom: 5%;
+				display: flex; flex-direction: $_flex-col;
 				> div {
 					border-radius: 5px; width: 30%; display: flex; flex-direction: column; flex: auto; transition: all 200ms ease;
 					//&:hover { box-shadow: 0 0 7px #2d2c2c21; }
 					//&:hover { border: 3px solid $color_main_green; border-radius: 5px; }
 					&:not(:last-child) { margin-right: 5%; }
 					> div {
-						&:first-child { background-color: darkgray;  padding-top: 80%; }
+						&:first-child { background-color: darkgray;  padding-top: 80%; cursor: pointer; }
 						&:last-child {
 							flex: auto; display: flex; flex-direction: column;
 							> div {
 
-								&:nth-of-type(1) { font-size: $_font-size-h; padding-top: 0.8rem; flex: none; color: #365f41; font-weight: bold; }
+								&:nth-of-type(1) { font-size: $_font-size-h; padding-top: 0.8rem; flex: none; color: $color_main_green; font-weight: bold; cursor: pointer; }
 								&:nth-of-type(2) { padding: 1rem 0; flex: auto; font-size: $_font-size; }
 							}
 						}
 					}
 				}
 			}
-			&:last-child { text-align: center; }
+			&:last-child { margin: 1% 0 10%; text-align: center; }
 		}
 		//input { font-size: $_font-size; }
 	}
@@ -249,7 +265,10 @@ button, input[type="button"], input[type="submit"] {
 .block.photo {
 	> div {
 		&:nth-of-type(1) { text-align: center; font-family: Intro, sans-serif; font-size: 1.2rem; padding: 80px 0 20px; }
-		&:nth-of-type(2) { text-align: right; color: $color_main_green; }
+		&:nth-of-type(2) {
+			text-align: right; color: darkgray; cursor: pointer;
+			&:hover { color: $color_main_green; }
+		}
 		&:nth-of-type(3) {
 			padding: 10px 0 100px;
 			.mini_photo {
@@ -271,37 +290,38 @@ button, input[type="button"], input[type="submit"] {
 
 .block.footer {
 	background-color: $color_main_green; color: white;
-	> div {
-		display: flex; justify-content: space-evenly; text-align: center;  width: 100%; max-width: 1200px; margin: 0 auto;
-		> div.footer_logo > a { display: inline-block; width: 60px; height: 60px; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; }
-		> div.footer_contact {
-			padding: 2%;
-			> div {
-				display: flex; justify-content: center;
-				&:first-child {
-					margin-bottom: 0.3rem;
-					> div {
-						width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat;
-						&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
-						&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
-						&:nth-of-type(3) { background-image: url("pic/vk.png"); }
-						&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
-						&:not(:last-child) { margin-right: 4px; }
-					}
-				}
-			}
-		}
-		> div {
-			margin-top: auto; margin-bottom: auto; display: flex; flex-direction: column; padding: 30px 0;
-			&:nth-of-type(3) {
-				> a {
-				text-align: left; color: white; text-decoration: none; transition: all 500ms ease;
-				&:hover { text-decoration: underline; }
-				&:not(:last-child) { margin-bottom: 5px; }
-				}
-			}
-		}
-	}
+	a { color: white; text-decoration: none; }
+	//> div {
+	//	display: flex; justify-content: space-evenly; text-align: center;  width: 100%; max-width: 1200px; margin: 0 auto;
+	//	> div.footer_logo > a { display: inline-block; width: 60px; height: 60px; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; }
+	//	> div.footer_contact {
+	//		padding: 2%;
+	//		> div {
+	//			display: flex; justify-content: center;
+	//			&:first-child {
+	//				margin-bottom: 0.3rem;
+	//				> div {
+	//					width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat;
+	//					&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
+	//					&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
+	//					&:nth-of-type(3) { background-image: url("pic/vk.png"); }
+	//					&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
+	//					&:not(:last-child) { margin-right: 4px; }
+	//				}
+	//			}
+	//		}
+	//	}
+	//	> div {
+	//		margin-top: auto; margin-bottom: auto; display: flex; flex-direction: column; padding: 30px 0;
+	//		&:nth-of-type(3) {
+	//			> a {
+	//			text-align: left; color: white; text-decoration: none; transition: all 500ms ease;
+	//			&:hover { text-decoration: underline; }
+	//			&:not(:last-child) { margin-bottom: 5px; }
+	//			}
+	//		}
+	//	}
+	//}
 }
 
 .block.page_about_us { text-align: center; }
@@ -346,19 +366,18 @@ button, input[type="button"], input[type="submit"] {
 				&:last-child {
 					padding: 20px;
 					> div {
-						&:nth-of-type(1) {
-							font-family: Intro, sans-serif; font-size: 0.8rem; padding-bottom: 0.3rem;
+						&:nth-of-type(1) { color: darkgray; font-size: 0.8rem; }
+						&:nth-of-type(2) {
+							font-family: Intro, sans-serif; font-size: 0.8rem; padding: 0.3rem 0 0.5rem;
 							&:hover { color: $color_main_green; }
 						}
-						&:nth-of-type(2) { color: darkgray; font-size: 0.8rem; }
-						&:nth-of-type(3) { padding: 0.8rem 0; }
-						&:nth-of-type(4) {
+						&:nth-of-type(3) { }
+						&:nth-of-type(4) { padding: 0.8rem 0; }
+						&:nth-of-type(5) {
 							display: flex;
-							> div {
-								&:first-child { flex: auto; position: relative;
-									> div { position: absolute; bottom: 0; }
-								}
-								&:last-child {}
+							> input {
+								&:first-child { margin-right: 10px; }
+								&:last-child {  }
 							}
 						}
 					}
@@ -371,17 +390,28 @@ button, input[type="button"], input[type="submit"] {
 
 .block.page_adventure {
 	.cards_adventure {
+		padding-top: 4%;
 		> div {
-			overflow: hidden; display: flex; margin-bottom: 40px; transition: all 200ms ease; background-color: white; border-radius: 5px;
+			overflow: hidden; display: flex; margin-bottom: 40px; transition: all 200ms ease; background-color: white; border-radius: 5px; cursor: pointer;
 			&:hover { box-shadow: 0 0 7px #2d2c2c21; }
 			> div {
 				&:first-child { background-color: darkgray; padding-top: 20%; width: 30%; flex: none; }
 				&:last-child {
-					flex: auto; padding: 20px; display: flex; flex-direction: column;
+					flex: auto; padding: 3%; display: flex; flex-direction: column;
 					> div {
-						&:nth-of-type(1) { flex: none; font-family: Intro, sans-serif; font-size: 0.8rem; }
+						&:nth-of-type(1) {
+							flex: none; font-family: Intro, sans-serif; font-size: 0.8rem;
+							&:hover { color: $color_main_green; }
+						}
 						&:nth-of-type(2) { flex: auto; padding: 20px 0; }
-						&:nth-of-type(3) { flex: none; text-align: right; }
+						&:nth-of-type(3) {
+							text-align: right;
+							> span {
+								flex: none; color: darkgray;
+								&:hover { color: $color_main_green; }
+							}
+
+						}
 					}
 				}
 			}

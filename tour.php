@@ -10,7 +10,7 @@
 
     function Head(): void {
         ?><div class = "block hat other">
-        <div class = "tour"></div>
+        <div class = "tour_hat"></div>
         <?php Top(); ?>
         <div>
             <div>Путешествия</div>
@@ -27,145 +27,118 @@
                 <div>
                     <div></div>
                     <div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                 </div>
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+                        <div>Цена</div>
+                        <div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
+                        </div>
 					</div>
                     </div>
                 </div>
@@ -177,16 +150,13 @@
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
+                        <div>Цена</div>
 						<div>
-							<div>
-								<div>Цена</div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-							</div>
+                            <input type = "button" value = "Подробнее" class = "border">
+                            <input type = "button" value = "Поехать">
 						</div>
 					</div>
                 </div>
@@ -198,18 +168,18 @@
                 <div>
                     <div></div>
 					<div>
+                        <div>Дата</div>
 						<div>Название</div>
-						<div>Дата</div>
 						<div>Описание</div>
-						<div>
-							<div>
-								<div></div>
-							</div>
-							<div>
-								<input type = "button" value = "Оставить заявку">
-								<input type = "button" value = "Оставить заявку">
-							</div>
-						</div>
+						<div>Цена</div>
+                        <div>
+                            <div>
+                                <input type = "button" value = "Подробнее" class = "border">
+                            </div>
+                            <div>
+                                <input type = "button" value = "Поехать">
+                            </div>
+                        </div>
 					</div>
                 </div>
             </div>

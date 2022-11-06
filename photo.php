@@ -10,7 +10,7 @@ function Title(): string {
 
 function Head(): void {
     ?><div class = "block hat other">
-    <div class = ""></div>
+    <div class = "photo_hat"></div>
     <?php Top(); ?>
     <div>
         <div>Фотографии</div>

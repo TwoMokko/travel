@@ -10,7 +10,7 @@
 
     function Head(): void {
         ?><div class = "block hat other">
-			<div class = "about"></div>
+			<div class = "about_hat"></div>
 			<?php Top(); ?>
             <div>
 				<div>О нас</div>
