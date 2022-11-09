@@ -865,20 +865,56 @@ button.border:hover, input[type=button].border:hover, input[type=submit].border:
   color: #365f41;
 }
 
-.block.page_about_us .about_header {
+.block.page_about_us > div:not(:nth-of-type(2)) {
   display: flex;
+  padding: 5% 0;
 }
-.block.page_about_us .about_header > div:first-child > div:nth-of-type(1) {
-  color: #365f41;
+.block.page_about_us > div:nth-of-type(2) {
+  padding: 100px;
+  background-position: center;
+  background-image: url("pic/adventure.jpg");
+  background-size: cover;
 }
-.block.page_about_us .about_header > div:first-child > div:nth-of-type(2) {
-  font-family: Intro, sans-serif;
-  font-size: 0.8rem;
+.block.page_about_us > div:nth-of-type(2) > div {
+  background-position: center;
+  background-image: url("pic/about_play.png");
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: 90px;
+  display: inline-block;
+  width: 100px;
+  cursor: pointer;
+  transition: background-size 200ms ease;
+}
+.block.page_about_us > div:nth-of-type(2) > div:hover {
+  background-size: 100px;
+}
+.block.page_about_us .about_pic {
+  width: 40%;
+  height: 12rem;
+  background-color: darkgray;
+}
+.block.page_about_us .about_text:not(:last-child) {
+  margin-right: 5%;
+}
+.block.page_about_us .about_text:last-child {
+  margin-left: 5%;
+}
+.block.page_about_us .about_text > div {
   text-align: left;
 }
-.block.page_about_us .about_header > div:last-child {
-  width: 30%;
-  background-color: darkgray;
+.block.page_about_us .about_text > div:nth-of-type(1) {
+  color: #365f41;
+  padding-bottom: 3%;
+}
+.block.page_about_us .about_text > div:nth-of-type(2) {
+  font-family: Intro, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  padding-bottom: 3%;
+}
+.block.page_about_us .right_text {
+  padding-left: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */

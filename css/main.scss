@@ -118,7 +118,8 @@ button, input[type="button"], input[type="submit"] {
 
 .block.about_us {
 	padding: 10% 10% 5%;
-	> div { text-align: center;
+	> div {
+		text-align: center;
 		&:nth-of-type(1) { color: $color_main_green; }
 		&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 1.2rem; padding: 0.8rem; line-height: 1.5; }
 		&:nth-of-type(3) {}
@@ -459,19 +460,29 @@ button, input[type="button"], input[type="submit"] {
 }
 
 .block.page_about_us {
-	.about_header {
-		display: flex;
-		> div {
-			&:first-child {
-				> div {
-					&:nth-of-type(1) { color: $color_main_green; }
-					&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 0.8rem; text-align: left; }
-					&:nth-of-type(3) {  }
-				}
+	> div {
+		&:not(:nth-of-type(2)) { display: flex; padding: 5% 0;}
+		&:nth-of-type(2) {
+			padding: 100px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
+			> div {
+				background-position: center; background-image: url("pic/about_play.png"); height: 100px; background-repeat: no-repeat; background-size: 90px; display: inline-block; width: 100px; cursor: pointer; transition: background-size 200ms ease;
+				&:hover { background-size: 100px; }
 			}
-			&:last-child { width: 30%; background-color: darkgray; }
 		}
 	}
+	.about_pic { width: 40%; height: 12rem; background-color: darkgray; }
+	.about_text {
+		&:not(:last-child) { margin-right: 5%; }
+		&:last-child { margin-left: 5%; }
+		> div {
+			text-align: left;
+			&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
+			&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding-bottom: 3%; }
+			&:nth-of-type(3) {  }
+		}
+	}
+	.right_text { padding-left: 50%; }
+
 }
 
 
