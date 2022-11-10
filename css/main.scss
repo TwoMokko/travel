@@ -13,6 +13,7 @@ button, input[type="button"], input[type="submit"] {
 	{ @include button_transparent; }
 	&.border { @include button_border; }
 }
+input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-bottom: 1px solid darkgrey; background-color: transparent; outline: none; }
 //@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
 //@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((_font-size)); };
 
@@ -106,7 +107,10 @@ button, input[type="button"], input[type="submit"] {
 
 	div > form > div {
 		text-align: left;
-		> select { font-family: MoshitaMono, sans-serif; font-size: x-large; outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid darkgray; padding-right: 30px; appearance: none; background-image: url('pic/arrow.png'); background-repeat: no-repeat; background-position: right; background-size: 15px; }
+		> select {
+			font-family: MoshitaMono, sans-serif; font-size: x-large; outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid darkgray; padding-right: 30px; appearance: none; background-image: url('pic/arrow.png'); background-repeat: no-repeat; background-position: right; background-size: 15px;
+			> option {}
+		}
 		> div { color: $color_main_green; font-weight: bold; }
 	}
 
@@ -117,11 +121,11 @@ button, input[type="button"], input[type="submit"] {
 }
 
 .block.about_us {
-	padding: 10% 10% 5%;
+	padding: 190px 10% 240px;
 	> div {
 		text-align: center;
 		&:nth-of-type(1) { color: $color_main_green; }
-		&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 1.2rem; padding: 0.8rem; line-height: 1.5; }
+		&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 70px; line-height: 1.5; }
 		&:nth-of-type(3) {}
 	}
 }
@@ -140,56 +144,86 @@ button, input[type="button"], input[type="submit"] {
 //	}
 //}
 
-@mixin mix-block-tour($params) {
-	/* Default */
-	$_flex-col			: initial;
-	$_font-size-h		: 1.2rem;
-	$_font-size			: x-large;
-
-	/* Get from $params */
-	@if map.has-key($params, _flex-col) { $_flex-col: map.get($params, _flex-col); }
-	@if map.has-key($params, _font-size-h) { $_font-size-h: map.get($params, _font-size-h); }
-	@if map.has-key($params, _font-size) { $_font-size: map.get($params, _font-size); }
-
-	.block.tour {
+.block.tour {
+	> div {
+		margin-bottom: 120px;
 		> div {
-			&:first-child {
-				display: flex; flex-direction: $_flex-col;
+			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 70px; }
+			&:nth-of-type(2) {
+				display: flex; padding-bottom: 50px;
 				> div {
-					border-radius: 5px; width: 30%; display: flex; flex-direction: column; flex: auto; transition: all 200ms ease;
-					//&:hover { box-shadow: 0 0 7px #2d2c2c21; }
-					//&:hover { border: 3px solid $color_main_green; border-radius: 5px; }
-					&:not(:last-child) { margin-right: 5%; }
-					> div {
-						&:first-child { background-color: darkgray;  padding-top: 80%; cursor: pointer; }
-						&:last-child {
-							flex: auto; display: flex; flex-direction: column;
-							> div {
-
-								&:nth-of-type(1) { font-size: $_font-size-h; padding-top: 0.8rem; flex: none; color: $color_main_green; font-weight: bold; cursor: pointer; }
-								&:nth-of-type(2) { padding: 1rem 0; flex: auto; font-size: $_font-size; }
-							}
+					padding-right: 50px;
+					&:hover { color: $color_main_green; cursor: pointer; }
+				}
+			}
+			&:nth-of-type(3) {
+				display: flex;
+				> div {
+					width: 50%; margin: auto;
+					&:first-child { padding-bottom: 35%; background-color: darkgray; border-radius: 40px; }
+					&:last-child {
+						> div {
+							padding-left: 4%;
+							&:nth-of-type(1) { font-family: Intro, sans-serif; padding-bottom: 30px; }
+							&:nth-of-type(2) { width: 400px; padding-bottom: 50px; }
 						}
 					}
 				}
 			}
-			&:last-child { margin: 1% 0 10%; text-align: center; }
 		}
-		//input { font-size: $_font-size; }
 	}
 }
 
-//@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
-//@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour(column); };
-//@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((flex-col: column, border: 1px solid red)); };
-@include mix-screens($screenXXL) { @include mix-block-tour(()); }
-@include mix-screens($screenXL) { @include mix-block-tour(()); }
-@include mix-screens($screenL) { @include mix-block-tour(()); }
-@include mix-screens($screenM) { @include mix-block-tour((_font-size-h: 1rem, _font-size: 0.8rem)); }
-@include mix-screens($screenS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-@include mix-screens($screenXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-@include mix-screens($screenXXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-@include mix-screens($screenXXXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
+//@mixin mix-block-tour($params) {
+//	/* Default */
+//	$_flex-col			: initial;
+//	$_font-size-h		: 1.2rem;
+//	$_font-size			: x-large;
+//
+//	/* Get from $params */
+//	@if map.has-key($params, _flex-col) { $_flex-col: map.get($params, _flex-col); }
+//	@if map.has-key($params, _font-size-h) { $_font-size-h: map.get($params, _font-size-h); }
+//	@if map.has-key($params, _font-size) { $_font-size: map.get($params, _font-size); }
+//
+//	.block.tour {
+//		> div {
+//			&:first-child {
+//				display: flex; flex-direction: $_flex-col;
+//				> div {
+//					border-radius: 5px; width: 30%; display: flex; flex-direction: column; flex: auto; transition: all 200ms ease;
+//					//&:hover { box-shadow: 0 0 7px #2d2c2c21; }
+//					//&:hover { border: 3px solid $color_main_green; border-radius: 5px; }
+//					&:not(:last-child) { margin-right: 5%; }
+//					> div {
+//						&:first-child { background-color: darkgray;  padding-top: 80%; cursor: pointer; }
+//						&:last-child {
+//							flex: auto; display: flex; flex-direction: column;
+//							> div {
+//
+//								&:nth-of-type(1) { font-size: $_font-size-h; padding-top: 0.8rem; flex: none; color: $color_main_green; font-weight: bold; cursor: pointer; }
+//								&:nth-of-type(2) { padding: 1rem 0; flex: auto; font-size: $_font-size; }
+//							}
+//						}
+//					}
+//				}
+//			}
+//			&:last-child { margin: 1% 0 10%; text-align: center; }
+//		}
+//		//input { font-size: $_font-size; }
+//	}
+//}
+//
+////@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
+////@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour(column); };
+////@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((flex-col: column, border: 1px solid red)); };
+//@include mix-screens($screenXXL) { @include mix-block-tour(()); }
+//@include mix-screens($screenXL) { @include mix-block-tour(()); }
+//@include mix-screens($screenL) { @include mix-block-tour(()); }
+//@include mix-screens($screenM) { @include mix-block-tour((_font-size-h: 1rem, _font-size: 0.8rem)); }
+//@include mix-screens($screenS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
+//@include mix-screens($screenXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
+//@include mix-screens($screenXXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
+//@include mix-screens($screenXXXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
 
 .block.adventure {
 	padding: 80px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
@@ -265,13 +299,13 @@ button, input[type="button"], input[type="submit"] {
 
 .block.photo {
 	> div {
-		&:nth-of-type(1) { text-align: center; font-family: Intro, sans-serif; font-size: 1.2rem; padding: 80px 0 20px; }
+		&:nth-of-type(1) { text-align: center; font-family: Intro, sans-serif; font-size: 1.5rem; padding: 120px 0 20px; }
 		&:nth-of-type(2) {
 			text-align: right; color: darkgray; cursor: pointer;
 			&:hover { color: $color_main_green; }
 		}
 		&:nth-of-type(3) {
-			padding: 10px 0 100px;
+			padding: 10px 0 240px;
 			.mini_photo {
 				display: grid; grid-template-columns: repeat(4, 1fr); grid-column-gap: 0.5%;
 				> div {
@@ -286,7 +320,43 @@ button, input[type="button"], input[type="submit"] {
 	}
 }
 
-
+.block.form {
+	display: flex; margin-bottom: 120px;
+	.form_input {
+		width: 40%; margin-right: 6%;
+		> div {
+			&:first-child { font-family: Intro, sans-serif; margin-bottom: 48px; }
+			&:last-child { margin-top: 48px; }
+		}
+		input { display: block;width: 100%; }
+	}
+	.form_contact {
+		width: 54%;
+		> div { height: 50%; display: flex; }
+	}
+	.form_text {
+		color: darkgray; flex: auto;
+		> div {
+			&:nth-of-type(1) { font-size: 1.2rem; margin-bottom: 6px; }
+			&:nth-of-type(2) { margin-bottom: 14px; }
+			&:nth-of-type(3) {
+				display: flex; margin-bottom: 14px;
+				> div {
+					&:last-child { color: $color_text_main; }
+				}
+			}
+			&:nth-of-type(4) {
+				display: flex;
+				> div {
+					width: 30px; height: 30px; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
+					&:first-child { background-image: url("pic/form_vk.png"); }
+					&:last-child { background-image: url("pic/form_whatsapp.png"); }
+				}
+			}
+		}
+	}
+	.form_photo { background-color: darkgray; padding-right: 40%; margin-bottom: 2%; }
+}
 
 
 .block.footer {

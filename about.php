@@ -47,7 +47,7 @@
             <div class = "block p">
                 <div class = "about_pic"></div>
                 <div class = "about_text">
-                    <div>Водитель</div>
+                    <div>Должность</div>
                     <div>Меховников Сергей</div>
                     <div>Супер крутое описание человека которыей чем-то занимается в этой компании</div>
                 </div>

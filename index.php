@@ -85,38 +85,55 @@
 		</div>
 		<div class = "block tour p">
 			<div>
+				<div>Типы путешествий</div>
+				<div>
+					<div>Путешествие</div>
+					<div>Индивидуальное сопровождение</div>
+					<div>ВИП</div>
+					<div>Выходного дня</div>
+				</div>
 				<div>
 					<div></div>
 					<div>
 						<div>Индивидуальное сопровождение</div>
 						<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+						<div>
+							<input type = "button" value = "Выбрать путешествие">
+						</div>
 					</div>
 				</div>
-				<div>
-					<div></div>
-					<div>
-						<div>Путешествия</div>
-						<div>Краткое описание</div>
-					</div>
-				</div>
-				<div>
-					<div></div>
-					<div>
-						<div>Короткие путешествия</div>
-						<div>Поездки и прогулки на выходных. Например, в Томской области. Или трех-дневная поездка на Алтай.</div>
-					</div>
-				</div>
+<!--				<div>-->
+<!--					<div></div>-->
+<!--					<div>-->
+<!--						<div>Индивидуальное сопровождение</div>-->
+<!--						<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<div></div>-->
+<!--					<div>-->
+<!--						<div>Путешествия</div>-->
+<!--						<div>Краткое описание</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<div></div>-->
+<!--					<div>-->
+<!--						<div>Короткие путешествия</div>-->
+<!--						<div>Поездки и прогулки на выходных. Например, в Томской области. Или трех-дневная поездка на Алтай.</div>-->
+<!--					</div>-->
+<!--				</div>-->
 			</div>
-			<div>
-				<input type = "button" value = "Выбрать путешествие">
-			</div>
+<!--			<div>-->
+<!--				<input type = "button" value = "Выбрать путешествие">-->
+<!--			</div>-->
 		</div>
 		<div class = "block adventure">
             <div>
                 <div>Наши приключения</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
-                <input type = "button" value = "Читать" class = "transparent">
+                <input type = "button" value = "Читать" class = "transparent" onclick = " window.location.href = '/adventure';">
             </div>
         </div>
 		<div class = "block photo p">
@@ -131,44 +148,55 @@
 					<div></div>
 				</div>
 			</div>
-<!--			<div class = "main">-->
-<!--				<div class = "header photo">-->
-<!--					<div>Фотографии</div>-->
-<!--					<div>с наших путешествий</div>-->
-<!--				</div>-->
-<!--				<div class = "main_photo">-->
-<!--					<div>Ак-туру</div>-->
-<!--					<div></div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class = "mini_photo">-->
-<!--				<div>-->
-<!--					<div><</div>-->
-<!--					<div>></div>-->
-<!--				</div>-->
-<!--				<div>-->
-<!--                    <div>-->
-<!--                        <div>-->
-<!--                            <div>Байкал, остров Ольхон</div>-->
-<!--                            <div></div>-->
-<!--                        </div>-->
-<!--                        <div>-->
-<!--                            <div>Дагестан</div>-->
-<!--                            <div></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <div>-->
-<!--                            <div>Каракольские озера</div>-->
-<!--                            <div></div>-->
-<!--                        </div>-->
-<!--                        <div>-->
-<!--                            <div>Карелия, Санкт-Петербург</div>-->
-<!--                            <div></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--			</div>-->
+		</div>
+		<div class = "block form p">
+			<div class = "form_input">
+				<div>Связаться с нами</div>
+				<div>
+					<input type = "text" placeholder = "Имя*">
+				</div>
+				<div>
+					<input type = "text" placeholder = "Телефон*">
+				</div>
+				<div>
+					<input type = "text" placeholder = "E-mail">
+				</div>
+				<div>
+					<input type = "button" value = "Оставить заявку">
+				</div>
+			</div>
+			<div class = "form_contact">
+				<div>
+					<div class = "form_text">
+						<div>Ишмурзина Нина</div>
+						<div>Организатор</div>
+						<div>
+							<div>Тел:</div>
+							<div>+7-909-545-11-29</div>
+						</div>
+						<div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+					<div class = "form_photo"></div>
+				</div>
+				<div>
+					<div class = "form_text">
+						<div>Меховникова Сергей</div>
+						<div>Должность</div>
+						<div>
+							<div>Тел:</div>
+							<div>+7-909-545-11-29</div>
+						</div>
+						<div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+					<div class = "form_photo"></div>
+				</div>
+			</div>
 		</div><?php
 	}
 

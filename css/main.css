@@ -39,8 +39,8 @@ main {
 }
 
 button, input[type=button], input[type=submit] {
-  padding: 0.4rem 0.7rem;
-  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 40px;
   color: white;
   background-color: #365f41;
   border: 2px solid #365f41;
@@ -58,8 +58,8 @@ button:hover, input[type=button]:hover, input[type=submit]:hover {
   color: #365f41;
 }
 button.transparent, input[type=button].transparent, input[type=submit].transparent {
-  padding: 0.4rem 0.7rem;
-  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 40px;
   color: white;
   background-color: transparent;
   border: 2px solid white;
@@ -72,8 +72,8 @@ button.transparent, input[type=button].transparent, input[type=submit].transpare
   }
 }
 button.border, input[type=button].border, input[type=submit].border {
-  padding: 0.4rem 0.7rem;
-  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 40px;
   color: #365f41;
   background-color: transparent;
   border: 2px solid #365f41;
@@ -88,6 +88,15 @@ button.border, input[type=button].border, input[type=submit].border {
 button.border:hover, input[type=button].border:hover, input[type=submit].border:hover {
   border: 2px solid rgba(54, 95, 65, 0.8);
   color: rgba(54, 95, 65, 0.8);
+}
+
+input[type=text] {
+  border: none;
+  margin-bottom: 4px;
+  padding: 15px 0;
+  border-bottom: 1px solid darkgrey;
+  background-color: transparent;
+  outline: none;
 }
 
 .block.top {
@@ -267,7 +276,7 @@ button.border:hover, input[type=button].border:hover, input[type=submit].border:
 }
 
 .block.about_us {
-  padding: 10% 10% 5%;
+  padding: 190px 10% 240px;
 }
 .block.about_us > div {
   text-align: center;
@@ -277,378 +286,53 @@ button.border:hover, input[type=button].border:hover, input[type=submit].border:
 }
 .block.about_us > div:nth-of-type(2) {
   font-family: Intro, sans-serif;
-  font-size: 1.2rem;
-  padding: 0.8rem;
+  font-size: 1.5rem;
+  padding-bottom: 70px;
   line-height: 1.5;
 }
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: initial;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1.2rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: x-large;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div {
+  margin-bottom: 120px;
 }
-@media only screen and (min-width: 1280px) and (max-width: 1599px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: initial;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1.2rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: x-large;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(1) {
+  font-family: Intro, sans-serif;
+  font-size: 1.5rem;
+  padding-bottom: 70px;
 }
-@media only screen and (min-width: 1024px) and (max-width: 1279px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: initial;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1.2rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: x-large;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(2) {
+  display: flex;
+  padding-bottom: 50px;
 }
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: initial;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: 0.8rem;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(2) > div {
+  padding-right: 50px;
 }
-@media only screen and (min-width: 600px) and (max-width: 767px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: 0.8rem;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(2) > div:hover {
+  color: #365f41;
+  cursor: pointer;
 }
-@media only screen and (min-width: 480px) and (max-width: 599px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: 0.8rem;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(3) {
+  display: flex;
 }
-@media only screen and (min-width: 320px) and (max-width: 479px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: 0.8rem;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(3) > div {
+  width: 50%;
+  margin: auto;
 }
-@media only screen and (min-width: 0px) and (max-width: 319px) {
-  /* Default */
-  /* Get from $params */
-  .block.tour > div:first-child {
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div {
-    border-radius: 5px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    transition: all 200ms ease;
-  }
-  .block.tour > div:first-child > div:not(:last-child) {
-    margin-right: 5%;
-  }
-  .block.tour > div:first-child > div > div:first-child {
-    background-color: darkgray;
-    padding-top: 80%;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child {
-    flex: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(1) {
-    font-size: 1rem;
-    padding-top: 0.8rem;
-    flex: none;
-    color: #365f41;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .block.tour > div:first-child > div > div:last-child > div:nth-of-type(2) {
-    padding: 1rem 0;
-    flex: auto;
-    font-size: 0.8rem;
-  }
-  .block.tour > div:last-child {
-    margin: 1% 0 10%;
-    text-align: center;
-  }
+.block.tour > div > div:nth-of-type(3) > div:first-child {
+  padding-bottom: 35%;
+  background-color: darkgray;
+  border-radius: 40px;
 }
+.block.tour > div > div:nth-of-type(3) > div:last-child > div {
+  padding-left: 4%;
+}
+.block.tour > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+  font-family: Intro, sans-serif;
+  padding-bottom: 30px;
+}
+.block.tour > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+  width: 400px;
+  padding-bottom: 50px;
+}
+
 .block.adventure {
   padding: 80px;
   background-position: center;
@@ -672,8 +356,8 @@ button.border:hover, input[type=button].border:hover, input[type=submit].border:
 .block.photo > div:nth-of-type(1) {
   text-align: center;
   font-family: Intro, sans-serif;
-  font-size: 1.2rem;
-  padding: 80px 0 20px;
+  font-size: 1.5rem;
+  padding: 120px 0 20px;
 }
 .block.photo > div:nth-of-type(2) {
   text-align: right;
@@ -684,7 +368,7 @@ button.border:hover, input[type=button].border:hover, input[type=submit].border:
   color: #365f41;
 }
 .block.photo > div:nth-of-type(3) {
-  padding: 10px 0 100px;
+  padding: 10px 0 240px;
 }
 .block.photo > div:nth-of-type(3) .mini_photo {
   display: grid;
@@ -695,6 +379,72 @@ button.border:hover, input[type=button].border:hover, input[type=submit].border:
   background-color: darkgray;
   padding-bottom: 70%;
 }
+.block.form {
+  display: flex;
+  margin-bottom: 120px;
+}
+.block.form .form_input {
+  width: 40%;
+  margin-right: 6%;
+}
+.block.form .form_input > div:first-child {
+  font-family: Intro, sans-serif;
+  margin-bottom: 48px;
+}
+.block.form .form_input > div:last-child {
+  margin-top: 48px;
+}
+.block.form .form_input input {
+  display: block;
+  width: 100%;
+}
+.block.form .form_contact {
+  width: 54%;
+}
+.block.form .form_contact > div {
+  height: 50%;
+  display: flex;
+}
+.block.form .form_text {
+  color: darkgray;
+  flex: auto;
+}
+.block.form .form_text > div:nth-of-type(1) {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+.block.form .form_text > div:nth-of-type(2) {
+  margin-bottom: 14px;
+}
+.block.form .form_text > div:nth-of-type(3) {
+  display: flex;
+  margin-bottom: 14px;
+}
+.block.form .form_text > div:nth-of-type(3) > div:last-child {
+  color: #2d2c2c;
+}
+.block.form .form_text > div:nth-of-type(4) {
+  display: flex;
+}
+.block.form .form_text > div:nth-of-type(4) > div {
+  width: 30px;
+  height: 30px;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.block.form .form_text > div:nth-of-type(4) > div:first-child {
+  background-image: url("pic/form_vk.png");
+}
+.block.form .form_text > div:nth-of-type(4) > div:last-child {
+  background-image: url("pic/form_whatsapp.png");
+}
+.block.form .form_photo {
+  background-color: darkgray;
+  padding-right: 40%;
+  margin-bottom: 2%;
+}
+
 .block.footer {
   background-color: #365f41;
   color: white;
