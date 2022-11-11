@@ -87,7 +87,7 @@
 			<div>
 				<div>Типы путешествий</div>
 				<div>
-					<div>Путешествие</div>
+					<div>Основные путешествия</div>
 					<div>Индивидуальное сопровождение</div>
 					<div>ВИП</div>
 					<div>Выходного дня</div>
@@ -98,7 +98,7 @@
 						<div>Индивидуальное сопровождение</div>
 						<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
 						<div>
-							<input type = "button" value = "Выбрать путешествие">
+							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tour';">
 						</div>
 					</div>
 				</div>
@@ -133,12 +133,12 @@
                 <div>Наши приключения</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
-                <input type = "button" value = "Читать" class = "transparent" onclick = " window.location.href = '/adventure';">
+                <input type = "button" value = "Читать" class = "transparent" onclick = " window.location.href = '/adventures';">
             </div>
         </div>
 		<div class = "block photo p">
 			<div>Фотографии с наших путешествий</div>
-			<div>Посмотреть еще</div>
+			<div><span onclick = " window.location.href = '/photo';">Посмотреть еще</span></div>
 			<div>
 				<div></div>
 				<div class = "mini_photo">

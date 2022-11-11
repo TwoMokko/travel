@@ -72,6 +72,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
 			&.tour_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
 			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
+			&.one_adventure_hat { background-image: url("pic/one_adventure_hat.jpg"); background-position: center; }
 			&.photo_hat { background-image: url("pic/photo_hat.jpg"); background-position: center; }
 		}
 		&:last-child {
@@ -152,7 +153,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			&:nth-of-type(2) {
 				display: flex; padding-bottom: 50px;
 				> div {
-					padding-right: 50px;
+					margin-right: 50px;
 					&:hover { color: $color_main_green; cursor: pointer; }
 				}
 			}
@@ -301,8 +302,11 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	> div {
 		&:nth-of-type(1) { text-align: center; font-family: Intro, sans-serif; font-size: 1.5rem; padding: 120px 0 20px; }
 		&:nth-of-type(2) {
-			text-align: right; color: darkgray; cursor: pointer;
-			&:hover { color: $color_main_green; }
+			text-align: right;
+			> span {
+				color: darkgray; cursor: pointer;
+				&:hover { color: $color_main_green; }
+			}
 		}
 		&:nth-of-type(3) {
 			padding: 10px 0 240px;
@@ -553,6 +557,11 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	}
 	.right_text { padding-left: 50%; }
 
+}
+
+.page_one_adventure {
+
+	> div {  }
 }
 
 

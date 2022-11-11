@@ -86,8 +86,8 @@ button.border, input[type=button].border, input[type=submit].border {
   }
 }
 button.border:hover, input[type=button].border:hover, input[type=submit].border:hover {
-  border: 2px solid rgba(54, 95, 65, 0.8);
-  color: rgba(54, 95, 65, 0.8);
+  border: 2px solid #739878;
+  color: #739878;
 }
 
 input[type=text] {
@@ -199,6 +199,10 @@ input[type=text] {
   background-image: url("pic/adventure_hat.jpg");
   background-position: bottom;
 }
+.block.hat.other > div:first-child.one_adventure_hat {
+  background-image: url("pic/one_adventure_hat.jpg");
+  background-position: center;
+}
 .block.hat.other > div:first-child.photo_hat {
   background-image: url("pic/photo_hat.jpg");
   background-position: center;
@@ -303,7 +307,7 @@ input[type=text] {
   padding-bottom: 50px;
 }
 .block.tour > div > div:nth-of-type(2) > div {
-  padding-right: 50px;
+  margin-right: 50px;
 }
 .block.tour > div > div:nth-of-type(2) > div:hover {
   color: #365f41;
@@ -361,10 +365,12 @@ input[type=text] {
 }
 .block.photo > div:nth-of-type(2) {
   text-align: right;
+}
+.block.photo > div:nth-of-type(2) > span {
   color: darkgray;
   cursor: pointer;
 }
-.block.photo > div:nth-of-type(2):hover {
+.block.photo > div:nth-of-type(2) > span:hover {
   color: #365f41;
 }
 .block.photo > div:nth-of-type(3) {

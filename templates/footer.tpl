@@ -35,7 +35,7 @@
                     <div class = "footer_menu">
                         <a href = "/tour">Путешествия</a>
                         <a href = "/about">О нас</a>
-                        <a href = "/adventure">Наши приключения</a>
+                        <a href = "/adventures.php">Наши приключения</a>
                         <a href = "/photo">Фотографии</a>
                     </div>
                     <div  class = "footer_right_down">
