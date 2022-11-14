@@ -70,10 +70,11 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 		&:first-child {
 			  background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
 			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
-			&.tour_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
+			&.tours_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
 			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
 			&.one_adventure_hat { background-image: url("pic/one_adventure_hat.jpg"); background-position: center; }
 			&.photo_hat { background-image: url("pic/photo_hat.jpg"); background-position: center; }
+			&.tour_hat { background-image: url("pic/baikal.jpg"); background-position: center; }
 		}
 		&:last-child {
 			padding: 100px 350px 200px; position: relative; text-align: center;
@@ -145,7 +146,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 //	}
 //}
 
-.block.tour {
+.block.tours {
 	> div {
 		margin-bottom: 120px;
 		> div {
@@ -468,9 +469,9 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 //	}
 //}
 
-.block.page_tour {
+.block.page_tours {
 	> div:first-child { text-align: center; font-family: Intro, sans-serif; padding: 50px 0 30px; }
-	.cards_tour {
+	.cards_tours {
 		display: grid; grid-template-columns: repeat(3, 1fr); grid-column-gap: 2%; width: 100%;
 		> div {
 			overflow: hidden; margin-bottom: 50px; background-color: white; border-radius: 5px; transition: all 200ms ease; cursor: pointer;
@@ -561,7 +562,45 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 
 .page_one_adventure {
 
-	> div {  }
+	.adventure_text {
+		margin: -120px 0 120px; position: relative; background-color: white; padding: 3rem 4rem;
+		> div {
+			&:first-child { margin-bottom: 2rem; }
+			&:last-child {
+				display: flex;
+				> div {
+					width: 49%; height: 12rem; background-color: darkgray; cursor: pointer;
+					&:not(last-child) { margin-right: 2%; }
+				}
+			}
+		}
+	}
+
+	.adventure_other {
+		margin-bottom: 120px;
+		> div {
+			&:first-child {
+				text-align: center; padding-bottom: 2rem;
+				> span {
+					font-family: Intro, sans-serif; padding: 0.3rem 0 0.5rem; cursor: pointer;
+					&:hover { color: $color_main_green; }
+				}
+			}
+			&:last-child {
+				display: flex;
+				> div {
+					width: 32%;
+					&:not(:last-child) { margin-right: 2%; }
+					> div {
+						&:first-child {
+							height: 12rem; background-color: darkgray;
+						}
+						&:last-child {  }
+					}
+				}
+			}
+		}
+	}
 }
 
 

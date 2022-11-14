@@ -191,7 +191,7 @@ input[type=text] {
   background-image: url("pic/about_hat.jpg");
   background-position: center;
 }
-.block.hat.other > div:first-child.tour_hat {
+.block.hat.other > div:first-child.tours_hat {
   background-image: url("pic/tour_hat.jpg");
   background-position: center;
 }
@@ -205,6 +205,10 @@ input[type=text] {
 }
 .block.hat.other > div:first-child.photo_hat {
   background-image: url("pic/photo_hat.jpg");
+  background-position: center;
+}
+.block.hat.other > div:first-child.tour_hat {
+  background-image: url("pic/baikal.jpg");
   background-position: center;
 }
 .block.hat.other > div:last-child {
@@ -294,45 +298,45 @@ input[type=text] {
   padding-bottom: 70px;
   line-height: 1.5;
 }
-.block.tour > div {
+.block.tours > div {
   margin-bottom: 120px;
 }
-.block.tour > div > div:nth-of-type(1) {
+.block.tours > div > div:nth-of-type(1) {
   font-family: Intro, sans-serif;
   font-size: 1.5rem;
   padding-bottom: 70px;
 }
-.block.tour > div > div:nth-of-type(2) {
+.block.tours > div > div:nth-of-type(2) {
   display: flex;
   padding-bottom: 50px;
 }
-.block.tour > div > div:nth-of-type(2) > div {
+.block.tours > div > div:nth-of-type(2) > div {
   margin-right: 50px;
 }
-.block.tour > div > div:nth-of-type(2) > div:hover {
+.block.tours > div > div:nth-of-type(2) > div:hover {
   color: #365f41;
   cursor: pointer;
 }
-.block.tour > div > div:nth-of-type(3) {
+.block.tours > div > div:nth-of-type(3) {
   display: flex;
 }
-.block.tour > div > div:nth-of-type(3) > div {
+.block.tours > div > div:nth-of-type(3) > div {
   width: 50%;
   margin: auto;
 }
-.block.tour > div > div:nth-of-type(3) > div:first-child {
+.block.tours > div > div:nth-of-type(3) > div:first-child {
   padding-bottom: 35%;
   background-color: darkgray;
   border-radius: 40px;
 }
-.block.tour > div > div:nth-of-type(3) > div:last-child > div {
+.block.tours > div > div:nth-of-type(3) > div:last-child > div {
   padding-left: 4%;
 }
-.block.tour > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+.block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
   font-family: Intro, sans-serif;
   padding-bottom: 30px;
 }
-.block.tour > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+.block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
   width: 400px;
   padding-bottom: 50px;
 }
@@ -521,18 +525,18 @@ input[type=text] {
   text-align: center;
 }
 
-.block.page_tour > div:first-child {
+.block.page_tours > div:first-child {
   text-align: center;
   font-family: Intro, sans-serif;
   padding: 50px 0 30px;
 }
-.block.page_tour .cards_tour {
+.block.page_tours .cards_tours {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2%;
   width: 100%;
 }
-.block.page_tour .cards_tour > div {
+.block.page_tours .cards_tours > div {
   overflow: hidden;
   margin-bottom: 50px;
   background-color: white;
@@ -540,35 +544,35 @@ input[type=text] {
   transition: all 200ms ease;
   cursor: pointer;
 }
-.block.page_tour .cards_tour > div:hover {
+.block.page_tours .cards_tours > div:hover {
   box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
 }
-.block.page_tour .cards_tour > div > div:first-child {
+.block.page_tours .cards_tours > div > div:first-child {
   background-color: darkgray;
   height: 200px;
 }
-.block.page_tour .cards_tour > div > div:last-child {
+.block.page_tours .cards_tours > div > div:last-child {
   padding: 20px;
 }
-.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(1) {
+.block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(1) {
   color: darkgray;
   font-size: 0.8rem;
 }
-.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(2) {
+.block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(2) {
   font-family: Intro, sans-serif;
   font-size: 0.8rem;
   padding: 0.3rem 0 0.5rem;
 }
-.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(2):hover {
+.block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(2):hover {
   color: #365f41;
 }
-.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(4) {
+.block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(4) {
   padding: 0.8rem 0;
 }
-.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(5) {
+.block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(5) {
   display: flex;
 }
-.block.page_tour .cards_tour > div > div:last-child > div:nth-of-type(5) > input:first-child {
+.block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(5) > input:first-child {
   margin-right: 10px;
 }
 .block.page_adventure .cards_adventure {
@@ -671,6 +675,56 @@ input[type=text] {
 }
 .block.page_about_us .right_text {
   padding-left: 50%;
+}
+
+.page_one_adventure .adventure_text {
+  margin: -120px 0 120px;
+  position: relative;
+  background-color: white;
+  padding: 3rem 4rem;
+}
+.page_one_adventure .adventure_text > div:first-child {
+  margin-bottom: 2rem;
+}
+.page_one_adventure .adventure_text > div:last-child {
+  display: flex;
+}
+.page_one_adventure .adventure_text > div:last-child > div {
+  width: 49%;
+  height: 12rem;
+  background-color: darkgray;
+  cursor: pointer;
+}
+.page_one_adventure .adventure_text > div:last-child > div:not(last-child) {
+  margin-right: 2%;
+}
+.page_one_adventure .adventure_other {
+  margin-bottom: 120px;
+}
+.page_one_adventure .adventure_other > div:first-child {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.page_one_adventure .adventure_other > div:first-child > span {
+  font-family: Intro, sans-serif;
+  padding: 0.3rem 0 0.5rem;
+  cursor: pointer;
+}
+.page_one_adventure .adventure_other > div:first-child > span:hover {
+  color: #365f41;
+}
+.page_one_adventure .adventure_other > div:last-child {
+  display: flex;
+}
+.page_one_adventure .adventure_other > div:last-child > div {
+  width: 32%;
+}
+.page_one_adventure .adventure_other > div:last-child > div:not(:last-child) {
+  margin-right: 2%;
+}
+.page_one_adventure .adventure_other > div:last-child > div > div:first-child {
+  height: 12rem;
+  background-color: darkgray;
 }
 
 /*# sourceMappingURL=main.css.map */
