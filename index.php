@@ -113,16 +113,27 @@
             </div>
         </div>
 		<div class = "block photo p">
-			<div>Фотографии с наших путешествий</div>
-			<div><span onclick = " window.location.href = '/photo';">Посмотреть еще</span></div>
-			<div>
-				<div></div>
-				<div class = "mini_photo">
-					<div></div>
-					<div></div>
+			<div class = "head_photo">
+				<div>Фотографии с наших путешествий</div>
+				<div>
 					<div></div>
 					<div></div>
 				</div>
+			</div>
+
+			<div class = "mini_photo">
+				<div>
+					<div>Ак-туру</div>
+				</div>
+				<div>
+					<div>Байкал</div>
+				</div>
+				<div>
+					<div>Каппадокия</div>
+				</div>
+			</div>
+			<div>
+				<input type = "button" value = "Перейти к альбомам" onclick = " window.location.href = '/photo';">
 			</div>
 		</div>
 		<div class = "block form p">
