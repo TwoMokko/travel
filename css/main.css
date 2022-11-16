@@ -495,46 +495,52 @@ input[type=text] {
   background-color: #365f41;
   color: white;
 }
-.block.footer > div {
+.block.footer > div > div {
   display: flex;
 }
-.block.footer > div .footer_left {
-  width: 50%;
-  display: flex;
-  margin: auto 0;
+.block.footer > div > div:first-child {
+  padding: 35px 0 20px;
+  border-bottom: 1px solid white;
 }
-.block.footer > div .footer_left > div:first-child > a {
+.block.footer > div > div:first-child > div:nth-of-type(1) {
+  margin: auto;
+}
+.block.footer > div > div:first-child > div:nth-of-type(2) {
+  flex: auto;
+  text-align: center;
+}
+.block.footer > div > div:first-child > div:nth-of-type(2) > div {
   display: inline-block;
-  width: 60px;
-  height: 60px;
   background-image: url("pic/logo_travel.png");
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
 }
-.block.footer > div .footer_right .footer_menu {
-  display: flex;
-  justify-content: right;
+.block.footer > div > div:first-child > div:nth-of-type(3) {
+  margin: auto;
 }
-.block.footer > div .footer_right .footer_menu > a {
+.block.footer > div > div:last-child {
+  justify-content: center;
+  padding: 20px 0 35px;
+}
+.block.footer > div > div:last-child > a {
   color: white;
   text-decoration: none;
 }
-.block.footer > div .footer_right .footer_menu > a:hover {
+.block.footer > div > div:last-child > a:hover {
   text-decoration: underline;
 }
-.block.footer > div .footer_right .footer_menu > a:not(:last-child) {
+.block.footer > div > div:last-child > a:not(:last-child) {
   margin-right: 30px;
 }
-.block.footer > div .footer_right .footer_right_down {
+.block.footer .contact {
   display: flex;
-  align-items: center;
+  padding-bottom: 5px;
 }
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) {
-  flex: auto;
-  display: flex;
-}
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) > div {
+.block.footer .contact > div {
   width: 30px;
   height: 30px;
   background-position: center;
@@ -542,21 +548,22 @@ input[type=text] {
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) > div:nth-of-type(1) {
+.block.footer .contact > div:nth-of-type(1) {
   background-image: url("pic/telegram.png");
 }
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) > div:nth-of-type(2) {
+.block.footer .contact > div:nth-of-type(2) {
   background-image: url("pic/youtube.png");
 }
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) > div:nth-of-type(3) {
+.block.footer .contact > div:nth-of-type(3) {
   background-image: url("pic/vk.png");
 }
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) > div:nth-of-type(4) {
+.block.footer .contact > div:nth-of-type(4) {
   background-image: url("pic/instagram.png");
 }
-.block.footer > div .footer_right .footer_right_down > div:nth-of-type(1) > div:not(:last-child) {
+.block.footer .contact > div:not(:last-child) {
   margin-right: 4px;
 }
+
 .block.page_about_us {
   text-align: center;
 }
@@ -581,7 +588,7 @@ input[type=text] {
   cursor: pointer;
 }
 .block.page_tours .cards_tours > div:hover {
-  box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
+  box-shadow: 0 0 9px 3px rgba(45, 44, 44, 0.1294117647);
 }
 .block.page_tours .cards_tours > div > div:first-child {
   background-color: darkgray;
@@ -783,7 +790,7 @@ input[type=text] {
   align-items: end;
 }
 .block.page_photo .photo_albums > div:hover {
-  box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
+  box-shadow: 0 0 9px 3px rgba(45, 44, 44, 0.1294117647);
 }
 .block.page_photo .photo_albums > div > div {
   padding: 24px 30px;
