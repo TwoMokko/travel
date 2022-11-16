@@ -284,7 +284,7 @@ input[type=text] {
 }
 
 .block.about_us {
-  padding: 190px 10% 240px;
+  padding: 190px 10%;
 }
 .block.about_us > div {
   text-align: center;
@@ -312,6 +312,7 @@ input[type=text] {
 }
 .block.tours > div > div:nth-of-type(2) > div {
   margin-right: 50px;
+  color: darkgray;
 }
 .block.tours > div > div:nth-of-type(2) > div:hover {
   color: #365f41;
@@ -327,7 +328,7 @@ input[type=text] {
 .block.tours > div > div:nth-of-type(3) > div:first-child {
   padding-bottom: 35%;
   background-color: darkgray;
-  border-radius: 40px;
+  border-radius: 24px;
 }
 .block.tours > div > div:nth-of-type(3) > div:last-child > div {
   padding-left: 4%;
@@ -409,13 +410,13 @@ input[type=text] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(300px, auto);
-  grid-column-gap: 24px;
-  grid-row-gap: 24px;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
   padding-bottom: 50px;
 }
 .block.photo .mini_photo > div {
   background-color: darkgray;
-  border-radius: 40px;
+  border-radius: 24px;
   display: flex;
   align-items: end;
   cursor: pointer;
@@ -575,7 +576,7 @@ input[type=text] {
   overflow: hidden;
   margin-bottom: 50px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 24px;
   transition: all 200ms ease;
   cursor: pointer;
 }
@@ -619,7 +620,7 @@ input[type=text] {
   margin-bottom: 40px;
   transition: all 200ms ease;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 24px;
   cursor: pointer;
 }
 .block.page_adventure .cards_adventure > div:hover {
@@ -760,6 +761,32 @@ input[type=text] {
 .page_one_adventure .adventure_other > div:last-child > div > div:first-child {
   height: 12rem;
   background-color: darkgray;
+}
+.block.page_photo {
+  padding-top: 120px;
+}
+.block.page_photo .photo_albums {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2%;
+  grid-auto-rows: minmax(300px, auto);
+  padding-bottom: 70px;
+}
+.block.page_photo .photo_albums > div {
+  overflow: hidden;
+  margin-bottom: 50px;
+  background-color: darkgray;
+  border-radius: 24px;
+  transition: all 200ms ease;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+}
+.block.page_photo .photo_albums > div:hover {
+  box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
+}
+.block.page_photo .photo_albums > div > div {
+  padding: 24px 30px;
 }
 
 /*# sourceMappingURL=main.css.map */

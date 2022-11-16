@@ -23,7 +23,34 @@ function Head(): void {
 function Main(): void {
     ?><div class = "block page_photo p">
         <div></div>
-        <div></div>
-        <div></div>
+        <div class = "photo_albums">
+			<div>
+				<div>Ак-туру</div>
+			</div>
+			<div>
+				<div>Байкал</div>
+			</div>
+			<div>
+				<div>Чулышманская долина</div>
+			</div>
+			<div>
+				<div>Дагестан</div>
+			</div>
+			<div>
+				<div>Каракольские озера</div>
+			</div>
+			<div>
+				<div>Каппадокия</div>
+			</div>
+			<div>
+				<div>Карелия</div>
+			</div>
+			<div>
+				<div>Телецкое озеро</div>
+			</div>
+			<div>
+				<div>Походы выходного дня</div>
+			</div>
+		</div>
     </div><?php
 }
