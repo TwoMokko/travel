@@ -33,7 +33,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 
 .block.menu {
 	> a {
-		color: white; padding: 0.5rem; text-decoration: none; transition: all 500ms ease;
+		color: $color_white; padding: 0.5rem; text-decoration: none; transition: all 500ms ease;
 		&:hover { text-decoration: underline; }
 	}
 
@@ -46,7 +46,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 		&:last-child {
 			padding: 30px 350px 150px; position: relative;
 			> div {
-				color: white;
+				color: $color_white;
 				&:nth-of-type(1) {}
 				&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 2rem; padding: 0.3rem 0 0.6rem 0; }
 				&:nth-of-type(3) { font-family: Intro, sans-serif; }
@@ -79,7 +79,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 		&:last-child {
 			padding: 100px 350px 200px; position: relative; text-align: center;
 			> div {
-				color: white;
+				color: $color_white;
 				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 2rem; }
 				&:nth-of-type(2) {  }
 			}
@@ -91,7 +91,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	height: 0;
 	> div { position: absolute; left: 0; right: 0; top: -50px; text-align: center;
 		> form {
-			padding: 1rem 2rem; margin: 0 auto; background-color: white; display: inline-flex; justify-content: center;
+			padding: 1rem 2rem; margin: 0 auto; background-color: $color_white; display: inline-flex; justify-content: center;
 			> div {
 				margin-top: auto; margin-bottom: auto; padding: 0 0.9rem;
 				&:nth-of-type(1) {
@@ -110,7 +110,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	div > form > div {
 		text-align: left;
 		> select {
-			font-family: MoshitaMono, sans-serif; font-size: x-large; outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid darkgray; padding-right: 30px; appearance: none; background-image: url('pic/arrow.png'); background-repeat: no-repeat; background-position: right; background-size: 15px;
+			font-family: MoshitaMono, sans-serif; font-size: x-large; outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid $color_gray; padding-right: 30px; appearance: none; background-image: url('pic/arrow.png'); background-repeat: no-repeat; background-position: right; background-size: 15px;
 			> option {}
 		}
 		> div { color: $color_main_green; font-weight: bold; }
@@ -154,7 +154,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			&:nth-of-type(2) {
 				display: flex; padding-bottom: 50px;
 				> div {
-					margin-right: 50px; color: darkgray;
+					margin-right: 50px; color: $color_gray;
 					&:hover { color: $color_main_green; cursor: pointer; }
 				}
 			}
@@ -162,7 +162,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 				display: flex;
 				> div {
 					width: 50%; margin: auto;
-					&:first-child { padding-bottom: 35%; background-color: darkgray; border-radius: 24px; }
+					&:first-child { padding-bottom: 35%; background-color: $color_gray; border-radius: 24px; }
 					&:last-child {
 						> div {
 							padding-left: 4%;
@@ -231,7 +231,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	padding: 80px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
 	> div { text-align: center;
 		> div {
-			 color: white;
+			 color: $color_white;
 			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; }
 			&:nth-of-type(2) { padding: 0.7rem 0 1.4rem 0; }
 		}
@@ -307,7 +307,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			&:nth-of-type(2) {
 				display: flex; margin: auto;
 				> div {
-					color: darkgray; border-radius: 50%; border: 1px solid darkgray; transition: all 500ms ease; height: 30px; width: 30px; text-align: center; cursor: pointer;
+					color: $color_gray; border-radius: 50%; border: 1px solid $color_gray; transition: all 500ms ease; height: 30px; width: 30px; text-align: center; cursor: pointer;
 					&:hover { color: $color_main_green; border: 1px solid $color_main_green; }
 					&:first-child { margin-right: 5px; background-image: url('pic/arrow_left.png'); background-repeat: no-repeat; background-position: center; background-size: 15px; }
 					&:last-child { background-image: url('pic/arrow_right.png'); background-repeat: no-repeat; background-position: center; background-size: 15px; }
@@ -321,12 +321,13 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	}
 
 	.mini_photo {
-		display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(300px, auto); grid-column-gap: 2%; grid-row-gap: 2%; padding-bottom: 50px;
+		display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(300px, auto); grid-column-gap: 2%; grid-row-gap: 2%; padding-bottom: 50px; color: $color_white;
 		> div {
-			background-color: darkgray; border-radius: 24px; display: flex; align-items: end; cursor: pointer;
+			background-color: $color_gray; border-radius: 24px; display: flex; align-items: end; cursor: pointer;
 			&:nth-of-type(1) {  }
 			&:nth-of-type(2) {  }
 			&:nth-of-type(3) {  }
+			&:hover { box-shadow: $box_shadow_cards; }
 			> div { padding: 24px 30px; }
 		}
 	}
@@ -347,7 +348,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 		> div { height: 50%; display: flex; }
 	}
 	.form_text {
-		color: darkgray; flex: auto;
+		color: $color_gray; flex: auto;
 		> div {
 			&:nth-of-type(1) { font-size: 1.2rem; margin-bottom: 6px; }
 			&:nth-of-type(2) { margin-bottom: 14px; }
@@ -367,16 +368,16 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			}
 		}
 	}
-	.form_photo { background-color: darkgray; padding-right: 40%; margin-bottom: 2%; }
+	.form_photo { background-color: $color_gray; padding-right: 40%; margin-bottom: 2%; }
 }
 
 
 .block.footer {
-	background-color: $color_main_green; color: white;
+	background-color: $color_main_green; color: $color_white;
 	> div > div {
 		display: flex;
 		&:first-child {
-			padding: 35px 0 20px; border-bottom: 1px solid white;
+			padding: 35px 0 20px; border-bottom: 1px solid $color_white;
 			> div {
 				&:nth-of-type(1) { margin: auto; }
 				&:nth-of-type(2) {
@@ -389,7 +390,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 		&:last-child {
 			justify-content: center; padding: 20px 0 35px;
 			> a {
-				color: white; text-decoration: none;
+				color: $color_white; text-decoration: none;
 				&:hover { text-decoration: underline; }
 				&:not(:last-child) { margin-right: 30px; }
 			}
@@ -485,14 +486,14 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	.cards_tours {
 		display: grid; grid-template-columns: repeat(3, 1fr); grid-column-gap: 2%; width: 100%;
 		> div {
-			overflow: hidden; margin-bottom: 50px; background-color: white; border-radius: 24px; transition: all 200ms ease; cursor: pointer;
-			&:hover { box-shadow: 0 0 9px 3px #2d2c2c21; }
+			overflow: hidden; margin-bottom: 50px; background-color: $color_white; border-radius: 24px; transition: all 200ms ease; cursor: pointer;
+			&:hover { box-shadow: $box_shadow_white; }
 			> div {
-				&:first-child { background-color: darkgray; height: 200px; }
+				&:first-child { background-color: $color_gray; height: 200px; }
 				&:last-child {
 					padding: 20px;
 					> div {
-						&:nth-of-type(1) { color: darkgray; font-size: 0.8rem; }
+						&:nth-of-type(1) { color: $color_gray; font-size: 0.8rem; }
 						&:nth-of-type(2) {
 							font-family: Intro, sans-serif; font-size: 0.8rem; padding: 0.3rem 0 0.5rem;
 							&:hover { color: $color_main_green; }
@@ -514,14 +515,34 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	}
 }
 
+.page_one_tour {
+
+	.tour_program {
+		padding: 120px 0; display: flex;
+		.days > div {
+			display: flex;
+			> div {
+				&:first-child {
+					width: 100px; text-align: right; position: relative; padding-right: 20px; font-size: 60px; color: $color_gray;
+					&:before { content: ""; position: absolute; width: 8px; height: 8px; background-color: $color_gray; border-radius: 50%; right: -4px; top: 0;
+					}
+				}
+				&:last-child { border-left: 1px solid $color_gray; max-width: 50%; padding-left: 20px; padding-bottom: 50px; }
+			}
+		}
+		.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: center; }
+	}
+}
+
+
 .block.page_adventure {
 	.cards_adventure {
 		padding-top: 4%;
 		> div {
-			overflow: hidden; display: flex; margin-bottom: 40px; transition: all 200ms ease; background-color: white; border-radius: 24px; cursor: pointer;
-			&:hover { box-shadow: 0 0 7px #2d2c2c21; }
+			overflow: hidden; display: flex; margin-bottom: 40px; transition: all 200ms ease; background-color: $color_white; border-radius: 24px; cursor: pointer;
+			&:hover { box-shadow: $box_shadow_white; }
 			> div {
-				&:first-child { background-color: darkgray; padding-top: 20%; width: 30%; flex: none; }
+				&:first-child { background-color: $color_gray; padding-top: 20%; width: 30%; flex: none; }
 				&:last-child {
 					flex: auto; padding: 3%; display: flex; flex-direction: column;
 					> div {
@@ -533,7 +554,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 						&:nth-of-type(3) {
 							text-align: right;
 							> span {
-								flex: none; color: darkgray;
+								flex: none; color: $color_gray;
 								&:hover { color: $color_main_green; }
 							}
 
@@ -556,7 +577,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			}
 		}
 	}
-	.about_pic { width: 40%; height: 12rem; background-color: darkgray; }
+	.about_pic { width: 40%; height: 12rem; background-color: $color_gray; }
 	.about_text {
 		&:not(:last-child) { margin-right: 5%; }
 		&:last-child { margin-left: 5%; }
@@ -574,13 +595,13 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 .page_one_adventure {
 
 	.adventure_text {
-		margin: -120px 0 120px; position: relative; background-color: white; padding: 3rem 4rem;
+		margin: -120px 0 120px; position: relative; background-color: $color_white; padding: 3rem 4rem;
 		> div {
 			&:first-child { margin-bottom: 2rem; }
 			&:last-child {
 				display: flex;
 				> div {
-					width: 49%; height: 12rem; background-color: darkgray; cursor: pointer;
+					width: 49%; height: 12rem; background-color: $color_gray; cursor: pointer;
 					&:not(last-child) { margin-right: 2%; }
 				}
 			}
@@ -604,7 +625,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 					&:not(:last-child) { margin-right: 2%; }
 					> div {
 						&:first-child {
-							height: 12rem; background-color: darkgray;
+							height: 12rem; background-color: $color_gray;
 						}
 						&:last-child {  }
 					}
@@ -616,12 +637,12 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 
 
 .block.page_photo {
-	padding-top: 120px;
+	padding-top: 120px; color: $color_white;
 	.photo_albums {
 		display: grid; grid-template-columns: repeat(3, 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(300px, auto); padding-bottom: 70px;
 		> div {
-			overflow: hidden; margin-bottom: 50px; background-color: darkgray; border-radius: 24px; transition: all 200ms ease; cursor: pointer; display: flex; align-items: end;
-			&:hover { box-shadow: 0 0 9px 3px #2d2c2c21; }
+			overflow: hidden; margin-bottom: 50px; background-color: $color_gray; border-radius: 24px; transition: all 200ms ease; cursor: pointer; display: flex; align-items: end;
+			&:hover { box-shadow: $box_shadow_cards; }
 			>div { padding: 24px 30px; }
 		}
 	}

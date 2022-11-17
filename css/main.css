@@ -124,7 +124,7 @@ input[type=text] {
   padding-right: 6%;
 }
 .block.menu > a {
-  color: white;
+  color: #ffffff;
   padding: 0.5rem;
   text-decoration: none;
   transition: all 500ms ease;
@@ -151,7 +151,7 @@ input[type=text] {
   position: relative;
 }
 .block.hat.main > div:last-child > div {
-  color: white;
+  color: #ffffff;
 }
 .block.hat.main > div:last-child > div:nth-of-type(2) {
   font-family: Intro, sans-serif;
@@ -217,7 +217,7 @@ input[type=text] {
   text-align: center;
 }
 .block.hat.other > div:last-child > div {
-  color: white;
+  color: #ffffff;
 }
 .block.hat.other > div:last-child > div:nth-of-type(1) {
   font-family: Intro, sans-serif;
@@ -237,7 +237,7 @@ input[type=text] {
 .block.check_tour > div > form {
   padding: 1rem 2rem;
   margin: 0 auto;
-  background-color: white;
+  background-color: #ffffff;
   display: inline-flex;
   justify-content: center;
 }
@@ -264,7 +264,7 @@ input[type=text] {
   outline: none;
   padding-bottom: 6px;
   border: none;
-  border-bottom: 2px solid darkgray;
+  border-bottom: 2px solid #a9a9a9;
   padding-right: 30px;
   appearance: none;
   background-image: url("pic/arrow.png");
@@ -312,7 +312,7 @@ input[type=text] {
 }
 .block.tours > div > div:nth-of-type(2) > div {
   margin-right: 50px;
-  color: darkgray;
+  color: #a9a9a9;
 }
 .block.tours > div > div:nth-of-type(2) > div:hover {
   color: #365f41;
@@ -327,7 +327,7 @@ input[type=text] {
 }
 .block.tours > div > div:nth-of-type(3) > div:first-child {
   padding-bottom: 35%;
-  background-color: darkgray;
+  background-color: #a9a9a9;
   border-radius: 24px;
 }
 .block.tours > div > div:nth-of-type(3) > div:last-child > div {
@@ -352,7 +352,7 @@ input[type=text] {
   text-align: center;
 }
 .block.adventure > div > div {
-  color: white;
+  color: #ffffff;
 }
 .block.adventure > div > div:nth-of-type(1) {
   font-family: Intro, sans-serif;
@@ -376,9 +376,9 @@ input[type=text] {
   margin: auto;
 }
 .block.photo .head_photo > div:nth-of-type(2) > div {
-  color: darkgray;
+  color: #a9a9a9;
   border-radius: 50%;
-  border: 1px solid darkgray;
+  border: 1px solid #a9a9a9;
   transition: all 500ms ease;
   height: 30px;
   width: 30px;
@@ -413,13 +413,17 @@ input[type=text] {
   grid-column-gap: 2%;
   grid-row-gap: 2%;
   padding-bottom: 50px;
+  color: #ffffff;
 }
 .block.photo .mini_photo > div {
-  background-color: darkgray;
+  background-color: #a9a9a9;
   border-radius: 24px;
   display: flex;
   align-items: end;
   cursor: pointer;
+}
+.block.photo .mini_photo > div:hover {
+  box-shadow: 0 0 9px 2px rgba(45, 44, 44, 0.1294117647);
 }
 .block.photo .mini_photo > div > div {
   padding: 24px 30px;
@@ -452,7 +456,7 @@ input[type=text] {
   display: flex;
 }
 .block.form .form_text {
-  color: darkgray;
+  color: #a9a9a9;
   flex: auto;
 }
 .block.form .form_text > div:nth-of-type(1) {
@@ -486,21 +490,21 @@ input[type=text] {
   background-image: url("pic/form_whatsapp.png");
 }
 .block.form .form_photo {
-  background-color: darkgray;
+  background-color: #a9a9a9;
   padding-right: 40%;
   margin-bottom: 2%;
 }
 
 .block.footer {
   background-color: #365f41;
-  color: white;
+  color: #ffffff;
 }
 .block.footer > div > div {
   display: flex;
 }
 .block.footer > div > div:first-child {
   padding: 35px 0 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #ffffff;
 }
 .block.footer > div > div:first-child > div:nth-of-type(1) {
   margin: auto;
@@ -527,7 +531,7 @@ input[type=text] {
   padding: 20px 0 35px;
 }
 .block.footer > div > div:last-child > a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 .block.footer > div > div:last-child > a:hover {
@@ -582,23 +586,23 @@ input[type=text] {
 .block.page_tours .cards_tours > div {
   overflow: hidden;
   margin-bottom: 50px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 24px;
   transition: all 200ms ease;
   cursor: pointer;
 }
 .block.page_tours .cards_tours > div:hover {
-  box-shadow: 0 0 9px 3px rgba(45, 44, 44, 0.1294117647);
+  box-shadow: 0 0 7px 0px rgba(45, 44, 44, 0.1294117647);
 }
 .block.page_tours .cards_tours > div > div:first-child {
-  background-color: darkgray;
+  background-color: #a9a9a9;
   height: 200px;
 }
 .block.page_tours .cards_tours > div > div:last-child {
   padding: 20px;
 }
 .block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(1) {
-  color: darkgray;
+  color: #a9a9a9;
   font-size: 0.8rem;
 }
 .block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(2) {
@@ -618,6 +622,45 @@ input[type=text] {
 .block.page_tours .cards_tours > div > div:last-child > div:nth-of-type(5) > input:first-child {
   margin-right: 10px;
 }
+.page_one_tour .tour_program {
+  padding: 120px 0;
+  display: flex;
+}
+.page_one_tour .tour_program .days > div {
+  display: flex;
+}
+.page_one_tour .tour_program .days > div > div:first-child {
+  width: 100px;
+  text-align: right;
+  position: relative;
+  padding-right: 20px;
+  font-size: 60px;
+  color: #a9a9a9;
+}
+.page_one_tour .tour_program .days > div > div:first-child:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #a9a9a9;
+  border-radius: 50%;
+  right: -4px;
+  top: 0;
+}
+.page_one_tour .tour_program .days > div > div:last-child {
+  border-left: 1px solid #a9a9a9;
+  max-width: 50%;
+  padding-left: 20px;
+  padding-bottom: 50px;
+}
+.page_one_tour .tour_program .map {
+  background-image: url("pic/map.png");
+  background-size: contain;
+  width: 80%;
+  background-repeat: no-repeat;
+  background-position-y: center;
+}
+
 .block.page_adventure .cards_adventure {
   padding-top: 4%;
 }
@@ -626,15 +669,15 @@ input[type=text] {
   display: flex;
   margin-bottom: 40px;
   transition: all 200ms ease;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 24px;
   cursor: pointer;
 }
 .block.page_adventure .cards_adventure > div:hover {
-  box-shadow: 0 0 7px rgba(45, 44, 44, 0.1294117647);
+  box-shadow: 0 0 7px 0px rgba(45, 44, 44, 0.1294117647);
 }
 .block.page_adventure .cards_adventure > div > div:first-child {
-  background-color: darkgray;
+  background-color: #a9a9a9;
   padding-top: 20%;
   width: 30%;
   flex: none;
@@ -662,7 +705,7 @@ input[type=text] {
 }
 .block.page_adventure .cards_adventure > div > div:last-child > div:nth-of-type(3) > span {
   flex: none;
-  color: darkgray;
+  color: #a9a9a9;
 }
 .block.page_adventure .cards_adventure > div > div:last-child > div:nth-of-type(3) > span:hover {
   color: #365f41;
@@ -695,7 +738,7 @@ input[type=text] {
 .block.page_about_us .about_pic {
   width: 40%;
   height: 12rem;
-  background-color: darkgray;
+  background-color: #a9a9a9;
 }
 .block.page_about_us .about_text:not(:last-child) {
   margin-right: 5%;
@@ -723,7 +766,7 @@ input[type=text] {
 .page_one_adventure .adventure_text {
   margin: -120px 0 120px;
   position: relative;
-  background-color: white;
+  background-color: #ffffff;
   padding: 3rem 4rem;
 }
 .page_one_adventure .adventure_text > div:first-child {
@@ -735,7 +778,7 @@ input[type=text] {
 .page_one_adventure .adventure_text > div:last-child > div {
   width: 49%;
   height: 12rem;
-  background-color: darkgray;
+  background-color: #a9a9a9;
   cursor: pointer;
 }
 .page_one_adventure .adventure_text > div:last-child > div:not(last-child) {
@@ -767,10 +810,11 @@ input[type=text] {
 }
 .page_one_adventure .adventure_other > div:last-child > div > div:first-child {
   height: 12rem;
-  background-color: darkgray;
+  background-color: #a9a9a9;
 }
 .block.page_photo {
   padding-top: 120px;
+  color: #ffffff;
 }
 .block.page_photo .photo_albums {
   display: grid;
@@ -782,7 +826,7 @@ input[type=text] {
 .block.page_photo .photo_albums > div {
   overflow: hidden;
   margin-bottom: 50px;
-  background-color: darkgray;
+  background-color: #a9a9a9;
   border-radius: 24px;
   transition: all 200ms ease;
   cursor: pointer;
@@ -790,7 +834,7 @@ input[type=text] {
   align-items: end;
 }
 .block.page_photo .photo_albums > div:hover {
-  box-shadow: 0 0 9px 3px rgba(45, 44, 44, 0.1294117647);
+  box-shadow: 0 0 9px 2px rgba(45, 44, 44, 0.1294117647);
 }
 .block.page_photo .photo_albums > div > div {
   padding: 24px 30px;

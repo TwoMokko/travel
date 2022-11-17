@@ -32,6 +32,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
+<!--							<span class = "more">Подробнее ⟶</span>-->
                             <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
                             <input type = "button" value = "Поехать">
                         </div>
