@@ -812,18 +812,18 @@ input[type=text] {
   height: 12rem;
   background-color: #a9a9a9;
 }
-.block.page_photo {
+.page_photo {
   padding-top: 120px;
   color: #ffffff;
 }
-.block.page_photo .photo_albums {
+.page_photo .photo_albums {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2%;
   grid-auto-rows: minmax(300px, auto);
   padding-bottom: 70px;
 }
-.block.page_photo .photo_albums > div {
+.page_photo .photo_albums > div {
   overflow: hidden;
   margin-bottom: 50px;
   background-color: #a9a9a9;
@@ -833,11 +833,82 @@ input[type=text] {
   display: flex;
   align-items: end;
 }
-.block.page_photo .photo_albums > div:hover {
+.page_photo .photo_albums > div:hover {
   box-shadow: 0 0 9px 2px rgba(45, 44, 44, 0.1294117647);
 }
-.block.page_photo .photo_albums > div > div {
+.page_photo .photo_albums > div > div {
   padding: 24px 30px;
+}
+
+.page_one_tour .about_tour {
+  display: flex;
+  padding: 120px 10%;
+}
+.page_one_tour .about_tour > div:first-child {
+  width: 60%;
+  margin-right: 10%;
+}
+.page_one_tour .about_tour > div:last-child {
+  width: 40%;
+  display: flex;
+}
+.page_one_tour .tour_video {
+  text-align: center;
+  padding: 100px;
+  background-position: center;
+  background-image: url("pic/adventure.jpg");
+  background-size: cover;
+}
+.page_one_tour .tour_video > div {
+  background-position: center;
+  background-image: url("pic/about_play.png");
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: 90px;
+  display: inline-block;
+  width: 100px;
+  cursor: pointer;
+  transition: background-size 200ms ease;
+}
+.page_one_tour .tour_video > div:hover {
+  background-size: 100px;
+}
+.page_one_tour .tour_price {
+  padding: 120px 10%;
+}
+.page_one_tour .tour_price > div:first-child {
+  padding-bottom: 16px;
+  color: #a9a9a9;
+}
+.page_one_tour .tour_price > div:last-child {
+  display: flex;
+}
+.page_one_tour .tour_price > div:last-child > div {
+  width: 50%;
+}
+.page_one_tour .tour_price > div:last-child > div > div:first-child {
+  color: darkgray;
+  font-family: Intro, sans-serif;
+}
+.page_one_tour .list {
+  padding: 32px 0 0 32px;
+}
+.page_one_tour .list > div {
+  display: flex;
+}
+.page_one_tour .list > div > div:last-child {
+  padding-left: 10px;
+}
+.page_one_tour .about_mini > div {
+  width: 50%;
+}
+.page_one_tour .about_mini > div > div:first-child {
+  padding-bottom: 20px;
+}
+.page_one_tour .about_mini > div > div:last-child {
+  color: darkgray;
+  font-family: Intro, sans-serif;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

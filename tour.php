@@ -21,8 +21,62 @@
 
     function Main(): void {
         ?><div class = "block page_one_tour">
-			<div class = "about_tour"></div>
-			<div class = "tour_price"></div>
+			<div class = "about_tour block p">
+				<div>Ольхон - самый большой остров на озере Байкал. Протяженность около 80 км и ширина 15 км.
+					Именно в новогодние праздники из года в год Байкал застывает в прозрачный лёд.</div>
+				<div class = "about_mini">
+					<div>
+						<div>Стоимость</div>
+						<div>25 000 ₽</div>
+					</div>
+					<div>
+						<div>Длительность</div>
+						<div>7 дней</div>
+					</div>
+				</div>
+			</div>
+			<div class = "tour_video">
+				<div></div>
+			</div>
+			<div class = "tour_price block p">
+				<div>Что входит в стоимость</div>
+				<div>
+					<div>
+						<div>Цена 25 000 ₽ включает:</div>
+						<div class = "list">
+							<div>
+								<div>-</div>
+								<div>Трансфер с места сбора и обратно</div>
+							</div>
+							<div>
+								<div>-</div>
+								<div>Питание</div>
+							</div>
+							<div>
+								<div>-</div>
+								<div>Проживание в домике</div>
+							</div>
+							<div>
+								<div>-</div>
+								<div>Обслуживание по программе</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div>Дополнительные расходы:</div>
+						<div class = "list">
+							<div>
+								<div>-</div>
+								<div>Билет на самолет/поезд до места встречи группы в Иркутске</div>
+							</div>
+							<div>
+								<div>-</div>
+								<div>Карманные расходы</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class = "tour_take_things"></div>
 			<div class = "tour_program block p">
 				<div class = "map"></div>
@@ -64,7 +118,6 @@
 					</div>
 				</div>
 			</div>
-			<div class = "tour_video"></div>
 			<div class = "tour_dates"></div>
 			<div class = "tour_photo"></div>
 			<div class = "tour_form"></div>
