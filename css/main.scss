@@ -702,6 +702,32 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			}
 		}
 	}
+
+	.tour_take_things {
+		padding: 120px 0 120px 0;
+		> div {
+			&:first-child { color: darkgray; font-family: Intro, sans-serif; padding-bottom: 50px; }
+			&:last-child {
+				display: grid; grid-row-gap: 1rem;
+				> div {
+					&:nth-of-type(1) { grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 4; }
+					&:nth-of-type(2) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2; }
+					&:nth-of-type(3) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3; }
+					&:nth-of-type(4) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4; }
+					> div {
+						&:first-child { font-size: 1.3rem; padding-bottom: 0.5rem; }
+						&:last-child {
+							display: flex; flex-direction: column; align-items: start;
+							> label {
+								padding: 0.2rem 0;
+								> input { margin-right: 16px; }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 

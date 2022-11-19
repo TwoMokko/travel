@@ -910,5 +910,56 @@ input[type=text] {
   font-family: Intro, sans-serif;
   font-size: 1.5rem;
 }
+.page_one_tour .tour_take_things {
+  padding: 120px 0 120px 0;
+}
+.page_one_tour .tour_take_things > div:first-child {
+  color: darkgray;
+  font-family: Intro, sans-serif;
+  padding-bottom: 50px;
+}
+.page_one_tour .tour_take_things > div:last-child {
+  display: grid;
+  grid-row-gap: 1rem;
+}
+.page_one_tour .tour_take_things > div:last-child > div:nth-of-type(1) {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.page_one_tour .tour_take_things > div:last-child > div:nth-of-type(2) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.page_one_tour .tour_take_things > div:last-child > div:nth-of-type(3) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.page_one_tour .tour_take_things > div:last-child > div:nth-of-type(4) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.page_one_tour .tour_take_things > div:last-child > div > div:first-child {
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+}
+.page_one_tour .tour_take_things > div:last-child > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.page_one_tour .tour_take_things > div:last-child > div > div:last-child > label {
+  padding: 0.2rem 0;
+}
+.page_one_tour .tour_take_things > div:last-child > div > div:last-child > label > input {
+  margin-right: 16px;
+}
 
 /*# sourceMappingURL=main.css.map */

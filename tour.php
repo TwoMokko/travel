@@ -77,7 +77,6 @@
 					</div>
 				</div>
 			</div>
-			<div class = "tour_take_things"></div>
 			<div class = "tour_program block p">
 				<div class = "map"></div>
 				<div class = "days">
@@ -118,8 +117,62 @@
 					</div>
 				</div>
 			</div>
-			<div class = "tour_dates"></div>
-			<div class = "tour_photo"></div>
-			<div class = "tour_form"></div>
+            <div class = "tour_take_things block p">
+                <div>Что взять с собой</div>
+                <div>
+                    <div>
+                        <div>Одежда</div>
+                        <div>
+                            <label><input type = "checkbox">Термобелье</label>
+                            <label><input type = "checkbox">Футболки</label>
+                            <label><input type = "checkbox">Штаны</label>
+                            <label><input type = "checkbox">Флисовая кофта</label>
+                            <label><input type = "checkbox">Мембранная куртка</label>
+                            <label><input type = "checkbox">Шапка, перчатки</label>
+                            <label><input type = "checkbox">Носки для треккинга</label>
+                            <label><input type = "checkbox">Шерстяные носки</label>
+                            <label><input type = "checkbox">Чистая одежда</label>
+                            <label><input type = "checkbox">Треккинговые ботинки</label>
+                            <label><input type = "checkbox">Темные очки</label>
+                            <label><input type = "checkbox">Сланцы</label>
+                            <label><input type = "checkbox">Еще пункт</label>
+                            <label><input type = "checkbox">Еще пункт</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Предметы личной гигиены</div>
+                        <div>
+                            <label><input type = "checkbox">Гигиеническая помада</label>
+                            <label><input type = "checkbox">Зубная щетка, паста</label>
+                            <label><input type = "checkbox">Гель для душа, шампунь</label>
+                            <label><input type = "checkbox">Мочалка</label>
+                            <label><input type = "checkbox">Полотенце</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Документы</div>
+                        <div>
+                            <label><input type = "checkbox">Паспорт</label>
+                            <label><input type = "checkbox">Деньги ( карточка)</label>
+                            <label><input type = "checkbox">Телефон</label>
+                            <label><input type = "checkbox">Медицинская страховка</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Лекарства</div>
+                        <div>
+                            <label><input type = "checkbox">Крем от солнечного загара</label>
+                            <label><input type = "checkbox">Индивидуальные препараты</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class = "tour_dates block p"></div>
+			<div class = "tour_photo block p"></div>
+			<div class = "tour_form block p"></div>
+			<div class = "tour_other block p">
+                <div>Ближайшие путешествия</div>
+                <div></div>
+            </div>
         </div><?php
     }
