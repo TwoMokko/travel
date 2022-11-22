@@ -35,8 +35,13 @@
 					</div>
 				</div>
 			</div>
-			<div class = "tour_video">
-				<div></div>
+			<div class = "tour_video block p">
+				<div>
+					<div>Видео с путешествия</div>
+					<div>
+						<div></div>
+					</div>
+				</div>
 			</div>
 			<div class = "tour_price block p">
 				<div>Что входит в стоимость</div>
@@ -117,6 +122,20 @@
 					</div>
 				</div>
 			</div>
+			<div class = "tour_photo block p">
+				<div>Фотографии</div>
+				<div class = "tour_mini_photo">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div>
+					<input type = "button" value = "Смотреть">
+				</div>
+			</div>
             <div class = "tour_take_things block p">
                 <div>Что взять с собой</div>
                 <div>
@@ -168,7 +187,6 @@
                 </div>
             </div>
 			<div class = "tour_dates block p"></div>
-			<div class = "tour_photo block p"></div>
 			<div class = "tour_form block p"></div>
 			<div class = "tour_other block p">
                 <div>Ближайшие путешествия</div>
