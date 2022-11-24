@@ -624,6 +624,14 @@ input[type=text] {
 }
 .page_one_tour .tour_program {
   padding: 120px 0;
+}
+.page_one_tour .tour_program > div:first-child {
+  font-family: Intro, sans-serif;
+  text-align: center;
+  padding-bottom: 70px;
+  font-size: 1.5rem;
+}
+.page_one_tour .tour_program > div:last-child {
   display: flex;
 }
 .page_one_tour .tour_program .days > div {
@@ -800,27 +808,29 @@ input[type=text] {
   color: #365f41;
 }
 .page_one_adventure .adventure_other > div:last-child {
-  display: flex;
-}
-.page_one_adventure .adventure_other > div:last-child > div {
-  width: 32%;
-}
-.page_one_adventure .adventure_other > div:last-child > div:not(:last-child) {
-  margin-right: 2%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+  color: #ffffff;
 }
 .page_one_adventure .adventure_other > div:last-child > div > div:first-child {
-  height: 12rem;
   background-color: #a9a9a9;
   border-radius: 24px;
+  display: flex;
+  align-items: end;
+  cursor: pointer;
+  height: 150px;
 }
-.page_one_adventure .adventure_other > div:last-child > div > div:last-child {
-  padding-top: 24px;
+.page_one_adventure .adventure_other > div:last-child > div > div:first-child:hover {
+  box-shadow: 0 0 7px 0px rgba(45, 44, 44, 0.1294117647);
 }
-.page_one_adventure .adventure_other > div:last-child > div > div:last-child > div:first-child {
-  font-family: Intro, sans-serif;
-  font-size: 0.7rem;
-  padding-bottom: 16px;
+.page_one_adventure .adventure_other > div:last-child > div > div:first-child > div {
+  margin: auto;
+  text-align: center;
+  padding: 16px;
 }
+
 .page_photo {
   color: #ffffff;
 }
@@ -867,6 +877,8 @@ input[type=text] {
 .page_one_tour .tour_video > div > div:nth-of-type(1) {
   font-family: Intro, sans-serif;
   padding-bottom: 70px;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .page_one_tour .tour_video > div > div:nth-of-type(2) {
   text-align: center;
@@ -931,6 +943,8 @@ input[type=text] {
 .page_one_tour .tour_photo > div:first-child {
   font-family: Intro, sans-serif;
   padding-bottom: 70px;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .page_one_tour .tour_photo > div:last-child {
   text-align: center;
@@ -970,7 +984,9 @@ input[type=text] {
 }
 .page_one_tour .tour_take_things > div:first-child {
   font-family: Intro, sans-serif;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .page_one_tour .tour_take_things > div:last-child {
   display: grid;

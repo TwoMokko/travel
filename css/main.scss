@@ -523,7 +523,11 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 .page_one_tour {
 
 	.tour_program {
-		padding: 120px 0; display: flex;
+		padding: 120px 0;
+		> div {
+			&:first-child {  font-family: Intro, sans-serif; text-align: center; padding-bottom: 70px; font-size: 1.5rem; }
+			&:last-child { display: flex; }
+		}
 		.days > div {
 			display: flex;
 			> div {
@@ -624,21 +628,22 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 				}
 			}
 			&:last-child {
-				display: flex;
+				display: grid; grid-template-columns: repeat(4, 1fr); grid-column-gap: 2%; grid-row-gap: 2%; color: $color_white;
 				> div {
-					width: 32%;
-					&:not(:last-child) { margin-right: 2%; }
 					> div {
 						&:first-child {
-							height: 12rem; background-color: $color_gray; border-radius: 24px;
+							background-color: $color_gray; border-radius: 24px;
+							display: flex; align-items: end;  cursor: pointer; height: 150px;
+							&:hover { box-shadow: $box_shadow_white; }
+							> div { margin: auto; text-align: center; padding: 16px; }
 						}
-						&:last-child {
-							padding-top: 24px;
-							> div {
-								&:first-child { font-family: Intro, sans-serif; font-size: 0.7rem; padding-bottom: 16px; }
-								&:last-child {}
-							}
-						}
+						//&:last-child {
+						//	padding-top: 24px;
+						//	> div {
+						//		&:first-child { font-family: Intro, sans-serif; font-size: 0.7rem; padding-bottom: 16px; }
+						//		&:last-child {}
+						//	}
+						//}
 					}
 				}
 			}
@@ -672,7 +677,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 		> div {
 			padding-top: 120px; padding-bottom: 120px;
 			> div {
-				&:nth-of-type(1) { font-family: Intro, sans-serif; padding-bottom: 70px; }
+				&:nth-of-type(1) { font-family: Intro, sans-serif; padding-bottom: 70px; text-align: center; font-size: 1.5rem; }
 				&:nth-of-type(2) {
 					text-align: center; padding: 180px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
 					> div {
@@ -725,7 +730,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	.tour_photo {
 		padding: 120px 0 120px 0;
 		> div {
-			&:first-child { font-family: Intro, sans-serif; padding-bottom: 70px; }
+			&:first-child { font-family: Intro, sans-serif; padding-bottom: 70px; text-align: center; font-size: 1.5rem; }
 			&:last-child { text-align: center; padding-top: 70px; }
 		}
 	}
@@ -749,7 +754,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 	.tour_take_things {
 		padding: 120px 0 120px 0;
 		> div {
-			&:first-child { font-family: Intro, sans-serif; padding-bottom: 50px; }
+			&:first-child { font-family: Intro, sans-serif; padding-bottom: 70px; text-align: center; font-size: 1.5rem; }
 			&:last-child {
 				display: grid; grid-row-gap: 1rem;
 				> div {
