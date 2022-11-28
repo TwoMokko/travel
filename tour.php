@@ -37,7 +37,7 @@
 			</div>
 			<div class = "tour_video block p">
 				<div>
-					<div>Видео с путешествия</div>
+					<div class = "header">Видео с путешествия</div>
 					<div>
 						<div></div>
 					</div>
@@ -83,7 +83,7 @@
 				</div>
 			</div>
 			<div class = "tour_program block p">
-				<div>Маршрут</div>
+				<div class = "header">Маршрут</div>
 				<div>
 					<div class = "map"></div>
 					<div class = "days">
@@ -127,7 +127,7 @@
 
 			</div>
 			<div class = "tour_photo block p">
-				<div>Фотографии</div>
+				<div class = "header">Фотографии</div>
 				<div class = "tour_mini_photo">
 					<div></div>
 					<div></div>
@@ -141,7 +141,7 @@
 				</div>
 			</div>
             <div class = "tour_take_things block p">
-                <div>Что взять с собой</div>
+                <div class = "header">Что взять с собой</div>
                 <div>
                     <div>
                         <div>Одежда</div>
@@ -191,10 +191,77 @@
                 </div>
             </div>
 			<div class = "tour_dates block p"></div>
-			<div class = "tour_form block p"></div>
+			<div class = "tour_form block p">
+				<div class = "header">Оставить заявку</div>
+				<div>
+					<div>
+						<div></div>
+					</div>
+					<div>
+						<div>
+							<div>
+								<input type = "text" placeholder = "Имя*">
+							</div>
+							<div>
+								<input type = "text" placeholder = "Способ связи*">
+							</div>
+						</div>
+						<div>
+							<input placeholder = "Напишите сообщение или оставьте поле пустым">
+						</div>
+						<!--					<div>-->
+						<!--						<div>-->
+						<!--							<div>Выберите путешествие и дату</div>-->
+						<!--							<select class = "select_style">-->
+						<!--								<option>Байкал, остров Ольхон. 28 декабря - 6 января</option>-->
+						<!--								<option>Байкал, остров Ольхон. Аршан. 12 - 20 сентября</option>-->
+						<!--							</select>-->
+						<!--						</div>-->
+						<!--						<div>-->
+						<!--							<div>Количество человек</div>-->
+						<!--							<select class = "select_style">-->
+						<!--								<option>1</option>-->
+						<!--								<option>2</option>-->
+						<!--								<option>3</option>-->
+						<!--								<option>4</option>-->
+						<!--								<option>5</option>-->
+						<!--								<option>группа</option>-->
+						<!--							</select>-->
+						<!--						</div>-->
+						<!--					</div>-->
+						<div>
+							<input type = "button" value = "Оставить заявку">
+						</div>
+					</div>
+				</div>
+
+			</div>
 			<div class = "tour_other block p">
-                <div>Ближайшие путешествия</div>
-                <div></div>
+                <div>
+					<span onclick = " window.location.href = '/tours';">Другие путешествия</span>
+				</div>
+                <div class = "adventure_other_photo">
+					<div>
+						<div>
+							<div>Ликийская тропа, Каппадокия</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<div>Каракольские озера</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<div>Чулышманская долина</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<div>Название</div>
+						</div>
+					</div>
+				</div>
             </div>
         </div><?php
     }

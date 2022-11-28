@@ -17,9 +17,9 @@
 @mixin button_transparent { @include button(transparent, white, white); }
 
 @mixin button_border {
-	@include button(transparent, $color_main_green, $color_main_green);
+	@include button(transparent, $color_gray, $color_gray);
 	&:hover {
-		border: 2px solid #739878; color: #739878;
+		border: 2px solid $color_main_green; color: $color_main_green;
 	}
 }
 

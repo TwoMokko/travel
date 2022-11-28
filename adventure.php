@@ -36,7 +36,7 @@
                 <div>
                     <span onclick = " window.location.href = '/adventures';">Другие приключения</span>
                 </div>
-                <div>
+                <div class = "adventure_other_photo">
                     <div>
                         <div>
 							<div>Название</div>
