@@ -22,7 +22,7 @@
     function Main(): void {
         ?>
         <div class = "block page_tours p">
-            <div>Основные путешествия</div>
+            <div class = "header">Основные путешествия</div>
             <div class = "cards_tours">
                 <div>
                     <div></div>
@@ -33,7 +33,20 @@
                         <div>Цена</div>
                         <div>
 <!--							<span class = "more">Подробнее ⟶</span>-->
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
+							<input type = "button" value = "Поехать">
+                        </div>
+					</div>
+                </div>
+                <div>
+                    <div></div>
+					<div>
+                        <div>Дата</div>
+						<div>Название</div>
+						<div>Описание</div>
+                        <div>Цена</div>
+                        <div>
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -46,7 +59,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -59,7 +72,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -72,7 +85,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -85,7 +98,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -98,7 +111,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -111,7 +124,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -124,20 +137,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
                         <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
-                            <input type = "button" value = "Поехать">
-                        </div>
-					</div>
-                </div>
-                <div>
-                    <div></div>
-					<div>
-                        <div>Дата</div>
-						<div>Название</div>
-						<div>Описание</div>
-                        <div>Цена</div>
-                        <div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
                         </div>
 					</div>
@@ -145,7 +145,7 @@
             </div>
         </div>
         <div class = "block page_tours p">
-            <div>Индивидуальное сопровождение</div>
+            <div class = "header">Индивидуальное сопровождение</div>
             <div class = "cards_tours">
                 <div>
                     <div></div>
@@ -155,7 +155,7 @@
 						<div>Описание</div>
                         <div>Цена</div>
 						<div>
-                            <input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
                             <input type = "button" value = "Поехать">
 						</div>
 					</div>
@@ -168,7 +168,7 @@
 						<div>Описание</div>
 						<div>Цена</div>
 						<div>
-							<input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
 							<input type = "button" value = "Поехать">
 						</div>
 					</div>
@@ -181,7 +181,7 @@
 						<div>Описание</div>
 						<div>Цена</div>
 						<div>
-							<input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
 							<input type = "button" value = "Поехать">
 						</div>
 					</div>
@@ -189,7 +189,7 @@
             </div>
         </div>
         <div class = "block page_tours p">
-            <div>ВИП</div>
+            <div class = "header">ВИП</div>
             <div class = "cards_tours">
 				<div>
 					<div></div>
@@ -199,7 +199,7 @@
 						<div>Описание</div>
 						<div>Цена</div>
 						<div>
-							<input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
 							<input type = "button" value = "Поехать">
 						</div>
 					</div>
@@ -212,7 +212,7 @@
 						<div>Описание</div>
 						<div>Цена</div>
 						<div>
-							<input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
 							<input type = "button" value = "Поехать">
 						</div>
 					</div>
@@ -220,7 +220,7 @@
             </div>
         </div>
 		<div class = "block page_tours p">
-			<div>Выходного дня</div>
+			<div class = "header">Выходного дня</div>
 			<div class = "cards_tours">
 				<div>
 					<div></div>
@@ -230,7 +230,7 @@
 						<div>Описание</div>
 						<div>Цена</div>
 						<div>
-							<input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
 							<input type = "button" value = "Поехать">
 						</div>
 					</div>
@@ -243,7 +243,7 @@
 						<div>Описание</div>
 						<div>Цена</div>
 						<div>
-							<input type = "button" value = "Подробнее" class = "border" class = "border" onclick = " window.location.href = '/tour';">
+							<a class = "button border" href = "/tour">Подробнее</a>
 							<input type = "button" value = "Поехать">
 						</div>
 					</div>

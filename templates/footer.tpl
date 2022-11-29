@@ -14,7 +14,7 @@
                         <div>+7-909-545-11-29</div>
                     </div>
                     <div>
-                        <div></div>
+						<a href = "/"></a>
                     </div>
                     <div>
                         <input type = "button" value = "Написать" class = "transparent">

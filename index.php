@@ -98,7 +98,8 @@
 						<div>Индивидуальное сопровождение</div>
 						<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
 						<div>
-							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">
+							<a class = "button" href = "/tours">Выбрать путешествие</a>
+<!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
 						</div>
 					</div>
 				</div>
@@ -109,7 +110,7 @@
                 <div>Наши приключения</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
-                <input type = "button" value = "Читать" class = "transparent" onclick = " window.location.href = '/adventures';">
+				<a class = "button transparent" href = "/adventures">Читать</a>
             </div>
         </div>
 		<div class = "block photo p">
@@ -133,7 +134,7 @@
 				</div>
 			</div>
 			<div>
-				<input type = "button" value = "Перейти к альбомам" onclick = " window.location.href = '/photo';">
+				<a class = "button" href = "/photo">Перейти к альбомам</a>
 			</div>
 		</div>
 		<div class = "block form p">

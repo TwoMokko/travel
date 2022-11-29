@@ -24,31 +24,31 @@ function Main(): void {
     ?><div class = "block page_photo p">
         <div></div>
         <div class = "photo_albums">
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Ак-туру</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Байкал</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Чулышманская долина</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Дагестан</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Каракольские озера</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Каппадокия</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Карелия</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Телецкое озеро</div>
 			</div>
-			<div>
+			<div onclick = " window.location.href = '/photoalbum';">
 				<div>Походы выходного дня</div>
 			</div>
 		</div>

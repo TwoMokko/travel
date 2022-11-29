@@ -29,7 +29,7 @@ function Main(): void {
 					<div>Происшествие на грибах</div>
 					<div>Спускались мы с Каменных грибов и натолкнулись на одну девушку, которая "застряла" на полпути.</div>
 					<div>
-                        <span onclick = " window.location.href = '/adventure';">Читать дальше</span>
+                        <a href = "/adventure">Читать дальше</a>
                     </div>
 				</div>
             </div>
@@ -39,7 +39,7 @@ function Main(): void {
 					<div>Байкальские байки</div>
 					<div>Однажды во время поездки на Байкал произошла такая вот история. Пошли прогуляться мы до такого-то места, а по пути нам встретилась необычная компания. Мы разговорились.</div>
                     <div>
-                        <span onclick = " window.location.href = '/adventure';">Читать дальше</span>
+						<a href = "/adventure">Читать дальше</a>
                     </div>
 				</div>
             </div>
@@ -49,7 +49,7 @@ function Main(): void {
 					<div>Зеленые тапочки</div>
 					<div>Из путешествий часто привозят различные сувениры. Обычно их покупают в лавках. Этот сувенир необычным образом оказался у нас.</div>
                     <div>
-                        <span onclick = " window.location.href = '/adventure';">Читать дальше</span>
+						<a href = "/adventure">Читать дальше</a>
                     </div>
 				</div>
             </div>
@@ -59,7 +59,7 @@ function Main(): void {
 					<div>Чую на чуе ночую</div>
 					<div>В пути случаеются разные ситуации, которые немного сдвигают планы. Так произошло и в той-то поездке. Нам пришлось искать ночлег, не доехав до забронированных домиков на базе.</div>
                     <div>
-                        <span onclick = " window.location.href = '/adventure';">Читать дальше</span>
+						<a href = "/adventure">Читать дальше</a>
                     </div>
 				</div>
             </div>
@@ -69,7 +69,7 @@ function Main(): void {
 					<div>Рыбья удача</div>
 					<div>Описание</div>
                     <div>
-                        <span onclick = " window.location.href = '/adventure';">Читать дальше</span>
+						<a href = "/adventure">Читать дальше</a>
                     </div>
 				</div>
             </div>

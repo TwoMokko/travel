@@ -137,7 +137,7 @@
 					<div></div>
 				</div>
 				<div>
-					<input type = "button" value = "Смотреть альбом">
+					<a class = "button" href = "/photoalbum" >Смотреть альбом</a>
 				</div>
 			</div>
             <div class = "tour_take_things block p">
@@ -207,7 +207,7 @@
 							</div>
 						</div>
 						<div>
-							<input placeholder = "Напишите сообщение или оставьте поле пустым">
+							<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
 						</div>
 						<!--					<div>-->
 						<!--						<div>-->
