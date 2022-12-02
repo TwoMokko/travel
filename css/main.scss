@@ -493,10 +493,19 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 //	}
 //}
 
+.relative_tours { position: relative; }
+
 .block.page_tours {
 	> div:first-child { text-align: center; font-family: Intro, sans-serif; padding-bottom: 70px; }
 	&:first-child { padding-top: 120px; }
 	padding-bottom: 190px;
+}
+
+.navigation_tour {
+	> div {
+		background-color: $color_main_green; height: 2rem; width: 2rem; color: $color_white; border-radius: 0 24px 24px 0; cursor: pointer;
+		&:not(:last-child) { margin-bottom: 0.5rem; }
+	}
 }
 
 .cards_tours {

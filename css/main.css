@@ -577,6 +577,10 @@ input[type=text] {
   text-align: center;
 }
 
+.relative_tours {
+  position: relative;
+}
+
 .block.page_tours {
   padding-bottom: 190px;
 }
@@ -587,6 +591,18 @@ input[type=text] {
 }
 .block.page_tours:first-child {
   padding-top: 120px;
+}
+
+.navigation_tour > div {
+  background-color: #365f41;
+  height: 2rem;
+  width: 2rem;
+  color: #ffffff;
+  border-radius: 0 24px 24px 0;
+  cursor: pointer;
+}
+.navigation_tour > div:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .cards_tours {
