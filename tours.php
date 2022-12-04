@@ -23,14 +23,14 @@
         ?>
         <div class = "relative_tours">
             <div class = "navigation_tour">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
+                <div><a href = "#major_travel">Основные путешествия</a></div>
+                <div><a href = "#individual_support">Индивидуальное сопровождение</a></div>
+                <div><a href = "#VIP">ВИП</a></div>
+                <div><a href = "#weekend_tour">Выходного дня</a></div>
             </div>
             <div>
                 <div class = "block page_tours p">
-                    <div class = "header">Основные путешествия</div>
+                    <div class = "header" id = "major_travel">Основные путешествия</div>
                     <div class = "cards_tours">
                         <div>
                             <div></div>
@@ -153,7 +153,7 @@
                     </div>
                 </div>
                 <div class = "block page_tours p">
-                    <div class = "header">Индивидуальное сопровождение</div>
+                    <div class = "header" id = "individual_support">Индивидуальное сопровождение</div>
                     <div class = "cards_tours">
                         <div>
                             <div></div>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <div class = "block page_tours p">
-                    <div class = "header">ВИП</div>
+                    <div class = "header" id = "VIP">ВИП</div>
                     <div class = "cards_tours">
                         <div>
                             <div></div>
@@ -228,7 +228,7 @@
                     </div>
                 </div>
                 <div class = "block page_tours p">
-                    <div class = "header">Выходного дня</div>
+                    <div class = "header" id = "weekend_tour">Выходного дня</div>
                     <div class = "cards_tours">
                         <div>
                             <div></div>
@@ -261,7 +261,7 @@
             </div>
         </div>
         <script>
-            NavigationTour('.navigation_tour', 200, 20);
+            NavigationTour('.navigation_tour', 120, 50);
         </script>
         <?php
     }

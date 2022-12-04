@@ -5,7 +5,7 @@ function NavigationTour(selector: string, top_absolute: number, top_fixed: numbe
 
 	$document.on('scroll', Redraw);
 
-	function Redraw() {
+	function Redraw(): void {
 		let _top = $parent.offset().top;
 		let _scroll = $document.scrollTop();
 

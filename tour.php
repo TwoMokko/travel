@@ -146,46 +146,46 @@
                     <div>
                         <div>Одежда</div>
                         <div>
-                            <label><input type = "checkbox">Термобелье</label>
-                            <label><input type = "checkbox">Футболки</label>
-                            <label><input type = "checkbox">Штаны</label>
-                            <label><input type = "checkbox">Флисовая кофта</label>
-                            <label><input type = "checkbox">Мембранная куртка</label>
-                            <label><input type = "checkbox">Шапка, перчатки</label>
-                            <label><input type = "checkbox">Носки для треккинга</label>
-                            <label><input type = "checkbox">Шерстяные носки</label>
-                            <label><input type = "checkbox">Чистая одежда</label>
-                            <label><input type = "checkbox">Треккинговые ботинки</label>
-                            <label><input type = "checkbox">Темные очки</label>
-                            <label><input type = "checkbox">Сланцы</label>
-                            <label><input type = "checkbox">Еще пункт</label>
-                            <label><input type = "checkbox">Еще пункт</label>
+                            <label><input type = "checkbox"><span>Термобелье</span></label>
+                            <label><input type = "checkbox"><span>Футболки</span></label>
+                            <label><input type = "checkbox"><span>Штаны</span></label>
+                            <label><input type = "checkbox"><span>Флисовая кофта</span></label>
+                            <label><input type = "checkbox"><span>Мембранная куртка</span></label>
+                            <label><input type = "checkbox"><span>Шапка, перчатки</span></label>
+                            <label><input type = "checkbox"><span>Носки для треккинга</span></label>
+                            <label><input type = "checkbox"><span>Шерстяные носки</span></label>
+                            <label><input type = "checkbox"><span>Чистая одежда</span></label>
+                            <label><input type = "checkbox"><span>Треккинговые ботинки</span></label>
+                            <label><input type = "checkbox"><span>Темные очки</span></label>
+                            <label><input type = "checkbox"><span>Сланцы</span></label>
+                            <label><input type = "checkbox"><span>Еще пункт</span></label>
+                            <label><input type = "checkbox"><span>Еще пункт</span></label>
                         </div>
                     </div>
                     <div>
                         <div>Предметы личной гигиены</div>
                         <div>
-                            <label><input type = "checkbox">Гигиеническая помада</label>
-                            <label><input type = "checkbox">Зубная щетка, паста</label>
-                            <label><input type = "checkbox">Гель для душа, шампунь</label>
-                            <label><input type = "checkbox">Мочалка</label>
-                            <label><input type = "checkbox">Полотенце</label>
+                            <label><input type = "checkbox"><span>Гигиеническая помада</span></label>
+                            <label><input type = "checkbox"><span>Зубная щетка, паста</span></label>
+                            <label><input type = "checkbox"><span>Гель для душа, шампунь</span></label>
+                            <label><input type = "checkbox"><span>Мочалка</span></label>
+                            <label><input type = "checkbox"><span>Полотенце</span></label>
                         </div>
                     </div>
                     <div>
                         <div>Документы</div>
                         <div>
-                            <label><input type = "checkbox">Паспорт</label>
-                            <label><input type = "checkbox">Деньги ( карточка)</label>
-                            <label><input type = "checkbox">Телефон</label>
-                            <label><input type = "checkbox">Медицинская страховка</label>
+                            <label><input type = "checkbox"><span>Паспорт</span></label>
+                            <label><input type = "checkbox"><span>Деньги (карточка)</span></label>
+                            <label><input type = "checkbox"><span>Телефон</span></label>
+                            <label><input type = "checkbox"><span>Медицинская страховка</span></label>
                         </div>
                     </div>
                     <div>
                         <div>Лекарства</div>
                         <div>
-                            <label><input type = "checkbox">Крем от солнечного загара</label>
-                            <label><input type = "checkbox">Индивидуальные препараты</label>
+                            <label><input type = "checkbox"><span>Крем от солнечного загара</span></label>
+                            <label><input type = "checkbox"><span>Индивидуальные препараты</span></label>
                         </div>
                     </div>
                 </div>
@@ -241,26 +241,10 @@
 					<span onclick = " window.location.href = '/tours';">Другие путешествия</span>
 				</div>
                 <div class = "adventure_other_photo">
-					<div>
-						<div>
-							<div>Ликийская тропа, Каппадокия</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<div>Каракольские озера</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<div>Чулышманская долина</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<div>Название</div>
-						</div>
-					</div>
+                    <a href = "/tour">Ликийская тропа, Каппадокия</a>
+                    <a href = "/tour">Каракольские озера</a>
+                    <a href = "/tour">Чулышманская долина</a>
+                    <a href = "/tour">Название</a>
 				</div>
             </div>
         </div><?php
