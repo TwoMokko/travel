@@ -43,5 +43,9 @@ function Main(): void {
 			<div></div>
 			<div></div>
 		</div>
-	</div><?php
+	</div>
+    <script>
+        $(() => ScrollTop('main'));
+    </script>
+    <?php
 }

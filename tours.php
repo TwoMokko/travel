@@ -262,6 +262,7 @@
         </div>
         <script>
             NavigationTour('.navigation_tour', 120, 50);
+            $(() => ScrollTop('main'));
         </script>
         <?php
     }

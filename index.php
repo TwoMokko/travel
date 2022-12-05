@@ -185,7 +185,11 @@
 					<div class = "form_photo"></div>
 				</div>
 			</div>
-		</div><?php
+		</div>
+        <script>
+            $(() => ScrollTop('main'));
+        </script>
+        <?php
 	}
 
 

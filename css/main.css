@@ -101,6 +101,27 @@ input[type=text] {
   outline: none;
 }
 
+.hide {
+  display: none !important;
+}
+
+.arrow_top {
+  position: fixed;
+  bottom: 70px;
+  right: 3%;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid #a9a9a9;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+.arrow_top:hover {
+  background-color: #a9a9a9;
+}
+
 .block.top {
   position: relative;
   display: flex;
@@ -756,7 +777,7 @@ input[type=text] {
 
 .block.page_about_us > div:not(:nth-of-type(2)) {
   display: flex;
-  padding: 5% 0;
+  padding: 5% 10%;
 }
 .block.page_about_us > div:nth-of-type(2) {
   padding: 100px;
@@ -779,7 +800,7 @@ input[type=text] {
   background-size: 100px;
 }
 .block.page_about_us .about_pic {
-  width: 40%;
+  width: 50%;
   height: 12rem;
   background-color: #a9a9a9;
 }

@@ -18,6 +18,13 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 //@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
 //@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((_font-size)); };
 
+.hide { display: none !important; }
+
+.arrow_top {
+	position: fixed; bottom: 70px; right: 3%; height: 48px; width: 48px; border-radius: 50%; display: inline-block; background-color: transparent; border: 2px solid $color_gray; cursor: pointer; transition: all 500ms ease;
+	&:hover { background-color: $color_gray; }
+}
+
 .block.top {
 	position: relative; display: flex;
 	> div {
@@ -596,7 +603,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 
 .block.page_about_us {
 	> div {
-		&:not(:nth-of-type(2)) { display: flex; padding: 5% 0; }
+		&:not(:nth-of-type(2)) { display: flex; padding: 5% 10%; }
 		&:nth-of-type(2) {
 			padding: 100px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
 			> div {
@@ -605,7 +612,7 @@ input[type="text"] { border: none; margin-bottom: 4px; padding: 15px 0; border-b
 			}
 		}
 	}
-	.about_pic { width: 40%; height: 12rem; background-color: $color_gray; }
+	.about_pic { width: 50%; height: 12rem; background-color: $color_gray; }
 	.about_text {
 		&:not(:last-child) { margin-right: 5%; }
 		&:last-child { margin-left: 5%; }

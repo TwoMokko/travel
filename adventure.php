@@ -44,5 +44,8 @@
                 </div>
             </div>
         </div>
-       <?php
+        <script>
+            $(() => ScrollTop('main'));
+        </script>
+        <?php
 	}

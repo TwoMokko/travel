@@ -52,5 +52,9 @@ function Main(): void {
 				<div>Походы выходного дня</div>
 			</div>
 		</div>
-    </div><?php
+    </div>
+    <script>
+        $(() => ScrollTop('main'));
+    </script>
+    <?php
 }

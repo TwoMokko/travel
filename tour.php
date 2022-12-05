@@ -247,5 +247,9 @@
                     <a href = "/tour">Название</a>
 				</div>
             </div>
-        </div><?php
+        </div>
+        <script>
+            $(() => ScrollTop('body'));
+        </script>
+        <?php
     }

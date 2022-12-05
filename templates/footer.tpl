@@ -24,7 +24,7 @@
                     <a href = "/">Главная</a>
                     <a href = "/tours">Путешествия</a>
                     <a href = "/about">О нас</a>
-                    <a href = "/adventures.php">Наши приключения</a>
+                    <a href = "/adventures">Наши приключения</a>
                     <a href = "/photo">Фотографии</a>
                 </div>
             </div>
