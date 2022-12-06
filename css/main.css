@@ -105,7 +105,15 @@ input[type=text] {
   display: none !important;
 }
 
+.show {
+  opacity: 1 !important;
+}
+
 .arrow_top {
+  background-image: url("pic/arrow/up/darkgray.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
   position: fixed;
   bottom: 70px;
   right: 3%;
@@ -116,10 +124,12 @@ input[type=text] {
   background-color: transparent;
   border: 2px solid #a9a9a9;
   cursor: pointer;
-  transition: all 500ms ease;
+  opacity: 0;
+  transition: background 500ms ease, opacity 500ms;
 }
 .arrow_top:hover {
   background-color: #a9a9a9;
+  background-image: url("pic/arrow/up/white.svg");
 }
 
 .block.top {
@@ -292,12 +302,12 @@ input[type=text] {
   padding-bottom: 6px;
   border: none;
   border-bottom: 2px solid #a9a9a9;
-  padding-right: 30px;
+  padding-right: 32px;
   appearance: none;
-  background-image: url("pic/arrow.png");
+  background-image: url("pic/arrow/down/darkgray.svg");
   background-repeat: no-repeat;
   background-position: right;
-  background-size: 15px;
+  background-size: 24px;
 }
 .block.check_tour div > form > div > div {
   color: #365f41;
@@ -405,29 +415,30 @@ input[type=text] {
 .block.photo .head_photo > div:nth-of-type(2) > div {
   color: #a9a9a9;
   border-radius: 50%;
-  border: 1px solid #a9a9a9;
   transition: all 500ms ease;
   height: 30px;
   width: 30px;
   text-align: center;
   cursor: pointer;
 }
-.block.photo .head_photo > div:nth-of-type(2) > div:hover {
-  color: #365f41;
-  border: 1px solid #365f41;
-}
 .block.photo .head_photo > div:nth-of-type(2) > div:first-child {
   margin-right: 5px;
-  background-image: url("pic/arrow_left.png");
+  background-image: url("pic/arrow/left/darkgray.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 15px;
+  background-size: 32px;
+}
+.block.photo .head_photo > div:nth-of-type(2) > div:first-child:hover {
+  background-image: url("pic/arrow/left/green.svg");
 }
 .block.photo .head_photo > div:nth-of-type(2) > div:last-child {
-  background-image: url("pic/arrow_right.png");
+  background-image: url("pic/arrow/right/darkgray.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 15px;
+  background-size: 32px;
+}
+.block.photo .head_photo > div:nth-of-type(2) > div:last-child:hover {
+  background-image: url("pic/arrow/right/green.svg");
 }
 .block.photo > div:nth-of-type(3) {
   text-align: center;
@@ -616,10 +627,26 @@ input[type=text] {
   padding-top: 70px;
 }
 
+.navigation_tour > div:nth-of-type(1) > a {
+  background-image: url("pic/major_travel.png");
+}
+.navigation_tour > div:nth-of-type(2) > a {
+  background-image: url("pic/individual_support.png");
+}
+.navigation_tour > div:nth-of-type(3) > a {
+  background-image: url("pic/vip.png");
+}
+.navigation_tour > div:nth-of-type(4) > a {
+  background-image: url("pic/weekend_tour.png");
+}
 .navigation_tour > div:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 .navigation_tour > div > a {
+  background-repeat: no-repeat;
+  background-size: 1.3rem;
+  background-position-y: center;
+  background-position-x: 0.2rem;
   display: inline-block;
   height: 2rem;
   padding-left: 2rem;
@@ -1072,14 +1099,20 @@ input[type=text] {
 }
 .page_one_tour .tour_take_things > div:last-child > div > div:last-child > label > input:checked + span:before {
   background-color: #365f41;
+  border: 1px solid #365f41;
+  background-image: url("pic/cheked.svg");
+  background-position: center;
+  background-size: 65%;
+  background-repeat: no-repeat;
 }
 .page_one_tour .tour_take_things > div:last-child > div > div:last-child > label > span:before {
   content: "";
-  background-color: #a9a9a9;
   height: 1rem;
   width: 1rem;
   display: inline-block;
   margin-right: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid #a9a9a9;
 }
 .page_one_tour .tour_other {
   padding: 120px 10%;

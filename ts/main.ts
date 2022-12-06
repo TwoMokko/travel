@@ -32,7 +32,7 @@ function ScrollTop(selector: string) {
 	function Redraw(): void {
 		let _top = $elem.offset().top;
 		let _scroll = $document.scrollTop();
-		(_top < _scroll) ? $button.removeClass('hide') : $button.addClass('hide');
+		(_top < _scroll) ? $button.addClass('show') : $button.removeClass('show');
 	}
 
 	Redraw();
