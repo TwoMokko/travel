@@ -33,7 +33,7 @@
                 </div>
                 <div class = "about_pic"></div>
             </div>
-            <div>
+            <div class = "play">
 				<div></div>
 			</div>
             <div class = "block p">
@@ -41,7 +41,17 @@
                     <div>Организатор</div>
                     <div>Ишмурзина Нина</div>
                     <div>Еще какой-то текст подлиннее, например, что-то немного о создании или о миссии или о ценностях</div>
-                </div>
+					<div class = "contact_person">
+						<div>
+							<div>Тел:</div>
+							<div>+7-909-545-11-29</div>
+						</div>
+						<div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				</div>
                 <div class = "about_pic"></div>
             </div>
             <div class = "block p">
@@ -50,7 +60,17 @@
                     <div>Должность</div>
                     <div>Меховников Сергей</div>
                     <div>Супер крутое описание человека которыей чем-то занимается в этой компании</div>
-                </div>
+					<div class = "contact_person">
+						<div>
+							<div>Тел:</div>
+							<div>+7-924-424-25-55</div>
+						</div>
+						<div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
         <script>

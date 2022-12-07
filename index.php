@@ -158,13 +158,15 @@
 					<div class = "form_text">
 						<div>Ишмурзина Нина</div>
 						<div>Организатор</div>
-						<div>
-							<div>Тел:</div>
-							<div>+7-909-545-11-29</div>
-						</div>
-						<div>
-							<div></div>
-							<div></div>
+						<div class = "contact_person">
+							<div>
+								<div>Тел:</div>
+								<div>+7-909-545-11-29</div>
+							</div>
+							<div>
+								<div></div>
+								<div></div>
+							</div>
 						</div>
 					</div>
 					<div class = "form_photo"></div>
@@ -173,13 +175,15 @@
 					<div class = "form_text">
 						<div>Меховникова Сергей</div>
 						<div>Должность</div>
-						<div>
-							<div>Тел:</div>
-							<div>+7-909-545-11-29</div>
-						</div>
-						<div>
-							<div></div>
-							<div></div>
+						<div class = "contact_person">
+							<div>
+								<div>Тел:</div>
+								<div>+7-924-424-25-55</div>
+							</div>
+							<div>
+								<div></div>
+								<div></div>
+							</div>
 						</div>
 					</div>
 					<div class = "form_photo"></div>

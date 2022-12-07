@@ -132,6 +132,33 @@ input[type=text] {
   background-image: url("pic/arrow/up/white.svg");
 }
 
+.play {
+  background-position: center;
+  background-image: url("pic/adventure.jpg");
+  background-size: cover;
+}
+.play > div {
+  background-position: center;
+  background-image: url("pic/about_play.png");
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: 90px;
+  display: inline-block;
+  width: 100px;
+  cursor: pointer;
+  transition: background-size 200ms ease;
+}
+.play > div:hover {
+  background-size: 100px;
+}
+
+.header {
+  font-family: Intro, sans-serif;
+  padding-bottom: 70px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .block.top {
   position: relative;
   display: flex;
@@ -504,33 +531,37 @@ input[type=text] {
 .block.form .form_text > div:nth-of-type(2) {
   margin-bottom: 14px;
 }
-.block.form .form_text > div:nth-of-type(3) {
+.block.form .form_photo {
+  background-color: #a9a9a9;
+  padding-right: 40%;
+  margin-bottom: 2%;
+}
+
+.contact_person {
+  color: #a9a9a9;
+}
+.contact_person > div:nth-of-type(1) {
   display: flex;
   margin-bottom: 14px;
 }
-.block.form .form_text > div:nth-of-type(3) > div:last-child {
+.contact_person > div:nth-of-type(1) > div:last-child {
   color: #2d2c2c;
 }
-.block.form .form_text > div:nth-of-type(4) {
+.contact_person > div:nth-of-type(2) {
   display: flex;
 }
-.block.form .form_text > div:nth-of-type(4) > div {
+.contact_person > div:nth-of-type(2) > div {
   width: 30px;
   height: 30px;
   background-size: 80%;
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.block.form .form_text > div:nth-of-type(4) > div:first-child {
+.contact_person > div:nth-of-type(2) > div:first-child {
   background-image: url("pic/form_vk.png");
 }
-.block.form .form_text > div:nth-of-type(4) > div:last-child {
+.contact_person > div:nth-of-type(2) > div:last-child {
   background-image: url("pic/form_whatsapp.png");
-}
-.block.form .form_photo {
-  background-color: #a9a9a9;
-  padding-right: 40%;
-  margin-bottom: 2%;
 }
 
 .block.footer {
@@ -808,28 +839,16 @@ input[type=text] {
 }
 .block.page_about_us > div:nth-of-type(2) {
   padding: 100px;
-  background-position: center;
-  background-image: url("pic/adventure.jpg");
-  background-size: cover;
-}
-.block.page_about_us > div:nth-of-type(2) > div {
-  background-position: center;
-  background-image: url("pic/about_play.png");
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: 90px;
-  display: inline-block;
-  width: 100px;
-  cursor: pointer;
-  transition: background-size 200ms ease;
-}
-.block.page_about_us > div:nth-of-type(2) > div:hover {
-  background-size: 100px;
 }
 .block.page_about_us .about_pic {
-  width: 50%;
+  flex: none;
+  width: 40%;
   height: 12rem;
   background-color: #a9a9a9;
+}
+.block.page_about_us .about_text {
+  display: flex;
+  flex-direction: column;
 }
 .block.page_about_us .about_text:not(:last-child) {
   margin-right: 5%;
@@ -849,6 +868,9 @@ input[type=text] {
   font-size: 0.8rem;
   line-height: 1.5rem;
   padding-bottom: 3%;
+}
+.block.page_about_us .about_text > div:nth-of-type(3) {
+  flex: auto;
 }
 .block.page_about_us .right_text {
   padding-left: 50%;
@@ -960,20 +982,6 @@ input[type=text] {
   background-image: url("pic/adventure.jpg");
   background-size: cover;
 }
-.page_one_tour .tour_video > div > div:nth-of-type(2) > div {
-  background-position: center;
-  background-image: url("pic/about_play.png");
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: 90px;
-  display: inline-block;
-  width: 100px;
-  cursor: pointer;
-  transition: background-size 200ms ease;
-}
-.page_one_tour .tour_video > div > div:nth-of-type(2) > div:hover {
-  background-size: 100px;
-}
 .page_one_tour .tour_price {
   padding: 120px 10%;
 }
@@ -1052,6 +1060,17 @@ input[type=text] {
 }
 .page_one_tour .tour_take_things {
   padding: 120px 10%;
+}
+.page_one_tour .tour_take_things > div:first-child {
+  display: flex;
+  justify-content: center;
+}
+.page_one_tour .tour_take_things > div:first-child > span {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  background-image: url("pic/print.svg");
 }
 .page_one_tour .tour_take_things > div:last-child {
   display: grid;
@@ -1243,13 +1262,6 @@ input[type=text] {
 }
 .photo_album > div:nth-of-type(18) {
   grid-area: r;
-}
-
-.header {
-  font-family: Intro, sans-serif;
-  padding-bottom: 70px;
-  text-align: center;
-  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

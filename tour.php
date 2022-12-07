@@ -38,7 +38,7 @@
 			<div class = "tour_video block p">
 				<div>
 					<div class = "header">Видео с путешествия</div>
-					<div>
+					<div class = "play">
 						<div></div>
 					</div>
 				</div>
@@ -141,7 +141,10 @@
 				</div>
 			</div>
             <div class = "tour_take_things block p">
-                <div class = "header">Что взять с собой</div>
+				<div>
+					<div class = "header">Что взять с собой</div>
+					<span class = "print"></span>
+				</div>
                 <div>
                     <div>
                         <div>Одежда</div>
