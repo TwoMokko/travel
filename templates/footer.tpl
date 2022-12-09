@@ -4,6 +4,9 @@
         ?><div class = "block footer">
             <div class = "block p">
                 <div>
+					<div>
+						<a href = "/"></a>
+					</div>
                     <div>
                         <div class = "contact">
                             <div></div>
@@ -14,10 +17,9 @@
                         <div>+7-909-545-11-29</div>
                     </div>
                     <div>
-						<a href = "/"></a>
-                    </div>
-                    <div>
-                        <input type = "button" value = "Написать" class = "transparent">
+                        <input type = "text" placeholder="Имя*" class = "footer_input">
+                        <input type = "text" placeholder="Способ связи*" class = "footer_input">
+                        <input type = "button" value = "Отправить" class = "semi_white">
                     </div>
                 </div>
                 <div  class = "footer_menu">

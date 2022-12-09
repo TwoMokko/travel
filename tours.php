@@ -32,230 +32,230 @@
                 <div class = "block page_tours p">
                     <div class = "header" id = "major_travel">Основные путешествия</div>
                     <div class = "cards_tours">
-                        <div>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
-                                <div>Описание</div>
-                                <div>Цена</div>
+                                <div>Ольхон - самый большой остров на озере Байкал. Протяженность около 80 км и ширина 15 км...</div>
+<!--                                <div>Цена</div>-->
                                 <div>
                                     <!--							<span class = "more">Подробнее ⟶</span>-->
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class = "block page_tours p">
                     <div class = "header" id = "individual_support">Индивидуальное сопровождение</div>
                     <div class = "cards_tours">
-                        <div>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class = "block page_tours p">
                     <div class = "header" id = "VIP">ВИП</div>
                     <div class = "cards_tours">
-                        <div>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class = "block page_tours p">
                     <div class = "header" id = "weekend_tour">Выходного дня</div>
                     <div class = "cards_tours">
-                        <div>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </a>
+                        <a href = "/tour">
                             <div></div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
                                 <div>Описание</div>
-                                <div>Цена</div>
+<!--                                <div>Цена</div>-->
                                 <div>
-                                    <a class = "button border" href = "/tour">Подробнее</a>
+<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
                                     <input type = "button" value = "Поехать">
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

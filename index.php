@@ -16,7 +16,7 @@
             <?php Top(); ?>
             <div>
                 <div>Авторские туры</div>
-                <div>iDa Travel</div>
+                <div>i Da Travel</div>
                 <div>Организуем путешествия
                     <br>на основе ваших пожеланий,
 					<br>а так же по подготовленным
@@ -38,13 +38,14 @@
 					<div>
 						<div>Выберите категорию</div>
 						<select>
+							<option>Основные путешествия</option>
 							<option>Индивидуальное сопровождение</option>
-							<option>Путешествия</option>
-							<option>Короткие путешествия</option>
+							<option>ВИП</option>
+							<option>Выходного дня</option>
 						</select>
 					</div>
 					<div>
-						<div>Выберите путешествие и дату</div>
+						<div>Выберите путешествие</div>
 						<select>
 							<option>Байкал, остров Ольхон. 28 декабря - 6 января</option>
 							<option>Чулышманская долина. 1-8 мая</option>
@@ -137,59 +138,59 @@
 				<a class = "button" href = "/photo">Перейти к альбомам</a>
 			</div>
 		</div>
-		<div class = "block form p">
-			<div class = "form_input">
-				<div>Связаться с нами</div>
-				<div>
-					<input type = "text" placeholder = "Имя*">
-				</div>
-				<div>
-					<input type = "text" placeholder = "Телефон*">
-				</div>
-				<div>
-					<input type = "text" placeholder = "E-mail">
-				</div>
-				<div>
-					<input type = "button" value = "Оставить заявку">
-				</div>
-			</div>
-			<div class = "form_contact">
-				<div>
-					<div class = "form_text">
-						<div>Ишмурзина Нина</div>
-						<div>Организатор</div>
-						<div class = "contact_person">
-							<div>
-								<div>Тел:</div>
-								<div>+7-909-545-11-29</div>
-							</div>
-							<div>
-								<div></div>
-								<div></div>
-							</div>
-						</div>
-					</div>
-					<div class = "form_photo"></div>
-				</div>
-				<div>
-					<div class = "form_text">
-						<div>Меховникова Сергей</div>
-						<div>Должность</div>
-						<div class = "contact_person">
-							<div>
-								<div>Тел:</div>
-								<div>+7-924-424-25-55</div>
-							</div>
-							<div>
-								<div></div>
-								<div></div>
-							</div>
-						</div>
-					</div>
-					<div class = "form_photo"></div>
-				</div>
-			</div>
-		</div>
+<!--		<div class = "block form p">-->
+<!--			<div class = "form_input">-->
+<!--				<div>Связаться с нами</div>-->
+<!--				<div>-->
+<!--					<input type = "text" placeholder = "Имя*">-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<input type = "text" placeholder = "Телефон*">-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<input type = "text" placeholder = "E-mail">-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<input type = "button" value = "Оставить заявку">-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class = "form_contact">-->
+<!--				<div>-->
+<!--					<div class = "form_text">-->
+<!--						<div>Ишмурзина Нина</div>-->
+<!--						<div>Организатор</div>-->
+<!--						<div class = "contact_person">-->
+<!--							<div>-->
+<!--								<div>Тел:</div>-->
+<!--								<div>+7-909-545-11-29</div>-->
+<!--							</div>-->
+<!--							<div>-->
+<!--								<div></div>-->
+<!--								<div></div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class = "form_photo"></div>-->
+<!--				</div>-->
+<!--				<div>-->
+<!--					<div class = "form_text">-->
+<!--						<div>Меховникова Сергей</div>-->
+<!--						<div>Должность</div>-->
+<!--						<div class = "contact_person">-->
+<!--							<div>-->
+<!--								<div>Тел:</div>-->
+<!--								<div>+7-924-424-25-55</div>-->
+<!--							</div>-->
+<!--							<div>-->
+<!--								<div></div>-->
+<!--								<div></div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class = "form_photo"></div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
         <script>
             $(() => ScrollTop('main'));
         </script>

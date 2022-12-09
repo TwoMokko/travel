@@ -8,13 +8,17 @@
 
 
 @mixin button_solid {
-	@include button($color_main_green, $color_main_green, white); transition: all 500ms ease;
+	@include button($color_main_green, $color_main_green, $color_white); transition: all 500ms ease;
 	&:hover {
 		background: transparent; color: $color_main_green;
 	}
 }
 
-@mixin button_transparent { @include button(transparent, white, white); }
+@mixin button_transparent { @include button(transparent, $color_white, $color_white); }
+@mixin button_semi_white {
+	@include button(transparent, $color_semi_white, $color_semi_white);
+	&:hover { @include button_transparent; }
+}
 
 @mixin button_border {
 	@include button(transparent, $color_gray, $color_gray);
