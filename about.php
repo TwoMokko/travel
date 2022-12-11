@@ -21,7 +21,7 @@
 
 
     function Main(): void {
-        ?><div class = "block page_about_us">
+        ?><div class = "page_about_us">
             <div class = "about_header block p">
                 <div class = "about_text">
                     <div>что-то</div>
@@ -33,9 +33,11 @@
                 </div>
                 <div class = "about_pic"></div>
             </div>
+            <div class = "block p"">
             <div class = "play">
-				<div></div>
-			</div>
+                <div></div>
+            </div>
+            </div>
             <div class = "block p">
                 <div class = "about_text">
                     <div>Организатор</div>

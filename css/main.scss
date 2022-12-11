@@ -35,8 +35,9 @@ input[type="text"] {
 	&:hover { background-color: $color_gray; background-image: url("pic/arrow/up/white.svg"); }
 }
 
+
 .play {
-	background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
+	background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; text-align: center; padding: 180px;
 	> div {
 		background-position: center; background-image: url("pic/about_play.png"); height: 100px; background-repeat: no-repeat; background-size: 90px; display: inline-block; width: 100px; cursor: pointer; transition: background-size 200ms ease;
 		&:hover { background-size: 100px; }
@@ -646,10 +647,10 @@ input[type="text"] {
 	}
 }
 
-.block.page_about_us {
+.page_about_us {
 	> div {
 		&:not(:nth-of-type(2)) { display: flex; padding: 5% 10%; }
-		&:nth-of-type(2) { padding: 100px; }
+		//&:nth-of-type(2) { padding: 100px; }
 		}
 	.about_pic { flex: none; width: 40%; height: 12rem; background-color: $color_gray; }
 	.about_text {
@@ -670,7 +671,7 @@ input[type="text"] {
 .page_one_adventure {
 
 	.adventure_text {
-		margin: -120px 0 120px; position: relative; background-color: $color_white; padding: 3rem 4rem;
+		margin: -120px 0 0; position: relative; background-color: $color_white; padding: 3rem 4rem;
 		> div {
 			&:first-child { margin-bottom: 2rem; }
 			&:last-child {
@@ -682,25 +683,46 @@ input[type="text"] {
 			}
 		}
 	}
-
-	.adventure_other {
-		margin-bottom: 120px;
-		> div {
-			&:first-child {
-				text-align: center; padding-bottom: 70px;
-				> span {
-					font-family: Intro, sans-serif; cursor: pointer; font-size: 1.5rem;
-					&:hover { color: $color_main_green; }
-				}
-			}
-			&:last-child {}
-		}
-	}
 }
 
-.adventure_other_photo {
-	display: grid; grid-template-columns: repeat(4, 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(150px, auto); align-content: center;
-	> a { background-color: $color_gray; color: $color_white; border-radius: 24px; display: flex; justify-content: center; align-items: center; cursor: pointer; padding: 1rem; text-align: center; text-decoration: none; }
+.other_publication {
+	margin: 120px 0;
+	> div {
+		&:first-child {
+			text-align: center; padding-bottom: 70px;
+			> span {
+				font-family: Intro, sans-serif; cursor: pointer; font-size: 1.5rem;
+				&:hover { color: $color_main_green; }
+			}
+		}
+		&:last-child {
+			display: grid; grid-template-columns: repeat(4, 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(150px, auto); align-content: center;
+			> a {
+				background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer; padding: 1rem; text-align: center; text-decoration: none; display: flex;
+				&:hover { box-shadow: $box_shadow_cards; }
+			}
+		}
+	}
+	&.other_adventure > div:last-child > a { justify-content: center; align-items: center; }
+	&.other_tour > div:last-child > a {
+		flex-direction: column;
+		> span {
+			&:nth-of-type(1) { flex: auto; display: flex; justify-content: center; }
+			&:nth-of-type(2) {
+				display: flex;
+				> span {
+					&:first-child {
+						border-radius: 12px; padding: 4px 8px;
+						&:after {
+							content: "₽";
+							font-size: 0.8rem; vertical-align: bottom;
+						}
+					}
+					&:last-child { flex: auto; font-size: 0.8rem; display: flex; align-items: end; justify-content: right; }
+				}
+			}
+		}
+	}
 }
 
 
@@ -730,7 +752,7 @@ input[type="text"] {
 			padding-top: 120px; padding-bottom: 120px;
 			> div {
 				&:nth-of-type(2) {
-					text-align: center; padding: 180px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
+					//text-align: center; padding: 180px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
 				}
 			}
 		}
@@ -835,16 +857,16 @@ input[type="text"] {
 		}
 	}
 
-	.tour_other {
-		padding: 120px 10%;
-		> div:first-child {
-			padding-bottom: 70px; text-align: center;
-			> span {
-				font-family: Intro, sans-serif; cursor: pointer; font-size: 1.5rem;
-				&:hover { color: $color_main_green; }
-			}
-		}
-	}
+	//.tour_other {
+	//	padding: 120px 10%;
+	//	> div:first-child {
+	//		padding-bottom: 70px; text-align: center;
+	//		> span {
+	//			font-family: Intro, sans-serif; cursor: pointer; font-size: 1.5rem;
+	//			&:hover { color: $color_main_green; }
+	//		}
+	//	}
+	//}
 
 	.tour_form {
 		padding: 120px 10%;

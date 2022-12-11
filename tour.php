@@ -143,7 +143,7 @@
             <div class = "tour_take_things block p">
 				<div>
 					<div class = "header">Что взять с собой</div>
-					<span class = "print"></span>
+					<span class = "print" title="распечатать"></span>
 				</div>
                 <div>
                     <div>
@@ -239,17 +239,26 @@
 				</div>
 
 			</div>
-			<div class = "tour_other block p">
-                <div>
-					<span onclick = " window.location.href = '/tours';">Другие путешествия</span>
-				</div>
-                <div class = "adventure_other_photo">
-                    <a href = "/tour">Ликийская тропа, Каппадокия</a>
-                    <a href = "/tour">Каракольские озера</a>
-                    <a href = "/tour">Чулышманская долина</a>
-                    <a href = "/tour">Название</a>
-				</div>
+            <div class = "block p">
+                <div class = "other_publication other_tour">
+                    <div>
+                        <span onclick = " window.location.href = '/tours';">Другие путешествия</span>
+                    </div>
+                    <div>
+                        <a href = "/tour">
+                            <span>Ликийская тропа, Каппадокия</span>
+                            <span>
+                                <span>25 000 </span>
+                                <span>Дата</span>
+                            </span>
+                        </a>
+                        <a href = "/tour">Каракольские озера</a>
+                        <a href = "/tour">Чулышманская долина</a>
+                        <a href = "/tour">Название</a>
+                    </div>
+                </div>
             </div>
+
         </div>
         <script>
             $(() => ScrollTop('body'));

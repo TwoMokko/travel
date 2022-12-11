@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: Intro;
   src: url("fonts/IntroDemo-BlackCAPS.otf");
@@ -173,6 +174,8 @@ input[type=text].footer_input::placeholder {
   background-position: center;
   background-image: url("pic/adventure.jpg");
   background-size: cover;
+  text-align: center;
+  padding: 180px;
 }
 .play > div {
   background-position: center;
@@ -876,51 +879,48 @@ input[type=text].footer_input::placeholder {
   color: #365f41;
 }
 
-.block.page_about_us > div:not(:nth-of-type(2)) {
+.page_about_us > div:not(:nth-of-type(2)) {
   display: flex;
   padding: 5% 10%;
 }
-.block.page_about_us > div:nth-of-type(2) {
-  padding: 100px;
-}
-.block.page_about_us .about_pic {
+.page_about_us .about_pic {
   flex: none;
   width: 40%;
   height: 12rem;
   background-color: #a9a9a9;
 }
-.block.page_about_us .about_text {
+.page_about_us .about_text {
   display: flex;
   flex-direction: column;
 }
-.block.page_about_us .about_text:not(:last-child) {
+.page_about_us .about_text:not(:last-child) {
   margin-right: 5%;
 }
-.block.page_about_us .about_text:last-child {
+.page_about_us .about_text:last-child {
   margin-left: 5%;
 }
-.block.page_about_us .about_text > div {
+.page_about_us .about_text > div {
   text-align: left;
 }
-.block.page_about_us .about_text > div:nth-of-type(1) {
+.page_about_us .about_text > div:nth-of-type(1) {
   color: #365f41;
   padding-bottom: 3%;
 }
-.block.page_about_us .about_text > div:nth-of-type(2) {
+.page_about_us .about_text > div:nth-of-type(2) {
   font-family: Intro, sans-serif;
   font-size: 0.8rem;
   line-height: 1.5rem;
   padding-bottom: 3%;
 }
-.block.page_about_us .about_text > div:nth-of-type(3) {
+.page_about_us .about_text > div:nth-of-type(3) {
   flex: auto;
 }
-.block.page_about_us .right_text {
+.page_about_us .right_text {
   padding-left: 50%;
 }
 
 .page_one_adventure .adventure_text {
-  margin: -120px 0 120px;
+  margin: -120px 0 0;
   position: relative;
   background-color: #ffffff;
   padding: 3rem 4rem;
@@ -940,39 +940,72 @@ input[type=text].footer_input::placeholder {
 .page_one_adventure .adventure_text > div:last-child > div:not(last-child) {
   margin-right: 2%;
 }
-.page_one_adventure .adventure_other {
-  margin-bottom: 120px;
+
+.other_publication {
+  margin: 120px 0;
 }
-.page_one_adventure .adventure_other > div:first-child {
+.other_publication > div:first-child {
   text-align: center;
   padding-bottom: 70px;
 }
-.page_one_adventure .adventure_other > div:first-child > span {
+.other_publication > div:first-child > span {
   font-family: Intro, sans-serif;
   cursor: pointer;
   font-size: 1.5rem;
 }
-.page_one_adventure .adventure_other > div:first-child > span:hover {
+.other_publication > div:first-child > span:hover {
   color: #365f41;
 }
-.adventure_other_photo {
+.other_publication > div:last-child {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 2%;
   grid-auto-rows: minmax(150px, auto);
   align-content: center;
 }
-.adventure_other_photo > a {
+.other_publication > div:last-child > a {
   background-color: #a9a9a9;
   color: #ffffff;
   border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   padding: 1rem;
   text-align: center;
   text-decoration: none;
+  display: flex;
+}
+.other_publication > div:last-child > a:hover {
+  box-shadow: 0 0 9px 2px rgba(45, 44, 44, 0.1294117647);
+}
+.other_publication.other_adventure > div:last-child > a {
+  justify-content: center;
+  align-items: center;
+}
+.other_publication.other_tour > div:last-child > a {
+  flex-direction: column;
+}
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(1) {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+}
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) {
+  display: flex;
+}
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:first-child {
+  border-radius: 12px;
+  padding: 4px 8px;
+}
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:first-child:after {
+  content: "₽";
+  font-size: 0.8rem;
+  vertical-align: bottom;
+}
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:last-child {
+  flex: auto;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: end;
+  justify-content: right;
 }
 
 .page_photo {
@@ -1017,13 +1050,6 @@ input[type=text].footer_input::placeholder {
 .page_one_tour .tour_video > div {
   padding-top: 120px;
   padding-bottom: 120px;
-}
-.page_one_tour .tour_video > div > div:nth-of-type(2) {
-  text-align: center;
-  padding: 180px;
-  background-position: center;
-  background-image: url("pic/adventure.jpg");
-  background-size: cover;
 }
 .page_one_tour .tour_price {
   padding: 120px 10%;
@@ -1175,21 +1201,6 @@ input[type=text].footer_input::placeholder {
   margin-right: 0.5rem;
   border-radius: 50%;
   border: 1px solid #a9a9a9;
-}
-.page_one_tour .tour_other {
-  padding: 120px 10%;
-}
-.page_one_tour .tour_other > div:first-child {
-  padding-bottom: 70px;
-  text-align: center;
-}
-.page_one_tour .tour_other > div:first-child > span {
-  font-family: Intro, sans-serif;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-.page_one_tour .tour_other > div:first-child > span:hover {
-  color: #365f41;
 }
 .page_one_tour .tour_form {
   padding: 120px 10%;
