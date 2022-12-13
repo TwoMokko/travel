@@ -111,7 +111,7 @@
                 <div>Наши приключения</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
-				<a class = "button transparent" href = "/adventures">Читать</a>
+				<a class = "button semi_white" href = "/adventures">Читать</a>
             </div>
         </div>
 		<div class = "block photo p">

@@ -194,47 +194,22 @@
                 </div>
             </div>
 			<div class = "tour_dates block p"></div>
-			<div class = "tour_form block p">
+			<div class = "tour_form">
 				<div class = "header">Оставить заявку</div>
 				<div>
 					<div>
-						<div></div>
+						<div>
+							<input type = "text" placeholder = "Имя*">
+						</div>
+						<div>
+							<input type = "text" placeholder = "Способ связи*">
+						</div>
 					</div>
 					<div>
-						<div>
-							<div>
-								<input type = "text" placeholder = "Имя*">
-							</div>
-							<div>
-								<input type = "text" placeholder = "Способ связи*">
-							</div>
-						</div>
-						<div>
-							<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
-						</div>
-						<!--					<div>-->
-						<!--						<div>-->
-						<!--							<div>Выберите путешествие и дату</div>-->
-						<!--							<select class = "select_style">-->
-						<!--								<option>Байкал, остров Ольхон. 28 декабря - 6 января</option>-->
-						<!--								<option>Байкал, остров Ольхон. Аршан. 12 - 20 сентября</option>-->
-						<!--							</select>-->
-						<!--						</div>-->
-						<!--						<div>-->
-						<!--							<div>Количество человек</div>-->
-						<!--							<select class = "select_style">-->
-						<!--								<option>1</option>-->
-						<!--								<option>2</option>-->
-						<!--								<option>3</option>-->
-						<!--								<option>4</option>-->
-						<!--								<option>5</option>-->
-						<!--								<option>группа</option>-->
-						<!--							</select>-->
-						<!--						</div>-->
-						<!--					</div>-->
-						<div>
-							<input type = "button" value = "Оставить заявку">
-						</div>
+						<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
+					</div>
+					<div>
+						<input type = "button" value = "Оставить заявку">
 					</div>
 				</div>
 
@@ -248,13 +223,31 @@
                         <a href = "/tour">
                             <span>Ликийская тропа, Каппадокия</span>
                             <span>
-                                <span>25 000 </span>
-                                <span>Дата</span>
+                                <span>1-10 октября</span>
+                                <span>65 000 </span>
                             </span>
                         </a>
-                        <a href = "/tour">Каракольские озера</a>
-                        <a href = "/tour">Чулышманская долина</a>
-                        <a href = "/tour">Название</a>
+                        <a href = "/tour">
+							<span>Каракольские озера</span>
+							<span>
+                                <span>24-30 июня</span>
+                                <span>40 000 </span>
+                            </span>
+						</a>
+                        <a href = "/tour">
+							<span>Чулышманская долина</span>
+							<span>
+                                <span>6-13 мая</span>
+                                <span>35 000 </span>
+                            </span>
+						</a>
+                        <a href = "/tour">
+							<span>Байкал, о. Ольхон, встреча Нового Года</span>
+							<span>
+                                <span>30 дек-5 янв</span>
+                                <span>33 000 </span>
+                            </span>
+						</a>
                     </div>
                 </div>
             </div>

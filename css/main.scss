@@ -206,7 +206,7 @@ input[type="text"] {
 					&:first-child { padding-bottom: 35%; background-color: $color_gray; border-radius: 24px; }
 					&:last-child {
 						> div {
-							padding-left: 4%;
+							padding-left: 8%;
 							&:nth-of-type(1) { font-family: Intro, sans-serif; padding-bottom: 30px; }
 							&:nth-of-type(2) { width: 400px; padding-bottom: 50px; }
 						}
@@ -427,31 +427,33 @@ input[type="text"] {
 
 .block.footer {
 	background-color: $color_main_green; color: $color_white;
-	> div > div {
-		display: flex;
-		&:first-child {
-			padding: 35px 0 20px; border-bottom: 1px solid $color_white;
-			> div {
-				&:nth-of-type(1) {
-					//flex: auto;
-					margin-right: 70px;
-					> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 70px; width: 70px; cursor: pointer; }
+	> div {
+		display: flex; padding: 120px 0 48px;
+		> div {
+			&:nth-of-type(1) {
+				> div:first-child {
+					margin-bottom: 32px;
+					> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 120px; width: 120px; cursor: pointer; }
 				}
-				&:nth-of-type(2) { margin: auto; }
-				&:nth-of-type(3) {  flex: auto; justify-content: right; display: flex; margin: auto; }
 			}
-		}
-		&:last-child {
-			justify-content: center; padding: 20px 0 35px;
-			> a {
-				color: $color_white; text-decoration: none;
-				&:hover { text-decoration: underline; }
-				&:not(:last-child) { margin-right: 30px; }
+			&:nth-of-type(2) {
+				flex: auto; display: flex; flex-direction: column; padding-left: 120px;
+				> div:not(:last-child) { margin-bottom: 16px; }
+				a {
+					color: $color_white; text-decoration: none;
+					&:hover { text-decoration: underline; }
+				}
+			}
+			&:nth-of-type(3) {
+				display: flex; flex-direction: column; width: 360px;
+				input { margin-bottom: 32px; padding: 8px 0; margin-right: 0; border-bottom: 2px solid $color_semi_white; }
 			}
 		}
 	}
+
+	.number { padding-bottom: 8px; }
 	.contact {
-		display: flex; padding-bottom: 5px;
+		display: flex;
 		> div {
 			width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
 			&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
@@ -461,6 +463,43 @@ input[type="text"] {
 			&:not(:last-child) { margin-right: 8px; }
 		}
 	}
+
+
+
+	//> div > div {
+	//	display: flex;
+	//	&:first-child {
+	//		padding: 35px 0 20px; border-bottom: 1px solid $color_white;
+	//		> div {
+	//			&:nth-of-type(1) {
+	//				//flex: auto;
+	//				margin-right: 70px;
+	//				> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 70px; width: 70px; cursor: pointer; }
+	//			}
+	//			&:nth-of-type(2) { margin: auto; }
+	//			&:nth-of-type(3) {  flex: auto; justify-content: right; display: flex; margin: auto; }
+	//		}
+	//	}
+		//&:last-child {
+		//	justify-content: center; padding: 20px 0 35px;
+		//	> a {
+		//		color: $color_white; text-decoration: none;
+		//		&:hover { text-decoration: underline; }
+		//		&:not(:last-child) { margin-right: 30px; }
+		//	}
+		//}
+	//}
+	//.contact {
+	//	display: flex; padding-bottom: 5px;
+	//	> div {
+	//		width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
+	//		&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
+	//		&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
+	//		&:nth-of-type(3) { background-image: url("pic/vk.png"); }
+	//		&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
+	//		&:not(:last-child) { margin-right: 8px; }
+	//	}
+	//}
 
 	//background-color: $color_main_green; color: white;
 	//> div {
@@ -570,9 +609,18 @@ input[type="text"] {
 		> div:last-child > div:nth-of-type(2) { color: $color_main_green; }
 		}
 		> div {
-			&:first-child { background-color: $color_gray; height: 200px; }
+			&:first-child {
+				background-color: $color_gray; height: 200px; display: flex; justify-content: right; align-items: flex-end;
+				> span {
+					padding: 16px 32px; color: $color_white;
+					&:after {
+						content: "₽";
+						font-size: 0.8rem; vertical-align: bottom;
+					}
+				}
+			}
 			&:last-child {
-				padding: 20px; display: flex; flex-direction: column;
+				padding: 24px; display: flex; flex-direction: column;
 				> div {
 					&:nth-of-type(1) { color: $color_gray; font-size: 0.8rem; }
 					&:nth-of-type(2) {
@@ -711,14 +759,13 @@ input[type="text"] {
 			&:nth-of-type(2) {
 				display: flex;
 				> span {
-					&:first-child {
-						border-radius: 12px; padding: 4px 8px;
+					&:last-child {
 						&:after {
 							content: "₽";
 							font-size: 0.8rem; vertical-align: bottom;
 						}
 					}
-					&:last-child { flex: auto; font-size: 0.8rem; display: flex; align-items: end; justify-content: right; }
+					&:first-child { flex: auto; font-size: 0.8rem; display: flex; align-items: end; }
 				}
 			}
 		}
@@ -847,7 +894,6 @@ input[type="text"] {
 								> span:before {
 									content: "";
 									height: 1rem; width: 1rem; display: inline-block; margin-right: 0.5rem; border-radius: 50%; border: 1px solid $color_gray;
-
 								}
 							}
 						}
@@ -869,33 +915,29 @@ input[type="text"] {
 	//}
 
 	.tour_form {
-		padding: 120px 10%;
-		//select { color: #757575; border: none; margin-bottom: 4px; padding: 15px 0; border-bottom: 1px solid darkgrey; background-color: transparent; outline: none; }
+		padding: 120px 10%; margin: 0 auto; background-image: url("pic/form_tour.jpg"); background-position: center;
 		> div {
+			margin: 0 15% 0 45%;
+			&:first-child {  }
 			&:last-child {
-				display: flex;
+				width: 40%;
 				> div {
-					&:first-child {
-						width: 50%; margin-right: 10%;
-						> div { background-color: $color_gray; border-radius: 24px; height: 100%; }
-					}
-					&:last-child {
-						width: 40%;
+					&:nth-of-type(1) {
+						display: flex;
 						> div {
-							//text-align: center;
-							&:nth-of-type(1) {
-								input { width: 100%; }
-							}
-							&:nth-of-type(2) {
-								margin-top: 32px; outline: 1px solid #a9a9a9; border-radius: 24px;
-								//> input { height: 120px; width: 100%; border: none; background-color: transparent; outline: none; }
-								> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: x-large; }
-							}
-							&:nth-of-type(3) {
-								margin-top: 50px;
-								> input { width: 100%; }
-							}
+							padding: 16px; background-color: $color_semi_white; border-radius: 24px; width: 48%;
+							&:not(:last-child) { margin-right: 4%; }
+							> input { width: 100%; padding: 0; margin: 0; border-bottom: none; }
 						}
+
+					}
+					&:nth-of-type(2) {
+						background-color: $color_semi_white; margin-top: 24px; border-radius: 24px;
+						> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: x-large; }
+					}
+					&:nth-of-type(3) {
+						margin-top: 50px;
+						> input { width: 100%; }
 					}
 				}
 			}

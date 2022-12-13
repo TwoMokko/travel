@@ -433,7 +433,7 @@ input[type=text].footer_input::placeholder {
   border-radius: 24px;
 }
 .block.tours > div > div:nth-of-type(3) > div:last-child > div {
-  padding-left: 4%;
+  padding-left: 8%;
 }
 .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
   font-family: Intro, sans-serif;
@@ -606,52 +606,55 @@ input[type=text].footer_input::placeholder {
   background-color: #365f41;
   color: #ffffff;
 }
-.block.footer > div > div {
+.block.footer > div {
   display: flex;
+  padding: 120px 0 48px;
 }
-.block.footer > div > div:first-child {
-  padding: 35px 0 20px;
-  border-bottom: 1px solid #ffffff;
+.block.footer > div > div:nth-of-type(1) > div:first-child {
+  margin-bottom: 32px;
 }
-.block.footer > div > div:first-child > div:nth-of-type(1) {
-  margin-right: 70px;
-}
-.block.footer > div > div:first-child > div:nth-of-type(1) > a {
+.block.footer > div > div:nth-of-type(1) > div:first-child > a {
   display: inline-block;
   background-image: url("pic/logo_travel.png");
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 70px;
-  width: 70px;
+  height: 120px;
+  width: 120px;
   cursor: pointer;
 }
-.block.footer > div > div:first-child > div:nth-of-type(2) {
-  margin: auto;
-}
-.block.footer > div > div:first-child > div:nth-of-type(3) {
+.block.footer > div > div:nth-of-type(2) {
   flex: auto;
-  justify-content: right;
   display: flex;
-  margin: auto;
+  flex-direction: column;
+  padding-left: 120px;
 }
-.block.footer > div > div:last-child {
-  justify-content: center;
-  padding: 20px 0 35px;
+.block.footer > div > div:nth-of-type(2) > div:not(:last-child) {
+  margin-bottom: 16px;
 }
-.block.footer > div > div:last-child > a {
+.block.footer > div > div:nth-of-type(2) a {
   color: #ffffff;
   text-decoration: none;
 }
-.block.footer > div > div:last-child > a:hover {
+.block.footer > div > div:nth-of-type(2) a:hover {
   text-decoration: underline;
 }
-.block.footer > div > div:last-child > a:not(:last-child) {
-  margin-right: 30px;
+.block.footer > div > div:nth-of-type(3) {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+.block.footer > div > div:nth-of-type(3) input {
+  margin-bottom: 32px;
+  padding: 8px 0;
+  margin-right: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5019607843);
+}
+.block.footer .number {
+  padding-bottom: 8px;
 }
 .block.footer .contact {
   display: flex;
-  padding-bottom: 5px;
 }
 .block.footer .contact > div {
   width: 30px;
@@ -762,9 +765,21 @@ input[type=text].footer_input::placeholder {
 .cards_tours > a > div:first-child {
   background-color: #a9a9a9;
   height: 200px;
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+}
+.cards_tours > a > div:first-child > span {
+  padding: 16px 32px;
+  color: #ffffff;
+}
+.cards_tours > a > div:first-child > span:after {
+  content: "₽";
+  font-size: 0.8rem;
+  vertical-align: bottom;
 }
 .cards_tours > a > div:last-child {
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
 }
@@ -991,21 +1006,16 @@ input[type=text].footer_input::placeholder {
 .other_publication.other_tour > div:last-child > a > span:nth-of-type(2) {
   display: flex;
 }
-.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:first-child {
-  border-radius: 12px;
-  padding: 4px 8px;
-}
-.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:first-child:after {
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:last-child:after {
   content: "₽";
   font-size: 0.8rem;
   vertical-align: bottom;
 }
-.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:last-child {
+.other_publication.other_tour > div:last-child > a > span:nth-of-type(2) > span:first-child {
   flex: auto;
   font-size: 0.8rem;
   display: flex;
   align-items: end;
-  justify-content: right;
 }
 
 .page_photo {
@@ -1204,31 +1214,40 @@ input[type=text].footer_input::placeholder {
 }
 .page_one_tour .tour_form {
   padding: 120px 10%;
+  margin: 0 auto;
+  background-image: url("pic/form_tour.jpg");
+  background-position: center;
+}
+.page_one_tour .tour_form > div {
+  margin: 0 15% 0 45%;
 }
 .page_one_tour .tour_form > div:last-child {
-  display: flex;
-}
-.page_one_tour .tour_form > div:last-child > div:first-child {
-  width: 50%;
-  margin-right: 10%;
-}
-.page_one_tour .tour_form > div:last-child > div:first-child > div {
-  background-color: #a9a9a9;
-  border-radius: 24px;
-  height: 100%;
-}
-.page_one_tour .tour_form > div:last-child > div:last-child {
   width: 40%;
 }
-.page_one_tour .tour_form > div:last-child > div:last-child > div:nth-of-type(1) input {
-  width: 100%;
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(1) {
+  display: flex;
 }
-.page_one_tour .tour_form > div:last-child > div:last-child > div:nth-of-type(2) {
-  margin-top: 32px;
-  outline: 1px solid #a9a9a9;
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(1) > div {
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  border-radius: 24px;
+  width: 48%;
+}
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  margin-right: 4%;
+}
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(1) > div > input {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(2) {
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  margin-top: 24px;
   border-radius: 24px;
 }
-.page_one_tour .tour_form > div:last-child > div:last-child > div:nth-of-type(2) > textarea {
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(2) > textarea {
   width: 90%;
   outline: none;
   -moz-appearance: none;
@@ -1240,10 +1259,10 @@ input[type=text].footer_input::placeholder {
   font-family: MoshitaMono, sans-serif;
   font-size: x-large;
 }
-.page_one_tour .tour_form > div:last-child > div:last-child > div:nth-of-type(3) {
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(3) {
   margin-top: 50px;
 }
-.page_one_tour .tour_form > div:last-child > div:last-child > div:nth-of-type(3) > input {
+.page_one_tour .tour_form > div:last-child > div:nth-of-type(3) > input {
   width: 100%;
 }
 

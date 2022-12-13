@@ -33,7 +33,9 @@
                     <div class = "header" id = "major_travel">Основные путешествия</div>
                     <div class = "cards_tours">
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>33 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -47,7 +49,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>12 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -60,7 +64,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>35 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -73,7 +79,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>45 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -86,7 +94,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>30 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -99,7 +109,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>40 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -112,7 +124,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>35 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -125,7 +139,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>18 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -138,7 +154,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>8 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -156,7 +174,9 @@
                     <div class = "header" id = "individual_support">Индивидуальное сопровождение</div>
                     <div class = "cards_tours">
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>45 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -169,7 +189,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>40 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -182,7 +204,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>55 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -200,7 +224,9 @@
                     <div class = "header" id = "VIP">ВИП</div>
                     <div class = "cards_tours">
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>75 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -213,7 +239,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>68 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -231,7 +259,9 @@
                     <div class = "header" id = "weekend_tour">Выходного дня</div>
                     <div class = "cards_tours">
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>5 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
@@ -244,7 +274,9 @@
                             </div>
                         </a>
                         <a href = "/tour">
-                            <div></div>
+                            <div>
+								<span>8 000 </span>
+							</div>
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
