@@ -219,39 +219,44 @@
                     <div>
                         <span onclick = " window.location.href = '/tours';">Другие путешествия</span>
                     </div>
-                    <div>
-                        <a href = "/tour">
-                            <span>Ликийская тропа, Каппадокия</span>
-                            <span>
+					<div>
+						<div class = "arrow_left"></div>
+						<div>
+							<a href = "/tour">
+								<span>Ликийская тропа, Каппадокия</span>
+								<span>
                                 <span>1-10 октября</span>
                                 <span>65 000 </span>
                             </span>
-                        </a>
-                        <a href = "/tour">
-							<span>Каракольские озера</span>
-							<span>
+							</a>
+							<a href = "/tour">
+								<span>Каракольские озера</span>
+								<span>
                                 <span>24-30 июня</span>
                                 <span>40 000 </span>
                             </span>
-						</a>
-                        <a href = "/tour">
-							<span>Чулышманская долина</span>
-							<span>
+							</a>
+							<a href = "/tour">
+								<span>Чулышманская долина</span>
+								<span>
                                 <span>6-13 мая</span>
                                 <span>35 000 </span>
                             </span>
-						</a>
-                        <a href = "/tour">
-							<span>Байкал, о. Ольхон, встреча Нового Года</span>
-							<span>
+							</a>
+							<a href = "/tour">
+								<span>Байкал, о. Ольхон, встреча Нового Года</span>
+								<span>
                                 <span>30 дек-5 янв</span>
                                 <span>33 000 </span>
                             </span>
-						</a>
-                    </div>
-                </div>
-            </div>
+							</a>
+						</div>
+						<div class = "arrow_right"></div>
+					</div>
 
+                </div>
+
+            </div>
         </div>
         <script>
             $(() => ScrollTop('body'));

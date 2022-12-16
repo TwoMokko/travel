@@ -36,12 +36,16 @@
                 <div>
                     <span onclick = " window.location.href = '/adventures';">Другие приключения</span>
                 </div>
-                <div>
-                    <a href = "/adventure">Название</a>
-                    <a href = "/adventure">Другое более длинное название и ещё длиннее</a>
-                    <a href = "/adventure">Ещё одно</a>
-                    <a href = "/adventure">Четвёртое</a>
-                </div>
+               <div>
+				   <div class = "arrow_left"></div>
+				   <div>
+					   <a href = "/adventure">Название</a>
+					   <a href = "/adventure">Другое более длинное название и ещё длиннее</a>
+					   <a href = "/adventure">Ещё одно</a>
+					   <a href = "/adventure">Четвёртое</a>
+				   </div>
+				   <div class = "arrow_right"></div>
+			   </div>
             </div>
         </div>
         <script>

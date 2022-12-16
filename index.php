@@ -55,19 +55,19 @@
 							<option>Ак-туру. 27 августа - 3 сентября</option>
 						</select>
 					</div>
+<!--					<div>-->
+<!--						<div>Количество человек</div>-->
+<!--						<select>-->
+<!--							<option>1</option>-->
+<!--							<option>2</option>-->
+<!--							<option>3</option>-->
+<!--							<option>4</option>-->
+<!--							<option>5</option>-->
+<!--							<option>группа</option>-->
+<!--						</select>-->
+<!--					</div>-->
 					<div>
-						<div>Количество человек</div>
-						<select>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>группа</option>
-						</select>
-					</div>
-					<div>
-						<input type = "submit" value = "Оставить заявку">
+						<input type = "submit" value = "Подробнее о путешествии">
 					</div>
 				</form>
 			</div>
@@ -117,22 +117,25 @@
 		<div class = "block photo p">
 			<div class = "head_photo">
 				<div>Фотографии с наших путешествий</div>
-				<div>
-					<div></div>
-					<div></div>
-				</div>
+<!--				<div>-->
+<!--					<div></div>-->
+<!--					<div></div>-->
+<!--				</div>-->
 			</div>
-
-			<div class = "mini_photo">
-				<div>
-					<div>Ак-туру</div>
+			<div>
+				<div class = "arrow_left"></div>
+				<div class = "mini_photo">
+					<div>
+						<div>Ак-туру</div>
+					</div>
+					<div>
+						<div>Байкал</div>
+					</div>
+					<div>
+						<div>Каппадокия</div>
+					</div>
 				</div>
-				<div>
-					<div>Байкал</div>
-				</div>
-				<div>
-					<div>Каппадокия</div>
-				</div>
+				<div  class = "arrow_right"></div>
 			</div>
 			<div>
 				<a class = "button" href = "/photo">Перейти к альбомам</a>

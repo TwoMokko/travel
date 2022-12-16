@@ -23,7 +23,7 @@
     function Main(): void {
         ?><div class = "page_about_us">
             <div class = "about_header block p">
-                <div class = "about_text">
+                <div>
                     <div>что-то</div>
                     <div>Организуем путешествия на основе ваших пожеланий,
 						<br>а так же по подготовленным нами маршрутам
@@ -31,49 +31,51 @@
 						<br>а так же по подготовленным нами маршрутам</div>
                     <div class = "right_text">Еще какой-то текст подлиннее, например, что-то немного о создании или о миссии или о ценностях</div>
                 </div>
-                <div class = "about_pic"></div>
+                <div></div>
             </div>
             <div class = "block p"">
             <div class = "play">
                 <div></div>
             </div>
             </div>
-            <div class = "block p">
-                <div class = "about_text">
-                    <div>Организатор</div>
-                    <div>Ишмурзина Нина</div>
-                    <div>Еще какой-то текст подлиннее, например, что-то немного о создании или о миссии или о ценностях</div>
-					<div class = "contact_person">
-						<div>
-							<div>Тел:</div>
-							<div>+7-909-545-11-29</div>
-						</div>
-						<div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
-				</div>
-                <div class = "about_pic"></div>
-            </div>
-            <div class = "block p">
-                <div class = "about_pic"></div>
-                <div class = "about_text">
-                    <div>Должность</div>
-                    <div>Меховников Сергей</div>
-                    <div>Супер крутое описание человека которыей чем-то занимается в этой компании</div>
-					<div class = "contact_person">
-						<div>
-							<div>Тел:</div>
-							<div>+7-924-424-25-55</div>
-						</div>
-						<div>
-							<div></div>
-							<div></div>
+			<div class = "block p team">
+				<div>
+					<div class = "about_pic"></div>
+					<div class = "about_text">
+<!--						<div>Организатор</div>-->
+						<div>Ишмурзина Нина</div>
+						<div>Еще какой-то текст подлиннее, например, что-то немного о создании или о миссии или о ценностях</div>
+						<div class = "contact_person">
+							<div>
+								<div>Тел:</div>
+								<div>+7-909-545-11-29</div>
+							</div>
+							<div>
+								<div></div>
+								<div></div>
+							</div>
 						</div>
 					</div>
 				</div>
-            </div>
+				<div>
+					<div class = "about_pic"></div>
+					<div class = "about_text">
+<!--						<div>Должность</div>-->
+						<div>Меховников Сергей</div>
+						<div>Супер крутое описание человека которыей чем-то занимается в этой компании</div>
+						<div class = "contact_person">
+							<div>
+								<div>Тел:</div>
+								<div>+7-924-424-25-55</div>
+							</div>
+							<div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
         <script>
             $(() => ScrollTop('main'));
