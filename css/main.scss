@@ -1,9 +1,24 @@
-@use "_variable" as *;
-@use "_func" as *;
 @use "sass:map";
 
+@use "_variable" as *;
+@use "_func" as *;
+
 html { height: 100%; scroll-behavior: smooth; }
-html, input { font-family: MoshitaMono, sans-serif; font-size: x-large; }
+html, input {
+	@mixin ViewHTML-input($params:null) {
+	$default: (
+			font-size: 24px
+	);
+
+		font-family: MoshitaMono, sans-serif; font-size: GetValue($default, $params, 'font-size');
+	}
+
+	@include MixScreen(null, $size3XL) { @include ViewHTML-input((font-size: 18px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewHTML-input((font-size: 20px)); }
+	@include MixScreen($size4XL, null) { @include ViewHTML-input(); }
+}
+
+
 body { background-color: $color_main; margin: 0; color: $color_text_main; height: 100%; display: flex; flex-direction: column; }
 main { flex: auto; }
 button, input[type="button"], input[type="submit"], a.button {
@@ -56,119 +71,6 @@ input[type="text"] {
 
 .header { font-family: Intro, sans-serif; padding-bottom: 70px; text-align: center; font-size: 1.5rem; }
 
-
-.block.top {
-	position: relative; display: flex;
-	> div {
-		&:first-child {
-			flex: auto; padding-top: 2%; padding-left: 8%;
-			> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 80px; width: 80px; }
-		}
-		&:last-child {
-			flex: none; display: flex; padding-top: 2%; padding-right: 6%;
-			> div {  }
-		}
-	}
-}
-
-.block.menu {
-	> a {
-		color: $color_white; padding: 0.5rem; text-decoration: none; transition: all 500ms ease;
-		&:hover { text-decoration: underline; }
-	}
-
-}
-
-.block.hat.main {
-	position: relative;
-	> div {
-		&:first-child { background-position: bottom; background-image: url("pic/hat.jpg"); background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
-		&:last-child {
-			padding: 30px 350px 150px; position: relative;
-			> div {
-				color: $color_white;
-				&:nth-of-type(1) {}
-				&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 2rem; padding: 0.3rem 0 0.6rem 0; }
-				&:nth-of-type(3) { font-family: Intro, sans-serif; }
-				&:nth-of-type(4) {
-					> span {
-						margin-top: 1rem; display: inline-flex; align-items: center; cursor: pointer;
-						> span {
-							&:first-child { background-image: url(pic/play.png); width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; margin-right: 0.3rem; }
-							&:last-child {}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-.block.hat.other {
-	position: relative;
-	> div {
-		&:first-child {
-			  background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
-			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
-			&.tours_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
-			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
-			&.one_adventure_hat { background-image: url("pic/one_adventure_hat.jpg"); background-position: center; }
-			&.photo_hat { background-image: url("pic/photo_hat.jpg"); background-position: center; }
-			&.photoalbum_hat { background-image: url("pic/album_hat.jpg"); background-position: center; }
-			&.tour_hat { background-image: url("pic/baikal.jpg"); background-position: center; }
-		}
-		&:last-child {
-			padding: 100px 350px 200px; position: relative; text-align: center;
-			> div {
-				color: $color_white;
-				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 2rem; }
-				&:nth-of-type(2) {  }
-			}
-		}
-	}
-}
-
-.block.check_tour { position: relative;
-	height: 0;
-	> div { position: absolute; left: 0; right: 0; top: -50px; text-align: center;
-		> form {
-			padding: 1rem 2rem; margin: 0 auto; background-color: $color_white; display: inline-flex; justify-content: center; border-radius: 40px;
-			> div {
-				margin-top: auto; margin-bottom: auto; padding: 0 0.9rem;
-				&:nth-of-type(1) {
-					> div { padding-bottom: 0.5rem; }
-				}
-				&:nth-of-type(2) {
-					> div { padding-bottom: 0.5rem; }
-				}
-				&:nth-of-type(3) {
-					> div { padding-bottom: 0.5rem; }
-				}
-			}
-		}
-	}
-
-	div > form > div {
-		text-align: left;
-		> select {
-			font-family: MoshitaMono, sans-serif; font-size: x-large; outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid $color_gray; padding-right: 32px; appearance: none; background-image: url('pic/arrow/down/darkgray.svg'); background-repeat: no-repeat; background-position: right; background-size: 24px;
-
-			//> option {
-			//	&:hover { background-color: $color_gray; }
-			//}
-			//option:hover {
-			//	background-color: yellow;
-			//}
-		}
-		> div { color: $color_main_green; font-weight: bold; }
-	}
-
-}
-
-//.select_style {
-//	font-family: MoshitaMono, sans-serif; font-size: x-large; outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid $color_gray; padding-right: 30px; appearance: none; background-image: url('pic/arrow.png'); background-repeat: no-repeat; background-position: right; background-size: 15px;
-//}
-
 .block.p {
 	margin: 0 auto; padding: 0 10%; max-width: 1200px;
 }
@@ -183,198 +85,7 @@ input[type="text"] {
 	}
 }
 
-//@mixin mix-tour($flex-col: initial) {
-//	$_flex-col: initial;
-//	.block.tour { display: flex; flex-direction: $flex-col; margin: 0 auto; padding: 0 10% 5%; max-width: 1200px;
-//		> div { width: 30%; display: flex; flex-direction: column; flex: auto;
-//			&:not(:last-child) { margin-right: 5%; }
-//			> div {
-//				&:nth-of-type(1) { background-color: darkgray;  padding-top: 80%; }
-//				&:nth-of-type(2) { font-size: 1.2rem; padding-top: 0.8rem; }
-//				&:nth-of-type(3) { padding: 1rem 0; flex: auto; }
-//			}
-//		}
-//	}
-//}
-
-.block.tours {
-	> div {
-		margin-bottom: 120px;
-		> div {
-			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 70px; }
-			&:nth-of-type(2) {
-				display: flex; padding-bottom: 50px;
-				> div {
-					margin-right: 50px; color: $color_gray;
-					&:hover { color: $color_main_green; cursor: pointer; }
-				}
-			}
-			&:nth-of-type(3) {
-				display: flex;
-				> div {
-					width: 50%; margin: auto;
-					&:first-child { padding-bottom: 35%; background-color: $color_gray; border-radius: 24px; }
-					&:last-child {
-						> div {
-							padding-left: 8%;
-							&:nth-of-type(1) { font-family: Intro, sans-serif; padding-bottom: 30px; }
-							&:nth-of-type(2) { width: 400px; padding-bottom: 50px; }
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-//@mixin mix-block-tour($params) {
-//	/* Default */
-//	$_flex-col			: initial;
-//	$_font-size-h		: 1.2rem;
-//	$_font-size			: x-large;
-//
-//	/* Get from $params */
-//	@if map.has-key($params, _flex-col) { $_flex-col: map.get($params, _flex-col); }
-//	@if map.has-key($params, _font-size-h) { $_font-size-h: map.get($params, _font-size-h); }
-//	@if map.has-key($params, _font-size) { $_font-size: map.get($params, _font-size); }
-//
-//	.block.tour {
-//		> div {
-//			&:first-child {
-//				display: flex; flex-direction: $_flex-col;
-//				> div {
-//					border-radius: 5px; width: 30%; display: flex; flex-direction: column; flex: auto; transition: all 200ms ease;
-//					//&:hover { box-shadow: 0 0 7px #2d2c2c21; }
-//					//&:hover { border: 3px solid $color_main_green; border-radius: 5px; }
-//					&:not(:last-child) { margin-right: 5%; }
-//					> div {
-//						&:first-child { background-color: darkgray;  padding-top: 80%; cursor: pointer; }
-//						&:last-child {
-//							flex: auto; display: flex; flex-direction: column;
-//							> div {
-//
-//								&:nth-of-type(1) { font-size: $_font-size-h; padding-top: 0.8rem; flex: none; color: $color_main_green; font-weight: bold; cursor: pointer; }
-//								&:nth-of-type(2) { padding: 1rem 0; flex: auto; font-size: $_font-size; }
-//							}
-//						}
-//					}
-//				}
-//			}
-//			&:last-child { margin: 1% 0 10%; text-align: center; }
-//		}
-//		//input { font-size: $_font-size; }
-//	}
-//}
-//
-////@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
-////@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour(column); };
-////@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((flex-col: column, border: 1px solid red)); };
-//@include mix-screens($screenXXL) { @include mix-block-tour(()); }
-//@include mix-screens($screenXL) { @include mix-block-tour(()); }
-//@include mix-screens($screenL) { @include mix-block-tour(()); }
-//@include mix-screens($screenM) { @include mix-block-tour((_font-size-h: 1rem, _font-size: 0.8rem)); }
-//@include mix-screens($screenS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-//@include mix-screens($screenXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-//@include mix-screens($screenXXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-//@include mix-screens($screenXXXS) { @include mix-block-tour((_flex-col: column, _font-size-h: 1rem, _font-size: 0.8rem)); }
-
-.block.adventure {
-	padding: 80px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
-	> div { text-align: center;
-		> div {
-			 color: $color_white;
-			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; }
-			&:nth-of-type(2) { padding: 0.7rem 0 1.4rem 0; }
-		}
-	}
-}
-//.block.photo {
-//	display: flex; padding: 5% 0;
-//	div.main { width: 49%; margin-right: 2%; }
-//	div.header.photo {
-//		padding: 5% 0;
-//		> div {
-//			&:first-child { font-family: Intro, sans-serif; font-size: 1.2rem; }
-//			&:last-child { color: darkgray; }
-//		}
-//
-//	}
-//	div.main_photo {
-//		div {
-//			&:first-child {
-//				color: darkgray; padding-bottom: 0.5rem; transition: all 500ms ease;
-//				&:hover { color: $color_main_green; }
-//			}
-//			&:last-child { background-color: darkgray; padding-top: 80%; margin-bottom: 3%; border-radius: 5px; }
-//		}
-//	}
-//	div.mini_photo {
-//		width: 49%; display: flex; flex-direction: column;
-//		> div {
-//			&:first-child {
-//				//	кнопки
-//				display: flex; justify-content: right; padding: 5% 0 3%;
-//				> div {
-//					color: darkgray; margin: 1%; border-radius: 50%; border: 1px solid darkgray; transition: all 500ms ease; height: 25px; width: 25px; text-align: center;
-//					&:hover { color: $color_main_green; border: 1px solid $color_main_green; }
-//					&:first-child {}
-//					&:last-child {}
-//				}
-//			}
-//			&:last-child {
-//				//фотоальбомы
-//				display: flex; height: 80%; padding-bottom: 3%; flex: auto;
-//				> div {
-//					//по 2 вертикальных
-//					width: 48%; margin-bottom: auto; margin-top: auto; display: flex; flex-direction: column; height: 100%;
-//					&:not(:last-child) { margin-right: 4%;  }
-//					> div {
-//					//	один альбом с надписью
-//						height: 50%; display: flex; flex-direction: column;
-//						&:first-child { padding-bottom: 10%; }
-//						> div {
-//							&:first-child {
-//							//	надпись
-//								color: darkgray; padding-bottom: 0.5rem; transition: all 500ms ease;
-//								&:hover { color: $color_main_green; }
-//							}
-//							&:last-child {
-//							//	фотка
-//								background-color: darkgray; flex: auto; border-radius: 5px;
-//							}
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-//}
-
-.block.photo {
-	.head_photo {
-		display: flex; padding: 120px 0 50px;
-		> div {
-			&:nth-of-type(1) { flex: auto; font-family: Intro, sans-serif; font-size: 1.5rem; }
-		}
-	}
-
-	> div {
-		&:nth-of-type(2) { display: flex; align-items: center; margin-bottom: 50px; }
-		&:nth-of-type(3) { text-align: center; padding-bottom: 240px; }
-	}
-
-	.mini_photo {
-		flex: auto; margin: 0 2%; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(300px, auto); grid-column-gap: 2%; grid-row-gap: 2%; color: $color_white;
-		> div {
-			background-color: $color_gray; border-radius: 24px; display: flex; align-items: end; cursor: pointer;
-			&:nth-of-type(1) {  }
-			&:nth-of-type(2) {  }
-			&:nth-of-type(3) {  }
-			&:hover { box-shadow: $box_shadow_white; }
-			> div { padding: 24px 30px; }
-		}
-	}
-}
+@import "page_main";
 
 .block.form {
 	display: flex; margin-bottom: 120px;
@@ -423,122 +134,52 @@ input[type="text"] {
 
 
 .block.footer {
-	background-color: $color_main_green; color: $color_white;
-	> div {
-		display: flex; padding: 120px 10% 48px;
+	@mixin ViewFooter($params: null) {
+		$default: (
+				width_pic: 120px,
+				height_pic: 120px
+		);
+		background-color: $color_main_green; color: $color_white;
 		> div {
-			&:nth-of-type(1) {
-				> div:first-child {
-					margin-bottom: 32px;
-					> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 120px; width: 120px; cursor: pointer; }
+			display: flex; padding: 120px 10% 48px;
+			> div {
+				&:nth-of-type(1) {
+					> div:first-child {
+						margin-bottom: 32px;
+						> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: GetValue($default, $params, 'height_pic'); width: GetValue($default, $params, 'width_pic'); cursor: pointer; }
+					}
+				}
+				&:nth-of-type(2) {
+					flex: auto; display: flex; flex-direction: column; padding-left: 10%;
+					> div:not(:last-child) { margin-bottom: 3%; }
+					a {
+						color: $color_white; text-decoration: none;
+						&:hover { text-decoration: underline; }
+					}
+				}
+				&:nth-of-type(3) {
+					display: flex; flex-direction: column; width: 30%;
+					input { margin-bottom: 32px; padding: 8px 0; margin-right: 0; }
 				}
 			}
-			&:nth-of-type(2) {
-				flex: auto; display: flex; flex-direction: column; padding-left: 120px;
-				> div:not(:last-child) { margin-bottom: 16px; }
-				a {
-					color: $color_white; text-decoration: none;
-					&:hover { text-decoration: underline; }
-				}
-			}
-			&:nth-of-type(3) {
-				display: flex; flex-direction: column; width: 360px;
-				input { margin-bottom: 32px; padding: 8px 0; margin-right: 0; }
+		}
+
+		.number { padding-bottom: 8px; }
+		.contact {
+			display: flex;
+			> div {
+				width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
+				&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
+				&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
+				&:nth-of-type(3) { background-image: url("pic/vk.png"); }
+				&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
+				&:not(:last-child) { margin-right: 8px; }
 			}
 		}
 	}
-
-	.number { padding-bottom: 8px; }
-	.contact {
-		display: flex;
-		> div {
-			width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-			&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
-			&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
-			&:nth-of-type(3) { background-image: url("pic/vk.png"); }
-			&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
-			&:not(:last-child) { margin-right: 8px; }
-		}
-	}
-
-
-
-	//> div > div {
-	//	display: flex;
-	//	&:first-child {
-	//		padding: 35px 0 20px; border-bottom: 1px solid $color_white;
-	//		> div {
-	//			&:nth-of-type(1) {
-	//				//flex: auto;
-	//				margin-right: 70px;
-	//				> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: 70px; width: 70px; cursor: pointer; }
-	//			}
-	//			&:nth-of-type(2) { margin: auto; }
-	//			&:nth-of-type(3) {  flex: auto; justify-content: right; display: flex; margin: auto; }
-	//		}
-	//	}
-		//&:last-child {
-		//	justify-content: center; padding: 20px 0 35px;
-		//	> a {
-		//		color: $color_white; text-decoration: none;
-		//		&:hover { text-decoration: underline; }
-		//		&:not(:last-child) { margin-right: 30px; }
-		//	}
-		//}
-	//}
-	//.contact {
-	//	display: flex; padding-bottom: 5px;
-	//	> div {
-	//		width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-	//		&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
-	//		&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
-	//		&:nth-of-type(3) { background-image: url("pic/vk.png"); }
-	//		&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
-	//		&:not(:last-child) { margin-right: 8px; }
-	//	}
-	//}
-
-	//background-color: $color_main_green; color: white;
-	//> div {
-	//	display: flex;
-	//	.footer_left {
-	//		width: 50%; display: flex; margin: auto 0;
-	//		> div {
-	//			&:first-child {
-	//				> a { display: inline-block; width: 60px; height: 60px; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; }
-	//			}
-	//			&:last-child {}
-	//		}
-	//	}
-	//	.footer_right {
-	//		.footer_menu {
-	//			display: flex; justify-content: right;
-	//			> a {
-	//				color: white; text-decoration: none;
-	//				&:hover { text-decoration: underline; }
-	//				&:not(:last-child) { margin-right: 30px; }
-	//			}
-	//		}
-	//		.footer_right_down {
-	//			display: flex; align-items: center;
-	//			> div {
-	//				&:nth-of-type(1) {
-	//					flex: auto; display: flex;
-	//					> div {
-	//						width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-	//						&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
-	//						&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
-	//						&:nth-of-type(3) { background-image: url("pic/vk.png"); }
-	//						&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
-	//						&:not(:last-child) { margin-right: 4px; }
-	//					}
-	//				}
-	//				&:nth-of-type(2) {}
-	//				&:nth-of-type(3) {}
-	//			}
-	//		}
-	//	}
-	//}
+	@include MixScreen(null, $sizeL) { @include ViewFooter((width_pic: 50px, height_pic: 50px)); }
+	@include MixScreen($sizeL, $size3XL) { @include ViewFooter((width_pic: 80px, height_pic: 80px)); }
+	@include MixScreen($size3XL, null) { @include ViewFooter(); }
 }
 
 .block.page_about_us { text-align: center; }

@@ -17,10 +17,12 @@
             <div>
                 <div>Авторские туры</div>
                 <div>i Da Travel</div>
-                <div>Организуем путешествия
-                    <br>на основе ваших пожеланий,
-					<br>а так же по подготовленным
-                    <br>нами маршрутам</div>
+                <div>
+					<div>Организуем путешествия</div>
+                    <div>на основе ваших пожеланий,</div>
+					<div>а так же по подготовленным</div>
+					<div>нами маршрутам</div>
+				</div>
                 <div>
                     <span>
                        <span></span>
@@ -36,24 +38,29 @@
 			<div>
 				<form>
 					<div>
-						<div>Выберите категорию</div>
-						<select>
-							<option>Основные путешествия</option>
-							<option>Индивидуальное сопровождение</option>
-							<option>ВИП</option>
-							<option>Выходного дня</option>
-						</select>
+						<div>
+							<div>Выберите категорию</div>
+							<select>
+								<option>Основные путешествия</option>
+								<option>Индивидуальное сопровождение</option>
+								<option>ВИП</option>
+								<option>Выходного дня</option>
+							</select>
+						</div>
+						<div>
+							<div>Выберите путешествие</div>
+							<select>
+								<option>Байкал, остров Ольхон. 28 декабря - 6 января</option>
+								<option>Чулышманская долина. 1-8 мая</option>
+								<option>Ак-туру. 24-30 июня</option>
+								<option>Чулышманская долина. 20-29 июля</option>
+								<option>Каракольские озера. 2-10 августа</option>
+								<option>Ак-туру. 27 августа - 3 сентября</option>
+							</select>
+						</div>
 					</div>
 					<div>
-						<div>Выберите путешествие</div>
-						<select>
-							<option>Байкал, остров Ольхон. 28 декабря - 6 января</option>
-							<option>Чулышманская долина. 1-8 мая</option>
-							<option>Ак-туру. 24-30 июня</option>
-							<option>Чулышманская долина. 20-29 июля</option>
-							<option>Каракольские озера. 2-10 августа</option>
-							<option>Ак-туру. 27 августа - 3 сентября</option>
-						</select>
+						<input type = "submit" value = "Подробнее о путешествии">
 					</div>
 <!--					<div>-->
 <!--						<div>Количество человек</div>-->
@@ -66,9 +73,7 @@
 <!--							<option>группа</option>-->
 <!--						</select>-->
 <!--					</div>-->
-					<div>
-						<input type = "submit" value = "Подробнее о путешествии">
-					</div>
+
 				</form>
 			</div>
 

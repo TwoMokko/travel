@@ -1,9 +1,38 @@
 @use "variable" as *;
 @use "sass:map";
 
+@function GetValue($defaults, $params, $name) {
+	@if ($params != null) {
+		$temp: map.get($params, $name);
+		@if ($temp != null) { @return $temp; }
+	}
+
+	@return map.get($defaults, $name);
+}
+
+@mixin MixScreen($min: null, $max: null, $screen: false, $print: false) {
+	@if ($min != null or $max != null or $screen or $print) {
+
+		$media: '';
+		$fill: false;
+
+		@if ($screen) { $media: 'screen'; $fill: true; }
+		@if ($print) { @if ($fill) { $media: $media + ' AND '; } $media: $media + 'print'; $fill: true; }
+		@if ($min) { @if ($fill) { $media: $media + ' AND '; } $media: $media + '(min-width: ' + ($min + 1) + 'px)'; $fill: true; }
+		@if ($max) { @if ($fill) { $media: $media + ' AND '; } $media: $media + '(max-width: ' + $max + 'px)'; }
+
+		@media #{$media} {
+			@content;
+		}
+
+	} @else {
+		@content;
+	}
+}
+
 @mixin button($bg_color, $border_color, $text_color) {
 	padding: 0.4rem 0.8rem; border-radius: 40px; color: $text_color; background-color: $bg_color; border: 2px solid $border_color; cursor: pointer;
-	@include mix-limit(map.get($size, 0), map.get($size, 1024) - 1) { font-size: 0.8rem; border: 2px solid $border_color; };
+	//@include mix-limit(map.get($size, 0), map.get($size, 1024) - 1) { font-size: 0.8rem; border: 2px solid $border_color; };
 }
 
 
@@ -27,12 +56,12 @@
 	}
 }
 
-@mixin mix-limit($min, $max) {
-	@include mix-screens((min: $min, max: $max)) { @content; }
-}
-
-@mixin mix-screens($size) {
-	@media only screen and (min-width: map-get($size, 'min')) and (max-width: map-get($size, 'max')) {
-		@content;
-	}
-}
+//@mixin mix-limit($min, $max) {
+//	@include mix-screens((min: $min, max: $max)) { @content; }
+//}
+//
+//@mixin mix-screens($size) {
+//	@media only screen and (min-width: map-get($size, 'min')) and (max-width: map-get($size, 'max')) {
+//		@content;
+//	}
+//}
