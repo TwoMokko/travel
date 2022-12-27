@@ -1,0 +1,22 @@
+@use "sass:map";
+
+@use "_variable" as *;
+@use "_func" as *;
+
+.page_one_adventure {
+
+	.adventure_text {
+		margin: -120px 0 0; position: relative; background-color: $color_white; padding: 3rem 4rem;
+		> div {
+			&:first-child { margin-bottom: 2rem; }
+			&:last-child {
+				display: flex;
+				> div {
+					width: 49%; height: 12rem; background-color: $color_gray; cursor: pointer;
+					&:not(last-child) { margin-right: 2%; }
+				}
+			}
+		}
+	}
+}
+

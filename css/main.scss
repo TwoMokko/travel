@@ -3,6 +3,9 @@
 @use "_variable" as *;
 @use "_func" as *;
 
+
+
+
 html { height: 100%; scroll-behavior: smooth; }
 html, input {
 	@mixin ViewHTML-input($params:null) {
@@ -24,9 +27,7 @@ main { flex: auto; }
 button, input[type="button"], input[type="submit"], a.button {
 	text-decoration: none;
 	@include button_solid;
-	//&.solid { @include button_solid; }
-	&.transparent
-	{ @include button_transparent; }
+	&.transparent { @include button_transparent; }
 	&.border { @include button_border; }
 	&.semi_white { @include button_semi_white; }
 }
@@ -37,19 +38,13 @@ input[type="text"] {
 		&::placeholder{ color: $color_semi_white; }
 	}
 }
-//@include mix-limit(map.get($size, 768), map.get($size, 1920)) { @include mix-tour(()); };
-//@include mix-limit(map.get($size, 0), map.get($size, 768) - 1) { @include mix-tour((_font-size)); };
-
 .hide { display: none !important; }
-
 .show { opacity: 1 !important; }
-
 .arrow_top {
 	background-image: url("pic/arrow/up/darkgray.svg"); background-position: center; background-repeat: no-repeat; background-size: 60%;
 	position: fixed; bottom: 70px; right: 3%; height: 48px; width: 48px; border-radius: 50%; display: inline-block; background-color: transparent; border: 2px solid $color_gray; cursor: pointer; opacity: 0; transition: background 500ms ease, opacity 500ms;
 	&:hover { background-color: $color_gray; background-image: url("pic/arrow/up/white.svg"); }
 }
-
 .arrow_left {
 	transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
 	background-image: url('pic/arrow/left/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
@@ -60,7 +55,6 @@ input[type="text"] {
 	background-image: url('pic/arrow/right/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
 	&:hover { background-image: url('pic/arrow/right/green.svg'); }
 }
-
 .play {
 	background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; text-align: center; padding: 16%;
 	> div {
@@ -68,215 +62,31 @@ input[type="text"] {
 		&:hover { background-size: 100px; }
 	}
 }
-
+.block.p { margin: 0 auto; padding: 0 10%; max-width: 1200px; }
 .header { font-family: Intro, sans-serif; padding-bottom: 70px; text-align: center; font-size: 1.5rem; }
-
-.block.p {
-	margin: 0 auto; padding: 0 10%; max-width: 1200px;
-}
-
-.block.about_us {
-	padding: 190px 10%;
+.block.hat.other {
+	position: relative;
 	> div {
-		//text-align: center;
-		&:nth-of-type(1) { color: $color_main_green; }
-		&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 70px; line-height: 1.5; }
-		&:nth-of-type(3) {}
-	}
-}
-
-@import "page_main";
-
-.block.form {
-	display: flex; margin-bottom: 120px;
-	.form_input {
-		width: 40%; margin-right: 6%;
-		> div {
-			&:first-child { font-family: Intro, sans-serif; margin-bottom: 50px; }
-			&:last-child { margin-top: 50px; }
+		&:first-child {
+			background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
+			&.tours_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
+			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
+			&.one_adventure_hat { background-image: url("pic/one_adventure_hat.jpg"); background-position: center; }
+			&.photo_hat { background-image: url("pic/photo_hat.jpg"); background-position: center; }
+			&.photoalbum_hat { background-image: url("pic/album_hat.jpg"); background-position: center; }
+			&.tour_hat { background-image: url("pic/baikal.jpg"); background-position: center; }
 		}
-		input { display: block; width: 100%; }
-	}
-	.form_contact {
-		width: 54%;
-		> div { height: 50%; display: flex; }
-	}
-	.form_text {
-		color: $color_gray; flex: auto;
-		> div {
-			&:nth-of-type(1) { font-size: 1.2rem; margin-bottom: 6px; }
-			&:nth-of-type(2) { margin-bottom: 14px; }
-			&:nth-of-type(3) {}
-		}
-	}
-	.form_photo { background-color: $color_gray; padding-right: 40%; margin-bottom: 2%; }
-}
-
-.contact_person {
-	color: $color_gray;
-	> div {
-		&:nth-of-type(1) {
-			display: flex; margin-bottom: 14px;
+		&:last-child {
+			padding: 2% 12% 10%; position: relative; text-align: center;
 			> div {
-				&:last-child { color: $color_text_main; }
-			}
-		}
-		&:nth-of-type(2) {
-			display: flex;
-			> div {
-				width: 30px; height: 30px; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-				&:first-child { background-image: url("pic/form_vk.png"); }
-				&:last-child { background-image: url("pic/form_whatsapp.png"); }
+				color: $color_white;
+				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 2rem; }
+				&:nth-of-type(2) {  }
 			}
 		}
 	}
 }
-
-
-.block.footer {
-	@mixin ViewFooter($params: null) {
-		$default: (
-				width_pic: 120px,
-				height_pic: 120px
-		);
-		background-color: $color_main_green; color: $color_white;
-		> div {
-			display: flex; padding: 10% 10% 48px;
-			> div {
-				&:nth-of-type(1) {
-					> div:first-child {
-						margin-bottom: 16%;
-						> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: GetValue($default, $params, 'height_pic'); width: GetValue($default, $params, 'width_pic'); cursor: pointer; }
-					}
-				}
-				&:nth-of-type(2) {
-					flex: auto; display: flex; flex-direction: column; padding-left: 10%;
-					> div:not(:last-child) { margin-bottom: 3%; }
-					a {
-						color: $color_white; text-decoration: none;
-						&:hover { text-decoration: underline; }
-					}
-				}
-				&:nth-of-type(3) {
-					display: flex; flex-direction: column; width: 30%;
-					input { margin-bottom: 32px; padding: 8px 0; margin-right: 0; }
-				}
-			}
-		}
-
-		.number { padding-bottom: 8px; }
-		.contact {
-			display: flex;
-			> div {
-				width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-				&:nth-of-type(1) { background-image: url("pic/telegram.png"); }
-				&:nth-of-type(2) { background-image: url("pic/youtube.png"); }
-				&:nth-of-type(3) { background-image: url("pic/vk.png"); }
-				&:nth-of-type(4) { background-image: url("pic/instagram.png"); }
-				&:not(:last-child) { margin-right: 8px; }
-			}
-		}
-	}
-	@include MixScreen(null, $sizeL) { @include ViewFooter((width_pic: 50px, height_pic: 50px)); }
-	@include MixScreen($sizeL, $size3XL) { @include ViewFooter((width_pic: 80px, height_pic: 80px)); }
-	@include MixScreen($size3XL, null) { @include ViewFooter(); }
-}
-
-.block.page_about_us { text-align: center; }
-
-@import "page_tours";
-@import "page_tour";
-
-.block.page_adventure {
-	.cards_adventure {
-		padding-top: 4%;
-		> a {
-			color: $color_text_main; text-decoration: none; overflow: hidden; display: flex; margin-bottom: 40px; transition: all 200ms ease; background-color: $color_white; border-radius: 24px;
-			&:hover {
-				box-shadow: $box_shadow_white;
-				> div:last-child > div:nth-of-type(1) { color: $color_main_green; }
-				> div:last-child > div:nth-of-type(3) { color: $color_main_green; }
-			}
-			> div {
-				&:first-child { background-color: $color_gray; padding-top: 20%; width: 30%; flex: none; }
-				&:last-child {
-					flex: auto; padding: 3%; display: flex; flex-direction: column;
-					> div {
-						&:nth-of-type(1) {
-							flex: none; font-family: Intro, sans-serif; font-size: 0.8rem;
-							//&:hover { color: $color_main_green; }
-						}
-						&:nth-of-type(2) { flex: auto; padding: 20px 0; }
-						&:nth-of-type(3) {
-							text-align: right; color: $color_gray;
-							//&:hover { color: $color_main_green; }
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-.page_about_us {
-	> div {
-		//padding: 5% 10%;
-		&:nth-of-type(1) { display: flex; }
-		&:nth-of-type(2) { margin-bottom: 120px; }
-		&:not(:nth-of-type(2)) { padding: 120px 10% 240px; }
-		}
-	.about_header {
-		> div {
-			&:first-child {
-				width: 58%; margin-right: 2%;
-				> div {
-					text-align: left; display: flex; flex-direction: column;
-					&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
-					&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding-bottom: 8%; }
-					&:nth-of-type(3) { flex: auto; }
-				}
-			}
-			&:last-child { width: 40%; background-color: $color_gray; border-radius: 24px; }
-		}
-
-	}
-	.team {
-		display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%;
-		> div { display: flex; }
-	}
-	.about_pic { width: 50%; background-color: $color_gray; border-radius: 24px; }
-	.about_text {
-		display: flex; flex-direction: column; padding-left: 5%; width: 50%;
-		//&:not(:last-child) { margin-right: 5%; }
-		//&:last-child { margin-left: 5%; }
-		> div {
-			text-align: left;
-			//&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
-			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding-bottom: 8%; }
-			&:nth-of-type(2) { flex: auto; padding-bottom: 24% }
-			&:nth-of-type(3) {  }
-		}
-	}
-	.right_text { padding-left: 50%; }
-}
-
-.page_one_adventure {
-
-	.adventure_text {
-		margin: -120px 0 0; position: relative; background-color: $color_white; padding: 3rem 4rem;
-		> div {
-			&:first-child { margin-bottom: 2rem; }
-			&:last-child {
-				display: flex;
-				> div {
-					width: 49%; height: 12rem; background-color: $color_gray; cursor: pointer;
-					&:not(last-child) { margin-right: 2%; }
-				}
-			}
-		}
-	}
-}
-
 .other_publication {
 
 	@mixin ViewOtherPublication($params: null) {
@@ -288,45 +98,30 @@ input[type="text"] {
 		> div {
 			&:first-child {
 				text-align: center; padding-bottom: 70px;
-
 				> span {
 					font-family: Intro, sans-serif; font-size: 1.5rem; cursor: pointer;
-					&:hover {
-						color: $color_main_green;
-					}
+					&:hover { color: $color_main_green; }
 				}
 			}
 
 			&:last-child {
 				display: flex; align-items: center;
-
 				> div:nth-of-type(2) {
 					margin: 0 2%; display: grid; grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(6rem, auto); align-content: center;
-
 					> a {
 						display: flex; padding: 1rem; text-align: center; text-decoration: none; background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer;
-						&:hover {
-							box-shadow: $box_shadow_cards;
-						}
+						&:hover { box-shadow: $box_shadow_cards; }
 					}
 				}
 			}
 		}
-		&.other_adventure > div:last-child > div:nth-of-type(2) > a {
-			justify-content: center; align-items: center;
-		}
+		&.other_adventure > div:last-child > div:nth-of-type(2) > a { justify-content: center; align-items: center; }
 		&.other_tour > div:last-child > div:nth-of-type(2) > a {
 			flex-direction: column;
 			> span {
-				&:nth-of-type(1) {
-					flex: auto;
-					display: flex;
-					justify-content: center;
-				}
-
+				&:nth-of-type(1) { flex: auto; display: flex; justify-content: center; }
 				&:nth-of-type(2) {
 					display: flex;
-
 					> span {
 						&:last-child {
 							&:after {
@@ -334,10 +129,7 @@ input[type="text"] {
 								font-size: 0.8rem; vertical-align: bottom;
 							}
 						}
-
-						&:first-child {
-							flex: auto; display: flex; align-items: end; font-size: 0.8rem;
-						}
+						&:first-child { flex: auto; display: flex; align-items: end; font-size: 0.8rem; }
 					}
 				}
 			}
@@ -349,53 +141,49 @@ input[type="text"] {
 	@include MixScreen($size2XL, null) { @include ViewOtherPublication(()); }
 }
 
-
-.page_photo {
-	color: $color_white;
-	.photo_albums {
-		padding: 10% 0 70px 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(300px, auto);
-		> div {
-			overflow: hidden; margin-bottom: 50px; background-color: $color_gray; border-radius: 24px; transition: all 200ms ease; cursor: pointer; display: flex; align-items: end;
-			&:hover { box-shadow: $box_shadow_white; }
-			>div { padding: 24px 30px; }
-		}
-	}
-}
+@import "page_main";
+@import "footer";
+@import "page_about";
+@import "page_tours";
+@import "page_tour";
+@import "page_adventures";
+@import "page_adventure";
+@import "page_photo";
+@import "page_photo_album";
 
 
+//.block.form {
+//	display: flex; margin-bottom: 120px;
+//	.form_input {
+//		width: 40%; margin-right: 6%;
+//		> div {
+//			&:first-child { font-family: Intro, sans-serif; margin-bottom: 50px; }
+//			&:last-child { margin-top: 50px; }
+//		}
+//		input { display: block; width: 100%; }
+//	}
+//	.form_contact {
+//		width: 54%;
+//		> div { height: 50%; display: flex; }
+//	}
+//	.form_text {
+//		color: $color_gray; flex: auto;
+//		> div {
+//			&:nth-of-type(1) { font-size: 1.2rem; margin-bottom: 6px; }
+//			&:nth-of-type(2) { margin-bottom: 14px; }
+//			&:nth-of-type(3) {}
+//		}
+//	}
+//	.form_photo { background-color: $color_gray; padding-right: 40%; margin-bottom: 2%; }
+//}
+//
 
-.photo_album {
-	padding: 10% 0;
-	display: grid; grid-row-gap: 1rem; grid-column-gap: 1rem; grid-auto-rows: minmax(250px, auto); grid-template-areas:
-        "a b b c"
-		"d d e f"
-		"g h i i"
-		"j k k l"
-		"m m n o"
-		"p q r r";
-	> div {
-		background-color: $color_gray; border-radius: 24px; cursor: pointer;
-		&:hover { box-shadow: $box_shadow_white; }
-		&:nth-of-type(1) { grid-area: a; }
-		&:nth-of-type(2) { grid-area: b; }
-		&:nth-of-type(3) { grid-area: c; }
-		&:nth-of-type(4) { grid-area: d; }
-		&:nth-of-type(5) { grid-area: e; }
-		&:nth-of-type(6) { grid-area: f; }
-		&:nth-of-type(7) { grid-area: g; }
-		&:nth-of-type(8) { grid-area: h; }
-		&:nth-of-type(9) { grid-area: i; }
-		&:nth-of-type(10) { grid-area: j; }
-		&:nth-of-type(11) { grid-area: k; }
-		&:nth-of-type(12) { grid-area: l; }
-		&:nth-of-type(13) { grid-area: m; }
-		&:nth-of-type(14) { grid-area: n; }
-		&:nth-of-type(15) { grid-area: o; }
-		&:nth-of-type(16) { grid-area: p; }
-		&:nth-of-type(17) { grid-area: q; }
-		&:nth-of-type(18) { grid-area: r; }
-	}
-}
+
+
+
+
+
+
 
 
 

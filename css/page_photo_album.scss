@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@use "_variable" as *;
+@use "_func" as *;
+
+.photo_album {
+	padding: 10% 0;
+	display: grid; grid-row-gap: 1rem; grid-column-gap: 1rem; grid-auto-rows: minmax(250px, auto); grid-template-areas:
+        "a b b c"
+		"d d e f"
+		"g h i i"
+		"j k k l"
+		"m m n o"
+		"p q r r";
+	> div {
+		background-color: $color_gray; border-radius: 24px; cursor: pointer;
+		&:hover { box-shadow: $box_shadow_white; }
+		&:nth-of-type(1) { grid-area: a; }
+		&:nth-of-type(2) { grid-area: b; }
+		&:nth-of-type(3) { grid-area: c; }
+		&:nth-of-type(4) { grid-area: d; }
+		&:nth-of-type(5) { grid-area: e; }
+		&:nth-of-type(6) { grid-area: f; }
+		&:nth-of-type(7) { grid-area: g; }
+		&:nth-of-type(8) { grid-area: h; }
+		&:nth-of-type(9) { grid-area: i; }
+		&:nth-of-type(10) { grid-area: j; }
+		&:nth-of-type(11) { grid-area: k; }
+		&:nth-of-type(12) { grid-area: l; }
+		&:nth-of-type(13) { grid-area: m; }
+		&:nth-of-type(14) { grid-area: n; }
+		&:nth-of-type(15) { grid-area: o; }
+		&:nth-of-type(16) { grid-area: p; }
+		&:nth-of-type(17) { grid-area: q; }
+		&:nth-of-type(18) { grid-area: r; }
+	}
+}

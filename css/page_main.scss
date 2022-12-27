@@ -50,30 +50,6 @@
 	}
 }
 
-.block.hat.other {
-	position: relative;
-	> div {
-		&:first-child {
-			background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
-			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
-			&.tours_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
-			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
-			&.one_adventure_hat { background-image: url("pic/one_adventure_hat.jpg"); background-position: center; }
-			&.photo_hat { background-image: url("pic/photo_hat.jpg"); background-position: center; }
-			&.photoalbum_hat { background-image: url("pic/album_hat.jpg"); background-position: center; }
-			&.tour_hat { background-image: url("pic/baikal.jpg"); background-position: center; }
-		}
-		&:last-child {
-			padding: 2% 12% 10%; position: relative; text-align: center;
-			> div {
-				color: $color_white;
-				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 2rem; }
-				&:nth-of-type(2) {  }
-			}
-		}
-	}
-}
-
 .block.check_tour {
 	@mixin ViewCheckTour($params:null) {
 		$default: (
@@ -124,13 +100,23 @@
 	@include MixScreen($size5XL, null) { @include ViewCheckTour(); }
 }
 
+.block.about_us {
+	padding: 190px 10% 10%;
+	> div {
+		//text-align: center;
+		&:nth-of-type(1) { color: $color_main_green; }
+		&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 4%; line-height: 1.5; }
+		&:nth-of-type(3) {}
+	}
+}
+
 .block.tours {
 	> div {
-		margin-bottom: 120px;
+		margin-bottom: 10%;
 		> div {
-			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 70px; }
+			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 4%; }
 			&:nth-of-type(2) {
-				display: flex; padding-bottom: 50px;
+				display: flex; padding-bottom: 4%;
 				> div {
 					margin-right: 50px; color: $color_gray;
 					&:hover { color: $color_main_green; cursor: pointer; }
