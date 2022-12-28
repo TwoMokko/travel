@@ -35,7 +35,7 @@
 				color: $color_white;
 				&:nth-of-type(1) {}
 				&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 2rem; padding: 0.3rem 0 0.6rem 0; }
-				&:nth-of-type(3) { font-family: Intro, sans-serif; width: 40%; }
+				&:nth-of-type(3) { font-family: Intro, sans-serif; width: 100%; }
 				&:nth-of-type(4) {
 					> span {
 						margin-top: 2%; display: inline-flex; align-items: center; cursor: pointer;
@@ -101,43 +101,78 @@
 }
 
 .block.about_us {
-	padding: 190px 10% 10%;
-	> div {
-		//text-align: center;
-		&:nth-of-type(1) { color: $color_main_green; }
-		&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 4%; line-height: 1.5; }
-		&:nth-of-type(3) {}
+
+	@mixin ViewAbout($params:null) {
+		$default: (
+				head_fontsize: 1.5rem
+		);
+
+		padding: 190px 10% 10%;
+		> div {
+			//text-align: center;
+			&:nth-of-type(1) { color: $color_main_green; }
+			&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_fontsize'); padding-bottom: 4%; line-height: 1.5; }
+			&:nth-of-type(3) {}
+		}
 	}
+	@include MixScreen(null, $size4XL) { @include ViewAbout((head_fontsize: 1rem)); }
 }
 
 .block.tours {
-	> div {
-		margin-bottom: 10%;
+
+	@mixin ViewToursMain($params:null) {
+		$default: (
+				head_tours_fontsize: 1.5rem,
+				head_tour_fontsize: 1rem,
+				display_tour: flex,
+				margin_right_tours: 50px,
+				margin_bottom_pic: 0,
+				padding_bottom_pic: 35%,
+				width_tour: 50%,
+				width_text: 80%,
+				padding_left_text: 8%,
+				padding_bottom_text: 30px,
+
+
+		);
+
 		> div {
-			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 1.5rem; padding-bottom: 4%; }
-			&:nth-of-type(2) {
-				display: flex; padding-bottom: 4%;
-				> div {
-					margin-right: 50px; color: $color_gray;
-					&:hover { color: $color_main_green; cursor: pointer; }
+			margin-bottom: 10%;
+			> div {
+				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_tours_fontsize'); padding-bottom: 4%; }
+				&:nth-of-type(2) {
+					display: flex; flex-wrap: wrap;
+					> div {
+						color: $color_gray; flex: none; padding-bottom: 4%;
+						&:not(:last-child) { margin-right: GetValue($default, $params, 'margin_right_tours'); }
+						&:hover { color: $color_main_green; cursor: pointer; }
+					}
 				}
-			}
-			&:nth-of-type(3) {
-				display: flex;
-				> div {
-					width: 50%; margin: auto;
-					&:first-child { padding-bottom: 35%; background-color: $color_gray; border-radius: 24px; }
-					&:last-child {
-						> div {
-							padding-left: 8%;
-							&:nth-of-type(1) { font-family: Intro, sans-serif; padding-bottom: 30px; }
-							&:nth-of-type(2) { width: 80%; padding-bottom: 50px; }
+				&:nth-of-type(3) {
+					display: GetValue($default, $params, 'display_tour');
+					> div {
+						width: GetValue($default, $params, 'width_tour'); margin: auto;
+						&:first-child { padding-bottom: GetValue($default, $params, 'padding_bottom_pic'); margin-bottom: GetValue($default, $params, 'margin_bottom_pic'); background-color: $color_gray; border-radius: 24px; }
+						&:last-child {
+							> div {
+								padding-left: GetValue($default, $params, 'padding_left_text');
+								&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_tour_fontsize'); padding-bottom: GetValue($default, $params, 'padding_bottom_text'); }
+								&:nth-of-type(2) { width: GetValue($default, $params, 'width_text'); padding-bottom: 50px; }
+							}
 						}
 					}
 				}
 			}
 		}
 	}
+
+	@include MixScreen(null, $sizeXL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem, display_tour: revert, margin_right_tours: 30px, padding_bottom_pic: 50%, margin_bottom_pic: 4%, width_tour: 100%, padding_left_text: 0, padding_bottom_text: 2%, width_text: 100%)); }
+	@include MixScreen($sizeXL, $size2XL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem)); }
+	@include MixScreen($size2XL, $size3XL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem)); }
+	@include MixScreen($size4XL, $size5XL) { @include ViewToursMain(()); }
+	@include MixScreen($size5XL, null) { @include ViewToursMain(); }
+
 }
 
 .block.adventure {
@@ -184,7 +219,7 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeL) { @include ViewPhoto((head_photo_padding: 50px 0 20px, head_photo_fontsize: 0.8rem, mini_photo_count: 1)); }
+	@include MixScreen(null, $sizeL) { @include ViewPhoto((head_photo_padding: 50px 0 20px, head_photo_fontsize: 1rem, mini_photo_count: 1)); }
 	@include MixScreen($sizeL, $size4XL) { @include ViewPhoto((head_photo_padding: 100px 0 40px, head_photo_fontsize: 1rem, mini_photo_count: 2)); }
 	@include MixScreen($size2XL, $size4XL) { @include ViewPhoto((head_photo_fontsize: 1.2rem)); }
 	@include MixScreen($size4XL, null) { @include ViewPhoto(); }

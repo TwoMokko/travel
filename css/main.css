@@ -554,7 +554,7 @@ input[type=text].footer_input::placeholder {
 }
 .block.hat.main > div:last-child > div:nth-of-type(3) {
   font-family: Intro, sans-serif;
-  width: 40%;
+  width: 100%;
 }
 .block.hat.main > div:last-child > div:nth-of-type(4) > span {
   margin-top: 2%;
@@ -950,60 +950,326 @@ input[type=text].footer_input::placeholder {
   }
 }
 
-.block.about_us {
-  padding: 190px 10% 10%;
+@media (max-width: 1200px) {
+  .block.about_us {
+    padding: 190px 10% 10%;
+  }
+  .block.about_us > div:nth-of-type(1) {
+    color: #365f41;
+  }
+  .block.about_us > div:nth-of-type(2) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 4%;
+    line-height: 1.5;
+  }
 }
-.block.about_us > div:nth-of-type(1) {
-  color: #365f41;
+
+@media (max-width: 860px) {
+  .block.tours > div {
+    margin-bottom: 10%;
+  }
+  .block.tours > div > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block.tours > div > div:nth-of-type(2) > div {
+    color: #a9a9a9;
+    flex: none;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:not(:last-child) {
+    margin-right: 30px;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:hover {
+    color: #365f41;
+    cursor: pointer;
+  }
+  .block.tours > div > div:nth-of-type(3) {
+    display: revert;
+  }
+  .block.tours > div > div:nth-of-type(3) > div {
+    width: 100%;
+    margin: auto;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:first-child {
+    padding-bottom: 50%;
+    margin-bottom: 4%;
+    background-color: #a9a9a9;
+    border-radius: 24px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div {
+    padding-left: 0;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 0.8rem;
+    padding-bottom: 2%;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+    width: 100%;
+    padding-bottom: 50px;
+  }
 }
-.block.about_us > div:nth-of-type(2) {
-  font-family: Intro, sans-serif;
-  font-size: 1.5rem;
-  padding-bottom: 4%;
-  line-height: 1.5;
+@media (min-width: 861px) and (max-width: 980px) {
+  .block.tours > div {
+    margin-bottom: 10%;
+  }
+  .block.tours > div > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block.tours > div > div:nth-of-type(2) > div {
+    color: #a9a9a9;
+    flex: none;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:not(:last-child) {
+    margin-right: 50px;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:hover {
+    color: #365f41;
+    cursor: pointer;
+  }
+  .block.tours > div > div:nth-of-type(3) {
+    display: flex;
+  }
+  .block.tours > div > div:nth-of-type(3) > div {
+    width: 50%;
+    margin: auto;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:first-child {
+    padding-bottom: 35%;
+    margin-bottom: 0;
+    background-color: #a9a9a9;
+    border-radius: 24px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div {
+    padding-left: 8%;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 0.8rem;
+    padding-bottom: 30px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+    width: 80%;
+    padding-bottom: 50px;
+  }
 }
-.block.tours > div {
-  margin-bottom: 10%;
+@media (min-width: 981px) and (max-width: 1080px) {
+  .block.tours > div {
+    margin-bottom: 10%;
+  }
+  .block.tours > div > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block.tours > div > div:nth-of-type(2) > div {
+    color: #a9a9a9;
+    flex: none;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:not(:last-child) {
+    margin-right: 50px;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:hover {
+    color: #365f41;
+    cursor: pointer;
+  }
+  .block.tours > div > div:nth-of-type(3) {
+    display: flex;
+  }
+  .block.tours > div > div:nth-of-type(3) > div {
+    width: 50%;
+    margin: auto;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:first-child {
+    padding-bottom: 35%;
+    margin-bottom: 0;
+    background-color: #a9a9a9;
+    border-radius: 24px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div {
+    padding-left: 8%;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 0.8rem;
+    padding-bottom: 30px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+    width: 80%;
+    padding-bottom: 50px;
+  }
 }
-.block.tours > div > div:nth-of-type(1) {
-  font-family: Intro, sans-serif;
-  font-size: 1.5rem;
-  padding-bottom: 4%;
+@media (min-width: 1081px) and (max-width: 1200px) {
+  .block.tours > div {
+    margin-bottom: 10%;
+  }
+  .block.tours > div > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block.tours > div > div:nth-of-type(2) > div {
+    color: #a9a9a9;
+    flex: none;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:not(:last-child) {
+    margin-right: 50px;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:hover {
+    color: #365f41;
+    cursor: pointer;
+  }
+  .block.tours > div > div:nth-of-type(3) {
+    display: flex;
+  }
+  .block.tours > div > div:nth-of-type(3) > div {
+    width: 50%;
+    margin: auto;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:first-child {
+    padding-bottom: 35%;
+    margin-bottom: 0;
+    background-color: #a9a9a9;
+    border-radius: 24px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div {
+    padding-left: 8%;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 0.8rem;
+    padding-bottom: 30px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+    width: 80%;
+    padding-bottom: 50px;
+  }
 }
-.block.tours > div > div:nth-of-type(2) {
-  display: flex;
-  padding-bottom: 4%;
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .block.tours > div {
+    margin-bottom: 10%;
+  }
+  .block.tours > div > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1.5rem;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block.tours > div > div:nth-of-type(2) > div {
+    color: #a9a9a9;
+    flex: none;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:not(:last-child) {
+    margin-right: 50px;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:hover {
+    color: #365f41;
+    cursor: pointer;
+  }
+  .block.tours > div > div:nth-of-type(3) {
+    display: flex;
+  }
+  .block.tours > div > div:nth-of-type(3) > div {
+    width: 50%;
+    margin: auto;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:first-child {
+    padding-bottom: 35%;
+    margin-bottom: 0;
+    background-color: #a9a9a9;
+    border-radius: 24px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div {
+    padding-left: 8%;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 30px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+    width: 80%;
+    padding-bottom: 50px;
+  }
 }
-.block.tours > div > div:nth-of-type(2) > div {
-  margin-right: 50px;
-  color: #a9a9a9;
-}
-.block.tours > div > div:nth-of-type(2) > div:hover {
-  color: #365f41;
-  cursor: pointer;
-}
-.block.tours > div > div:nth-of-type(3) {
-  display: flex;
-}
-.block.tours > div > div:nth-of-type(3) > div {
-  width: 50%;
-  margin: auto;
-}
-.block.tours > div > div:nth-of-type(3) > div:first-child {
-  padding-bottom: 35%;
-  background-color: #a9a9a9;
-  border-radius: 24px;
-}
-.block.tours > div > div:nth-of-type(3) > div:last-child > div {
-  padding-left: 8%;
-}
-.block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
-  font-family: Intro, sans-serif;
-  padding-bottom: 30px;
-}
-.block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
-  width: 80%;
-  padding-bottom: 50px;
+@media (min-width: 1401px) {
+  .block.tours > div {
+    margin-bottom: 10%;
+  }
+  .block.tours > div > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1.5rem;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .block.tours > div > div:nth-of-type(2) > div {
+    color: #a9a9a9;
+    flex: none;
+    padding-bottom: 4%;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:not(:last-child) {
+    margin-right: 50px;
+  }
+  .block.tours > div > div:nth-of-type(2) > div:hover {
+    color: #365f41;
+    cursor: pointer;
+  }
+  .block.tours > div > div:nth-of-type(3) {
+    display: flex;
+  }
+  .block.tours > div > div:nth-of-type(3) > div {
+    width: 50%;
+    margin: auto;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:first-child {
+    padding-bottom: 35%;
+    margin-bottom: 0;
+    background-color: #a9a9a9;
+    border-radius: 24px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div {
+    padding-left: 8%;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 30px;
+  }
+  .block.tours > div > div:nth-of-type(3) > div:last-child > div:nth-of-type(2) {
+    width: 80%;
+    padding-bottom: 50px;
+  }
 }
 
 .block.adventure {
@@ -1034,7 +1300,7 @@ input[type=text].footer_input::placeholder {
   .block.photo .head_photo > div:nth-of-type(1) {
     flex: auto;
     font-family: Intro, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .block.photo > div:nth-of-type(2) {
     display: flex;
