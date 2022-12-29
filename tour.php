@@ -217,7 +217,7 @@
             <div class = "block p">
                 <div class = "other_publication other_tour">
                     <div>
-                        <span onclick = " window.location.href = '/tours';">Другие путешествия</span>
+                        <span class = "header" onclick = " window.location.href = '/tours';">Другие путешествия</span>
                     </div>
 					<div>
 						<div class = "arrow_left"></div>

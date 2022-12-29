@@ -24,7 +24,7 @@
 }
 
 .block.page_tours {
-	> div:first-child { text-align: center; font-family: Intro, sans-serif; padding-bottom: 70px; padding-top: 50px; }
+	> div:first-child { text-align: center !important; padding-top: 3%; }
 	&:first-child { padding-top: 70px; }
 	padding-bottom: 140px;
 }

@@ -34,7 +34,7 @@
             </div>
             <div class = "other_publication other_adventure">
                 <div>
-                    <span onclick = " window.location.href = '/adventures';">Другие приключения</span>
+                    <span class = "header" onclick = " window.location.href = '/adventures';">Другие приключения</span>
                 </div>
                <div>
 				   <div class = "arrow_left"></div>

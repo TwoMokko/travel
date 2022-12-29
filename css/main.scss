@@ -63,7 +63,18 @@ input[type="text"] {
 	}
 }
 .block.p { margin: 0 auto; padding: 0 10%; max-width: 1200px; }
-.header { font-family: Intro, sans-serif; padding-bottom: 70px; text-align: center; font-size: 1.5rem; }
+.header {
+	@mixin ViewHeader($params:null) {
+		$default: (
+				head_fontsize: 1.5rem
+		);
+
+		font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_fontsize'); padding-bottom: 4%;
+	}
+	@include MixScreen(null, $sizeXL) { @include ViewHeader((head_fontsize: 1rem)); }
+	@include MixScreen($sizeXL, $size4XL) { @include ViewHeader((head_fontsize: 1.3rem)); }
+	@include MixScreen($size4XL, null) { @include ViewHeader(()); }
+}
 .block.hat.other {
 	position: relative;
 	> div {
@@ -97,9 +108,10 @@ input[type="text"] {
 		margin: 10% 0;
 		> div {
 			&:first-child {
-				text-align: center; padding-bottom: 70px;
+				text-align: center; padding-bottom: 4%;
 				> span {
-					font-family: Intro, sans-serif; font-size: 1.5rem; cursor: pointer;
+					//font-family: Intro, sans-serif; font-size: 1.5rem;
+					cursor: pointer; padding-bottom: 0 !important;
 					&:hover { color: $color_main_green; }
 				}
 			}

@@ -80,7 +80,7 @@
 		</div>
 		<div class = "block about_us p">
 			<div></div>
-			<div>Наша команда организует путешествия
+			<div class = "header">Наша команда организует путешествия
                 <br>по различным маршутам и направлениям</div>
 			<div>
 				Для нас важно показать уникальность посещаемых мест и зарядить положительными эмоциями и впечатлениями
@@ -91,7 +91,7 @@
 		</div>
 		<div class = "block tours p">
 			<div>
-				<div>Типы путешествий</div>
+				<div class = "header">Типы путешествий</div>
 				<div>
 					<div>Основные путешествия</div>
 					<div>Индивидуальное сопровождение</div>
@@ -113,7 +113,7 @@
 		</div>
 		<div class = "block adventure">
             <div>
-                <div>Наши приключения</div>
+                <div class = "header">Наши приключения</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
 				<a class = "button semi_white" href = "/adventures">Читать</a>
@@ -121,7 +121,7 @@
         </div>
 		<div class = "block photo p">
 			<div class = "head_photo">
-				<div>Фотографии с наших путешествий</div>
+				<div class = "header">Фотографии с наших путешествий</div>
 <!--				<div>-->
 <!--					<div></div>-->
 <!--					<div></div>-->
