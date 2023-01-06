@@ -44,7 +44,7 @@
                                 <div>
                                     <!--							<span class = "more">Подробнее ⟶</span>-->
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -59,7 +59,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -74,7 +74,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -89,7 +89,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -104,7 +104,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -119,7 +119,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -134,7 +134,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -149,7 +149,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -164,7 +164,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -184,7 +184,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -199,7 +199,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -214,7 +214,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -234,7 +234,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -249,7 +249,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -269,7 +269,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>
@@ -284,7 +284,7 @@
 <!--                                <div>Цена</div>-->
                                 <div>
 <!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать">
+                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
                         </a>

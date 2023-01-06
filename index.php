@@ -40,27 +40,16 @@
 					<div>
 						<div>
 							<div>Выберите категорию</div>
-							<select>
-								<option>Основные путешествия</option>
-								<option>Индивидуальное сопровождение</option>
-								<option>ВИП</option>
-								<option>Выходного дня</option>
-							</select>
+							<select id = "categories"></select>
 						</div>
 						<div>
 							<div>Выберите путешествие</div>
-							<select>
-								<option>Байкал, остров Ольхон. 28 декабря - 6 января</option>
-								<option>Чулышманская долина. 1-8 мая</option>
-								<option>Ак-туру. 24-30 июня</option>
-								<option>Чулышманская долина. 20-29 июля</option>
-								<option>Каракольские озера. 2-10 августа</option>
-								<option>Ак-туру. 27 августа - 3 сентября</option>
-							</select>
+							<select id = "tours"></select>
 						</div>
 					</div>
 					<div>
-						<input type = "submit" value = "Подробнее о путешествии">
+                        <a id = "see_tour" class = "button" href = "/tour">Подробнее о путешествии</a>
+<!--						<input type = "submit" value = "Подробнее о путешествии">-->
 					</div>
 <!--					<div>-->
 <!--						<div>Количество человек</div>-->
@@ -92,23 +81,58 @@
 		<div class = "block tours p">
 			<div>
 				<div class = "header">Типы путешествий</div>
-				<div>
+				<div class = "switch_menu">
 					<div>Основные путешествия</div>
 					<div>Индивидуальное сопровождение</div>
 					<div>ВИП</div>
 					<div>Выходного дня</div>
 				</div>
-				<div>
-					<div></div>
-					<div>
-						<div>Индивидуальное сопровождение</div>
-						<div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
-						<div>
-							<a class = "button" href = "/tours">Выбрать путешествие</a>
-<!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
-						</div>
-					</div>
-				</div>
+                <div class = "switch_list">
+                    <div>
+                        <div></div>
+                        <div>
+                            <div>Основные путешествия</div>
+                            <div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+                            <div>
+                                <a class = "button" href = "/tours#major_travel">Выбрать путешествие</a>
+                                <!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div>
+                            <div>Индивидуальное сопровождение</div>
+                            <div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+                            <div>
+                                <a class = "button" href = "/tours#individual_support">Выбрать путешествие</a>
+                                <!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div>
+                            <div>ВИП</div>
+                            <div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+                            <div>
+                                <a class = "button" href = "/tours#VIP">Выбрать путешествие</a>
+                                <!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div>
+                            <div>Выходного дня</div>
+                            <div>Небольшое количество человек. Можем организовать путешествие на основе ваших пожеланий. Едем на хорошей машине.</div>
+                            <div>
+                                <a class = "button" href = "/tours#weekend_tour">Выбрать путешествие</a>
+                                <!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<div class = "block adventure">
@@ -200,9 +224,37 @@
 <!--			</div>-->
 <!--		</div>-->
         <script>
-            $(() => ScrollTop('main'));
+            let data = [
+                { id: 1, name: 'Основные путешествия', tours: [
+                        { id: 1, name: 'Байкал, остров Ольхон. 28 декабря - 6 января', href: '/tour/1' },
+                        { id: 2, name: 'Чулышманская долина. 1-8 мая', href: '/tour/2' },
+                        { id: 3, name: 'Ак-туру. 24-30 июня', href: '/tour/3' },
+                        { id: 4, name: 'Чулышманская долина. 20-29 июля', href: '/tour/4' },
+                        { id: 5, name: 'Каракольские озера. 2-10 августа', href: '/tour/5' },
+                        { id: 6, name: 'Ак-туру. 27 августа - 3 сентября', href: '/tour/6' }
+                    ] },
+                { id: 2, name: 'Индивидуальное сопровождение', tours: [
+                        { id: 1, name: 'Турция. 16-29 мая', href: '/tour/7' },
+                        { id: 2, name: 'Чулышманская долина. 20-29 июля', href: '/tour/8' },
+                        { id: 3, name: 'Каракольские озера. 12-20 сентября', href: '/tour/9' },
+                        { id: 4, name: 'Дагестан. 28 октября - 4 ноября', href: '/tour/10' }
+                    ] },
+                { id: 3, name: 'ВИП', tours: [
+                        { id: 1, name: 'Дагестан. 6-12 июля', href: '/tour/11' },
+                        { id: 2, name: 'Каракольские озера. 21-26 августа', href: '/tour/12' }
+                    ] },
+                { id: 4, name: 'Выходного дня', tours: [
+                        { id: 1, name: 'Маяк. 10 января', href: '/tour/13' },
+                        { id: 2, name: 'Парабель. 17-19 марта', href: '/tour/14' },
+                        { id: 3, name: 'Таловские чаши. 15 февраля', href: '/tour/15' },
+                    ] }
+            ];
+            $(() => {
+                ScrollTop('main');
+                new SelectTour(data);
+                Switcher('.switch_menu', '.switch_list');
+            });
         </script>
         <?php
 	}
-
 

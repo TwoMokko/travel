@@ -6,33 +6,48 @@
 .block.footer {
 	@mixin ViewFooter($params: null) {
 		$default: (
-				width_pic: 120px,
-				height_pic: 120px
+				size_pic: 120px,
+				display_footer: flex,
+				display_cont_menu: flex,
+				margin_cont_menu: 0,
+				width_form: 30%,
+				margin_form: 0,
+				margin_footer_cont: 0,
+				textalign_footer_cont: left,
+				textalign_input: left,
+				paddingleft_menu: 0,
+				//textalign_footer_cont: center,
+				//MARGIN_FOOTER_CONT: 2rem auto,
+				//width_form: 60%,
+				//margin_form: 2rem auto,
 		);
 		background-color: $color_main_green; color: $color_white;
 		> div {
-			display: flex; padding: 5% 10% 3%;
+			display: GetValue($default, $params, 'display_footer'); padding: 5% 10% 3%;
 			> div {
-				&:nth-of-type(1) {
+				flex: auto; display: GetValue($default, $params, 'display_cont_menu'); margin-bottom:  GetValue($default, $params, 'margin_cont_menu');
+				> div { margin: GetValue($default, $params, 'margin_footer_cont'); text-align: GetValue($default, $params, 'textalign_footer_cont'); }
+				.footer_contact {
+					width: 50%;
 					> div:first-child {
-						margin-bottom: 16%;
-						> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: GetValue($default, $params, 'height_pic'); width: GetValue($default, $params, 'width_pic'); cursor: pointer; }
+						margin-bottom: 1rem;
+						> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: GetValue($default, $params, 'size_pic'); width: GetValue($default, $params, 'size_pic'); cursor: pointer; }
 					}
 				}
-				&:nth-of-type(2) {
-					flex: auto; display: flex; flex-direction: column; padding-left: 10%;
+				.footer_menu {
+					flex: auto; display: flex; flex-direction: column; width: 50%; padding-left: GetValue($default, $params, 'paddingleft_menu');
 					> div:not(:last-child) { margin-bottom: 3%; }
 					a {
 						color: $color_white; text-decoration: none;
 						&:hover { text-decoration: underline; }
 					}
 				}
-				&:nth-of-type(3) {
-					display: flex; flex-direction: column; width: 30%;
-					input {
-						padding: 8px 0; margin-right: 0;
-						&:not(:last-child) { margin-bottom: 32px; }
-					}
+			}
+			> form {
+				display: flex; flex-direction: column; width: GetValue($default, $params, 'width_form'); margin: GetValue($default, $params, 'margin_form');
+				input {
+					padding: 0.4rem 0; margin-right: 0;
+					&:not(:last-child) { margin-bottom: 32px; text-align: GetValue($default, $params, 'textalign_input'); }
 				}
 			}
 		}
@@ -50,7 +65,9 @@
 			}
 		}
 	}
-	@include MixScreen(null, $sizeL) { @include ViewFooter((width_pic: 50px, height_pic: 50px)); }
-	@include MixScreen($sizeL, $size3XL) { @include ViewFooter((width_pic: 80px, height_pic: 80px)); }
+	@include MixScreen(null, $sizeXS) { @include ViewFooter((size_pic: 80px, display_footer: revert, display_cont_menu: revert, margin_cont_menu: 2rem, margin_footer_cont: 2rem auto, textalign_footer_cont: center, width_form: 60%, margin_form: 2rem auto, textalign_input: center)); }
+	@include MixScreen($sizeXS, $sizeL) { @include ViewFooter((size_pic: 60px, display_footer: revert, margin_cont_menu: 2rem, width_form: 100%, paddingleft_menu: 15%)); }
+	//@include MixScreen($sizeL, $sizeXL) { @include ViewFooter((size_pic: 80px, display_footer: revert, margin_cont_menu: 2rem, width_form: 50%)); }
+	@include MixScreen($sizeL, $size3XL) { @include ViewFooter((size_pic: 80px)); }
 	@include MixScreen($size3XL, null) { @include ViewFooter(); }
 }

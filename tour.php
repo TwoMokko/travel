@@ -20,7 +20,7 @@
     }
 
     function Main(): void {
-        ?><div class = "block page_one_tour">
+        ?>
 			<div class = "about_tour block p">
 				<div>Ольхон - самый большой остров на озере Байкал. Протяженность около 80 км и ширина 15 км.
 					Именно в новогодние праздники из года в год Байкал застывает в прозрачный лёд.</div>
@@ -128,7 +128,7 @@
 			</div>
 			<div class = "tour_photo block p">
 				<div class = "header">Фотографии</div>
-				<div class = "tour_mini_photo">
+				<div class = "block tour_mini_photo">
 					<div></div>
 					<div></div>
 					<div></div>
@@ -140,10 +140,10 @@
 					<a class = "button" href = "/photoalbum" >Смотреть альбом</a>
 				</div>
 			</div>
-            <div class = "tour_take_things block p">
+            <div class = "tour_take_things block p print">
 				<div>
 					<div class = "header">Что взять с собой</div>
-					<span class = "print" title="распечатать"></span>
+					<span onclick = "window.print();" class = "print_btn" title="распечатать"></span>
 				</div>
                 <div>
                     <div>
@@ -194,7 +194,7 @@
                 </div>
             </div>
 			<div class = "tour_dates block p"></div>
-			<div class = "tour_form">
+			<div class = "block tour_form">
 				<div class = "header">Оставить заявку</div>
 				<div>
 					<div>
@@ -209,7 +209,7 @@
 						<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
 					</div>
 					<div>
-						<input type = "button" value = "Оставить заявку">
+						<input type = "button" value = "Оставить заявку" onclick = "AfterSend(); event.preventDefault();" >
 					</div>
 				</div>
 
@@ -257,9 +257,10 @@
                 </div>
 
             </div>
-        </div>
         <script>
-            $(() => ScrollTop('body'));
+            $(
+                () => ScrollTop('body')
+            );
         </script>
         <?php
     }
