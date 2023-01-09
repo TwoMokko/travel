@@ -39,14 +39,14 @@
 					> div:not(:last-child) { margin-bottom: 3%; }
 					a {
 						color: $color_white; text-decoration: none;
-						&:hover { text-decoration: underline; }
+						&:hover { border-bottom: solid 1px $color_white; }
 					}
 				}
 			}
 			> form {
 				display: flex; flex-direction: column; width: GetValue($default, $params, 'width_form'); margin: GetValue($default, $params, 'margin_form');
 				input {
-					padding: 0.4rem 0; margin-right: 0;
+					margin-right: 0;
 					&:not(:last-child) { margin-bottom: 32px; text-align: GetValue($default, $params, 'textalign_input'); }
 				}
 			}

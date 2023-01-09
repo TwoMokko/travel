@@ -49,4 +49,6 @@ $screenXXXS         : (min: map.get($size, 0), max: map.get($size, 320) - 1);
 
 @font-face { font-family: Intro; src: url("fonts/IntroDemo-BlackCAPS.otf");  font-style: normal; font-weight: 400; }
 @font-face { font-family: MoshitaMono; src: url("fonts/MoshitaMono.ttf"); font-style: normal; font-weight: 400; }
+@font-face { font-family: Manrope; src: url("fonts/Manrope-Regular.ttf"); font-style: normal; font-weight: 400; }
+@font-face { font-family: SourceSansPro; src: url("fonts/SourceSansPro-Regular.ttf"); font-style: normal; font-weight: 400; }
 @font-face { font-family: InterTight; src: url("fonts/InterTight-Regular.ttf"); font-style: normal; font-weight: 400; }

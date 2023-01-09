@@ -30,11 +30,13 @@
 }
 
 .block.menu {
-	> a {
-		color: $color_white; padding: 0.5rem; text-decoration: none; transition: all 500ms ease;
-		&:hover { text-decoration: underline; }
+	> div {
+		margin: 0.5rem;
+		> a {
+			color: $color_white; text-decoration: none; transition: all 500ms ease;
+			&:hover { border-bottom: solid 1px $color_white; }
+		}
 	}
-
 }
 
 .block.hat.main {
@@ -82,7 +84,7 @@
 		$default: (
 				top: -50px,
 				height: 0,
-				fontsize_select: 24px,
+				fontsize_select: 18px,
 				widht_form: 1200px,
 				borderradius_form: 40px,
 				display_form: flex,
@@ -90,7 +92,8 @@
 				widht_select: 50%,
 				margin_select: 0 5% 0 0,
 				display_select: flex,
-				width_input: auto
+				width_input: auto,
+				padding_input: 0.6rem 1.2rem
 		);
 
 		//position: relative;
@@ -112,7 +115,8 @@
 						}
 					}
 					&:last-child {
-						> input { width: GetValue($default, $params, 'width_input'); }
+						> a { width: GetValue($default, $params, 'width_input'); padding: GetValue($default, $params, 'padding_input'); }
+						//> input { width: GetValue($default, $params, 'width_input'); }
 					}
 				}
 			}
@@ -122,17 +126,17 @@
 			text-align: left; width: GetValue($default, $params, 'widht_select');
 			&:first-child { margin: GetValue($default, $params, 'margin_select'); }
 			> select {
-				width: 100%; font-family: MoshitaMono, sans-serif; font-size: GetValue($default, $params, 'fontsize_select'); outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid $color_gray; padding-right: 32px; appearance: none; background-image: url('pic/arrow/down/darkgray.svg'); background-repeat: no-repeat; background-position: right; background-size: 24px;
+				width: 100%; font-family: SourceSansPro, sans-serif; font-size: GetValue($default, $params, 'fontsize_select'); outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid $color_gray; padding-right: 32px; appearance: none; background-image: url('pic/arrow/down/darkgray.svg'); background-repeat: no-repeat; background-position: right; background-size: 24px;
 			}
 			> div { color: $color_main_green; font-weight: bold; }
 		}
 	}
 
-	@include MixScreen(null, $sizeL) { @include ViewCheckTour((fontsize_select: 18px, widht_form: none, borderradius_form: none, display_form: revert, margin_form: 0 0 1rem 0, widht_select: 100%, margin_select: 0 0 5% 0, display_select: revert, width_input: 100%, top: 0, height: revert)); }
-	@include MixScreen($sizeL, $sizeX) { @include ViewCheckTour((fontsize_select: 18px, widht_form: none, borderradius_form: none, display_form: revert, margin_form: 0 0 1rem 0, top: 0, height: revert)); }
-	@include MixScreen($sizeX, $size2XL) { @include ViewCheckTour((fontsize_select: 18px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
-	@include MixScreen($size2XL, $size3XL) { @include ViewCheckTour((fontsize_select: 18px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
-	@include MixScreen($size3XL, $size4XL) { @include ViewCheckTour((fontsize_select: 20px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen(null, $sizeL) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, display_form: revert, margin_form: 0 0 1rem 0, widht_select: 100%, margin_select: 0 0 5% 0, display_select: revert, width_input: 100%, padding_input: 0.6rem 0, top: 0, height: revert)); }
+	@include MixScreen($sizeL, $sizeX) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, display_form: revert, margin_form: 0 0 1rem 0, top: 0, height: revert)); }
+	@include MixScreen($sizeX, $size2XL) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen($size2XL, $size3XL) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewCheckTour((fontsize_select: 14px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
 	@include MixScreen($size4XL, $size5XL) { @include ViewCheckTour((widht_form: none, borderradius_form: none, top: 0, height: revert)); }
 	@include MixScreen($size5XL, null) { @include ViewCheckTour(); }
 }
@@ -162,7 +166,7 @@
 	@mixin ViewToursMain($params:null) {
 		$default: (
 				//head_tours_fontsize: 1.5rem,
-				head_tour_fontsize: 1rem,
+				head_tour_fontsize: 20px,
 				display_tour: flex,
 				margin_right_tours: 50px,
 				margin_bottom_pic: 0,
@@ -209,10 +213,11 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeXL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem, display_tour: revert, margin_right_tours: 30px, padding_bottom_pic: 50%, margin_bottom_pic: 4%, width_tour: 100%, padding_left_text: 0, padding_bottom_text: 2%, width_text: 100%, text-align: center)); }
-	@include MixScreen($sizeXL, $size2XL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem)); }
-	@include MixScreen($size2XL, $size3XL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem)); }
-	@include MixScreen($size3XL, $size4XL) { @include ViewToursMain((head_tours_fontsize: 1rem, head_tour_fontsize: 0.8rem)); }
+	@include MixScreen(null, $sizeM) { @include ViewToursMain((head_tour_fontsize: 12px, display_tour: revert, margin_right_tours: 30px, padding_bottom_pic: 50%, margin_bottom_pic: 4%, width_tour: 100%, padding_left_text: 0, padding_bottom_text: 2%, width_text: 100%, text-align: center)); }
+	@include MixScreen($sizeM, $sizeXL) { @include ViewToursMain((head_tour_fontsize: 16px, display_tour: revert, margin_right_tours: 30px, padding_bottom_pic: 50%, margin_bottom_pic: 4%, width_tour: 100%, padding_left_text: 0, padding_bottom_text: 2%, width_text: 100%, text-align: center)); }
+	@include MixScreen($sizeXL, $size2XL) { @include ViewToursMain((head_tour_fontsize: 16px)); }
+	@include MixScreen($size2XL, $size3XL) { @include ViewToursMain((head_tour_fontsize: 16px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewToursMain((head_tour_fontsize: 18px)); }
 	@include MixScreen($size4XL, $size5XL) { @include ViewToursMain(()); }
 	@include MixScreen($size5XL, null) { @include ViewToursMain(); }
 

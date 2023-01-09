@@ -11,10 +11,20 @@
 
     function Menu(): void {
         ?><div class = "block menu">
-            <a href = "/">Главная</a>
-            <a href = "/tours">Путешествия</a>
-            <a href = "/about">О нас</a>
-            <a href = "/adventures">Наши приключения</a>
-            <a href = "/photo">Фотографии</a>
+			<div>
+				<a href = "/">Главная</a>
+			</div>
+			<div>
+				<a href = "/tours">Путешествия</a>
+			</div>
+			<div>
+				<a href = "/about">О нас</a>
+			</div>
+			<div>
+				<a href = "/adventures">Наши приключения</a>
+			</div>
+			<div>
+				<a href = "/photo">Фотографии</a>
+			</div>
         </div><?php
     }

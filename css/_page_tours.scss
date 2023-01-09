@@ -33,10 +33,11 @@
 
 	@mixin ViewTours($params: null) {
 		$default: (
-				cards_count: 3
+				cards_count: 3,
+				grid-row-gap: 50px
 		);
 
-		display: grid; grid-template-columns: repeat(GetValue($default, $params, 'cards_count'), 1fr); grid-column-gap: 2%; width: 100%; grid-row-gap: 50px;
+		display: grid; grid-template-columns: repeat(GetValue($default, $params, 'cards_count'), 1fr); grid-column-gap: 2%; width: 100%; grid-row-gap: GetValue($default, $params, 'grid-row-gap');
 		> a {
 			text-decoration: none; color: $color_text_main; overflow: hidden; background-color: $color_white; border-radius: 24px; transition: all 200ms ease;
 			&:hover {
@@ -75,7 +76,8 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeXL) { @include ViewTours((cards_count: 2, display_price: revert)); }
+	@include MixScreen(null, $sizeM) { @include ViewTours((cards_count: 1, grid-row-gap: 24px, display_price: revert)); }
+	@include MixScreen($sizeM, $sizeXL) { @include ViewTours((cards_count: 2, display_price: revert)); }
 	@include MixScreen($sizeXL, $size3XL) { @include ViewTours((cards_count: 2)); }
 	@include MixScreen($size3XL, $size4XL) { @include ViewTours(()); }
 	@include MixScreen($size4XL, null) { @include ViewTours(()); }
