@@ -6,14 +6,14 @@
 .page_one_adventure {
 
 	.adventure_text {
-		margin: -120px 0 0; position: relative; background-color: $color_white; padding: 3rem 4rem;
+		margin: -120px 0 0; position: relative; background-color: $color_white; padding: 6% 8%; border-radius: 60px;
 		> div {
-			&:first-child { margin-bottom: 2rem; }
+			&:first-child { margin-bottom: 4%; }
 			&:last-child {
 				display: flex;
 				> div {
-					width: 49%; height: 12rem; background-color: $color_gray; cursor: pointer;
-					&:not(last-child) { margin-right: 2%; }
+					width: 49%; height: 18rem; background-color: $color_gray; cursor: pointer; border-radius: 40px;
+					&:not(:last-child) { margin-right: 2%; }
 				}
 			}
 		}

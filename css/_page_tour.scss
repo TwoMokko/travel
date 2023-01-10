@@ -4,56 +4,90 @@
 @use "_func" as *;
 
 
-//.page_one_tour {
-
-	@mixin ViewTour($params: null) {
+.block.about_tour {
+	@mixin ViewAboutTour($params: null) {
 		$default: (
 				display_about_price: flex,
 				marginright_about: 10%,
 				width_left_about: 60%,
 				width_right_about: 40%
 		);
+		display: GetValue($default, $params, 'display_about_price');
+		padding: 6% 10% 0;
 
-		.block.about_tour {
-			display: GetValue($default, $params, 'display_about_price'); padding: 10%;
-			> div {
-				&:first-child { width: GetValue($default, $params, 'width_left_about'); margin-right: GetValue($default, $params, 'marginright_about'); }
-				&:last-child { width: GetValue($default, $params, 'width_right_about'); display: flex; }
+		> div {
+			&:first-child {
+				width: GetValue($default, $params, 'width_left_about');
+				margin-right: GetValue($default, $params, 'marginright_about');
+			}
+
+			&:last-child {
+				width: GetValue($default, $params, 'width_right_about');
+				display: flex;
 			}
 		}
 
-		.block.tour_video {
+		.about_mini {
 			> div {
-				padding-top: 10%; padding-bottom: 10%;
+				width: 50%;
 				> div {
-					&:nth-of-type(1) { text-align: center !important; }
-					&:nth-of-type(2) {
-						//text-align: center; padding: 180px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
-					}
+					&:first-child { color: darkgray; font-family: Intro, sans-serif; font-size: 1.5rem; }
+					//&:last-child { padding-top: 20px; }
 				}
 			}
 		}
+	}
 
-		.block.tour_price {
-			padding: 10%;
+	@include MixScreen(null, $sizeL) { @include ViewAboutTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
+	@include MixScreen($sizeXL, null) { @include ViewAboutTour(()); }
+}
+
+
+
+.block.tour_video {
+	@mixin ViewTourVideo($params: null) {
+		$default: (
+				padding: 10%,
+		);
+		> div {
+			padding: GetValue($default, $params, 'padding'); margin: 0 auto; max-width: 1200px;
 			> div {
-				&:first-child { padding-bottom: 16px; color: $color_gray; }
-				&:last-child {
-					display: GetValue($default, $params, 'display_about_price');
+				&:nth-of-type(1) { text-align: center !important; }
+				&:nth-of-type(2) {
+					//text-align: center; padding: 180px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
+				}
+			}
+		}
+	}
+	@include MixScreen(null, $sizeXL) { @include ViewTourVideo((padding: 10% 0)); }
+	@include MixScreen($sizeXL, null) { @include ViewTourVideo(()); }
+}
+
+.block.tour_price {
+	@mixin ViewTourPrice($params: null) {
+		$default: (
+				display_about_price: flex,
+				width: 50%,
+				padding: 32px 0 0 32px
+		);
+		> div {
+			&:first-child { padding-bottom: 16px; color: $color_gray; }
+			&:last-child {
+				display: GetValue($default, $params, 'display_about_price');
+				> div {
+					width: GetValue($default, $params, 'width');
+					&:first-child {}
+					&:last-child {}
 					> div {
-						width: 50%;
-						&:first-child {}
-						&:last-child {}
-						> div {
-							&:first-child { font-family: Intro, sans-serif; }
-						}
+						&:first-child { font-family: Intro, sans-serif; }
 					}
 				}
 			}
 		}
 
-		.block.list {
-			padding: 32px 0 0 32px;
+		.list {
+			padding: GetValue($default, $params, 'padding');
 			> div {
 				display: flex;
 				> div {
@@ -62,50 +96,62 @@
 				}
 			}
 		}
+	}
 
-		.block.about_mini {
-			> div {
-				width: 50%;
-				> div {
-					&:first-child { padding-bottom: 20px; }
-					&:last-child { color: darkgray; font-family: Intro, sans-serif; font-size: 1.5rem; }
-				}
-			}
+	@include MixScreen(null, $sizeL) { @include ViewTourPrice((display_about_price: revert, width: 100%, padding: 16px 0 0 16px)); }
+	@include MixScreen($sizeL, null) { @include ViewTourPrice(()); }
+}
+
+
+.block.tour_program {
+	@mixin ViewTourProgram($params: null) {
+		$default: (
+				display: flex,
+				width: 50%,
+				fontsize_number: 60px,
+				width_number: 100px
+		);
+
+		padding: 120px 10%;
+		> div {
+			&:first-child { text-align: center !important; }
+			&:last-child { display: GetValue($default, $params, 'display'); }
 		}
-
-		.block.tour_program {
-			padding: 120px 10%;
+		.days > div {
+			display: flex;
 			> div {
-				&:first-child { text-align: center !important; }
-				&:last-child { display: flex; }
-			}
-			.days > div {
-				display: flex;
-				> div {
-					&:first-child {
-						width: 100px; text-align: right; position: relative; padding-right: 20px; font-size: 60px; color: $color_gray;
-						&:before { content: ""; position: absolute; width: 8px; height: 8px; background-color: $color_gray; border-radius: 50%; right: -4px; top: 0;
-						}
+				&:first-child {
+					width: GetValue($default, $params, 'width_number'); text-align: right; position: relative; padding-right: 20px; font-size: GetValue($default, $params, 'fontsize_number'); color: $color_gray;
+					&:before { content: ""; position: absolute; width: 8px; height: 8px; background-color: $color_gray; border-radius: 50%; right: -4px; top: 0;
 					}
-					&:last-child { border-left: 1px solid $color_gray; max-width: 50%; padding-left: 20px; padding-bottom: 50px; }
 				}
-			}
-			.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: center; }
-		}
-
-		.block.tour_photo {
-			padding: 10%;
-			> div {
-				&:first-child { text-align: center !important; }
-				&:last-child { text-align: center; }
+				&:last-child { border-left: 1px solid $color_gray; width: GetValue($default, $params, 'width'); padding-left: 20px; padding-bottom: 50px; }
 			}
 		}
+		.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: center; }
+	}
 
-		.block.tour_mini_photo {
+	@include MixScreen(null, $sizeM) { @include ViewTourProgram((display: revert, width: 90%, fontsize_number: 40px, width_number: 50px)); }
+	@include MixScreen($sizeM, $sizeX) { @include ViewTourProgram((display: revert, width: 70%, fontsize_number: 40px, width_number: 80px)); }
+	@include MixScreen($sizeX, null) { @include ViewTourProgram(()); }
+}
+
+
+.block.tour_photo {
+	@mixin ViewTourPhoto($params: null) {
+		$default: (
+
+		);
+		> div {
+			&:first-child { text-align: center !important; }
+			&:last-child { text-align: center; }
+		}
+
+		.tour_mini_photo {
 			display: grid; grid-row-gap: 1rem; grid-column-gap: 1rem; margin-bottom: 4%;
 			grid-template-areas:
-				"a b b c"
-				"d d e f";
+		"a b b c"
+		"d d e f";
 			> div {
 				background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%;
 				&:hover { box-shadow: $box_shadow_white; }
@@ -117,35 +163,44 @@
 				&:nth-of-type(6) { grid-area: f; }
 			}
 		}
+	}
 
-		.block.tour_take_things {
-			padding: 10%;
-			.print_btn { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/print.svg"); }
-			> div {
-				&:first-child {
-					display: flex; justify-content: center;
-				}
-				&:last-child {
-					display: grid; grid-row-gap: 1rem;
+	@include MixScreen(null, $sizeXL) { @include ViewTourPhoto(()); }
+	@include MixScreen($sizeXL, null) { @include ViewTourPhoto(()); }
+}
+
+
+.block.tour_take_things {
+	@mixin ViewTakeThings($params: null) {
+		$default: (
+		);
+
+		padding: 10%;
+		.print_btn { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/print.svg"); }
+		> div {
+			&:first-child {
+				display: flex; justify-content: center;
+			}
+			&:last-child {
+				display: grid; grid-row-gap: 1.5rem;
+				> div {
+					&:nth-of-type(1) { grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 4; }
+					&:nth-of-type(2) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2; }
+					&:nth-of-type(3) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3; }
+					&:nth-of-type(4) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4; }
 					> div {
-						&:nth-of-type(1) { grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 4; }
-						&:nth-of-type(2) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2; }
-						&:nth-of-type(3) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3; }
-						&:nth-of-type(4) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4; }
-						> div {
-							&:first-child { font-size: 1.3rem; padding-bottom: 0.5rem; }
-							&:last-child {
-								display: flex; flex-direction: column; align-items: start;
-								> label {
-									margin: 0.2rem 0; cursor: pointer;
-									> input {
-										display: none;
-										&:checked + span:before { background-color: $color_main_green; border: 1px solid $color_main_green; background-image: url("pic/cheked.svg"); background-position: center; background-size: 65%; background-repeat: no-repeat; }
-									}
-									> span:before {
-										content: "";
-										height: 1rem; width: 1rem; display: inline-block; margin-right: 0.5rem; border-radius: 50%; border: 1px solid $color_gray;
-									}
+						&:first-child { font-family: Intro, sans-serif; padding-bottom: 0.5rem; }
+						&:last-child {
+							display: flex; flex-direction: column; align-items: start;
+							> label {
+								margin: 0.2rem 0; cursor: pointer;
+								> input {
+									display: none;
+									&:checked + span:before { background-color: $color_main_green; border: 1px solid $color_main_green; background-image: url("pic/cheked.svg"); background-position: center; background-size: 65%; background-repeat: no-repeat; }
+								}
+								> span:before {
+									content: "";
+									height: 1rem; width: 1rem; display: inline-block; margin-right: 0.5rem; border-radius: 50%; border: 1px solid $color_gray;
 								}
 							}
 						}
@@ -153,43 +208,59 @@
 				}
 			}
 		}
+	}
 
-		.block.tour_form {
-			padding: 10%; margin: 0 auto; background-image: url("pic/form_tour.jpg"); background-position: center;
-			> div {
-				margin: 0 15% 0 45%;
-				&:first-child { text-align: center !important; }
-				&:last-child {
-					width: 40%;
-					> div {
-						&:nth-of-type(1) {
-							display: flex;
-							> div {
-								padding: 16px; background-color: $color_semi_white; border-radius: 24px; width: 48%;
-								&:not(:last-child) { margin-right: 4%; }
-								> input { width: 100%; padding: 0; margin: 0; border-bottom: none; }
-							}
+	@include MixScreen(null, $sizeXL) { @include ViewTakeThings(()); }
+	@include MixScreen($sizeXL, null) { @include ViewTakeThings(()); }
+}
 
+
+.block.tour_form {
+	@mixin ViewTourForm($params: null) {
+		$default: (
+				margin: 0 15% 0 45%,
+				display: flex,
+				margin_input: 0 4% 0 0,
+				width_input: 48%,
+				width_form: 40%
+
+		);
+
+		padding: 10%; margin: 0 auto; background-image: url("pic/form_tour.jpg"); background-position: center;
+		> div {
+			margin: GetValue($default, $params, 'margin');
+			&:first-child { text-align: center !important; }
+			&:last-child {
+				width:  GetValue($default, $params, 'width_form');
+				> div {
+					&:nth-of-type(1) {
+						display: GetValue($default, $params, 'display');
+						> div {
+							padding: 16px; background-color: $color_semi_white; border-radius: 24px; width: GetValue($default, $params, 'width_input');
+							&:not(:last-child) { margin: GetValue($default, $params, 'margin_input'); }
+							> input { width: 100%; padding: 0; margin: 0; border-bottom: none; }
 						}
-						&:nth-of-type(2) {
-							background-color: $color_semi_white; margin-top: 24px; border-radius: 24px;
-							> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: x-large; }
-						}
-						&:nth-of-type(3) {
-							margin-top: 50px;
-							> input { width: 100%; }
-						}
+
+					}
+					&:nth-of-type(2) {
+						background-color: $color_semi_white; margin-top: 4%; border-radius: 24px;
+						> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: x-large; }
+					}
+					&:nth-of-type(3) {
+						margin-top: 8%;
+						> input { width: 100%; }
 					}
 				}
 			}
 		}
 	}
 
-	@include MixScreen(null, $sizeL) { @include ViewTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
-	@include MixScreen($sizeL, $sizeXL) { @include ViewTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
-	@include MixScreen($sizeXL, null) { @include ViewTour(()); }
-	@include MixScreen(null, null, false, true) {
-		header, footer, body > span.arrow_top, main > .block:not(.print) { display: none; }
-		body, .block.tour_take_things span.print_btn { background: none; }
-	}
-//}
+	@include MixScreen(null, $sizeXL) { @include ViewTourForm((margin: 0 auto, display: revert, margin_input: 0 0 4% 0, width_input: revert, width_form: 100%)); }
+	@include MixScreen($sizeXL, null) { @include ViewTourForm(()); }
+}
+
+
+@include MixScreen(null, null, false, true) {
+	header, footer, body > span.arrow_top, main > .block:not(.print) { display: none; }
+	body, .block.tour_take_things span.print_btn { background: none; }
+}

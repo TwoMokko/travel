@@ -17,8 +17,8 @@ html, input {
 	}
 
 	//@include MixScreen(null, $sizeM) { @include ViewHTML-input((font-size: 16px)); }
-	@include MixScreen(null, $size3XL) { @include ViewHTML-input((font-size: 12px)); }
-	@include MixScreen($size3XL, $size4XL) { @include ViewHTML-input((font-size: 14px)); }
+	@include MixScreen(null, $size3XL) { @include ViewHTML-input((font-size: 14px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewHTML-input((font-size: 16px)); }
 	@include MixScreen($size4XL, null) { @include ViewHTML-input(); }
 }
 

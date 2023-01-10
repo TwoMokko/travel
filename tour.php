@@ -26,16 +26,16 @@
 					Именно в новогодние праздники из года в год Байкал застывает в прозрачный лёд.</div>
 				<div class = "about_mini">
 					<div>
-						<div>Стоимость</div>
 						<div>25 000 ₽</div>
+						<div>Стоимость</div>
 					</div>
 					<div>
-						<div>Длительность</div>
 						<div>7 дней</div>
+						<div>Длительность</div>
 					</div>
 				</div>
 			</div>
-			<div class = "tour_video block p">
+			<div class = "tour_video block">
 				<div>
 					<div class = "header">Видео с путешествия</div>
 					<div class = "play">
