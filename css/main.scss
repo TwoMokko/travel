@@ -43,9 +43,19 @@ input[type="text"] {
 .show { opacity: 1 !important; }
 .active { color: $color_text_main !important; }
 .arrow_top {
-	background-image: url("pic/arrow/up/white.svg"); background-position: center; background-repeat: no-repeat; background-size: 60%;
-	position: fixed; bottom: 70px; right: 3%; height: 48px; width: 48px; border-radius: 50%; display: inline-block; background-color: transparent; border: 2px solid $color_semi_white; cursor: pointer; opacity: 0; transition: background 500ms ease, opacity 500ms;
-	&:hover { background-color: $color_semi_white; background-image: url("pic/arrow/up/white.svg"); border: 2px solid transparent; }
+	@mixin ViewArrowTop($params: null) {
+		$default: (
+			size: 48px,
+			border: 2px
+		);
+		background-image: url("pic/arrow/up/white.svg"); background-position: center; background-repeat: no-repeat; background-size: 60%;
+		position: fixed; bottom: 70px; right: 3%; height: GetValue($default, $params, 'size'); width: GetValue($default, $params, 'size'); border-radius: 50%; display: inline-block; background-color: transparent; border: GetValue($default, $params, 'border') solid $color_semi_white; cursor: pointer; opacity: 0; transition: background 500ms ease, opacity 500ms;
+		&:hover { background-color: $color_semi_white; background-image: url("pic/arrow/up/white.svg"); border: GetValue($default, $params, 'border') solid transparent; }
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewArrowTop((size: 32px, border: 1px)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewArrowTop((size: 40px)); }
+	@include MixScreen($sizeXL, null) { @include ViewArrowTop(()); }
 }
 .arrow_left {
 	transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
@@ -58,11 +68,20 @@ input[type="text"] {
 	&:hover { background-image: url('pic/arrow/right/green.svg'); }
 }
 .play {
-	background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; text-align: center; padding: 16%;
-	> div {
-		background-position: center; background-image: url("pic/about_play.png"); height: 100px; background-repeat: no-repeat; background-size: 90px; display: inline-block; width: 100px; cursor: pointer; transition: background-size 200ms ease;
-		&:hover { background-size: 100px; }
+	@mixin ViewVideo($params: null) {
+		$default: (
+			background_size: 90px,
+			background_size_hover: 100px
+		);
+		background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; text-align: center; padding: 16%;
+		> div {
+			background-position: center; background-image: url("pic/about_play.png"); height: 100px; background-repeat: no-repeat; background-size: GetValue($default, $params, 'background_size'); display: inline-block; width: 100px; cursor: pointer; transition: background-size 200ms ease;
+			&:hover { background-size: GetValue($default, $params, 'background_size_hover'); }
+		}
 	}
+	@include MixScreen(null, $sizeXS) { @include ViewVideo((background_size: 50px, background_size_hover: 55px)); }
+	@include MixScreen($sizeXS, $sizeL) { @include ViewVideo((background_size: 70px, background_size_hover: 77px)); }
+	@include MixScreen($sizeL, null) { @include ViewVideo(()); }
 }
 .p { margin: 0 auto; padding: 0 10%; max-width: 1200px; }
 .header {
@@ -151,7 +170,8 @@ input[type="text"] {
 		}
 	}
 
-	@include MixScreen(null, $sizeX) { @include ViewOtherPublication((mini_photo_count: 2)); }
+	@include MixScreen(null, $sizeS) { @include ViewOtherPublication((mini_photo_count: 1)); }
+	@include MixScreen($sizeS, $sizeX) { @include ViewOtherPublication((mini_photo_count: 2)); }
 	@include MixScreen($sizeX, $size2XL) { @include ViewOtherPublication((mini_photo_count: 3)); }
 	@include MixScreen($size2XL, null) { @include ViewOtherPublication(()); }
 }

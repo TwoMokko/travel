@@ -8,9 +8,12 @@
 	@mixin ViewAboutTour($params: null) {
 		$default: (
 				display_about_price: flex,
-				marginright_about: 10%,
+				margin_right_about: 0 10% 0 0,
 				width_left_about: 60%,
-				width_right_about: 40%
+				width_right_about: 40%,
+				justifycontent: revert,
+				width_price: 50%,
+				margin_right_price: 0
 		);
 		display: GetValue($default, $params, 'display_about_price');
 		padding: 6% 10% 0;
@@ -18,18 +21,19 @@
 		> div {
 			&:first-child {
 				width: GetValue($default, $params, 'width_left_about');
-				margin-right: GetValue($default, $params, 'marginright_about');
+				margin: GetValue($default, $params, 'margin_right_about');
 			}
 
 			&:last-child {
 				width: GetValue($default, $params, 'width_right_about');
-				display: flex;
+				display: flex; justify-content: GetValue($default, $params, 'justifycontent');
 			}
 		}
 
 		.about_mini {
 			> div {
-				width: 50%;
+				width: GetValue($default, $params, 'width_price');
+				&:not(:last-child) { margin-right: GetValue($default, $params, 'margin_right_price'); }
 				> div {
 					&:first-child { color: darkgray; font-family: Intro, sans-serif; font-size: 1.5rem; }
 					//&:last-child { padding-top: 20px; }
@@ -38,9 +42,9 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeL) { @include ViewAboutTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
-	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
-	@include MixScreen($sizeXL, null) { @include ViewAboutTour(()); }
+	//@include MixScreen(null, $sizeM) { @include ViewAboutTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
+	@include MixScreen(null, $sizeX) { @include ViewAboutTour((display_about_price: revert, margin_right_about: 0 0 4% 0, width_left_about: 100%, width_right_about: 100%, justifycontent: center, width_price: auto, margin_right_price: 10%)); }
+	@include MixScreen($sizeX, null) { @include ViewAboutTour(()); }
 }
 
 
@@ -69,15 +73,16 @@
 		$default: (
 				display_about_price: flex,
 				width: 50%,
-				padding: 32px 0 0 32px
+				//padding: 32px 0 0 32px,
+				margin_bottom: 0
 		);
 		> div {
-			&:first-child { padding-bottom: 16px; color: $color_gray; }
+			&:first-child { padding-bottom: 2%; color: $color_gray; }
 			&:last-child {
 				display: GetValue($default, $params, 'display_about_price');
 				> div {
 					width: GetValue($default, $params, 'width');
-					&:first-child {}
+					&:first-child { margin-bottom: GetValue($default, $params, 'margin_bottom'); }
 					&:last-child {}
 					> div {
 						&:first-child { font-family: Intro, sans-serif; }
@@ -87,7 +92,7 @@
 		}
 
 		.list {
-			padding: GetValue($default, $params, 'padding');
+			padding: 4% 0 0 4%;
 			> div {
 				display: flex;
 				> div {
@@ -98,7 +103,7 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeL) { @include ViewTourPrice((display_about_price: revert, width: 100%, padding: 16px 0 0 16px)); }
+	@include MixScreen(null, $sizeL) { @include ViewTourPrice((display_about_price: revert, width: 100%, margin_bottom: 8%)); }
 	@include MixScreen($sizeL, null) { @include ViewTourPrice(()); }
 }
 
@@ -109,7 +114,8 @@
 				display: flex,
 				width: 50%,
 				fontsize_number: 60px,
-				width_number: 100px
+				width_number: 100px,
+				background_position_y: center
 		);
 
 		padding: 120px 10%;
@@ -128,12 +134,13 @@
 				&:last-child { border-left: 1px solid $color_gray; width: GetValue($default, $params, 'width'); padding-left: 20px; padding-bottom: 50px; }
 			}
 		}
-		.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: center; }
+		.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: GetValue($default, $params, 'background_position_y'); }
 	}
 
 	@include MixScreen(null, $sizeM) { @include ViewTourProgram((display: revert, width: 90%, fontsize_number: 40px, width_number: 50px)); }
 	@include MixScreen($sizeM, $sizeX) { @include ViewTourProgram((display: revert, width: 70%, fontsize_number: 40px, width_number: 80px)); }
-	@include MixScreen($sizeX, null) { @include ViewTourProgram(()); }
+	@include MixScreen($sizeX, $size2XL) { @include ViewTourProgram((background_position_y: top)); }
+	@include MixScreen($size2XL, null) { @include ViewTourProgram(()); }
 }
 
 
@@ -173,6 +180,8 @@
 .block.tour_take_things {
 	@mixin ViewTakeThings($params: null) {
 		$default: (
+			display: grid,
+			margin_bottom: 0
 		);
 
 		padding: 10%;
@@ -182,8 +191,9 @@
 				display: flex; justify-content: center;
 			}
 			&:last-child {
-				display: grid; grid-row-gap: 1.5rem;
+				display: GetValue($default, $params, 'display'); grid-row-gap: 1.5rem; grid-column-gap: 1.5rem;
 				> div {
+					&:not(:last-child) { margin-bottom: GetValue($default, $params, 'margin_bottom'); }
 					&:nth-of-type(1) { grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 4; }
 					&:nth-of-type(2) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2; }
 					&:nth-of-type(3) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3; }
@@ -210,8 +220,8 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeXL) { @include ViewTakeThings(()); }
-	@include MixScreen($sizeXL, null) { @include ViewTakeThings(()); }
+	@include MixScreen(null, $sizeS) { @include ViewTakeThings((display: revert, margin_bottom: 8%)); }
+	@include MixScreen($sizeS, null) { @include ViewTakeThings(()); }
 }
 
 
