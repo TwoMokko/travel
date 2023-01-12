@@ -5,67 +5,125 @@
 
 .block.page_about_us { text-align: center; }
 .page_about_us {
-	> div {
-		//padding: 5% 10%;
-		&:nth-of-type(1) { display: flex; }
-		&:nth-of-type(2) { margin-bottom: 120px; }
-		&:not(:nth-of-type(2)) { padding: 120px 10% 240px; }
+	@mixin ViewAboutVideo($params: null) {
+		$default: (
+				display_header: flex,
+				padding_video: 0 10%,
+		);
+		> div {
+			//padding: 5% 10%;
+			&:nth-of-type(1) { display: GetValue($default, $params, 'display_header'); padding: 10%; }
+			&:nth-of-type(2) { padding: GetValue($default, $params, 'padding_video'); }
+			&:nth-of-type(3) { padding: 10%; }
+			//&:nth-of-type(2) { margin-bottom: 10%; }
+			//&:not(:nth-of-type(2)) { padding: 10%; }
+		}
 	}
+	@include MixScreen(null, $sizeL) { @include ViewAboutVideo((padding_video: 0, display_header: revert)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutVideo((padding_video: 0, display_header: revert)); }
+	@include MixScreen($sizeXL, null) { @include ViewAboutVideo(()); }
 }
 
 .block.about_header {
-	> div {
-		&:first-child {
-			width: 58%; margin-right: 2%;
-			> div {
-				text-align: left; display: flex; flex-direction: column;
-				&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
-				&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding-bottom: 8%; }
-				&:nth-of-type(3) { flex: auto; }
+	@mixin ViewAboutHeader($params: null) {
+		$default: (
+				margin: 0 2% 0 0,
+				width_text: 58%,
+				width_pic: 40%,
+				height_pic: auto,
+				padding_bottom: 8%,
+				padding_left: 50%,
+				font_size: 0.8rem
+
+		);
+		> div {
+			&:first-child {
+				width: GetValue($default, $params, 'width_text'); margin: GetValue($default, $params, 'margin');
+				> div {
+					text-align: left; display: flex; flex-direction: column;
+					&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
+					&:nth-of-type(2) {
+						padding-bottom: GetValue($default, $params, 'padding_bottom');
+						> div { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'font_size'); padding-bottom: 0.7rem; }
+					}
+					&:nth-of-type(3) { flex: auto; }
+				}
 			}
+			&:last-child { width: GetValue($default, $params, 'width_pic'); background-color: $color_gray; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); }
 		}
-		&:last-child { width: 40%; background-color: $color_gray; border-radius: 24px; }
+		.right_text { padding-left: GetValue($default, $params, 'padding_left'); }
 	}
+
+	//.right_text { width: 60%; margin: 0 0 0 auto; }
+
+	@include MixScreen(null, $size2XS) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 120px, padding_left: 0, padding_bottom: 4%, font_size: 0.7rem)); }
+	@include MixScreen($size2XS, $sizeM) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 200px, padding_left: 0, padding_bottom: 4%, font_size: 0.7rem)); }
+	@include MixScreen($sizeM, $sizeL) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 300px, padding_left: 30%, padding_bottom: 4%)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 300px, padding_left: 30%, padding_bottom: 4%)); }
+	@include MixScreen($sizeXL, null) { @include ViewAboutHeader(()); }
 
 }
 .block.team {
-	display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%;
-	> div { display: flex; }
+	@mixin ViewAboutTeam($params: null) {
+		$default: (
+				display_grid: grid,
+				margin_card: 0,
+				width_card: 100%,
+				display_card: flex,
+				height_pic: 18rem,
+				width_content_card: 50%,
+				padding_bottom_text: 24%,
+				padding_name: 0 0 8%
 
-	.about_pic { width: 50%; background-color: $color_gray; border-radius: 24px; }
-	.about_text {
-		display: flex; flex-direction: column; padding-left: 5%; width: 50%;
-		//&:not(:last-child) { margin-right: 5%; }
-		//&:last-child { margin-left: 5%; }
+		);
+
+		display: GetValue($default, $params, 'display_grid'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%;
 		> div {
-			text-align: left;
-			//&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
-			&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding-bottom: 8%; }
-			&:nth-of-type(2) { flex: auto; padding-bottom: 24% }
-			&:nth-of-type(3) {  }
+			display: GetValue($default, $params, 'display_card'); width: GetValue($default, $params, 'width_card'); margin: GetValue($default, $params, 'margin_card');
+			&:last-child { margin-bottom: 0; }
 		}
-	}
-	.right_text { padding-left: 50%; }
 
-	.contact_person {
-		color: $color_gray;
-		> div {
-			&:nth-of-type(1) {
-				display: flex; margin-bottom: 14px;
-				> div {
-					&:last-child { color: $color_text_main; }
-				}
-			}
-			&:nth-of-type(2) {
-				display: flex;
-				> div {
-					width: 30px; height: 30px; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-					&:first-child { background-image: url("pic/form_vk.png"); }
-					&:last-child { background-image: url("pic/form_whatsapp.png"); }
-				}
+		.about_pic { width: GetValue($default, $params, 'width_content_card'); background-color: $color_gray; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); }
+		.about_text {
+			display: flex; flex-direction: column; padding-left: 5%; width: GetValue($default, $params, 'width_content_card');
+			//&:not(:last-child) { margin-right: 5%; }
+			//&:last-child { margin-left: 5%; }
+			> div {
+				text-align: left;
+				//&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
+				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding: GetValue($default, $params, 'padding_name'); }
+				&:nth-of-type(2) { flex: auto; padding-bottom: GetValue($default, $params, 'padding_bottom_text'); }
+				&:nth-of-type(3) {  }
 			}
 		}
+
+
+		.contact_person {
+			color: $color_gray;
+			> div {
+				&:nth-of-type(1) {
+					display: flex; margin-bottom: 14px;
+					> div {
+						&:last-child { color: $color_text_main; }
+					}
+				}
+				&:nth-of-type(2) {
+					display: flex;
+					> div {
+						width: 30px; height: 30px; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
+						&:first-child { background-image: url("pic/form_vk.png"); }
+						&:last-child { background-image: url("pic/form_whatsapp.png"); }
+					}
+				}
+			}
+		}
 	}
+
+	@include MixScreen(null, $size2XS) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 10%, display_card: revert, width_content_card: 100%, padding_bottom_text: 8%, padding_name: 4% 0)); }
+	@include MixScreen($size2XS, $sizeS) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 10%, width_card: 70%, display_card: revert, width_content_card: 100%, padding_bottom_text: 8%, padding_name: 4% 0)); }
+	@include MixScreen($sizeS, $sizeL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, padding_bottom_text: 16%, height_pic: 14rem)); }
+	@include MixScreen($sizeL, $size2XL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, width_card: 70%, padding_name: 8% 0)); }
+	@include MixScreen($size2XL, null) { @include ViewAboutTeam(()); }
 }
 
 

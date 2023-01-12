@@ -4,19 +4,39 @@
 @use "_func" as *;
 
 .page_one_adventure {
+	@mixin ViewOneAdventure($params: null) {
+		$default: (
+				margin_top: -100px 0 0,
+				border_radius: 60px,
+				padding_text: 6% 8%,
+				display_pic: grid,
+				margin_bottom_pic: 0,
+				border_radius_pic: 40px,
+				height_pic: 18rem
 
-	.adventure_text {
-		margin: -120px 0 0; position: relative; background-color: $color_white; padding: 6% 8%; border-radius: 60px;
-		> div {
-			&:first-child { margin-bottom: 4%; }
-			&:last-child {
-				display: flex;
-				> div {
-					width: 49%; height: 18rem; background-color: $color_gray; cursor: pointer; border-radius: 40px;
-					&:not(:last-child) { margin-right: 2%; }
+		);
+		.adventure_text {
+			margin: GetValue($default, $params, 'margin_top'); position: relative; background-color: $color_white; padding: GetValue($default, $params, 'padding_text'); border-radius: GetValue($default, $params, 'border_radius');
+			> div {
+				&:first-child { margin-bottom: 4%; }
+				&:last-child {
+					display: GetValue($default, $params, 'display_pic'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%;
+					> div {
+						height: GetValue($default, $params, 'height_pic'); background-color: $color_gray; cursor: pointer; border-radius: GetValue($default, $params, 'border_radius_pic');
+						&:not(:last-child) { margin-bottom: GetValue($default, $params, 'margin_bottom_pic'); }
+					}
 				}
 			}
 		}
 	}
+	@include MixScreen(null, $size3XS) { @include ViewOneAdventure((margin_top: -15px, border_radius: 15px, padding_text: 8% 10%, display_pic: revert, margin_bottom_pic: 4%, border_radius_pic: 15px, height_pic: 8rem)); }
+	@include MixScreen($size3XS, $sizeXS) { @include ViewOneAdventure((margin_top: -15px, border_radius: 15px, padding_text: 8% 10%, display_pic: revert, margin_bottom_pic: 4%, border_radius_pic: 25px, height_pic: 10rem)); }
+	@include MixScreen($sizeXS, $sizeS) { @include ViewOneAdventure((margin_top: -20px, border_radius: 20px, padding_text: 10% 12%, display_pic: revert, margin_bottom_pic: 4%, border_radius_pic: 25px, height_pic: 14rem)); }
+	@include MixScreen($sizeS, $sizeM) { @include ViewOneAdventure((margin_top: -30px, border_radius: 30px, padding_text: 8% 10%, display_pic: revert, margin_bottom_pic: 4%, border_radius_pic: 25px, height_pic: 14rem)); }
+	@include MixScreen($sizeM, $sizeL) { @include ViewOneAdventure((margin_top: -40px, border_radius: 30px, padding_text: 8% 10%, display_pic: revert, margin_bottom_pic: 4%, border_radius_pic: 30px, height_pic: 14rem)); }
+	@include MixScreen($sizeL, $sizeX) { @include ViewOneAdventure((margin_top: -40px, border_radius: 40px, padding_text: 8% 10%, border_radius_pic: 30px, height_pic: 14rem)); }
+	@include MixScreen($sizeX, $sizeXL) { @include ViewOneAdventure((margin_top: -60px,)); }
+	@include MixScreen($sizeXL, $size5XL) { @include ViewOneAdventure((margin_top: -70px,)); }
+	@include MixScreen($size5XL, null) { @include ViewOneAdventure(()); }
 }
 

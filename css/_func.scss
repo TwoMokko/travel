@@ -31,14 +31,8 @@
 }
 
 @mixin button($bg_color, $border_color, $text_color) {
-	@mixin ViewButton($params: null) {
-		$default: (
-			border: 2px
-		);
-		padding: 0.6rem 1.2rem; border-radius: 40px; color: $text_color; background-color: $bg_color; border: GetValue($default, $params, 'border') solid $border_color; cursor: pointer;
-	}
-	@include MixScreen(null, $sizeL) { @include ViewButton((border: 1px)); }
-	@include MixScreen($sizeL, null) { @include ViewButton(()); }
+	padding: 0.6rem 1.2rem; border-radius: 40px; color: $text_color; background-color: $bg_color; border: 2px solid $border_color; cursor: pointer;
+	//background-color: #365f41;
 	//@include mix-limit(map.get($size, 0), map.get($size, 1024) - 1) { font-size: 0.8rem; border: 2px solid $border_color; };
 }
 
@@ -52,22 +46,19 @@
 
 @mixin button_transparent { @include button(transparent, $color_white, $color_white); }
 @mixin button_semi_white {
-	@include button(transparent, $color_semi_white, $color_semi_white);
-	&:hover { @include button_transparent; }
+	color: rgba(255, 255, 255, 0.5019607843);
+	background-color: transparent;
+	border-color: rgba(255, 255, 255, 0.5019607843);
+	&:hover { color: $color_white; border-color: $color_white; }
+	//@include button(transparent, $color_semi_white, $color_semi_white);
+	//&:hover { @include button_transparent; }
 }
 
 @mixin button_border {
-	@mixin ViewButton($params: null) {
-		$default: (
-			border: 2px
-		);
-		@include button(transparent, $color_gray, $color_gray);
-		&:hover {
-			border: GetValue($default, $params, 'border') solid $color_main_green; color: $color_main_green;
-		}
+	@include button(transparent, $color_gray, $color_gray);
+	&:hover {
+		border: 2px solid $color_main_green; color: $color_main_green;
 	}
-	@include MixScreen(null, $sizeL) { @include ViewButton((border: 1px)); }
-	@include MixScreen($sizeL, null) { @include ViewButton(()); }
 }
 
 //@mixin mix-limit($min, $max) {
