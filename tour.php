@@ -129,12 +129,16 @@
 			<div class = "tour_photo block p">
 				<div class = "header">Фотографии</div>
 				<div class = "block tour_mini_photo">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
+					<div class = "photo_line1">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<div class = "photo_line2">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 				</div>
 				<div>
 					<a class = "button" href = "/photoalbum" >Смотреть альбом</a>

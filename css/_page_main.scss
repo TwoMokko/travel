@@ -8,7 +8,8 @@
 		$default: (
 				size_logo: 80px,
 				padding_left_logo: 8%,
-				display_menu: flex
+				display_menu: flex,
+				display_open_menu: none
 		);
 		position: relative; display: flex;
 		> div {
@@ -16,14 +17,15 @@
 				flex: auto; padding-top: 2%; padding-left: GetValue($default, $params, 'padding_left_logo');
 				> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: GetValue($default, $params, 'size_logo'); width: GetValue($default, $params, 'size_logo'); }
 			}
-			&:last-child {
+			&:nth-of-type(2) {
 				flex: none; display: GetValue($default, $params, 'display_menu'); padding-top: 2%; padding-right: 6%;
 				> div {  }
 			}
+			&:nth-of-type(3) { display: GetValue($default, $params, 'display_open_menu'); background-image: url("pic/menu.png"); background-position: right; background-size: cover; background-repeat: no-repeat; height: 32px; width: 32px; margin: auto 6% auto 0; cursor: pointer; }
 		}
 	}
 
-	@include MixScreen(null, $sizeL) { @include ViewTop((size_logo: 50px, padding_left_logo: 10%, display_menu: none)); }
+	@include MixScreen(null, $sizeL) { @include ViewTop((size_logo: 50px, padding_left_logo: 10%, display_menu: none, display_open_menu: inline-block)); }
 	@include MixScreen($sizeL, $size3XL) { @include ViewTop((size_logo: 60px)); }
 	@include MixScreen($size3XL, $size4XL) { @include ViewTop((size_logo: 70px)); }
 	@include MixScreen($size4XL, null) { @include ViewTop(()); }

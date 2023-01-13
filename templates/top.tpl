@@ -6,6 +6,7 @@
                 <a href = "/"></a>
             </div>
            <?php Menu(); ?>
+			<div class = "open_menu"></div>
         </div><?php
     }
 

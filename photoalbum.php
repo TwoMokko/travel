@@ -24,24 +24,36 @@ function Main(): void {
 	?><div class = "block page_photo_album p">
 		<div></div>
 		<div class = "photo_album">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div class = "photo_line1">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class = "photo_line2">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class = "photo_line3">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class = "photo_line1">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class = "photo_line2">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class = "photo_line3">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 		</div>
 	</div>
     <script>

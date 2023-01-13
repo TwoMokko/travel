@@ -34,11 +34,13 @@
 	@mixin ViewTours($params: null) {
 		$default: (
 				cards_count: 3,
-				grid-row-gap: 50px
+				grid-row-gap: 50px,
+				flex_wrap: revert,
+				margin_btn: 0 2% 0 0
 		);
 
 		display: grid; grid-template-columns: repeat(GetValue($default, $params, 'cards_count'), 1fr); grid-column-gap: 2%; width: 100%; grid-row-gap: GetValue($default, $params, 'grid-row-gap');
-		> a {
+		> a, > div {
 			text-decoration: none; color: $color_text_main; overflow: hidden; background-color: $color_white; border-radius: 24px; transition: all 200ms ease;
 			&:hover {
 				box-shadow: $box_shadow_cards;
@@ -66,8 +68,8 @@
 						&:nth-of-type(3) { height: 70px; margin-bottom: 1.5rem; }
 						//&:nth-of-type(4) { padding: 0.8rem 0; }
 						&:nth-of-type(4) {
-							display: flex; justify-content: right;
-							//> a { margin-right: 10px; }
+							display: flex; justify-content: right; flex-wrap: GetValue($default, $params, 'flex_wrap');
+							> a { margin: GetValue($default, $params, 'margin_btn'); }
 						}
 					}
 
@@ -76,8 +78,10 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeM) { @include ViewTours((cards_count: 1, grid-row-gap: 24px, display_price: revert)); }
-	@include MixScreen($sizeM, $sizeXL) { @include ViewTours((cards_count: 2, display_price: revert)); }
+	@include MixScreen(null, $size2XS) { @include ViewTours((cards_count: 1, grid-row-gap: 24px, display_price: revert)); }
+	@include MixScreen($size2XS, $sizeM) { @include ViewTours((cards_count: 1, grid-row-gap: 24px, display_price: revert)); }
+	@include MixScreen($sizeM, $sizeL) { @include ViewTours((cards_count: 2, display_price: revert, flex_wrap: wrap-reverse, margin_btn: 2% 0 0 0)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewTours((cards_count: 2, display_price: revert)); }
 	@include MixScreen($sizeXL, $size3XL) { @include ViewTours((cards_count: 2)); }
 	@include MixScreen($size3XL, $size4XL) { @include ViewTours(()); }
 	@include MixScreen($size4XL, null) { @include ViewTours(()); }

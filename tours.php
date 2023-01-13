@@ -32,7 +32,7 @@
                 <div class = "block page_tours p">
                     <div class = "header" id = "major_travel">Основные путешествия</div>
                     <div class = "cards_tours">
-                        <a href = "/tour">
+                        <div>
                             <div>
 								<span>33 000 </span>
 							</div>
@@ -43,11 +43,11 @@
 <!--                                <div>Цена</div>-->
                                 <div>
                                     <!--							<span class = "more">Подробнее ⟶</span>-->
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
+                                    <a class = "button border" href = "/tour">Подробнее</a>
                                     <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
                                 </div>
                             </div>
-                        </a>
+                        </div>
                         <a href = "/tour">
                             <div>
 								<span>12 000 </span>
