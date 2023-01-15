@@ -202,7 +202,6 @@ namespace Common {
 		}
 
 		public Close(): void {
-			console.log('Close', this);
 			this.$instance.remove();
 			this.Remove();
 		}
@@ -213,4 +212,53 @@ namespace Common {
 
 	}
 
+}
+
+function ShowGallery(): void {
+	console.log('123');
+	new Gallery(1);
+}
+
+class Gallery {
+	$gallery: JQuery
+	constructor($gallery) {
+		this.$gallery = $('<div/>', { class : 'gallery' });
+		let $space = $('<div/>', { class : 'space' });
+		let $container_btn = $('<div/>', { class : 'container_btn' });
+		let $close = $('<span>', { class: 'close' });
+		let $arrow_left = $('<span>', { class: 'arrow_left' });
+		let $arrow_right = $('<span>', { class: 'arrow_right' });
+		let $photo = $('<span>', { class: 'photo_gallery' });
+
+		$('main').append(
+			this.$gallery.append(
+				$space,
+				$container_btn.append(
+					$close,
+					$arrow_left,
+					$arrow_right
+				),
+				$photo
+			)
+		);
+
+		$space.on('click', this.Close.bind(this));
+		$close.on('click', this.Close.bind(this));
+		$arrow_left.on('click', this.Left.bind(this));
+		$arrow_right.on('click', this.Right.bind(this));
+
+	}
+
+	public Close(): void {
+		console.log('Close', this);
+		this.$gallery.remove();
+	}
+
+	public Left(): void {
+		console.log('Left', this);
+	}
+
+	public Right(): void {
+		console.log('Right', this);
+	}
 }

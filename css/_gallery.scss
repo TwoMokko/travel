@@ -1,0 +1,21 @@
+@use "sass:map";
+
+@use "_variable" as *;
+@use "_func" as *;
+
+.gallery {
+	background-color: #0000003d; position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;
+	.space { position: fixed; top: 0; right: 0; left: 0; bottom: 0; }
+	.container_btn {
+		> span { position: fixed; border-radius: 16px; padding: 8px; }
+		.close {
+			transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
+			background-image: url('pic/cross.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
+			background-color: brown; top: 10%; right: 6%;
+			&:hover { background-color: #db5a5a; }
+		}
+		.arrow_left { background-color: cadetblue; left: 6%; }
+		.arrow_right { background-color: cadetblue; right: 6%; }
+	}
+	.photo_gallery { background-color: brown; width: 60%; height: 80%; margin: auto; border-radius: 24px; }
+}

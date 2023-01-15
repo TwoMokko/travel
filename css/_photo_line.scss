@@ -13,7 +13,7 @@
 		display: grid; grid-row-gap: GetValue($default, $params, 'photo_between'); grid-column-gap: GetValue($default, $params, 'photo_between'); grid-template-areas:
         "a b b c";
 		> div {
-			background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%;
+			background-color: $color_gray; background-repeat: no-repeat; background-position: center; background-size: cover; border-radius: 24px; cursor: pointer; padding-top: 42%;
 			&:hover { box-shadow: $box_shadow_white; }
 			&:nth-of-type(1) { grid-area: a; }
 			&:nth-of-type(2) { grid-area: b; }
@@ -37,7 +37,7 @@
 		display: grid; grid-row-gap: GetValue($default, $params, 'photo_between'); grid-column-gap: GetValue($default, $params, 'photo_between'); grid-template-areas:
         "a a b c";
 		> div {
-			background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%;
+			background-color: $color_gray; background-repeat: no-repeat; background-position: center; background-size: cover; border-radius: 24px; cursor: pointer; padding-top: 42%;
 			&:hover { box-shadow: $box_shadow_white; }
 			&:nth-of-type(1) { grid-area: a; }
 			&:nth-of-type(2) { grid-area: b; }
@@ -61,7 +61,7 @@
 		display: grid; grid-row-gap: GetValue($default, $params, 'photo_between'); grid-column-gap: GetValue($default, $params, 'photo_between'); grid-template-areas:
         "a b c c";
 		> div {
-			background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%;
+			background-color: $color_gray; background-repeat: no-repeat; background-position: center; background-size: cover; border-radius: 24px; cursor: pointer; padding-top: 42%;
 			&:hover { box-shadow: $box_shadow_white; }
 			&:nth-of-type(1) { grid-area: a; }
 			&:nth-of-type(2) { grid-area: b; }

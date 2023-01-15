@@ -25,14 +25,14 @@ function Main(): void {
 		<div></div>
 		<div class = "photo_album">
 			<div class = "photo_line1">
-				<div></div>
-				<div></div>
-				<div></div>
+				<div data-id = "1" data-url = "css/pic/photoalbum/2.jpg" style = "background-image: url('css/pic/photoalbum/2.jpg');" onclick = "ShowGallery();"></div>
+				<div data-id = "1" data-url = "css/pic/photoalbum/8.jpg" style = "background-image: url('css/pic/photoalbum/8.jpg');" onclick = "ShowGallery();"></div>
+				<div data-id = "1" data-url = "css/pic/photoalbum/4.jpg" style = "background-image: url('css/pic/photoalbum/4.jpg');" onclick = "ShowGallery();"></div>
 			</div>
 			<div class = "photo_line2">
-				<div></div>
-				<div></div>
-				<div></div>
+				<div data-id = "1" data-url = "css/pic/photoalbum/5.jpg" style = "background-image: url('css/pic/photoalbum/5.jpg');" onclick = "ShowGallery();"></div>
+				<div data-id = "1" data-url = "css/pic/photoalbum/6.jpg" style = "background-image: url('css/pic/photoalbum/6.jpg');" onclick = "ShowGallery();"></div>
+				<div data-id = "1" data-url = "css/pic/photoalbum/3.jpg" style = "background-image: url('css/pic/photoalbum/3.jpg');" onclick = "ShowGallery();"></div>
 			</div>
 			<div class = "photo_line3">
 				<div></div>
