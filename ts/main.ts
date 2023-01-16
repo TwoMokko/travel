@@ -214,22 +214,32 @@ namespace Common {
 
 }
 
-function ShowGallery(): void {
-	console.log('123');
-	new Gallery(1);
-}
-
 class Gallery {
-	$gallery: JQuery
-	constructor($gallery) {
-		this.$gallery = $('<div/>', { class : 'gallery' });
-		let $space = $('<div/>', { class : 'space' });
-		let $container_btn = $('<div/>', { class : 'container_btn' });
-		let $close = $('<span>', { class: 'close' });
-		let $arrow_left = $('<span>', { class: 'arrow_left' });
-		let $arrow_right = $('<span>', { class: 'arrow_right' });
-		let $photo = $('<span>', { class: 'photo_gallery' });
+	/* Variables */
+	images					: string[];
+	active					: number;
 
+	/* Elements */
+	$th						: JQuery;
+	$gallery				: JQuery;
+	$photo					: JQuery;
+
+	constructor(th: HTMLElement) {
+		/* Set variables */
+		this.images = [];
+		/* Set elements */
+		this.$th = $(th);
+		this.$gallery = $('<div/>', {class: 'gallery'});
+		this.$photo = $('<span>', {class: 'photo_gallery'});
+		let $space = $('<div/>', {class: 'space'});
+		let $container_btn = $('<div/>', {class: 'container_btn'});
+		let $close = $('<span>', {class: 'close'});
+		let $arrow_left = $('<span>', {class: 'arrow_left'});
+		let $arrow_right = $('<span>', {class: 'arrow_right'});
+
+		let id = this.$th.data('id');
+
+		/* Building DOM */
 		$('main').append(
 			this.$gallery.append(
 				$space,
@@ -238,27 +248,49 @@ class Gallery {
 					$arrow_left,
 					$arrow_right
 				),
-				$photo
+				this.$photo
 			)
 		);
 
+		/* Events */
 		$space.on('click', this.Close.bind(this));
 		$close.on('click', this.Close.bind(this));
 		$arrow_left.on('click', this.Left.bind(this));
 		$arrow_right.on('click', this.Right.bind(this));
 
+		let $images = $(`[data-id=${id}]`);
+
+		this.active = 0;
+
+		$images.each((key, element) => {
+			let $element = $(element);
+			this.images.push($element.data('url'));
+			if ($element.is(this.$th)) this.active = key;
+		});
+
+		if (!this.images.length) return;
+
+		this.ShowImage();
 	}
 
+	private ShowImage() {
+		this.$photo.css('background-image', `url(${this.images[this.active]})`);
+	}
+
+
 	public Close(): void {
-		console.log('Close', this);
 		this.$gallery.remove();
 	}
 
 	public Left(): void {
-		console.log('Left', this);
+		this.active = (this.active) ? this.active - 1 : this.images.length - 1;
+
+		this.ShowImage();
 	}
 
 	public Right(): void {
-		console.log('Right', this);
+		this.active = (this.active !== this.images.length - 1) ? this.active + 1 : 0;
+
+		this.ShowImage();
 	}
 }

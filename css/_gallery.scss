@@ -17,5 +17,5 @@
 		.arrow_left { background-color: cadetblue; left: 6%; }
 		.arrow_right { background-color: cadetblue; right: 6%; }
 	}
-	.photo_gallery { background-color: brown; width: 60%; height: 80%; margin: auto; border-radius: 24px; }
+	.photo_gallery { position: relative; background-color: brown; width: 60%; height: 80%; margin: auto; border-radius: 24px; }
 }
