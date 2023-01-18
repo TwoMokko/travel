@@ -109,7 +109,7 @@
 				}
 				&:nth-of-type(2) {
 					display: flex;
-					> div {
+					> a {
 						width: 30px; height: 30px; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
 						&:first-child { background-image: url("pic/form_vk.png"); }
 						&:last-child { background-image: url("pic/form_whatsapp.png"); }

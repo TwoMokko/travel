@@ -39,16 +39,17 @@
                             <div>
                                 <div>Дата</div>
                                 <div>Название</div>
-                                <div>Ольхон - самый большой остров на озере Байкал. Протяженность около 80 км и ширина 15 км...</div>
+                                <div>Ольхон - самый большой остров на озере Байкал. Протяженность около 80 км и ширина 15 км. Именно в новогодние праздники из года в год Байкал застывает в прозрачный лёд.</div>
 <!--                                <div>Цена</div>-->
                                 <div>
                                     <!--							<span class = "more">Подробнее ⟶</span>-->
                                     <a class = "button border" href = "/tour">Подробнее</a>
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
                         </div>
-                        <a href = "/tour">
+                        <div>
                             <div>
 								<span>12 000 </span>
 							</div>
@@ -58,12 +59,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>35 000 </span>
 							</div>
@@ -73,12 +75,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>45 000 </span>
 							</div>
@@ -88,12 +91,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>30 000 </span>
 							</div>
@@ -103,12 +107,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>40 000 </span>
 							</div>
@@ -118,12 +123,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>35 000 </span>
 							</div>
@@ -133,12 +139,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>18 000 </span>
 							</div>
@@ -148,12 +155,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>8 000 </span>
 							</div>
@@ -163,17 +171,18 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class = "block page_tours p">
                     <div class = "header" id = "individual_support">Индивидуальное сопровождение</div>
                     <div class = "cards_tours">
-                        <a href = "/tour">
+                        <div>
                             <div>
 								<span>45 000 </span>
 							</div>
@@ -183,12 +192,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>40 000 </span>
 							</div>
@@ -198,12 +208,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>55 000 </span>
 							</div>
@@ -213,17 +224,18 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class = "block page_tours p">
                     <div class = "header" id = "VIP">ВИП</div>
                     <div class = "cards_tours">
-                        <a href = "/tour">
+                        <div>
                             <div>
 								<span>75 000 </span>
 							</div>
@@ -233,12 +245,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>68 000 </span>
 							</div>
@@ -248,17 +261,18 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class = "block page_tours p">
                     <div class = "header" id = "weekend_tour">Выходного дня</div>
                     <div class = "cards_tours">
-                        <a href = "/tour">
+                        <div>
                             <div>
 								<span>5 000 </span>
 							</div>
@@ -268,12 +282,13 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+									<a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
-                        <a href = "/tour">
+                        </div>
+                        <div>
                             <div>
 								<span>8 000 </span>
 							</div>
@@ -283,11 +298,12 @@
                                 <div>Описание</div>
 <!--                                <div>Цена</div>-->
                                 <div>
-<!--                                    <a class = "button border" href = "/tour">Подробнее</a>-->
-                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">
+                                    <a class = "button border" href = "/tour">Подробнее</a>
+                                    <a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+<!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>

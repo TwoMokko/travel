@@ -53,8 +53,8 @@
 								<div>+7-909-545-11-29</div>
 							</div>
 							<div>
-								<div></div>
-								<div></div>
+								<a href = "https://vk.com/nina.ishmurzina"></a>
+								<a href = "https://wa.me/79095451129"></a>
 							</div>
 						</div>
 					</div>
@@ -71,8 +71,8 @@
 								<div>+7-923-424-52-22</div>
 							</div>
 							<div>
-								<div></div>
-								<div></div>
+								<a href = "https://vk.com/mexovnikov"></a>
+								<a href = "https://wa.me/79234245222"></a>
 							</div>
 						</div>
 					</div>

@@ -116,7 +116,7 @@ function ToDrive(): void {
 	let $form = $('<form/>', {class : ''});
 	let $name = $('<input/>', {class : '', type : 'text', placeholder : 'Имя*'});
 	let $call = $('<input/>', {class : '', type : 'text', placeholder : 'Способ связи*'});
-	let $send = $('<input/>', {type : 'submit', value : 'Отправить'});
+	let $send = $('<a/>', {class : 'button', text : 'Отправить'});
 
 	$form.append(
 		$name,
@@ -128,14 +128,17 @@ function ToDrive(): void {
 
 	$send.on('click', Success);
 
+
 	function Success(): void {
+		$send.closest('form').submit();
 		wind.Close();
 		Common.Window.ShowMessage('Спасибо, ваша заяка принята');
 
 	}
 }
 
-function AfterSend() {
+function AfterSend(send) {
+	send.closest('form').submit();
 	Common.Window.ShowMessage('Спасибо, ваша заяка принята');
 }
 
@@ -224,6 +227,9 @@ class Gallery {
 	$gallery				: JQuery;
 	$photo					: JQuery;
 
+	imageWidth				: number;
+	imageHeight				: number;
+
 	constructor(th: HTMLElement) {
 		/* Set variables */
 		this.images = [];
@@ -243,12 +249,12 @@ class Gallery {
 		$('main').append(
 			this.$gallery.append(
 				$space,
+				this.$photo,
 				$container_btn.append(
 					$close,
 					$arrow_left,
 					$arrow_right
-				),
-				this.$photo
+				)
 			)
 		);
 
@@ -273,10 +279,47 @@ class Gallery {
 		this.ShowImage();
 	}
 
-	private ShowImage() {
+	private ShowImage(): void {
 		this.$photo.css('background-image', `url(${this.images[this.active]})`);
+		let percent = 0.8;
+
+		this.GetSize([this.$gallery.width(), this.$gallery.height()], percent);
 	}
 
+	private GetSize(gallerySize: [number, number], percent: number): void {
+		let img = new Image();
+		img.src = this.images[this.active];
+		img.onload = () => {
+			this.imageWidth = img.width;
+			this.imageHeight = img.height;
+
+			let newSize = this.GetNewSize(gallerySize, percent);
+			this.Resize(newSize);
+		};
+	}
+
+	private GetNewSize(gallerySize, percent): [number, number] {
+		let resultWidth = this.imageWidth;
+		let resultHeight = this.imageHeight;
+		let a = this.imageWidth / this.imageHeight;
+
+		if (this.imageWidth > (gallerySize[0] * percent) || this.imageHeight > (gallerySize[1] * percent)) {
+			if (this.imageWidth / gallerySize[0] > this.imageHeight / gallerySize[1]) {
+				resultWidth = gallerySize[0] * percent;
+				resultHeight = resultWidth / a;
+			}
+			else {
+				resultHeight = gallerySize[1] * percent;
+				resultWidth = resultHeight * a;
+			}
+		}
+
+		return [resultWidth, resultHeight];
+	}
+
+	private Resize(size: [number, number]): void {
+		this.$photo.css({width: `${size[0]}px`, height: `${size[1]}px`});
+	}
 
 	public Close(): void {
 		this.$gallery.remove();

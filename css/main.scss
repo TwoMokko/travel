@@ -26,7 +26,7 @@ html, input {
 body { background-color: $color_main; margin: 0; color: $color_text_main; height: 100%; display: flex; flex-direction: column; }
 main { flex: auto; }
 button, input[type="button"], input[type="submit"], .button {
-	text-decoration: none; white-space: nowrap; display: inline-block;
+	text-decoration: none; white-space: nowrap; display: inline-block; text-align: center;
 	@include button_solid;
 	&.transparent { @include button_transparent; }
 	&.border { @include button_border; }
@@ -175,6 +175,9 @@ input[type="text"] {
 	@include MixScreen($sizeX, $size2XL) { @include ViewOtherPublication((mini_photo_count: 3)); }
 	@include MixScreen($size2XL, null) { @include ViewOtherPublication(()); }
 }
+
+//.height80 { height: auto; width: 75%; }
+//.width60 { width: 80%; height: auto;  }
 
 @import "_page_main";
 @import "_footer";
