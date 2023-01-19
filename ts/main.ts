@@ -229,12 +229,15 @@ class Gallery {
 
 	imageWidth				: number;
 	imageHeight				: number;
+	percent					: number;
 
 	constructor(th: HTMLElement) {
-		/* Set variables */
-		this.images = [];
-		/* Set elements */
 		this.$th = $(th);
+		this.percent = 0.8;
+
+		if (!this.SearchImages()) return;
+
+		/* Set elements */
 		this.$gallery = $('<div/>', {class: 'gallery'});
 		this.$photo = $('<span>', {class: 'photo_gallery'});
 		let $space = $('<div/>', {class: 'space'});
@@ -243,7 +246,7 @@ class Gallery {
 		let $arrow_left = $('<span>', {class: 'arrow_left'});
 		let $arrow_right = $('<span>', {class: 'arrow_right'});
 
-		let id = this.$th.data('id');
+
 
 		/* Building DOM */
 		$('main').append(
@@ -263,7 +266,15 @@ class Gallery {
 		$close.on('click', this.Close.bind(this));
 		$arrow_left.on('click', this.Left.bind(this));
 		$arrow_right.on('click', this.Right.bind(this));
+		$(window).on('resize', this.NewSize.bind(this));
 
+		this.ShowImage();
+	}
+
+	private SearchImages(): boolean {
+		this.images = [];
+
+		let id = this.$th.data('id');
 		let $images = $(`[data-id=${id}]`);
 
 		this.active = 0;
@@ -274,42 +285,45 @@ class Gallery {
 			if ($element.is(this.$th)) this.active = key;
 		});
 
-		if (!this.images.length) return;
-
-		this.ShowImage();
+		return !!this.images.length;
 	}
 
 	private ShowImage(): void {
 		this.$photo.css('background-image', `url(${this.images[this.active]})`);
-		let percent = 0.8;
 
-		this.GetSize([this.$gallery.width(), this.$gallery.height()], percent);
+		this.GetSize();
 	}
 
-	private GetSize(gallerySize: [number, number], percent: number): void {
+	private GetSize(): void {
 		let img = new Image();
 		img.src = this.images[this.active];
 		img.onload = () => {
 			this.imageWidth = img.width;
 			this.imageHeight = img.height;
 
-			let newSize = this.GetNewSize(gallerySize, percent);
-			this.Resize(newSize);
+			this.NewSize();
 		};
 	}
 
-	private GetNewSize(gallerySize, percent): [number, number] {
+	private NewSize(): void {
+		let gallerySize = [this.$gallery.width(), this.$gallery.height()];
+		let newSize = this.GetNewSize(gallerySize);
+		this.Resize(newSize);
+		console.log('работает');
+	}
+
+	private GetNewSize(gallerySize): [number, number] {
 		let resultWidth = this.imageWidth;
 		let resultHeight = this.imageHeight;
 		let a = this.imageWidth / this.imageHeight;
 
-		if (this.imageWidth > (gallerySize[0] * percent) || this.imageHeight > (gallerySize[1] * percent)) {
+		if (this.imageWidth > (gallerySize[0] * this.percent) || this.imageHeight > (gallerySize[1] * this.percent)) {
 			if (this.imageWidth / gallerySize[0] > this.imageHeight / gallerySize[1]) {
-				resultWidth = gallerySize[0] * percent;
+				resultWidth = gallerySize[0] * this.percent;
 				resultHeight = resultWidth / a;
 			}
 			else {
-				resultHeight = gallerySize[1] * percent;
+				resultHeight = gallerySize[1] * this.percent;
 				resultWidth = resultHeight * a;
 			}
 		}
@@ -320,6 +334,8 @@ class Gallery {
 	private Resize(size: [number, number]): void {
 		this.$photo.css({width: `${size[0]}px`, height: `${size[1]}px`});
 	}
+
+
 
 	public Close(): void {
 		this.$gallery.remove();
