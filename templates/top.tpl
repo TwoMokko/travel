@@ -6,7 +6,8 @@
                 <a href = "/"></a>
             </div>
            <?php Menu(); ?>
-			<div class = "open_menu"></div>
+			<div class = "open_menu" onclick = "new Menu();"></div>
+
         </div><?php
     }
 
@@ -27,5 +28,6 @@
 			<div>
 				<a href = "/photo">Фотографии</a>
 			</div>
-        </div><?php
+        </div>
+		<?php
     }

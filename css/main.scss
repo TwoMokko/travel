@@ -176,8 +176,34 @@ input[type="text"] {
 	@include MixScreen($size2XL, null) { @include ViewOtherPublication(()); }
 }
 
-//.height80 { height: auto; width: 75%; }
-//.width60 { width: 80%; height: auto;  }
+
+.mini_menu {
+	background-color: #00000070; display: flex; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+	.space { position: fixed; top: 0; right: 0; left: 0; bottom: 0; }
+	.content_menu {
+		background-color: white;
+		position: fixed;
+		right: 0;
+		height: 100%;
+		flex-direction: column;
+		align-items: flex-end;
+		//width: 40%;
+		display: flex;
+		.close_menu {
+			margin: 10%; background-image: url("pic/cross_darkgray.svg"); background-size: cover; background-position: center; width: 32px; height: 32px; cursor: pointer;
+			&:hover { background-image: url("pic/cross_green.svg"); }
+		}
+		.pages_menu {
+			display: flex; margin: 10%; flex-direction: column; text-align: end;
+			> a {
+				display: inline-block; flex: auto; text-decoration: none; color: $color_text_main; font-family: Intro, sans-serif;
+				&:not(:last-child){ margin-bottom: 16%; }
+				&:hover { color: $color_main_green; }
+			}
+		}
+	}
+}
+
 
 @import "_page_main";
 @import "_footer";

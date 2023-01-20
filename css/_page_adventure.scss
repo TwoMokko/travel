@@ -22,7 +22,7 @@
 				&:last-child {
 					display: GetValue($default, $params, 'display_pic'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%;
 					> div {
-						height: GetValue($default, $params, 'height_pic'); background-color: $color_gray; cursor: pointer; border-radius: GetValue($default, $params, 'border_radius_pic');
+						height: GetValue($default, $params, 'height_pic'); background-color: $color_gray; cursor: pointer; background-size: cover; background-position: center; border-radius: GetValue($default, $params, 'border_radius_pic');
 						&:not(:last-child) { margin-bottom: GetValue($default, $params, 'margin_bottom_pic'); }
 					}
 				}

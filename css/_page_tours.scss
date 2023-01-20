@@ -7,7 +7,6 @@
 
 .navigation_tour {
 	> div {
-
 		&:nth-of-type(1) > a { background-image: url("pic/major_travel.png"); }
 		&:nth-of-type(2) > a { background-image: url("pic/individual_support.png"); }
 		&:nth-of-type(3) > a { background-image: url("pic/vip.png"); }
@@ -16,7 +15,7 @@
 		&:not(:last-child) { margin-bottom: 0.5rem; }
 
 		> a {
-			background-repeat: no-repeat; background-size: 1.3rem; background-position-y: center; background-position-x: 0.2rem;
+			background-repeat: no-repeat; background-size: 1.3rem; background-position-y: center; background-position-x: 0.2rem; box-shadow: $box_shadow_white;
 			display: inline-block; height: 2rem; padding-left: 2rem; overflow: hidden; white-space: nowrap; margin-right: 10px; line-height: 2rem; text-decoration: none; width: 0; background-color: $color_main_green;  color: $color_white; border-radius: 0 24px 24px 0; cursor: pointer; transition: all 200ms ease;
 			&:hover { width: auto; padding-right: 1rem; }
 		}

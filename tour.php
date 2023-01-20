@@ -129,16 +129,12 @@
 			<div class = "tour_photo block p">
 				<div class = "header">Фотографии</div>
 				<div class = "block tour_mini_photo">
-					<div class = "photo_line1">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-					<div class = "photo_line2">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
 				</div>
 				<div>
 					<a class = "button" href = "/photoalbum" >Смотреть альбом</a>
@@ -213,7 +209,8 @@
 						<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
 					</div>
 					<div>
-						<input type = "button" value = "Оставить заявку" onclick = "AfterSend(); event.preventDefault();" >
+						<a class = "button" onclick = "AfterSend(this); event.preventDefault();">Оставить заявку</a>
+<!--						<input type = "button" value = "Оставить заявку" onclick = "AfterSend(); event.preventDefault();" >-->
 					</div>
 				</div>
 

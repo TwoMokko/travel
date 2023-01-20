@@ -182,10 +182,13 @@ namespace Common {
 			this.$instance = $('<div/>', { class : 'instance' });
 			let $space = $('<div/>', { class : 'space' });
 			let $window = $('<div/>', { class : 'window' });
-			let $header = $('<div/>', { class : 'head' });
+			let $header = $('<div/>');
 			let $title = $('<div/>', { class : 'title' });
 			let $close = $('<div/>', { class : 'close' });
-			let $container = $('<div/>', { class : 'container' });
+			let $container = $('<div/>');
+
+			(title !== null) ? $header.addClass('head') : $header.addClass('head_null_title');
+			(title !== null) ? $container.addClass('container') : $container.addClass('container_null_title');
 
 			this.$instance.append(
 				$space,
@@ -266,9 +269,25 @@ class Gallery {
 		$close.on('click', this.Close.bind(this));
 		$arrow_left.on('click', this.Left.bind(this));
 		$arrow_right.on('click', this.Right.bind(this));
-		$(window).on('resize', this.NewSize.bind(this));
+		$(window).on('resize', {self: this}, this.OnResize);
+		$(document).on('keydown.gallery', this.OnKeyDown.bind(this));
 
 		this.ShowImage();
+	}
+
+	private OnResize(e) {
+		let self : Gallery = e.data.self;
+		self.NewSize(self);
+	}
+
+	private OnKeyDown(e): boolean {
+		switch (e.originalEvent.keyCode) {
+			case 39: this.Right(); break;
+			case 32: this.Right(); return false;
+			case 37: case 8: this.Left(); break;
+			case 27: this.Close(); break;
+		}
+		return true;
 	}
 
 	private SearchImages(): boolean {
@@ -301,13 +320,13 @@ class Gallery {
 			this.imageWidth = img.width;
 			this.imageHeight = img.height;
 
-			this.NewSize();
+			this.NewSize(this);
 		};
 	}
 
-	private NewSize(): void {
-		let gallerySize = [this.$gallery.width(), this.$gallery.height()];
-		let newSize = this.GetNewSize(gallerySize);
+	private NewSize(self: Gallery): void {
+		let gallerySize = [self.$gallery.width(), self.$gallery.height()];
+		let newSize = self.GetNewSize(gallerySize);
 		this.Resize(newSize);
 		console.log('работает');
 	}
@@ -339,6 +358,8 @@ class Gallery {
 
 	public Close(): void {
 		this.$gallery.remove();
+		$(window).off('resize', this.OnResize);
+		$(document).off('keydown.gallery');
 	}
 
 	public Left(): void {
@@ -351,5 +372,48 @@ class Gallery {
 		this.active = (this.active !== this.images.length - 1) ? this.active + 1 : 0;
 
 		this.ShowImage();
+	}
+}
+
+class Menu {
+	$container			: JQuery;
+
+	constructor(th: HTMLElement) {
+		/* Set elements */
+		this.$container = $('<div/>', {class: 'mini_menu'});
+		let $space = $('<div/>', {class: 'space'});
+		let $content = $('<div/>', {class: 'content_menu'});
+		let $close = $('<div/>', {class: 'close_menu'});
+		let $pages = $('<div/>', {class: 'pages_menu'});
+		let $page1 = $('<a/>', {class: 'page1', text: 'Главная', href: '/'});
+		let $page2 = $('<a/>', {class: 'page2', text: 'Путешествия', href: '/tours'});
+		let $page3 = $('<a/>', {class: 'page3', text: 'О нас', href: '/about'});
+		let $page4 = $('<a/>', {class: 'page4', text: 'Наши приключения', href: '/adventures'});
+		let $page5 = $('<a/>', {class: 'page5', text: 'Фотографии', href: '/photo'});
+
+		/* Building DOM */
+		$('body').append(
+			this.$container.append(
+				$space,
+				$content.append(
+					$close,
+					$pages.append(
+						$page1,
+						$page2,
+						$page3,
+						$page4,
+						$page5
+					)
+				)
+			)
+		);
+
+		$space.on('click', this.Close.bind(this));
+		$close.on('click', this.Close.bind(this));
+	}
+
+
+	public Close(): void {
+		this.$container.remove();
 	}
 }
