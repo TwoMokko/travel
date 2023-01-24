@@ -1,4 +1,11 @@
-function NavigationTour(selector: string, top_absolute: number, top_fixed: number) {
+/**
+ * Навигация по турам на странице "tours"
+ * @param selector
+ * @param top_absolute
+ * @param top_fixed
+ * @constructor
+ */
+function NavigationTour(selector: string, top_absolute: number, top_fixed: number): void {
 	let $document = $(document);
 	let $selector = $(selector);
 	let $parent = $selector.parent();
@@ -16,7 +23,12 @@ function NavigationTour(selector: string, top_absolute: number, top_fixed: numbe
 	Redraw();
 }
 
-function ScrollTop(selector: string) {
+/**
+ * Появление кнопки для рокрутки страницы наверх
+ * @param selector
+ * @constructor
+ */
+function ScrollTop(selector: string): void {
 	/*Elements*/
 	let $document = $(document);
 	let $elem = $(selector);
@@ -41,6 +53,10 @@ function ScrollTop(selector: string) {
 type TypeTour = { id: number, name: string, href: string }
 type TypeCategory = { id: number, name: string, tours: TypeTour[] };
 
+
+/**
+ * Работа с селектами на главной странице
+ */
 class SelectTour {
 	data: TypeCategory[];
 
@@ -61,7 +77,7 @@ class SelectTour {
 		this.RestructureCategory();
 	}
 
-	private RestructureCategory() {
+	private RestructureCategory(): void {
 		for (let i in this.data) {
 			this.$select_categories.append(
 				$('<option/>', {value: i}).text(this.data[i].name)
@@ -71,7 +87,7 @@ class SelectTour {
 		this.$select_categories.trigger('change');
 	}
 
-	private RestructureTours() {
+	private RestructureTours(): void {
 		let category = Number(this.$select_categories.val());
 
 		this.$select_tours.empty();
@@ -84,11 +100,12 @@ class SelectTour {
 		this.$select_tours.trigger('change');
 	}
 
-	private RestructureBtn() {
+	private RestructureBtn(): void {
 		this.$btn_see_tour.attr('href', this.$select_tours.val().toString());
 	}
 
 }
+
 
 function Switcher(selector_menu, selector_list) {
 	let $menu = $(selector_menu);
@@ -102,7 +119,7 @@ function Switcher(selector_menu, selector_list) {
 		$(elem).on('click', () => DoSwitch(key, $elem));
 	});
 
-	function DoSwitch(key, $elem) {
+	function DoSwitch(key, $elem): void {
 		$menu.children().removeClass('active');
 		$elem.addClass('active');
 
@@ -112,6 +129,10 @@ function Switcher(selector_menu, selector_list) {
 
 }
 
+/**
+ * Вывод формы обратной связи через кнопку "поехать" в "tours"
+ * @constructor
+ */
 function ToDrive(): void {
 	let $form = $('<form/>', {class : ''});
 	let $name = $('<input/>', {class : '', type : 'text', placeholder : 'Имя*'});
@@ -137,12 +158,19 @@ function ToDrive(): void {
 	}
 }
 
-function AfterSend() {
+/**
+ * Вывод окна после отправки данных пользователем
+ * @constructor
+ */
+function AfterSend(): void {
 	Common.Window.ShowMessage('Спасибо, ваша заяка принята');
 }
 
 namespace Common {
 
+	/**
+	 * Менеджер работы с окнами
+	 */
 	export class Window {
 		private static windows = {};
 		private static iter = 0;
@@ -172,6 +200,9 @@ namespace Common {
 
 	}
 
+	/**
+	 * Работа с окнами
+	 */
 	class Instance {
 		private readonly id: number;
 		private readonly $instance: JQuery;
@@ -283,6 +314,9 @@ namespace Common {
 
 }
 
+/**
+ * Работа с просмотрщиком фотографий
+ */
 class Gallery {
 	/* Variables */
 	images					: string[];
@@ -332,17 +366,29 @@ class Gallery {
 		$close.on('click', this.Close.bind(this));
 		$arrow_left.on('click', this.Left.bind(this));
 		$arrow_right.on('click', this.Right.bind(this));
-		$(window).on('resize', {self: this}, this.OnResize);
+		$(window).on('resize', {self: this}, Gallery.OnResize);
 		$(document).on('keydown.gallery', this.OnKeyDown.bind(this));
 
 		this.ShowImage();
 	}
 
-	private OnResize(e) {
+	/**
+	 *
+	 * @param e
+	 * @constructor
+	 * @private
+	 */
+	private static OnResize(e): void {
 		let self : Gallery = e.data.self;
 		self.NewSize(self);
 	}
 
+	/**
+	 *
+	 * @param e
+	 * @constructor
+	 * @private
+	 */
 	private OnKeyDown(e): boolean {
 		switch (e.originalEvent.keyCode) {
 			case 39: this.Right(); break;
@@ -353,6 +399,11 @@ class Gallery {
 		return true;
 	}
 
+	/**
+	 *
+	 * @constructor
+	 * @private
+	 */
 	private SearchImages(): boolean {
 		this.images = [];
 
@@ -370,12 +421,22 @@ class Gallery {
 		return !!this.images.length;
 	}
 
+	/**
+	 * Показать фотографию
+	 * @constructor
+	 * @private
+	 */
 	private ShowImage(): void {
 		this.$photo.css('background-image', `url(${this.images[this.active]})`);
 
 		this.GetSize();
 	}
 
+	/**
+	 *
+	 * @constructor
+	 * @private
+	 */
 	private GetSize(): void {
 		let img = new Image();
 		img.src = this.images[this.active];
@@ -387,6 +448,12 @@ class Gallery {
 		};
 	}
 
+	/**
+	 *
+	 * @param self
+	 * @constructor
+	 * @private
+	 */
 	private NewSize(self: Gallery): void {
 		let gallerySize = [self.$gallery.width(), self.$gallery.height()];
 		let newSize = self.GetNewSize(gallerySize);
@@ -394,6 +461,12 @@ class Gallery {
 		console.log('работает');
 	}
 
+	/**
+	 *
+	 * @param gallerySize
+	 * @constructor
+	 * @private
+	 */
 	private GetNewSize(gallerySize): [number, number] {
 		let resultWidth = this.imageWidth;
 		let resultHeight = this.imageHeight;
@@ -413,24 +486,41 @@ class Gallery {
 		return [resultWidth, resultHeight];
 	}
 
+	/**
+	 *
+	 * @param size
+	 * @constructor
+	 * @private
+	 */
 	private Resize(size: [number, number]): void {
 		this.$photo.css({width: `${size[0]}px`, height: `${size[1]}px`});
 	}
 
 
-
+	/**
+	 * Закрыть галерею и очистить данные
+	 * @constructor
+	 */
 	public Close(): void {
 		this.$gallery.remove();
-		$(window).off('resize', this.OnResize);
+		$(window).off('resize', Gallery.OnResize);
 		$(document).off('keydown.gallery');
 	}
 
+	/**
+	 * Листать фотографию влево
+	 * @constructor
+	 */
 	public Left(): void {
 		this.active = (this.active) ? this.active - 1 : this.images.length - 1;
 
 		this.ShowImage();
 	}
 
+	/**
+	 * Листать фотографию вправо
+	 * @constructor
+	 */
 	public Right(): void {
 		this.active = (this.active !== this.images.length - 1) ? this.active + 1 : 0;
 
