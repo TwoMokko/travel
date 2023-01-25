@@ -538,6 +538,11 @@ class Menu {
 		let $content = $('<div/>', {class: 'content_menu'});
 		let $close = $('<div/>', {class: 'close_menu'});
 		let $pages = $('<div/>', {class: 'pages_menu'});
+		let $div1 = $('<div/>');
+		let $div2 = $('<div/>');
+		let $div3 = $('<div/>');
+		let $div4 = $('<div/>');
+		let $div5 = $('<div/>');
 		let $page1 = $('<a/>', {class: 'page1', text: 'Главная', href: '/'});
 		let $page2 = $('<a/>', {class: 'page2', text: 'Путешествия', href: '/tours'});
 		let $page3 = $('<a/>', {class: 'page3', text: 'О нас', href: '/about'});
@@ -548,25 +553,27 @@ class Menu {
 		$('body').append(
 			this.$container.append(
 				$space,
-				$content.append(
+				// $content.append(
 					$close,
 					$pages.append(
-						$page1,
-						$page2,
-						$page3,
-						$page4,
-						$page5
+						$div1.append($page1),
+						$div2.append($page2),
+						$div3.append($page3),
+						$div4.append($page4),
+						$div5.append($page5)
 					)
-				)
+				// )
 			)
 		);
 
 		$space.on('click', this.Close.bind(this));
 		$close.on('click', this.Close.bind(this));
+		$('.open_menu').addClass('hide');
 	}
 
 
 	public Close(): void {
 		this.$container.remove();
+		$('.open_menu').removeClass('hide');
 	}
 }

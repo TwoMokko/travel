@@ -21,7 +21,7 @@ function Head(): void {
 
 
 function Main(): void {
-	?><div class = "block p">
+	?><div class = "block p page_reviews">
 		<div class = "review_cards">
 			<div class = "review_card">
 				<div class = "review_person">

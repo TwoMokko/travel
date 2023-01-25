@@ -6,7 +6,7 @@
 .page_one_adventure {
 	@mixin ViewOneAdventure($params: null) {
 		$default: (
-				margin_top: -100px 0 0,
+				margin_top: -100px,
 				border_radius: 60px,
 				padding_text: 6% 8%,
 				display_pic: grid,
@@ -16,7 +16,7 @@
 
 		);
 		.adventure_text {
-			margin: GetValue($default, $params, 'margin_top'); position: relative; background-color: $color_white; padding: GetValue($default, $params, 'padding_text'); border-radius: GetValue($default, $params, 'border_radius');
+			margin-top: GetValue($default, $params, 'margin_top'); margin-bottom: 10%; position: relative; background-color: $color_white; padding: GetValue($default, $params, 'padding_text'); border-radius: GetValue($default, $params, 'border_radius');
 			> div {
 				&:first-child { margin-bottom: 4%; }
 				&:last-child {

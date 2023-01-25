@@ -216,7 +216,7 @@
 			</div>
 			<div class = "block p reviews">
 				<div>
-					<div class = "header" onclick = " window.location.href = '/review';">Отзывы</div>
+					<div class = "header center" onclick = " window.location.href = '/review';">Отзывы</div>
 					<span title = "оставить отзыв"></span>
 				</div>
 				<div>

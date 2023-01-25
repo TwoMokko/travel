@@ -21,7 +21,7 @@
 				flex: none; display: GetValue($default, $params, 'display_menu'); padding-top: 2%; padding-right: 6%;
 				> div {  }
 			}
-			&:nth-of-type(3) { display: GetValue($default, $params, 'display_open_menu'); background-image: url("pic/menu.png"); background-position: right; background-size: cover; background-repeat: no-repeat; height: 32px; width: 32px; margin: auto 6% auto 0; cursor: pointer; }
+			&:nth-of-type(3) { display: GetValue($default, $params, 'display_open_menu'); background-image: url("pic/menu_thin.svg"); background-position: right; background-size: cover; background-repeat: no-repeat; height: 32px; width: 32px; margin: 8px 6% 0 0; cursor: pointer; }
 		}
 	}
 
@@ -250,12 +250,12 @@
 		.head_photo {
 			display: flex; padding-top: GetValue($default, $params, 'head_photo_padding');
 			> div {
-				&:nth-of-type(1) { flex: auto; }
+				&:nth-of-type(1) { flex: auto; text-align: center !important; }
 			}
 		}
 		> div {
 			&:nth-of-type(2) { display: flex; align-items: center; margin-bottom: 50px; }
-			&:nth-of-type(3) { text-align: center; padding-bottom: 20%; }
+			&:nth-of-type(3) { text-align: center; }
 		}
 		.mini_photo {
 			flex: auto; margin: 0 2%; display: grid; grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); grid-column-gap: 2%; grid-row-gap: 2%; color: $color_white;
