@@ -235,15 +235,25 @@ input[type="text"] {
 		background-color: white; padding: 6% 10% 10%; border-radius: 24px; cursor: pointer;
 		&:hover { box-shadow: $box_shadow_white; }
 		.review_person {
-			display: flex; align-items: center;
-			> div {
-				&:first-child { width: 48px; height: 48px; border-radius: 50%; background-color: cadetblue; margin-right: 4%; }
-				&:last-child { font-family: Intro, sans-serif; }
-			}
+			@include review_person;
 		}
 		.review_text { padding-top: 6%; overflow: hidden; -webkit-line-clamp: 6; display: -webkit-box; -webkit-box-orient: vertical; }
 	}
 }
+
+.review_window {
+	.review_person { @include review_person; }
+	.review_text { text-align: left !important; padding-top: 1rem; max-width: 550px; }
+}
+
+//.review_person {
+//	display: flex; align-items: center; padding-bottom: 6%;
+//	> div {
+//		&:first-child { width: 48px; height: 48px; border-radius: 50%; background-color: cadetblue; margin-right: 4%; flex: none; }
+//		&:last-child { font-family: Intro, sans-serif; }
+//	}
+//}
+
 
 
 @import "_page_main";

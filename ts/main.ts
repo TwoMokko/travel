@@ -166,6 +166,29 @@ function AfterSend(): void {
 	Common.Window.ShowMessage('Спасибо, ваша заяка принята');
 }
 
+function SeeReview(th) {
+	let $th = $(th);
+
+	let name = $th.find('> .review_person > div:last-child').text();
+	let text = $th.children('.review_text').text();
+
+	let $review = $('<div/>', {class: 'review_window'});
+	let $person = $('<div/>', {class: 'review_person'});
+	let $photo = $('<div/>');
+	let $name = $('<div/>').text(name);
+	let $text = $('<div/>', {class: 'review_text'}).text(text);
+
+	$review.append(
+		$person.append(
+			$photo,
+			$name
+		),
+		$text
+	);
+
+	Common.Window.Create('✎', $review);
+}
+
 namespace Common {
 
 	/**

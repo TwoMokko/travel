@@ -62,6 +62,14 @@
 	}
 }
 
+@mixin review_person {
+	display: flex; align-items: center;
+	> div {
+		&:first-child { width: 48px; height: 48px; border-radius: 50%; background-color: cadetblue; margin-right: 4%; flex: none; }
+		&:last-child { font-family: Intro, sans-serif; }
+	}
+}
+
 //@mixin mix-limit($min, $max) {
 //	@include mix-screens((min: $min, max: $max)) { @content; }
 //}

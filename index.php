@@ -178,14 +178,14 @@
 			<div>
 				<div class = "arrow_left"></div>
 				<div class = "review_cards">
-					<div class = "review_card">
+					<div class = "review_card" onclick = "SeeReview(this);">
 						<div class = "review_person">
 							<div></div>
 							<div>Карина Турова</div>
 						</div>
 						<div class = "review_text">Сам отзыв. Тур понравился, природа там замечательная. Было предоставлено свободное время, чтобы погулять и посмотреть что-то самим. Гид давала хорошие рекомендации. Очень понравился о. Ольхон и д. Тальцы.Гид давала хорошие рекомендации. Очень понравился о. Ольхон и д. Тальцы.</div>
 					</div>
-					<div class = "review_card">
+					<div class = "review_card" onclick = "SeeReview(this);">
 						<div class = "review_person">
 							<div></div>
 							<div>Наташа Иванова</div>

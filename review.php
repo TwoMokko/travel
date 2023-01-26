@@ -23,56 +23,56 @@ function Head(): void {
 function Main(): void {
 	?><div class = "block p page_reviews">
 		<div class = "review_cards">
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Карина Турова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Тур понравился, природа там замечательная. Было предоставлено свободное время, чтобы погулять и посмотреть что-то самим. Гид давала хорошие рекомендации. Очень понравился о. Ольхон и д. Тальцы.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Наташа Иванова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Всё прошло увлекательно много посмотрели, гид всё показал расказал ,помог с выбором. Еда в столовой по домашнему.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Карина Турова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Тур понравился, природа там замечательная. Было предоставлено свободное время, чтобы погулять и посмотреть что-то самим. Гид давала хорошие рекомендации. Очень понравился о. Ольхон и д. Тальцы.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Наташа Иванова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Всё прошло увлекательно много посмотрели, гид всё показал расказал ,помог с выбором. Еда в столовой по домашнему.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Карина Турова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Тур понравился, природа там замечательная. Было предоставлено свободное время, чтобы погулять и посмотреть что-то самим. Гид давала хорошие рекомендации. Очень понравился о. Ольхон и д. Тальцы.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Наташа Иванова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Всё прошло увлекательно много посмотрели, гид всё показал расказал ,помог с выбором. Еда в столовой по домашнему.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Карина Турова</div>
 				</div>
 				<div class = "review_text">Сам отзыв. Тур понравился, природа там замечательная. Было предоставлено свободное время, чтобы погулять и посмотреть что-то самим. Гид давала хорошие рекомендации. Очень понравился о. Ольхон и д. Тальцы.</div>
 			</div>
-			<div class = "review_card">
+			<div class = "review_card" onclick = "SeeReview(this);">
 				<div class = "review_person">
 					<div></div>
 					<div>Наташа Иванова</div>
