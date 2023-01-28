@@ -69,9 +69,12 @@
         $name = GetParam('name', 'Не известно');
         $contact = GetParam('contact', 'Не известно');
 
-        $file = fopen('callback.txt', 'a');
-        fwrite($file, "Имя: {$name} Контакт: {$contact}\n");
-        fclose($file);
+//        $file = fopen('callback.txt', 'a');
+//        fwrite($file, "Имя: {$name} Контакт: {$contact}\n");
+//        fclose($file);
+
+       $db = new mysqli('localhost', 'root', '', 'travel');
+       $db->query("INSERT INTO `callback`(`name`, `contact`) VALUES ('{$name}','{$contact}')");
 
         SendJSONSuccess(null);
     }
