@@ -1,14 +1,38 @@
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin: *
+	Header set Access-Control-Allow-Origin: *
 </IfModule>
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
+	RewriteEngine On
+	RewriteBase /
 
     RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule ^(.*)\.(tpl|inc|htaccess)$ /404.php [R=404,NC,L]
+    RewriteRule ^(.*)\.(tpl|inc|htaccess)$ 404.inc [R=404,NC,L]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^([a-z]+)/?$ $1.php [QSA,NC,L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^admin/?$ admin.php [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^admin/([0-9a-z-_]+)/?$ admin.php?__a=$1 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^admin/([0-9a-z-_]+)/([0-9a-z-_]+)/?$ admin.php?__a=$1&__p=$2 [QSA,NC,L]
+
+#	RewriteCond %{REQUEST_FILENAME} !-f
+#	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^$ site.php [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([0-9a-z-_]+)/?$ site.php?__a=$1 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([0-9a-z-_]+)/([0-9a-z-_]+)/?$ site.php?__a=$1&__p=$2 [QSA,NC,L]
+
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteRule ^(.*)\.([0-9]+)\.([0-9]+)\.([0-9]+)\.(css|js)$ $1.$5 [NC,L]
 </IfModule>
