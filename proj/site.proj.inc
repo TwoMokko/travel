@@ -11,5 +11,5 @@
 
 	require 'units/site.units.inc';
 
-//	require 'templates/site/layout.inc';
-//	require 'templates/site/index.tpl';
+	require 'templates/site/layout.inc';
+	require 'templates/site/index.tpl';

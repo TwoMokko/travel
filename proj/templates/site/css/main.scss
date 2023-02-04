@@ -1,7 +1,7 @@
 @use "sass:map";
 
-@use "_variable" as *;
-@use "_func" as *;
+@use "variable" as *;
+@use "func" as *;
 
 
 
@@ -256,18 +256,18 @@ input[type="text"] {
 
 
 
-@import "_page_main";
-@import "_footer";
-@import "_page_about";
-@import "_page_tours";
-@import "_page_tour";
-@import "_page_reviews";
-@import "_page_adventures";
-@import "_page_adventure";
-@import "_page_photo";
+@import "page_main";
+@import "footer";
+@import "page_about";
+@import "page_tours";
+@import "page_tour";
+@import "page_reviews";
+@import "page_adventures";
+@import "page_adventure";
+@import "page_photo";
 @import "photo_line";
-@import "_window";
-@import "_gallery";
+@import "window";
+@import "gallery";
 
 
 //.block.form {

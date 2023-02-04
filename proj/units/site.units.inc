@@ -5,3 +5,4 @@
 //	require 'statistics/site/statistics.inc';
 //	require 'catalogs/site/catalogs.inc';
 	require 'test/site/test.inc';
+	require 'feedback/site/feedback.inc';

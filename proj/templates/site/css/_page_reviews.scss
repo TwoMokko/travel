@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "_variable" as *;
-@use "_func" as *;
+@use "variable" as *;
+@use "func" as *;
 
 .page_reviews { padding: 10%; }

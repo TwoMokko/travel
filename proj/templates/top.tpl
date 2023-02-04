@@ -17,16 +17,16 @@
 				<a href = "/">Главная</a>
 			</div>
 			<div>
-				<a href = "/tours">Путешествия</a>
+				<a href = "../../site.php">Путешествия</a>
 			</div>
 			<div>
-				<a href = "/about">О нас</a>
+				<a href = "../../site.php">О нас</a>
 			</div>
 			<div>
-				<a href = "/adventures">Наши приключения</a>
+				<a href = "../../site.php">Наши приключения</a>
 			</div>
 			<div>
-				<a href = "/photo">Фотографии</a>
+				<a href = "../../site.php">Фотографии</a>
 			</div>
         </div>
 		<?php

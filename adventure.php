@@ -28,8 +28,8 @@
                     <p>Это было потрясающее приключение, и уникальное явление природы, свидетелями которого мы явились!
                 </div>
                 <div>
-                    <div data-id = "1" data-url = "css/pic/photoalbum/22.jpg" style = "background-image: url('css/pic/photoalbum/22.jpg');" onclick = "new Gallery(this);"></div>
-                    <div data-id = "1" data-url = "css/pic/photoalbum/18.jpg" style = "background-image: url('css/pic/photoalbum/18.jpg');" onclick = "new Gallery(this);"></div>
+                    <div data-id = "1" data-url = "css/pic/photoalbum/22.jpg" style = "background-image: url('proj/templates/site/css/pic/photoalbum/22.jpg');" onclick = "new Gallery(this);"></div>
+                    <div data-id = "1" data-url = "css/pic/photoalbum/18.jpg" style = "background-image: url('proj/templates/site/css/pic/photoalbum/18.jpg');" onclick = "new Gallery(this);"></div>
                 </div>
             </div>
             <div class = "other_publication other_adventure">
