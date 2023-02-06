@@ -10,15 +10,19 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
-	use Proj\Units\Consts;
+    use Proj\DBQuery;
+    use Proj\Units\Consts;
 
 	class Feedback extends Units implements Consts\Feedback {
 		use Instance;
+
+        private DBQuery $db;
 
 		private Action $feedback;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
+            $this->db = DBQuery::instance();
 
 			$this->feedback = new Action('feedback', 'null');
 
@@ -33,8 +37,12 @@
 			fwrite($file, "Имя: {$name} Контакт: {$contact}\n");
 			fclose($file);
 
-//			$db = new \mysqli('localhost', 'root', '', 'travel');
-//			$db->query("INSERT INTO `feedback`(`name`, `contact`) VALUES ('{$name}','{$contact}')");
+            $data = [
+                'name' => $name,
+                'contact' => $contact
+            ];
+
+            $this->db->Insert('feedback', $data);
 
 			SendJSONSuccess(null);
 		}
