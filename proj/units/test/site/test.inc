@@ -3,8 +3,8 @@
 	namespace Proj\Site\Units;
 
 	require DIR_UNITS . 'test/consts.inc';
-	require 'views/header.tpl';
-	require 'views/footer.tpl';
+	require DIR_UNITS . 'test/site/views/header.tpl';
+	require DIR_UNITS . 'test/site/views/footer.tpl';
 
 	use Base\Instance;
 	use Base\Controller;
