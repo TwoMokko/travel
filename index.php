@@ -4,7 +4,9 @@
     require 'templates/footer.tpl';
 	require 'templates/main.tpl';
 
-
+	const DB_NAME = 'dd_travel';
+	const DB_USER = 'dd_travel';
+	const DB_PASS = 'Lsr-auQ/6q4mkM8y';
 
     function Title(): string {
         return 'Главная';

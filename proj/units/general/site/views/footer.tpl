@@ -1,6 +1,6 @@
 <?php
 
-	namespace Proj\Site\Templates\Test;
+	namespace Proj\Site\Templates\General;
 
 	use Base\Templates\View;
 
@@ -23,10 +23,10 @@
 							<div>
 								<div class = "number">+7-909-545-11-29</div>
 								<div class = "contact">
-									<a href = " https://t.me/idapohod"></a>
-									<a href = "https://www.youtube.com/@idapohod1718"></a>
-									<a href = "https://vk.com/idatravel"></a>
-									<a href = "https://instagram.com/idapohod"></a>
+									<a href = "https://t.me/idapohod" target = "_blank"></a>
+									<a href = "https://www.youtube.com/@idapohod1718" target = "_blank"></a>
+									<a href = "https://vk.com/idatravel" target = "_blank"></a>
+									<a href = "https://instagram.com/idapohod" target = "_blank"></a>
 								</div>
 							</div>
 						</div>

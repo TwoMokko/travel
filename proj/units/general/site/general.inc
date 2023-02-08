@@ -2,9 +2,9 @@
 
 	namespace Proj\Site\Units;
 
-	require DIR_UNITS . 'test/consts.inc';
-	require DIR_UNITS . 'test/site/views/header.tpl';
-	require DIR_UNITS . 'test/site/views/footer.tpl';
+	require DIR_UNITS . 'general/consts.inc';
+	require DIR_UNITS . 'general/site/views/header.tpl';
+	require DIR_UNITS . 'general/site/views/footer.tpl';
 
 	use Base\Instance;
 	use Base\Controller;
@@ -12,10 +12,10 @@
 	use Base\Units;
 	use Proj\Units\Consts;
 	use Proj\Site\Templates\Layout;
-	use Proj\Site\Templates\Test\Header;
-	use Proj\Site\Templates\Test\Footer;
+	use Proj\Site\Templates\General\Header;
+	use Proj\Site\Templates\General\Footer;
 
-	class Test extends Units implements Consts\Test {
+	class General extends Units implements Consts\General {
 		use Instance;
 
 		private Action $header;
@@ -27,13 +27,9 @@
 			parent::__construct(self::ID, self::NAME);
 
 			$this->header = new Action('always', 'always');
-//			$this->tours = new Action('tours');
-//			$this->tour = new Action('tour');
 			$this->footer = new Action('always', 'always');
 
 			Controller::instance()->view->Push($this->header, [$this, 'Top']);
-//			Controller::instance()->view->Push($this->tours, [$this, 'Tours']);
-//			Controller::instance()->view->Push($this->tour, [$this, 'Tour']);
 			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
 		}
 
@@ -41,18 +37,10 @@
 			Layout::instance()->header->Push(Header::object()->ToVar());
 		}
 
-		public function Tours() { ?>
-			<div>Туры</div>
-		<?php }
-
-		public function Tour() { ?>
-			<div>Тур</div>
-		<?php }
-
 		public function Footer() {
 			Layout::instance()->footer->Push(Footer::object()->ToVar());
 		}
 
 	}
 
-	Test::init();
+	General::init();

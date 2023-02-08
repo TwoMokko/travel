@@ -7,5 +7,6 @@
 //	const ID_STATISTICS				= 3;
 //	const ID_CATALOGS				= 4;
 //	const ID_NEWS					= 5;
-	const ID_TEST					= 1;
+	const ID_GENERAL				= 1;
 	const ID_FEEDBACK				= 2;
+	const ID_REVIEWS				= 3;
