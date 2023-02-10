@@ -22,12 +22,20 @@
 		private Action $tours;
 		private Action $tour;
 		private Action $footer;
+		private Action $set_data_page;
+		private Action $set_seo_main;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
 
+			$this->set_data_page	= new Action('always', 'always');
+			$this->set_seo_main	= new Action();
+
 			$this->header = new Action('always', 'always');
 			$this->footer = new Action('always', 'always');
+
+			Controller::instance()->view->Push($this->set_data_page, [$this, 'SetDataPage']);
+			Controller::instance()->view->Push($this->set_seo_main, [$this, 'SetSeoForMain']);
 
 			Controller::instance()->view->Push($this->header, [$this, 'Top']);
 			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
@@ -39,6 +47,19 @@
 
 		public function Footer() {
 			Layout::instance()->footer->Push(Footer::object()->ToVar());
+		}
+
+		public function SetDataPage() {
+			$path = [];
+			if (Controller::$area != 'null') $path[] = Controller::$area;
+			if (Controller::$part != 'null') $path[] = Controller::$part;
+			$value = $path ? implode('_', $path) : 'main';
+			Layout::SetDataPage($value);
+		}
+
+		public function SetSeoForMain() {
+			Layout::SetTitle('I Da Travel | Главная');
+			Layout::SetDescription('Недорогие туры на Алтай. Всем рады.');
 		}
 
 	}

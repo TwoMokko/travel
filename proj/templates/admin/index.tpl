@@ -1,6 +1,6 @@
 <?php
 
-	namespace Proj\Site\Templates;
+	namespace Proj\Admin\Templates;
 
 	use Base\Templates\View;
 
@@ -18,14 +18,17 @@
 					<meta charset = "UTF-8">
 					<meta name = "viewport" content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 					<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
-					<?php Layout::BrowseHead(); ?>
+					<title>Document</title>
+					<?php
+						Layout::BrowseHead();
+					?>
 				</head>
-				<body>
+				<body<?php Layout::BrowseData(); ?>>
 					<?php $this->RenderSections(); ?>
 					<script>
 						$(function() {
 							Base.Common.GlobalParams.Set('request', '<?= \REQUEST; ?>');
-							// Site.Common.Layout.Initialization();
+							Admin.Common.Layout.Initialization();
 						});
 					</script>
 				</body>
@@ -34,7 +37,10 @@
 
 		public function RenderSections() { ?>
 			<header><?php Layout::instance()->header->Browse(); ?></header>
-			<main><?php Layout::instance()->main->Browse(); ?></main>
+			<div>
+				<menu><?php Layout::instance()->menu->Browse(); ?></menu>
+				<main><?php Layout::instance()->main->Browse(); ?></main>
+			</div>
 			<footer><?php Layout::instance()->footer->Browse(); ?></footer>
 		<?php }
 
