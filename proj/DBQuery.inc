@@ -20,10 +20,6 @@
 
 	}
 
-//	DBQuery::init('localhost', 'root', '', 'travel');
-	DBQuery::init('localhost', 'dd_travel', 'Lsr-auQ/6q4mkM8y', 'dd_travel');
-//	const DB_NAME = 'dd_travel';
-//	const DB_USER = 'dd_travel';
-//	const DB_PASS = 'Lsr-auQ/6q4mkM8y';
+	DBQuery::init(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 	if (!DBQuery::instance()->State()) die('MySQLi database connection error! Code: ' . DBQuery::instance()->GetErrorCode());

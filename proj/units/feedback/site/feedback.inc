@@ -30,19 +30,21 @@
 		}
 
 		#[NoReturn] public function Feedback() {
-			$name = GetParam('name', 'Не известно');
-			$contact = GetParam('contact', 'Не известно');
+			$name = GetParam('name', '');
+			$contact = GetParam('contact', '');
+			$text = GetParam('text', '');
 
-			$file = fopen('feedback.txt', 'a');
-			fwrite($file, "Имя: {$name} Контакт: {$contact}\n");
-			fclose($file);
+//			$file = fopen('feedback.txt', 'a');
+//			fwrite($file, "Имя: {$name} Контакт: {$contact}\n");
+//			fclose($file);
 
             $data = [
                 'name' => $name,
-                'contact' => $contact
+                'contact' => $contact,
+                'text' => $text
             ];
 
-            $this->db->Insert('feedback', $data);
+            $this->db->Insert(self::TABLES['feedback'], $data);
 
 			SendJSONSuccess(null);
 		}
