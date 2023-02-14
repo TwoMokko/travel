@@ -10,8 +10,8 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
-    use Proj\DBQuery;
-    use Proj\Units\Consts;
+	use Proj\Units\Consts;
+	use Proj\DBQuery;
 
 	class Feedback extends Units implements Consts\Feedback {
 		use Instance;

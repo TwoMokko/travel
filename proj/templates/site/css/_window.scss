@@ -15,7 +15,7 @@
 			.window {
 				border-radius: 40px; overflow: hidden; box-shadow: $box_shadow_white;
 				position: relative;
-				max-height: 80%; max-width: 80%; display: flex; flex-direction: column;
+				max-height: 80%; max-width: 80%; min-width: 25%; display: flex; flex-direction: column;
 				> div { }
 				.head {
 					background-color: $color_main_green; color: $color_white; display: flex; justify-content: end; align-items: center;

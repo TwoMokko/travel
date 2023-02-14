@@ -48,7 +48,8 @@ declare function ToDrive(): void;
  * @constructor
  */
 declare function AfterSend(): void;
-declare function SeeReview(th: any): void;
+declare function GetReview(path: any, id: any): void;
+declare function ShowReview(data: any): void;
 declare namespace Common {
     /**
      * Менеджер работы с окнами
