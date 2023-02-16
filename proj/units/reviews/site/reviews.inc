@@ -3,7 +3,7 @@
 	namespace Proj\Site\Units;
 
 	require DIR_UNITS . 'reviews/consts.inc';
-	require DIR_UNITS . 'reviews/site/views/Lists.tpl';
+	require DIR_UNITS . 'reviews/site/views/lists.tpl';
 
 	use JetBrains\PhpStorm\NoReturn;
 

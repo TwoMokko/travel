@@ -8,3 +8,4 @@
 	require DIR_UNITS . 'feedback/site/feedback.inc';
 	require DIR_UNITS . 'reviews/site/reviews.inc';
 	require DIR_UNITS . 'people/site/people.inc';
+	require DIR_UNITS . 'stories/site/stories.inc';
