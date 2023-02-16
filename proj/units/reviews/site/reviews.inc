@@ -59,7 +59,11 @@
 		}
 
 		public function ForList(): void {
-			Layout::instance()->main->Push(Lists::object()->ToVarGrid([]));
+			$state = self::STATE_ACTIVE;
+			$result = $this->db->Select(self::TABLES['reviews'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$items = $this->db->FetchAll($result);
+
+			Layout::instance()->main->Push(Lists::object()->ToVarGrid($items));
 		}
 
 		#[NoReturn] public function OnReview(): void {

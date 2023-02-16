@@ -83,7 +83,7 @@
 			&:last-child { margin-bottom: 0; }
 		}
 
-		.about_pic { width: GetValue($default, $params, 'width_content_card'); background-color: $color_gray; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); }
+		.about_pic { width: GetValue($default, $params, 'width_content_card'); background-size: cover; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); }
 		.about_text {
 			display: flex; flex-direction: column; padding-left: 5%; width: GetValue($default, $params, 'width_content_card');
 			//&:not(:last-child) { margin-right: 5%; }

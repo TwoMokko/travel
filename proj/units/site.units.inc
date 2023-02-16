@@ -7,3 +7,4 @@
 	require DIR_UNITS . 'general/site/general.inc';
 	require DIR_UNITS . 'feedback/site/feedback.inc';
 	require DIR_UNITS . 'reviews/site/reviews.inc';
+	require DIR_UNITS . 'people/site/people.inc';

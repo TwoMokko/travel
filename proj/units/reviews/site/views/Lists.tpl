@@ -39,7 +39,7 @@
         public function Grid($items) { ?>
             <div class = "block p page_reviews">
                 <div class = "review_cards">
-
+					<?php foreach ($items as $item) $this->Item($item); ?>
                 </div>
             </div>
         <?php }
