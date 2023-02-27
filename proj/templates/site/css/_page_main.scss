@@ -199,7 +199,7 @@
 						display: GetValue($default, $params, 'display_tour');
 						> div {
 							width: GetValue($default, $params, 'width_tour'); margin: auto;
-							&:first-child { padding-bottom: GetValue($default, $params, 'padding_bottom_pic'); margin-bottom: GetValue($default, $params, 'margin_bottom_pic'); background-color: $color_gray; border-radius: 24px; }
+							&:first-child { padding-bottom: GetValue($default, $params, 'padding_bottom_pic'); margin-bottom: GetValue($default, $params, 'margin_bottom_pic'); background-color: $color_gray; border-radius: 24px; background-size: cover; }
 							&:last-child {
 								> div {
 									padding-left: GetValue($default, $params, 'padding_left_text');

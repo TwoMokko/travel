@@ -34,7 +34,7 @@
 							<div><a href = "/">Главная</a></div>
 							<div><a href = "/tours">Путешествия</a></div>
 							<div><a href = "/about">О нас</a></div>
-							<div><a href = "/adventures">Наши приключения</a></div>
+							<div><a href = "/stories">Наши приключения</a></div>
 							<div><a href = "/photo">Фотографии</a></div>
 						</div>
 					</div>
