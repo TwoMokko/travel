@@ -531,3 +531,105 @@ class Menu {
 		$('.open_menu').removeClass('hide');
 	}
 }
+
+class Carousel {
+	/* Variables */
+	active					: number;
+	count					: number;
+
+	/* Elements */
+	$container		:JQuery;
+	$wrap			:JQuery;
+	$scroll			:JQuery;
+	$items			:JQuery[];
+	$manage			:JQuery;
+	$array_left		:JQuery;
+	$array_right	:JQuery;
+
+	constructor(container: string, count: number) {
+		/*  */
+		this.$container = $(container);
+		this.count = count;
+		this.$items = [];
+		this.active = 0;
+
+
+		this.$container.children().each((index, element) => {
+			let $element = $(element);
+			this.$items.push($element);
+			$element.detach();
+		});
+
+
+		console.log(this.$items);
+		console.log(this.$items.length);
+
+		/* Set elements */
+		this.$wrap = $('<div/>');
+		this.$scroll = $('<div/>', {class: 'review_cards'});
+		this.$manage = $('<div/>');
+		this.$array_left = $('<div/>', {class: 'arrow_left'});
+		this.$array_right = $('<div/>', {class: 'arrow_right'});
+
+		/* Building DOM */
+		this.$container.append(
+			this.$manage.append(
+				this.$array_left,
+				this.$array_right
+			),
+			this.$wrap.append(
+				this.$scroll
+			)
+		);
+
+		/* Events */
+		this.$array_left.on('click', () => {
+			this.GetActive('left');
+			this.ShowItems();
+		} );
+		this.$array_right.on('click', () => {
+			this.GetActive('right');
+			this.ShowItems();
+		});
+
+		this.ShowItems();
+	}
+
+	private ShowItems(): void {
+		this.$scroll.children().each((index, element) => {
+			let $element = $(element);
+			$element.detach();
+		});
+		for (let i = 0, a = this.active; i < this.count || i < (this.$items.length - 1); i++ ) {
+			this.ShowItem(a);
+			a = this.GetNext(a);
+			console.log(a);
+		}
+	}
+
+	private ShowItem(a) {
+		this.$scroll.append(this.$items[a]);
+		console.log('ShowItem');
+	}
+
+	private GetNext(a): number {
+		console.log('GetNext');
+		if (a >= (this.$items.length - 1)) return 0;
+		else return ++a;
+	}
+
+	private GetActive(side): any {
+		switch (side) {
+			case('left'):
+				console.log('left');
+				if (this.active == 0) this.active = (this.$items.length - 1)
+				else this.active--;
+				break;
+			case('right'):
+				console.log('right');
+				if (this.active == (this.$items.length - 1)) this.active = 0
+				else this.active++;
+				break;
+		}
+	}
+}

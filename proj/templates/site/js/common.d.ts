@@ -161,3 +161,19 @@ declare class Menu {
     constructor(th: HTMLElement);
     Close(): void;
 }
+declare class Carousel {
+    active: number;
+    count: number;
+    $container: JQuery;
+    $wrap: JQuery;
+    $scroll: JQuery;
+    $items: JQuery[];
+    $manage: JQuery;
+    $array_left: JQuery;
+    $array_right: JQuery;
+    constructor(container: string, count: number);
+    private ShowItems;
+    private ShowItem;
+    private GetNext;
+    private GetActive;
+}
