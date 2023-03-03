@@ -70,6 +70,16 @@
 	}
 }
 
+@mixin arrow($arrow_direction, $arrow_direction_hover) {
+	transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
+	background-image: url($arrow_direction); background-repeat: no-repeat; background-position: center; background-size: 32px;
+	&:hover { background-image: url($arrow_direction_hover); }
+}
+
+@mixin arrow_left { @include arrow('pic/arrow/left/darkgray.svg', 'pic/arrow/left/green.svg') }
+
+@mixin arrow_right { @include arrow('pic/arrow/right/darkgray.svg', 'pic/arrow/right/green.svg') }
+
 //@mixin mix-limit($min, $max) {
 //	@include mix-screens((min: $min, max: $max)) { @content; }
 //}

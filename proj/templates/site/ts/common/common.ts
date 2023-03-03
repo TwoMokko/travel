@@ -93,7 +93,7 @@ class SelectTour {
 		this.$select_tours.empty();
 		for (let i in this.data[category].tours) {
 			this.$select_tours.append(
-				$('<option/>', {value: this.data[category].tours[i].href}).text(this.data[category].tours[i].name)
+				$('<option/>', {value: 'qqq'/*this.data[category].tours[i].href*/}).text(this.data[category].tours[i].name)
 			);
 		}
 
@@ -565,11 +565,11 @@ class Carousel {
 		console.log(this.$items.length);
 
 		/* Set elements */
-		this.$wrap = $('<div/>');
-		this.$scroll = $('<div/>', {class: 'review_cards'});
-		this.$manage = $('<div/>');
-		this.$array_left = $('<div/>', {class: 'arrow_left'});
-		this.$array_right = $('<div/>', {class: 'arrow_right'});
+		this.$wrap = $('<div/>', {class: 'wrap'});
+		this.$scroll = $('<div/>', {class: 'scroll'});
+		this.$manage = $('<div/>', {class: 'manage'});
+		this.$array_left = $('<div/>');
+		this.$array_right = $('<div/>');
 
 		/* Building DOM */
 		this.$container.append(

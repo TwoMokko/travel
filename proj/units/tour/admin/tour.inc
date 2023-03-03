@@ -2,7 +2,7 @@
 
 	namespace Proj\Admin\Units;
 
-	require DIR_UNITS . 'tour_types/admin/tour_types.structure.inc';
+	require DIR_UNITS . 'tour/admin/tour.structure.inc';
 	//	require DIR_UNITS . 'reviews/admin/reviews.editor.inc';
 
 	use Base\Instance;
@@ -13,7 +13,7 @@
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Group;
 
-	class Tour_types extends Structure\Tour_types {
+	class Tour extends Structure\Tour {
 		use Instance;
 
 	//		private EditorMySQLi $editor_news;
@@ -41,4 +41,4 @@
 
 	}
 
-	Tour_types::init();
+	Tour::init();

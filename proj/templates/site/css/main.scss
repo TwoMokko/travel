@@ -58,14 +58,16 @@ input[type="text"] {
 	@include MixScreen($sizeXL, null) { @include ViewArrowTop(()); }
 }
 .arrow_left {
-	transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
-	background-image: url('pic/arrow/left/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
-	&:hover { background-image: url('pic/arrow/left/green.svg'); }
+	@include arrow_left;
+	//transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
+	//background-image: url('pic/arrow/left/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
+	//&:hover { background-image: url('pic/arrow/left/green.svg'); }
 }
 .arrow_right {
-	transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
-	background-image: url('pic/arrow/right/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
-	&:hover { background-image: url('pic/arrow/right/green.svg'); }
+	@include arrow_right;
+	//transition: all 500ms ease; height: 30px; width: 30px; cursor: pointer;
+	//background-image: url('pic/arrow/right/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
+	//&:hover { background-image: url('pic/arrow/right/green.svg'); }
 }
 .play {
 	@mixin ViewVideo($params: null) {
@@ -230,16 +232,16 @@ input[type="text"] {
 }
 
 .review_cards {
-	display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%; grid-row-gap: 2%; grid-auto-rows: minmax(6rem, auto); align-content: center; flex: 100%;
+	display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%; grid-row-gap: 4%; align-content: center; flex: 100%; // grid-auto-rows: minmax(6rem, auto);
 }
 
 .review_card {
-	background-color: white; padding: 6% 10% 10%; border-radius: 24px; cursor: pointer;
+	background-color: white; padding: 6% 10% 10%; border-radius: 24px; cursor: pointer; height: 120px;
 	&:hover { box-shadow: $box_shadow_white; }
 	.review_person {
 		@include review_person;
 	}
-	.review_text { padding-top: 6%; overflow: hidden; -webkit-line-clamp: 6; display: -webkit-box; -webkit-box-orient: vertical; }
+	.review_text { padding-top: 6%; overflow: hidden; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; }
 }
 
 .review_window {
@@ -247,14 +249,20 @@ input[type="text"] {
 	.review_text { text-align: left !important; padding-top: 1rem; max-width: 550px; }
 }
 
-//.review_person {
-//	display: flex; align-items: center; padding-bottom: 6%;
-//	> div {
-//		&:first-child { width: 48px; height: 48px; border-radius: 50%; background-color: cadetblue; margin-right: 4%; flex: none; }
-//		&:last-child { font-family: Intro, sans-serif; }
-//	}
-//}
+#carousel {
+	.manage {
 
+		> div {
+			position: absolute;
+			&:first-child { @include arrow_left; left: 6%; }
+			&:last-child { @include arrow_right; right: 6%; }
+		}
+	}
+	.wrap {
+		width: 100%;
+		.scroll { display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%; }
+	}
+}
 
 
 @import "page_main";

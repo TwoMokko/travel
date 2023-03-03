@@ -1,11 +1,11 @@
 <?php
 
-	namespace Proj\Site\Templates\Tour_types;
+	namespace Proj\Site\Templates\Tour;
 
 	use Base\Templates\View;
 	use Proj\Units\Consts;
 
-	class Show extends View {
+	class Types extends View {
 
 		public function ToVar(array $items): string {
 			$this->Start();
@@ -34,7 +34,7 @@
 
 		private function Item($data) { ?>
 			<div>
-				<div style = "background-image: url(<?= Consts\Tour_types::PATH_AVATAR_RELATIVE, $data['image']; ?>);"></div>
+				<div style = "background-image: url(<?= Consts\Tour::PATH_TYPE_RELATIVE, $data['image']; ?>);"></div>
 				<div>
 					<div><?= $data['name']; ?></div>
 					<div><?= $data['description']; ?></div>
