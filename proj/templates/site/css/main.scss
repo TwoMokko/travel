@@ -141,36 +141,37 @@ input[type="text"] {
 				}
 			}
 
-			&:last-child {
-				display: flex; align-items: center;
-				> div:nth-of-type(2) {
-					margin: 0 2%; display: grid; grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(6rem, auto); align-content: center;
-					> a {
-						display: flex; padding: 1rem; text-align: center; text-decoration: none; background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer;
-						&:hover { box-shadow: $box_shadow_cards; }
-					}
-				}
-			}
+			//&:last-child {
+			//	display: flex; align-items: center;
+			//	> div:nth-of-type(2) {
+			//		margin: 0 2%; display: grid; grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); grid-column-gap: 2%; grid-auto-rows: minmax(6rem, auto); align-content: center;
+			//		> a {
+			//			display: flex; padding: 1rem; text-align: center; text-decoration: none; background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer;
+			//			&:hover { box-shadow: $box_shadow_cards; }
+			//		}
+			//	}
+			//}
 		}
-		&.other_adventure > div:last-child > div:nth-of-type(2) > a { justify-content: center; align-items: center; }
-		&.other_tour > div:last-child > div:nth-of-type(2) > a {
-			flex-direction: column;
-			> span {
-				&:nth-of-type(1) { flex: auto; display: flex; justify-content: center; }
-				&:nth-of-type(2) {
-					display: flex;
-					> span {
-						&:last-child {
-							&:after {
-								content: "₽";
-								font-size: 0.8rem; vertical-align: bottom;
-							}
-						}
-						&:first-child { flex: auto; display: flex; align-items: end; font-size: 0.8rem; }
-					}
-				}
-			}
-		}
+		.scroll { grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); }
+		//&.other_adventure > div:last-child > div:nth-of-type(2) > a { justify-content: center; align-items: center; }
+		//&.other_tour > div:last-child > div:nth-of-type(2) > a {
+		//	flex-direction: column;
+		//	> span {
+		//		&:nth-of-type(1) { flex: auto; display: flex; justify-content: center; }
+		//		&:nth-of-type(2) {
+		//			display: flex;
+		//			> span {
+		//				&:last-child {
+		//					&:after {
+		//						content: "₽";
+		//						font-size: 0.8rem; vertical-align: bottom;
+		//					}
+		//				}
+		//				&:first-child { flex: auto; display: flex; align-items: end; font-size: 0.8rem; }
+		//			}
+		//		}
+		//	}
+		//}
 	}
 
 	@include MixScreen(null, $sizeS) { @include ViewOtherPublication((mini_photo_count: 1)); }
@@ -228,7 +229,8 @@ input[type="text"] {
 		> span { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/chat_gray.png"); background-size: cover; }
 
 	}
-	> div:last-child { display: flex; align-items: center; }
+	//> div:last-child { display: flex; align-items: center; }
+	.scroll { grid-template-columns: repeat(2, 1fr); }
 }
 
 .review_cards {
@@ -249,18 +251,45 @@ input[type="text"] {
 	.review_text { text-align: left !important; padding-top: 1rem; max-width: 550px; }
 }
 
+.other_public {
+	min-height: 6rem; display: flex; padding: 1rem; text-align: center; text-decoration: none; background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer;
+	&:hover { box-shadow: $box_shadow_cards; }
+	&.other_story {
+		justify-content: center; align-items: center;
+	}
+	&.other_tour {
+		flex-direction: column;
+		> span {
+			&:nth-of-type(1) { flex: auto; display: flex; justify-content: center; }
+			&:nth-of-type(2) {
+				display: flex;
+				> span {
+					&:last-child {
+						&:after {
+							content: "₽";
+							font-size: 0.8rem; vertical-align: bottom;
+						}
+					}
+					&:first-child { flex: auto; display: flex; align-items: end; font-size: 0.8rem; }
+				}
+			}
+		}
+	}
+}
+
 #carousel {
+	display: flex; align-items: center;
 	.manage {
 
 		> div {
-			position: absolute;
+			position: absolute; margin-top: -15px;
 			&:first-child { @include arrow_left; left: 6%; }
 			&:last-child { @include arrow_right; right: 6%; }
 		}
 	}
 	.wrap {
 		width: 100%;
-		.scroll { display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%; }
+		.scroll { display: grid; /*grid-template-columns: repeat(2, 1fr);*/ grid-column-gap: 2%; }
 	}
 }
 

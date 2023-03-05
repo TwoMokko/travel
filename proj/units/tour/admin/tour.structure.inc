@@ -25,6 +25,7 @@
 			$this->table_tour_types->timestamp('date_create');
 			$this->table_tour_types->timestamp('date_modify');
 			$this->table_tour_types->string('name', 50);
+			$this->table_tour_types->string('alias', 50);
 			$this->table_tour_types->string('hash', 32);
 			$this->table_tour_types->string('ext', 6);
 			$this->table_tour_types->text('description');

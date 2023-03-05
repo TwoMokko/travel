@@ -39,7 +39,7 @@
 					<div><?= $data['name']; ?></div>
 					<div><?= $data['description']; ?></div>
 					<div>
-						<a class = "button" href = "/tours#major_travel">Выбрать путешествие</a>
+						<a class = "button" href = "/tours#<?= $data['alias']; ?>">Выбрать путешествие</a>
 						<!--							<input type = "button" value = "Выбрать путешествие" onclick = " window.location.href = '/tours';">-->
 					</div>
 				</div>
