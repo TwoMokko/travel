@@ -1,9 +1,9 @@
 <?php
 
-	namespace Proj\Site\Templates\Stories;
+	namespace Proj\Site\Templates\Story;
 
 	use Base\Templates\View;
-    use Proj\Site\Units\Stories;
+    use Proj\Site\Units\Story;
 
 	class Show extends View {
 
@@ -36,12 +36,12 @@
                 <div>
                     <span class = "header" onclick = " window.location.href = '/stories';">Другие приключения</span>
                 </div>
-                <div id = "carousel">
-                    <?php foreach ($items as $item) echo Stories::instance()->show->GetLink($item['header'], ['id' => $item['id']], ['class' => 'other_public other_story']); ?>
+                <div id = "story" class = "carousel">
+                   <?php foreach ($items as $item) echo Story::instance()->show->GetLink($item['header'], ['id' => $item['id']], ['class' => 'other_public other_story']); ?>
                 </div>
             </div>
             <script>
-                $(() => new Carousel('#carousel', 4));
+                $(() => new Carousel('#story', 4));
             </script>
         <?php }
 

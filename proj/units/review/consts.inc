@@ -1,13 +1,13 @@
 <?php
 
-	namespace Proj\Units\Consts;
+    namespace Proj\Units\Consts;
 
-	interface Stories {
-		const ID						= ID_STORIES;
-		const NAME						= 'stories';
+    interface Reviews {
+        const ID						= ID_REVIEWS;
+        const NAME						= 'review';
 
 		const TABLES = [
-			'stories'					=> self::NAME
+			'review'					=> self::NAME
 		];
 
 		const STATE_ERROR				= 0;
@@ -26,6 +26,6 @@
 			'delete'					=> self::STATE_DELETE
 		];
 
-		const PATH_AVATAR				= DIR_RESOURCE_IMAGE . 'stories/';
-		const PATH_AVATAR_RELATIVE		= '/proj/resource/image/stories/';
-	}
+		const PATH_AVATAR				= DIR_RESOURCE_IMAGE . 'review/';
+		const PATH_AVATAR_RELATIVE		= '/proj/resource/image/review/';
+    }

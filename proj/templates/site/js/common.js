@@ -424,8 +424,6 @@ class Carousel {
             this.$items.push($element);
             $element.detach();
         });
-        console.log(this.$items);
-        console.log(this.$items.length);
         /* Set elements */
         this.$wrap = $('<div/>', { class: 'wrap' });
         this.$scroll = $('<div/>', { class: 'scroll' });
@@ -446,22 +444,21 @@ class Carousel {
         this.ShowItems();
     }
     ShowItems() {
+        console.log(1111);
         this.$scroll.children().each((index, element) => {
             let $element = $(element);
             $element.detach();
         });
-        for (let i = 0, a = this.active; i < this.count || i < (this.$items.length - 1); i++) {
+        for (let i = 0, a = this.active; i < this.count && i < (this.$items.length - 1); i++) {
+            console.log(i, this.count);
             this.ShowItem(a);
             a = this.GetNext(a);
-            console.log(a);
         }
     }
     ShowItem(a) {
         this.$scroll.append(this.$items[a]);
-        console.log('ShowItem');
     }
     GetNext(a) {
-        console.log('GetNext');
         if (a >= (this.$items.length - 1))
             return 0;
         else

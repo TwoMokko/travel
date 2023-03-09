@@ -2,8 +2,8 @@
 
 	namespace Proj\Admin\Units;
 
-	require DIR_UNITS . 'reviews/admin/reviews.structure.inc';
-//	require DIR_UNITS . 'reviews/admin/reviews.editor.inc';
+	require DIR_UNITS . 'review/admin/reviews.structure.inc';
+//	require DIR_UNITS . 'review/admin/review.editor.inc';
 
 	use Base\Instance;
 	use Base\Controller;

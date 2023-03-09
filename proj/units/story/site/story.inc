@@ -2,9 +2,9 @@
 
 	namespace Proj\Site\Units;
 
-	require DIR_UNITS . 'stories/consts.inc';
-	require DIR_UNITS . 'stories/site/views/all.tpl';
-	require DIR_UNITS . 'stories/site/views/show.tpl';
+	require DIR_UNITS . 'story/consts.inc';
+	require DIR_UNITS . 'story/site/views/all.tpl';
+	require DIR_UNITS . 'story/site/views/show.tpl';
 
 
 	use Base\Instance;
@@ -14,11 +14,11 @@
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
 	use Proj\Site\Templates\Layout;
-	use Proj\Site\Templates\Stories\All;
-	use Proj\Site\Templates\Stories\Show;
+	use Proj\Site\Templates\Story\All;
+	use Proj\Site\Templates\Story\Show;
     use Proj\Site\Templates\General;
 
-	class Stories extends Units implements Consts\Stories {
+	class Story extends Units implements Consts\Story {
 		use Instance;
 
 		private DBQuery $db;
@@ -30,8 +30,8 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->all = new Action('stories', 'null');
-			$this->show = new Action('stories', 'show', '/stories/show?id=%id%');
+			$this->all = new Action('story', 'null');
+			$this->show = new Action('story', 'show', '/story/show?id=%id%');
 
 			Controller::instance()->view->Push($this->all, [$this, 'All']);
 			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll']);
@@ -47,7 +47,7 @@
 
             $state = self::STATE_ACTIVE;
 
-            $item = $this->db->SelectOne(self::TABLES['stories'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
+            $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
 
             $image = 'safdzssad';
             Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar($image, $item['header'], ''));
@@ -55,7 +55,7 @@
 
 		public function All(): void {
 			$state = self::STATE_ACTIVE;
-			$result = $this->db->Select(self::TABLES['stories'], ['id', 'header', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['story'], ['id', 'header', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(All::object()->ToVar($items));
@@ -64,7 +64,7 @@
 		public function Show(): void {
 			$state = self::STATE_ACTIVE;
 
-			$data = $this->db->SelectOne(self::TABLES['stories'], ['id', 'header', 'text'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$data = $this->db->SelectOne(self::TABLES['story'], ['id', 'header', 'text'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 
 			Layout::instance()->main->Push(Show::object()->ToVar($data));
 		}
@@ -72,7 +72,7 @@
         public function Carousel(): void {
             $state = self::STATE_ACTIVE;
 
-            $result = $this->db->Select(self::TABLES['stories'], ['id', 'header'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+            $result = $this->db->Select(self::TABLES['story'], ['id', 'header'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
             Layout::instance()->main->Push(Show::object()->ToVarCarousel($items));
@@ -80,4 +80,4 @@
 
 	}
 
-	Stories::init();
+	Story::init();

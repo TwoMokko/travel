@@ -1,9 +1,9 @@
 <?php
 
-	namespace Proj\Site\Templates\Stories;
+	namespace Proj\Site\Templates\Story;
 
 	use Base\Templates\View;
-    use Proj\Site\Units\Stories;
+    use Proj\Site\Units\Story;
 
     class All extends View {
 
@@ -16,7 +16,7 @@
 		public function Render($items) { ?>
 			<div class = "block page_adventure p">
 				<div class = "cards_adventure">
-					<?php foreach ($items as $item) echo Stories::instance()->show->GetLink($this->ItemToVar($item), ['id' => $item['id']]); ?>
+					<?php foreach ($items as $item) echo Story::instance()->show->GetLink($this->ItemToVar($item), ['id' => $item['id']]); ?>
 				</div>
 			</div>
 		<?php }

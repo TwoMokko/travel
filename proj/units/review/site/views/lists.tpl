@@ -26,12 +26,12 @@
                     <div class = "header" onclick = "window.location.href = '<?= Units\Reviews::instance()->for_list->GetPath(); ?>';">Отзывы</div>
                     <span title = "оставить отзыв"></span>
                 </div>
-                <div id = "carousel">
+                <div id = "review" class = "carousel">
                     <?php foreach ($items as $item) $this->Item($item); ?>
                 </div>
             </div>
             <script>
-                $(() => new Carousel('#carousel', 2));
+                $(() => new Carousel('#review', 2));
             </script>
         <?php }
 

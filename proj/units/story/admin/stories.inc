@@ -2,8 +2,8 @@
 
 	namespace Proj\Admin\Units;
 
-	require DIR_UNITS . 'stories/admin/stories.structure.inc';
-	//	require DIR_UNITS . 'reviews/admin/reviews.editor.inc';
+	require DIR_UNITS . 'story/admin/stories.structure.inc';
+	//	require DIR_UNITS . 'review/admin/review.editor.inc';
 
 	use Base\Instance;
 	use Base\Controller;
@@ -13,7 +13,7 @@
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Group;
 
-	class Stories extends Structure\Stories {
+	class Stories extends Structure\Story {
 		use Instance;
 
 	//		private EditorMySQLi $editor_news;

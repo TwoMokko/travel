@@ -2,14 +2,14 @@
 
 	namespace Proj\Admin\Structure;
 
-	require DIR_UNITS . 'stories/consts.inc';
+	require DIR_UNITS . 'story/consts.inc';
 
 	use Base\Units;
 	use Base\DB\TableMySQLi;
 	use Proj\Units\Consts;
 	use Proj\DBObject;
 
-	class Stories extends Units implements Consts\Stories {
+	class Story extends Units implements Consts\Story {
 		private DBObject $db;
 
 		protected TableMySQLi $table_stories;
@@ -18,7 +18,7 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBObject::instance();
 
-			$this->table_stories = new TableMySQLi(self::TABLES['stories'], $this->db);
+			$this->table_stories = new TableMySQLi(self::TABLES['story'], $this->db);
 			$this->table_stories->id('id');
 			$this->table_stories->uint8('state');
 			$this->table_stories->timestamp('date_create');

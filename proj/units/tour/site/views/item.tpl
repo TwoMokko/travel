@@ -3,7 +3,8 @@
     namespace Proj\Site\Templates\Tour;
 
     use Base\Templates\View;
-    use Proj\Units\Consts;
+	use Proj\Site\Units\Tour;
+	use Proj\Units\Consts;
 
     class Item extends View {
 
@@ -207,47 +208,45 @@
                 </div>
             </div>
             <div class = "block p">
-                <div class = "other_publication other_tour">
-                    <div>
-                        <span class = "header" onclick = " window.location.href = '/tours';">Другие путешествия</span>
-                    </div>
-                    <div>
-                        <div class = "arrow_left"></div>
-                        <div>
-                            <a href = "/tour">
-                                <span>Ликийская тропа, Каппадокия</span>
-                                <span>
-                                <span>1-10 октября</span>
-                                <span>65 000 </span>
-                            </span>
-                            </a>
-                            <a href = "/tour">
-                                <span>Каракольские озера</span>
-                                <span>
-                                <span>24-30 июня</span>
-                                <span>40 000 </span>
-                            </span>
-                            </a>
-                            <a href = "/tour">
-                                <span>Чулышманская долина</span>
-                                <span>
-                                <span>6-13 мая</span>
-                                <span>35 000 </span>
-                            </span>
-                            </a>
-                            <a href = "/tour">
-                                <span>Байкал, о. Ольхон, встреча Нового Года</span>
-                                <span>
-                                <span>30 дек-5 янв</span>
-                                <span>33 000 </span>
-                            </span>
-                            </a>
-                        </div>
-                        <div class = "arrow_right"></div>
-                    </div>
-
-                </div>
-
+<!--                <div class = "other_publication other_tour">-->
+<!--                    <div>-->
+<!--                        <span class = "header" onclick = " window.location.href = '/tours';">Другие путешествия</span>-->
+<!--                    </div>-->
+<!--                    <div id = "carousel">-->
+<!--                        <div class = "arrow_left"></div>-->
+<!--                        <div>-->
+<!--                            <a href = "/tour">-->
+<!--                                <span>Ликийская тропа, Каппадокия</span>-->
+<!--                                <span>-->
+<!--                                <span>1-10 октября</span>-->
+<!--                                <span>65 000 </span>-->
+<!--                            </span>-->
+<!--                            </a>-->
+<!--                            <a href = "/tour">-->
+<!--                                <span>Каракольские озера</span>-->
+<!--                                <span>-->
+<!--                                <span>24-30 июня</span>-->
+<!--                                <span>40 000 </span>-->
+<!--                            </span>-->
+<!--                            </a>-->
+<!--                            <a href = "/tour">-->
+<!--                                <span>Чулышманская долина</span>-->
+<!--                                <span>-->
+<!--                                <span>6-13 мая</span>-->
+<!--                                <span>35 000 </span>-->
+<!--                            </span>-->
+<!--                            </a>-->
+<!--                            <a href = "/tour">-->
+<!--                                <span>Байкал, о. Ольхон, встреча Нового Года</span>-->
+<!--                                <span>-->
+<!--                                <span>30 дек-5 янв</span>-->
+<!--                                <span>33 000 </span>-->
+<!--                            </span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class = "arrow_right"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         <?php }
 

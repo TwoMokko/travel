@@ -2,7 +2,7 @@
 
 	namespace Proj\Admin\Structure;
 
-	require DIR_UNITS . 'reviews/consts.inc';
+	require DIR_UNITS . 'review/consts.inc';
 
 	use Base\Units;
 	use Base\DB\TableMySQLi;
@@ -18,7 +18,7 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBObject::instance();
 
-			$this->table_reviews = new TableMySQLi(self::TABLES['reviews'], $this->db);
+			$this->table_reviews = new TableMySQLi(self::TABLES['review'], $this->db);
 			$this->table_reviews->id('id');
 			$this->table_reviews->uint32('tid');
 			$this->table_reviews->uint8('state');

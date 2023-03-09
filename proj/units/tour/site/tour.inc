@@ -6,13 +6,15 @@
     require DIR_UNITS . 'tour/site/views/select.tpl';
     require DIR_UNITS . 'tour/site/views/types.tpl';
     require DIR_UNITS . 'tour/site/views/all.tpl';
-    require DIR_UNITS . 'tour/site/views/item.tpl';
+	require DIR_UNITS . 'tour/site/views/item.tpl';
+	require DIR_UNITS . 'tour/site/views/carousel.tpl';
 
-    use Base\Instance;
+	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
-    use Proj\Units\Consts;
+	use Proj\Site\Templates\Tour\Carousel;
+	use Proj\Units\Consts;
     use Proj\DBQuery;
     use Proj\Site\Templates\Layout;
     use Proj\Site\Templates\Tour\Select;
@@ -43,7 +45,7 @@
             Controller::instance()->view->Push($this->select, [$this, 'Select']);
             Controller::instance()->view->Push($this->types, [$this, 'Types']);
             Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'All']);
-            Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'Item']);
+            Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'Item'], [$this, 'Carousel']);
 		}
 
         public function Select() {
@@ -103,6 +105,16 @@
 
             Layout::instance()->main->Push(Item::object()->ToVar($data));
         }
+
+		public function Carousel(): void {
+			$id = GetInt('id');
+			$state = self::STATE_ACTIVE;
+
+			$result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'date', 'price'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$items = $this->db->FetchAll($result);
+
+			Layout::instance()->main->Push(Carousel::object()->ToVarCarousel($items));
+		}
 
 	}
 
