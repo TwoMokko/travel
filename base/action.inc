@@ -36,8 +36,9 @@
 			$onclick = ' onclick = "' . $this->GetClick($data) . '"';
 			$class = (isset($params['class'])) ? ' class = "' . $params['class'] . '"' : '';
 			$target = (isset($params['target'])) ? ' target = "' . $params['target'] . '"' : '';
+			$style = (isset($params['style'])) ? ' style = "' . $params['style'] . '"' : '';
 
-			return "<a{$href}{$onclick}{$target}{$class}>{$content}</a>";
+			return "<a{$href}{$onclick}{$target}{$class}{$style}>{$content}</a>";
 		}
 
 		/**

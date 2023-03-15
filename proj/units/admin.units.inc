@@ -5,4 +5,5 @@
     require DIR_UNITS . 'tour/admin/tour.inc';
     require DIR_UNITS . 'review/admin/reviews.inc';
     require DIR_UNITS . 'people/admin/people.inc';
-    require DIR_UNITS . 'story/admin/stories.inc';
+    require DIR_UNITS . 'story/admin/story.inc';
+    require DIR_UNITS . 'photo/admin/photo.inc';

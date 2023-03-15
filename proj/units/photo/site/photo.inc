@@ -3,7 +3,8 @@
 	namespace Proj\Site\Units;
 
 	require DIR_UNITS . 'photo/consts.inc';
-//	require DIR_UNITS . 'photo/site/views/a.tpl';
+	require DIR_UNITS . 'photo/site/views/all.tpl';
+	require DIR_UNITS . 'photo/site/views/show.tpl';
 
 
 	use Base\Instance;
@@ -13,7 +14,8 @@
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
 	use Proj\Site\Templates\Layout;
-//	use Proj\Site\Templates\photo\a;
+	use Proj\Site\Templates\photo\All;
+	use Proj\Site\Templates\photo\Show;
 	use Proj\Site\Templates\General;
 
 	class Photo extends Units implements Consts\Photo {
@@ -21,22 +23,22 @@
 
 		private DBQuery $db;
 
-		public Action $a;
-		public Action $i;
+		public Action $all;
+		public Action $show;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->a = new Action('story', 'null');
-			$this->i = new Action('story', 'null');
+			$this->all = new Action('photo', 'null');
+			$this->show = new Action('photo', 'show', '/photo/show?id=%id%');
 
-			Controller::instance()->view->Push($this->a, [$this, 'HeaderForAll']);
-			Controller::instance()->view->Push($this->i, [$this, 'HeaderForItem']);
+			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'All']);
+			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'Show']);
 		}
 
 		public function HeaderForAll() {
-			Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar('safdzssad', 'Приключения', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar('safdzssad', 'Фотографии', 'Возможно, текст'));
 		}
 
 		public function HeaderForItem() {
@@ -44,7 +46,7 @@
 
 			$state = self::STATE_ACTIVE;
 
-			$item = $this->db->SelectOne(self::TABLES['photo'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
+			$item = $this->db->SelectOne(self::TABLES['photo_all'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
 
 			$image = 'safdzssad';
 			Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar($image, $item['header'], ''));
@@ -52,16 +54,19 @@
 
 		public function All(): void {
 			$state = self::STATE_ACTIVE;
-			$result = $this->db->Select(self::TABLES['photo'], ['id', 'header', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['photo_all'], ['id', 'header'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(All::object()->ToVar($items));
 		}
 
 		public function Show(): void {
+			if (!$id = GetInt('id')) die;//TODO 404
+
 			$state = self::STATE_ACTIVE;
 
-			$data = $this->db->SelectOne(self::TABLES['photo'], ['id', 'header', 'text'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['photo_show'], ['id'], "(`all_id` = {$id}) AND (`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$data = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(Show::object()->ToVar($data));
 		}

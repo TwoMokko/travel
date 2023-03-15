@@ -6,3 +6,4 @@
 	require DIR_UNITS . 'review/site/reviews.inc';
 	require DIR_UNITS . 'people/site/people.inc';
 	require DIR_UNITS . 'story/site/story.inc';
+	require DIR_UNITS . 'photo/site/photo.inc';

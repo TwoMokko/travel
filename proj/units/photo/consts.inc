@@ -7,7 +7,8 @@ interface Photo {
 	const NAME						= 'photo';
 
 	const TABLES = [
-		'photo'					=> self::NAME
+		'photo_all'					=> self::NAME. '_all',
+		'photo_show'				=> self::NAME . '_show'
 	];
 
 	const STATE_ERROR				= 0;
@@ -26,6 +27,8 @@ interface Photo {
 		'delete'					=> self::STATE_DELETE
 	];
 
-	const PATH_AVATAR				= DIR_RESOURCE_IMAGE . 'photo/';
-	const PATH_AVATAR_RELATIVE		= '/proj/resource/image/photo/';
+	const PATH_ALL				= DIR_RESOURCE_IMAGE . 'photo/all/';
+	const PATH_ALL_RELATIVE		= '/proj/resource/image/photo/all/';
+	const PATH_SHOW				= DIR_RESOURCE_IMAGE . 'photo/show/';
+	const PATH_SHOW_RELATIVE	= '/proj/resource/image/photo/show/';
 }
