@@ -119,20 +119,20 @@
                 </div>
 
             </div>
-            <div class = "tour_photo block p">
-                <div class = "header">Фотографии</div>
-                <div class = "block tour_mini_photo">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div>
-                    <a class = "button" href = "/photoalbum" >Смотреть альбом</a>
-                </div>
-            </div>
+<!--            <div class = "tour_photo block p">-->
+<!--                <div class = "header">Фотографии</div>-->
+<!--                <div class = "block tour_mini_photo">-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a class = "button" href = "/photoalbum" >Смотреть альбом</a>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class = "tour_take_things block p print">
                 <div>
                     <div class = "header">Что взять с собой</div>
@@ -207,7 +207,7 @@
                     </div>
                 </div>
             </div>
-            <div class = "block p">
+<!--            <div class = "block p">-->
 <!--                <div class = "other_publication other_tour">-->
 <!--                    <div>-->
 <!--                        <span class = "header" onclick = " window.location.href = '/tours';">Другие путешествия</span>-->
@@ -247,7 +247,7 @@
 <!--                        <div class = "arrow_right"></div>-->
 <!--                    </div>-->
 <!--                </div>-->
-            </div>
+<!--            </div>-->
         <?php }
 
     }

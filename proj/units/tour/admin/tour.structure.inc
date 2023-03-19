@@ -33,6 +33,7 @@
 			$this->table_tour = new TableMySQLi(self::TABLES['tour'], $this->db);
 			$this->table_tour->id('id');
 			$this->table_tour->uint32('tid');
+			$this->table_tour->uint32('photo_id');
 			$this->table_tour->uint8('state');
 			$this->table_tour->timestamp('date_create');
 			$this->table_tour->timestamp('date_modify');

@@ -46,6 +46,8 @@
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
+			if (!$items) return;
+
 			Layout::instance()->main->Push(Lists::object()->ToVarCarousel($items));
 		}
 
@@ -54,6 +56,8 @@
 			$tid = GetInt('id');
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "(`state` = {$state}) AND (`tid` = {$tid})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
+
+			if (!$items) return;
 
 			Layout::instance()->main->Push(Lists::object()->ToVarCarousel($items));
 		}
