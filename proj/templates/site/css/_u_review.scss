@@ -1,0 +1,39 @@
+@use "sass:map";
+
+@use "variable" as *;
+@use "func" as *;
+
+.page_reviews { padding: 10%; }
+
+.block.reviews {
+	padding: 10%;
+	> div:first-child {
+		display: flex; justify-content: center;
+		> div:first-child {
+			cursor: pointer;
+			&:hover { color: $color_main_green; }
+		}
+		> span { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/chat_gray.png"); background-size: cover; }
+
+	}
+	//> div:last-child { display: flex; align-items: center; }
+	//.scroll { grid-template-columns: repeat(2, 1fr); }
+}
+
+.review_cards {
+	display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%; grid-row-gap: 4%; align-content: center; flex: 100%; // grid-auto-rows: minmax(6rem, auto);
+}
+
+.review_card {
+	background-color: white; padding: 6% 10% 10%; border-radius: 24px; cursor: pointer; height: 120px;
+	&:hover { box-shadow: $box_shadow_white; }
+	.review_person {
+		@include review_person;
+	}
+	.review_text { padding-top: 6%; overflow: hidden; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; }
+}
+
+.review_window {
+	.review_person { @include review_person; }
+	.review_text { text-align: left !important; padding-top: 1rem; max-width: 550px; }
+}

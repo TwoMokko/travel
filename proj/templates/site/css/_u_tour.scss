@@ -1,0 +1,399 @@
+@use "sass:map";
+
+@use "variable" as *;
+@use "func" as *;
+
+//select_tour
+.block.check_tour {
+	@mixin ViewCheckTour($params:null) {
+		$default: (
+				top: -50px,
+				height: 0,
+				fontsize_select: 18px,
+				widht_form: 1200px,
+				borderradius_form: 40px,
+				display_form: flex,
+				margin_form: 0 5% 0 0,
+				widht_select: 50%,
+				margin_select: 0 5% 0 0,
+				display_select: flex,
+				width_input: auto,
+				padding_input: 0.6rem 1.2rem
+		);
+
+		//position: relative;
+		height: GetValue($default, $params, 'height'); margin: 0 auto;
+		> div { position: relative; left: 0; right: 0; top: GetValue($default, $params, 'top'); text-align: center;
+			> form {
+				width: GetValue($default, $params, 'widht_form'); padding: 1rem 3rem; margin: 0 auto; background-color: $color_white; display: GetValue($default, $params, 'display_form'); justify-content: center; border-radius: GetValue($default, $params, 'borderradius_form');
+				> div {
+					margin-top: auto; margin-bottom: auto;
+					&:first-child {
+						flex: auto; display: GetValue($default, $params, 'display_select'); margin: GetValue($default, $params, 'margin_form');
+						> div {
+							&:nth-of-type(1) {
+								> div { padding-bottom: 0.5rem; }
+							}
+							&:nth-of-type(2) {
+								> div { padding-bottom: 0.5rem; }
+							}
+						}
+					}
+					&:last-child {
+						> a { width: GetValue($default, $params, 'width_input'); padding: GetValue($default, $params, 'padding_input'); }
+						//> input { width: GetValue($default, $params, 'width_input'); }
+					}
+				}
+			}
+		}
+
+		div > form > div > div {
+			text-align: left; width: GetValue($default, $params, 'widht_select');
+			&:first-child { margin: GetValue($default, $params, 'margin_select'); }
+			> select {
+				width: 100%; font-family: SourceSansPro, sans-serif; font-size: GetValue($default, $params, 'fontsize_select'); outline: none; padding-bottom: 6px; border: none; border-bottom: 2px solid $color_gray; padding-right: 32px; appearance: none; background-image: url('pic/arrow/down/darkgray.svg'); background-repeat: no-repeat; background-position: right; background-size: 24px;
+			}
+			> div { color: $color_main_green; font-weight: bold; }
+		}
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, display_form: revert, margin_form: 0 0 1rem 0, widht_select: 100%, margin_select: 0 0 5% 0, display_select: revert, width_input: 100%, padding_input: 0.6rem 0, top: 0, height: revert)); }
+	@include MixScreen($sizeL, $sizeX) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, display_form: revert, margin_form: 0 0 1rem 0, top: 0, height: revert)); }
+	@include MixScreen($sizeX, $size2XL) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen($size2XL, $size3XL) { @include ViewCheckTour((fontsize_select: 12px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewCheckTour((fontsize_select: 14px, widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen($size4XL, $size5XL) { @include ViewCheckTour((widht_form: none, borderradius_form: none, top: 0, height: revert)); }
+	@include MixScreen($size5XL, null) { @include ViewCheckTour(); }
+}
+
+//type_tour
+.block.tours {
+
+	@mixin ViewToursMain($params:null) {
+		$default: (
+			//head_tours_fontsize: 1.5rem,
+				head_tour_fontsize: 20px,
+				display_tour: flex,
+				margin_right_tours: 50px,
+				margin_bottom_pic: 0,
+				padding_bottom_pic: 35%,
+				width_tour: 50%,
+				width_text: 80%,
+				padding_left_text: 8%,
+				padding_bottom_text: 30px,
+				text-align: revert
+
+
+		);
+
+		> div {
+			margin-bottom: 10%;
+			> div {
+				//&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_tours_fontsize'); padding-bottom: 4%; }
+				&:nth-of-type(2) {
+					display: flex; flex-wrap: wrap;
+					> div {
+						color: $color_gray; flex: none; margin-bottom: 4%;
+						&:not(:last-child) { margin-right: GetValue($default, $params, 'margin_right_tours'); }
+						&:hover { color: $color_main_green; cursor: pointer; }
+					}
+				}
+				&:nth-of-type(3) {
+					> div {
+						display: GetValue($default, $params, 'display_tour');
+						> div {
+							width: GetValue($default, $params, 'width_tour'); margin: auto;
+							&:first-child { padding-bottom: GetValue($default, $params, 'padding_bottom_pic'); margin-bottom: GetValue($default, $params, 'margin_bottom_pic'); background-color: $color_gray; border-radius: 24px; background-size: cover; }
+							&:last-child {
+								> div {
+									padding-left: GetValue($default, $params, 'padding_left_text');
+									&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_tour_fontsize'); padding-bottom: GetValue($default, $params, 'padding_bottom_text'); }
+									&:nth-of-type(2) { width: GetValue($default, $params, 'width_text'); padding-bottom: 50px; }
+									&:nth-of-type(3) { text-align: GetValue($default, $params, 'text-align'); }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeM) { @include ViewToursMain((head_tour_fontsize: 12px, display_tour: revert, margin_right_tours: 30px, padding_bottom_pic: 50%, margin_bottom_pic: 4%, width_tour: 100%, padding_left_text: 0, padding_bottom_text: 2%, width_text: 100%, text-align: center)); }
+	@include MixScreen($sizeM, $sizeXL) { @include ViewToursMain((head_tour_fontsize: 16px, display_tour: revert, margin_right_tours: 30px, padding_bottom_pic: 50%, margin_bottom_pic: 4%, width_tour: 100%, padding_left_text: 0, padding_bottom_text: 2%, width_text: 100%, text-align: center)); }
+	@include MixScreen($sizeXL, $size2XL) { @include ViewToursMain((head_tour_fontsize: 16px)); }
+	@include MixScreen($size2XL, $size3XL) { @include ViewToursMain((head_tour_fontsize: 16px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewToursMain((head_tour_fontsize: 18px)); }
+	@include MixScreen($size4XL, $size5XL) { @include ViewToursMain(()); }
+	@include MixScreen($size5XL, null) { @include ViewToursMain(); }
+
+}
+
+.relative_tours { position: relative; }
+
+.navigation_tour {
+	> div {
+		&:nth-of-type(1) > a { background-image: url("pic/major_travel.png"); }
+		&:nth-of-type(2) > a { background-image: url("pic/individual_support.png"); }
+		&:nth-of-type(3) > a { background-image: url("pic/vip.png"); }
+		&:nth-of-type(4) > a { background-image: url("pic/weekend_tour.png"); }
+
+		&:not(:last-child) { margin-bottom: 0.5rem; }
+
+		> a {
+			background-repeat: no-repeat; background-size: 1.3rem; background-position-y: center; background-position-x: 0.2rem; box-shadow: $box_shadow_white;
+			display: inline-block; height: 2rem; padding-left: 2rem; overflow: hidden; white-space: nowrap; margin-right: 10px; line-height: 2rem; text-decoration: none; width: 0; background-color: $color_main_green;  color: $color_white; border-radius: 0 24px 24px 0; cursor: pointer; transition: all 200ms ease;
+			&:hover { width: auto; padding-right: 1rem; }
+		}
+	}
+}
+
+.block.page_tours {
+	> div:first-child { text-align: center !important; padding-top: 3%; }
+	&:first-child { padding-top: 70px; }
+	padding-bottom: 140px;
+}
+
+.cards_tours {
+
+	@mixin ViewTours($params: null) {
+		$default: (
+				cards_count: 3,
+				grid-row-gap: 50px,
+				flex_wrap: revert,
+				margin_btn: 0,
+				margin_first_btn: 2%
+		);
+
+		display: grid; grid-template-columns: repeat(GetValue($default, $params, 'cards_count'), 1fr); grid-column-gap: 2%; width: 100%; grid-row-gap: GetValue($default, $params, 'grid-row-gap');
+		> a, > div {
+			display: flex; flex-direction: column;
+			text-decoration: none; color: $color_text_main; overflow: hidden; background-color: $color_white; border-radius: 24px; transition: all 200ms ease; min-height: 400px;
+			&:hover {
+				box-shadow: $box_shadow_cards;
+				> div:last-child > div:nth-of-type(2) { color: $color_main_green; }
+			}
+			> div {
+				&:first-child {
+					background-color: $color_gray; height: 200px; display: flex; justify-content: right; align-items: flex-end;
+					> span {
+						padding: 16px 32px; color: $color_white;
+						&:after {
+							content: "₽";
+							font-size: 0.8rem; vertical-align: bottom;
+						}
+					}
+				}
+				&:last-child {
+					padding: 24px; display: flex; flex-direction: column; flex: auto;
+					> div {
+						&:nth-of-type(1) { color: $color_gray; font-size: 0.8rem; }
+						&:nth-of-type(2) {
+							font-family: Intro, sans-serif; font-size: 0.8rem; margin: 0.3rem 0 0.5rem;
+							//&:hover { color: $color_main_green; }
+						}
+						&:nth-of-type(3) {
+							margin-bottom: 1.5rem;
+							overflow: hidden;
+							-webkit-line-clamp: 3;
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							flex: auto;
+						}
+						//&:nth-of-type(4) { padding: 0.8rem 0; }
+						&:nth-of-type(4) {
+							display: flex; justify-content: right; flex-wrap: GetValue($default, $params, 'flex_wrap');
+							> a {
+								margin: GetValue($default, $params, 'margin_btn');
+								&:not(:last-child) { margin-right: GetValue($default, $params, 'margin_first_btn'); }
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $size2XS) { @include ViewTours((cards_count: 1, grid-row-gap: 24px, display_price: revert)); }
+	@include MixScreen($size2XS, $sizeM) { @include ViewTours((cards_count: 1, grid-row-gap: 24px, display_price: revert)); }
+	@include MixScreen($sizeM, $sizeL) { @include ViewTours((cards_count: 2, display_price: revert, flex_wrap: wrap-reverse, margin_btn: 2% 0 0 0, margin_first_btn: 0)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewTours((cards_count: 2, display_price: revert)); }
+	@include MixScreen($sizeXL, $size3XL) { @include ViewTours((cards_count: 2)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewTours(()); }
+	@include MixScreen($size4XL, null) { @include ViewTours(()); }
+
+}
+
+.block.about_tour {
+	@mixin ViewAboutTour($params: null) {
+		$default: (
+				display_about_price: flex,
+				margin_right_about: 0 10% 0 0,
+				width_left_about: 60%,
+				width_right_about: 40%,
+				justifycontent: revert,
+				width_price: 50%,
+				margin_right_price: 0
+		);
+		display: GetValue($default, $params, 'display_about_price');
+		padding: 6% 10% 0;
+
+		> div {
+			&:first-child {
+				width: GetValue($default, $params, 'width_left_about');
+				margin: GetValue($default, $params, 'margin_right_about');
+			}
+
+			&:last-child {
+				width: GetValue($default, $params, 'width_right_about');
+				display: flex; justify-content: GetValue($default, $params, 'justifycontent');
+			}
+		}
+
+		.about_mini {
+			> div {
+				width: GetValue($default, $params, 'width_price');
+				&:not(:last-child) { margin-right: GetValue($default, $params, 'margin_right_price'); }
+				> div {
+					&:first-child { color: darkgray; font-family: Intro, sans-serif; font-size: 1.5rem; }
+					//&:last-child { padding-top: 20px; }
+				}
+			}
+		}
+	}
+
+	//@include MixScreen(null, $sizeM) { @include ViewAboutTour((display_about_price: revert, marginright_about: 0, width_left_about: 100%, width_right_about: 100%)); }
+	@include MixScreen(null, $sizeX) { @include ViewAboutTour((display_about_price: revert, margin_right_about: 0 0 4% 0, width_left_about: 100%, width_right_about: 100%, justifycontent: center, width_price: auto, margin_right_price: 10%)); }
+	@include MixScreen($sizeX, null) { @include ViewAboutTour(()); }
+}
+
+.block.tour_price {
+	@mixin ViewTourPrice($params: null) {
+		$default: (
+				display_about_price: flex,
+				width: 50%,
+			//padding: 32px 0 0 32px,
+				margin_bottom: 0
+		);
+		> div {
+			&:first-child { padding-bottom: 2%; color: $color_gray; }
+			&:last-child {
+				display: GetValue($default, $params, 'display_about_price');
+				> div {
+					width: GetValue($default, $params, 'width');
+					&:first-child { margin-bottom: GetValue($default, $params, 'margin_bottom'); }
+					&:last-child {}
+					> div {
+						&:first-child { font-family: Intro, sans-serif; }
+					}
+				}
+			}
+		}
+
+		.list {
+			padding: 4% 0 0 4%;
+			> div {
+				display: flex;
+				> div {
+					&:first-child {}
+					&:last-child { padding: 0 0 4px 8px; }
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewTourPrice((display_about_price: revert, width: 100%, margin_bottom: 8%)); }
+	@include MixScreen($sizeL, null) { @include ViewTourPrice(()); }
+}
+
+
+.block.tour_program {
+	@mixin ViewTourProgram($params: null) {
+		$default: (
+				display: flex,
+				width: 50%,
+				fontsize_number: 60px,
+				width_number: 100px,
+				background_position_y: center
+		);
+
+		padding: 120px 10%;
+		> div {
+			&:first-child { text-align: center !important; }
+			&:last-child { display: GetValue($default, $params, 'display'); }
+		}
+		.days > div {
+			display: flex;
+			> div {
+				&:first-child {
+					width: GetValue($default, $params, 'width_number'); text-align: right; position: relative; padding-right: 20px; font-size: GetValue($default, $params, 'fontsize_number'); color: $color_gray;
+					&:before { content: ""; position: absolute; width: 8px; height: 8px; background-color: $color_gray; border-radius: 50%; right: -4px; top: 0;
+					}
+				}
+				&:last-child { border-left: 1px solid $color_gray; width: GetValue($default, $params, 'width'); padding-left: 20px; padding-bottom: 50px; }
+			}
+		}
+		.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: GetValue($default, $params, 'background_position_y'); }
+	}
+
+	@include MixScreen(null, $sizeM) { @include ViewTourProgram((display: revert, width: 90%, fontsize_number: 40px, width_number: 50px)); }
+	@include MixScreen($sizeM, $sizeX) { @include ViewTourProgram((display: revert, width: 70%, fontsize_number: 40px, width_number: 80px)); }
+	@include MixScreen($sizeX, $size2XL) { @include ViewTourProgram((background_position_y: top)); }
+	@include MixScreen($size2XL, null) { @include ViewTourProgram(()); }
+}
+
+
+
+
+.block.tour_take_things {
+	@mixin ViewTakeThings($params: null) {
+		$default: (
+				display: grid,
+				margin_bottom: 0
+		);
+
+		padding: 10%;
+		.print_btn { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/print.svg"); }
+		> div {
+			&:first-child {
+				display: flex; justify-content: center;
+			}
+			&:last-child {
+				display: GetValue($default, $params, 'display'); grid-row-gap: 1.5rem; grid-column-gap: 1.5rem;
+				> div {
+					&:not(:last-child) { margin-bottom: GetValue($default, $params, 'margin_bottom'); }
+					&:nth-of-type(1) { grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 4; }
+					&:nth-of-type(2) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2; }
+					&:nth-of-type(3) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3; }
+					&:nth-of-type(4) { grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4; }
+					> div {
+						&:first-child { font-family: Intro, sans-serif; padding-bottom: 0.5rem; }
+						&:last-child {
+							display: flex; flex-direction: column; align-items: start;
+							> label {
+								margin: 0.2rem 0; cursor: pointer;
+								> input {
+									display: none;
+									&:checked + span:before { background-color: $color_main_green; border: 1px solid $color_main_green; background-image: url("pic/cheked.svg"); background-position: center; background-size: 65%; background-repeat: no-repeat; }
+								}
+								> span:before {
+									content: "";
+									height: 1rem; width: 1rem; display: inline-block; margin-right: 0.5rem; border-radius: 50%; border: 1px solid $color_gray;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeS) { @include ViewTakeThings((display: revert, margin_bottom: 8%)); }
+	@include MixScreen($sizeS, null) { @include ViewTakeThings(()); }
+}
+
+@include MixScreen(null, null, false, true) {
+	header, footer, body > span.arrow_top, main > .block:not(.print) { display: none; }
+	body, .block.tour_take_things span.print_btn { background: none; }
+}

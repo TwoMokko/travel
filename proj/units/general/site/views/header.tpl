@@ -2,26 +2,26 @@
 
 	namespace Proj\Site\Templates\General;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
 
-	class Header extends View {
+	abstract class Header {
 
-		public function ToVar(): string {
-			$this->Start();
-			$this->Render();
-			return $this->Read();
+		public static function ToVar(): string {
+			Template::Start();
+			self::Render();
+			return Template::Read();
 		}
 
-		public function Render() { ?>
+		public static function Render(): void { ?>
 			<div class = "block top">
 				<div><a href = "/"></a></div>
-				<?php $this->Menu(); ?>
+				<?php self::Menu(); ?>
 				<div class = "open_menu" onclick = "new Menu();"></div>
 
 			</div>
 		<?php }
 
-		private function Menu(): void { ?>
+		private static function Menu(): void { ?>
 			<div class = "block menu">
 				<div><a href = "/">Главная</a></div>
 				<div><a href = "/tours">Путешествия</a></div>

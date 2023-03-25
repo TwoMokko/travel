@@ -2,18 +2,18 @@
 
 	namespace Proj\Site\Templates\Tour;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
 	use Proj\Units\Consts;
 
-	class Types extends View {
+	abstract class Types {
 
-		public function ToVar(array $items): string {
-			$this->Start();
-			$this->Render($items);
-			return $this->Read();
+		public static function ToVar(array $items): string {
+			Template::Start();
+			self::Render($items);
+			return Template::Read();
 		}
 
-		public function Render($items) { ?>
+		public static function Render($items): void { ?>
 			<div class = "block tours p">
 				<div>
 					<div class = "header">Типы путешествий</div>
@@ -23,7 +23,7 @@
 						<?php } ?>
 					</div>
 					<div class = "switch_list">
-						<?php foreach ($items as $item) $this->Item($item); ?>
+						<?php foreach ($items as $item) self::Item($item); ?>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 			</script>
 		<?php }
 
-		private function Item($data) { ?>
+		private static function Item($data): void { ?>
 			<div>
 				<div style = "background-image: url(<?= Consts\Tour::PATH_TYPE_RELATIVE, $data['image']; ?>);"></div>
 				<div>

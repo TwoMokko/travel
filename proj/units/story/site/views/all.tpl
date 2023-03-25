@@ -2,26 +2,26 @@
 
 	namespace Proj\Site\Templates\Story;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
     use Proj\Site\Units\Story;
 
-    class All extends View {
+    abstract class All {
 
-		public function ToVar(array $items): string {
-			$this->Start();
-			$this->Render($items);
-			return $this->Read();
+		public static function ToVar(array $items): string {
+			Template::Start();
+			self::Render($items);
+			return Template::Read();
 		}
 
-		public function Render($items) { ?>
+		public static function Render($items): void { ?>
 			<div class = "block page_adventure p">
 				<div class = "cards_adventure">
-					<?php foreach ($items as $item) echo Story::instance()->show->GetLink($this->ItemToVar($item), ['id' => $item['id']]); ?>
+					<?php foreach ($items as $item) echo Story::instance()->show->GetLink(self::ItemToVar($item), ['id' => $item['id']]); ?>
 				</div>
 			</div>
 		<?php }
 
-		private function Item($data) { ?>
+		private static function Item($data): void { ?>
             <div></div>
             <div>
                 <div><?= $data['header']; ?></div>
@@ -30,10 +30,10 @@
             </div>
 		<?php }
 
-        public function ItemToVar(array $item): string {
-            $this->Start();
-            $this->Item($item);
-            return $this->Read();
+        public static function ItemToVar(array $item): string {
+			Template::Start();
+            self::Item($item);
+            return Template::Read();
         }
 
 	}

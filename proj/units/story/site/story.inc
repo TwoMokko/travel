@@ -39,7 +39,7 @@
 		}
 
         public function HeaderForAll() {
-            Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar('safdzssad', 'Приключения', 'Возможно, текст'));
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'Приключения', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {
@@ -50,7 +50,7 @@
             $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
 
             $image = 'safdzssad';
-            Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar($image, $item['header'], ''));
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar($image, $item['header'], ''));
         }
 
 		public function All(): void {
@@ -58,7 +58,7 @@
 			$result = $this->db->Select(self::TABLES['story'], ['id', 'header', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(All::object()->ToVar($items));
+			Layout::instance()->main->Push(All::ToVar($items));
 		}
 
 		public function Show(): void {
@@ -66,7 +66,7 @@
 
 			$data = $this->db->SelectOne(self::TABLES['story'], ['id', 'header', 'text'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 
-			Layout::instance()->main->Push(Show::object()->ToVar($data));
+			Layout::instance()->main->Push(Show::ToVar($data));
 		}
 
         public function Carousel(): void {
@@ -75,7 +75,7 @@
             $result = $this->db->Select(self::TABLES['story'], ['id', 'header'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
-            Layout::instance()->main->Push(Show::object()->ToVarCarousel($items));
+            Layout::instance()->main->Push(Show::ToVarCarousel($items));
         }
 
 	}

@@ -1,0 +1,51 @@
+@use "sass:map";
+
+@use "variable" as *;
+@use "func" as *;
+
+.block.tour_form {
+	@mixin ViewTourForm($params: null) {
+		$default: (
+				margin: 0 15% 0 45%,
+				display: flex,
+				margin_input: 0 4% 0 0,
+				width_input: 48%,
+				width_form: 40%,
+				font_size_text_area: 24px
+
+		);
+
+		padding: 10%; margin: 0 auto; background-image: url("pic/form_tour.jpg"); background-position: center;
+		> div {
+			margin: GetValue($default, $params, 'margin');
+			&:first-child { text-align: center !important; }
+			&:last-child {
+				width:  GetValue($default, $params, 'width_form');
+				> div {
+					&:nth-of-type(1) {
+						display: GetValue($default, $params, 'display');
+						> div {
+							padding: 16px; background-color: $color_semi_white; border-radius: 24px; width: GetValue($default, $params, 'width_input');
+							&:not(:last-child) { margin: GetValue($default, $params, 'margin_input'); }
+							> input { width: 100%; padding: 0; margin: 0; border-bottom: none; }
+						}
+
+					}
+					&:nth-of-type(2) {
+						background-color: $color_semi_white; margin-top: 4%; border-radius: 24px; height: 150px;
+						> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: GetValue($default, $params, 'font_size_text_area'); }
+					}
+					&:nth-of-type(3) {
+						margin-top: 8%;
+						> a { width: 100%; box-sizing: border-box; }
+					}
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeXL) { @include ViewTourForm((margin: 0 auto, display: revert, margin_input: 0 0 4% 0, width_input: revert, width_form: 100%, font_size_text_area: 18px)); }
+	@include MixScreen($sizeXL, $size3XL) { @include ViewTourForm((margin: 0 auto, display: revert, margin_input: 0 0 4% 0, width_input: revert, width_form: 100%, font_size_text_area: 18px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewTourForm((font_size_text_area: 20px)); }
+	@include MixScreen($size4XL, null) { @include ViewTourForm(()); }
+}

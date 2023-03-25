@@ -2,35 +2,35 @@
 
 	namespace Proj\Site\Templates\Photo;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
 	use Proj\Site\Units\Photo;
 	use Proj\Units\Consts;
 
-	class All extends View {
+	abstract class All {
 
-		public function ToVar(array $items): string {
-			$this->Start();
-			$this->Render($items);
-			return $this->Read();
+		public static function ToVar(array $items): string {
+			Template::Start();
+			self::Render($items);
+			return Template::Read();
 		}
 
-		public function Render($items) { ?>
+		public static function Render($items): void { ?>
 			<div class = "block page_photo p">
 				<div></div>
 				<div class = "photo_albums">
-					<?php foreach ($items as $item) echo Photo::instance()->show->GetLink($this->ItemToVar($item), ['id' => $item['id']], ['style' => 'background-image: url(' . Consts\Photo::PATH_ALL_RELATIVE . $item['image'] . ');']); ?>
+					<?php foreach ($items as $item) echo Photo::instance()->show->GetLink(self::ItemToVar($item), ['id' => $item['id']], ['style' => 'background-image: url(' . Consts\Photo::PATH_ALL_RELATIVE . $item['image'] . ');']); ?>
 				</div>
 			</div>
 		<?php }
 
-		private function Item($data) { ?>
+		private static function Item($data): void { ?>
 			<div><?= $data['header']; ?></div>
 		<?php }
 
-		public function ItemToVar(array $item): string {
-			$this->Start();
-			$this->Item($item);
-			return $this->Read();
+		public static function ItemToVar(array $item): string {
+			Template::Start();
+			self::Item($item);
+			return Template::Read();
 		}
 
 	}

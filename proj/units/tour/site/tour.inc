@@ -59,7 +59,7 @@
                 $type['tours'] = $this->db->FetchAll($result);
             }
 
-            Layout::instance()->main->Push(Select::object()->ToVar($data));
+            Layout::instance()->main->Push(Select::ToVar($data));
         }
 
         public function Types(): void {
@@ -67,7 +67,7 @@
             $result = $this->db->Select(self::TABLES['type'], ['id', 'name', 'description', 'alias'], "`state` = {$state}", null, 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
-            Layout::instance()->main->Push(Types::object()->ToVar($items));
+            Layout::instance()->main->Push(Types::ToVar($items));
         }
 
         public function All(): void {
@@ -81,11 +81,11 @@
                 $type['tours'] = $this->db->FetchAll($result);
             }
 
-            Layout::instance()->main->Push(All::object()->ToVar($items));
+            Layout::instance()->main->Push(All::ToVar($items));
         }
 
         public function HeaderForAll() {
-            Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar('safdzssad', 'Путешествия', 'Возможно, текст'));
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'Путешествия', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {
@@ -95,7 +95,7 @@
             $item = $this->db->SelectOne(self::TABLES['tour'], ['name', 'date'], "(`id` = {$id}) AND (`state` = {$state})");
 
             $image = 'safdzssad';
-            Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar($image, $item['name'], $item['date']));
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar($image, $item['name'], $item['date']));
         }
 
         public function Item(): void {
@@ -103,7 +103,7 @@
             $result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'description', 'price', 'duration', 'video'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $data = $this->db->Fetch($result);
 
-            Layout::instance()->main->Push(Item::object()->ToVar($data));
+            Layout::instance()->main->Push(Item::ToVar($data));
         }
 
 		public function Carousel(): void {
@@ -113,7 +113,7 @@
 			$result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'date', 'price'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(Carousel::object()->ToVarCarousel($items));
+			Layout::instance()->main->Push(Carousel::ToVarCarousel($items));
 		}
 
 	}

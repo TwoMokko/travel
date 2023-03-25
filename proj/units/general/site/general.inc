@@ -12,6 +12,7 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
+	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\Site\Templates\Layout;
 	use Proj\Site\Templates\General\HeaderForMain;
@@ -44,11 +45,11 @@
 		}
 
 		public function Header() {
-            Layout::instance()->header->Push(HeaderForMain::object()->ToVar());
+            Layout::instance()->header->Push(HeaderForMain::ToVar());
 		}
 
 		public function Footer() {
-			Layout::instance()->footer->Push(Footer::object()->ToVar());
+			Layout::instance()->footer->Push(Footer::ToVar());
 		}
 
 		public function SetDataPage() {
@@ -56,12 +57,12 @@
 			if (Controller::$area != 'null') $path[] = Controller::$area;
 			if (Controller::$part != 'null') $path[] = Controller::$part;
 			$value = $path ? implode('_', $path) : 'main';
-			Layout::SetDataPage($value);
+			Template::instance()->SetDataPage($value);
 		}
 
 		public function SetSeoForMain() {
-			Layout::SetTitle('I Da Travel | Главная');
-			Layout::SetDescription('Недорогие туры на Алтай. Всем рады.');
+			Template::instance()->SetTitle('I Da Travel | Главная');
+			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');
 		}
 
 	}

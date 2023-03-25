@@ -2,18 +2,18 @@
 
 	namespace Proj\Site\Templates\Photo;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
 	use Proj\Units\Consts;
 
-	class Show extends View {
+	abstract class Show {
 
-		public function ToVar(array $data): string {
-			$this->Start();
-			$this->Render($data);
-			return $this->Read();
+		public static function ToVar(array $data): string {
+			Template::Start();
+			self::Render($data);
+			return Template::Read();
 		}
 
-		public function Render($data) { ?>
+		public static function Render($data): void { ?>
 			<div class = "block page_photo_album p">
 				<div></div>
 				<div class = "photo_album">

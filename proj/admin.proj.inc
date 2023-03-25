@@ -11,8 +11,9 @@
 
 	require DIR_PROJ . 'DBObject.inc';
 
-//	require DIR_BASE . 'editor/editor.inc';
-//	require DIR_BASE . 'editor/editorMySQLi.inc';
+	require DIR_BASE . 'pages.inc';
+	require DIR_BASE . 'editor/editor.inc';
+	require DIR_BASE . 'editor/editorMySQLi.inc';
 
 //	require DIR_BASE . 'html/elements.inc';
 
@@ -21,4 +22,4 @@
 	require DIR_UNITS . 'admin.units.inc';
 
 	require DIR_PROJ . 'templates/admin/layout.inc';
-	require DIR_PROJ . 'templates/admin/index.tpl';
+	require DIR_PROJ . 'templates/admin/template.tpl';

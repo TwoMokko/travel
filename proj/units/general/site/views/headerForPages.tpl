@@ -2,20 +2,20 @@
 
     namespace Proj\Site\Templates\General;
 
-    use Base\Templates\View;
+    use Base\Templates\Template;
 
-    class HeaderForPages extends View {
+    abstract class HeaderForPages {
 
-        public function ToVar(string $image, string $title, string $text = ''): string {
-            $this->Start();
-            $this->Render($image, $title, $text);
-            return $this->Read();
+        public static function ToVar(string $image, string $title, string $text = ''): string {
+			Template::Start();
+            self::Render($image, $title, $text);
+            return Template::Read();
         }
 
-        public function Render(string $image, string $title, string $text = '') { ?>
+        public static function Render(string $image, string $title, string $text = ''): void { ?>
             <div class = "block hat other">
                 <div style = "background-image: url('<?= $image; ?>');"></div>
-                <?php Header::object()->Render(); ?>
+                <?php Header::Render(); ?>
                 <div>
                     <div><?= $title; ?></div>
                     <div><?= $text; ?></div>

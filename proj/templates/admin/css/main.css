@@ -1,0 +1,166 @@
+@font-face {
+  font-family: AjarSans;
+  src: url("font/Ajar Sans/AjarSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: AjarSans;
+  src: url("font/Ajar Sans/AjarSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: AjarSans, sans-serif;
+  font-size: 14px;
+  color: #000000;
+}
+
+h1 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #007fAD;
+}
+
+input {
+  outline: none;
+  font-family: AjarSans, sans-serif;
+  font-size: 1rem;
+}
+input[type=submit] {
+  padding: 0.6rem 1.6rem;
+  border: 0.2rem solid #006E95;
+  border-radius: 0.4rem;
+  background-color: #006E95;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  border-color: #00506C;
+  background-color: #00506C;
+}
+input[type=submit]:focus-visible, input[type=submit]:active {
+  border-color: #00506C;
+  background-color: #007fAD;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body > header {
+  padding: 1rem 0.6rem;
+  background-color: #23282C;
+  color: #FFFFFF;
+}
+body > div {
+  flex: auto;
+  display: flex;
+}
+body > div menu {
+  flex: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #3E4246;
+  color: #FFFFFF;
+}
+body > div menu a {
+  color: #FFFFFF;
+}
+body > div main {
+  flex: auto;
+}
+body > footer {
+  padding: 1rem 0.6rem;
+  background-color: #23282C;
+  color: #FFFFFF;
+}
+
+menu li > span {
+  position: relative;
+  display: block;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+menu li > span > ul {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 200px;
+  width: 200px;
+  background-color: #3E4246;
+}
+menu li > span:hover {
+  background-color: #006E95;
+}
+menu li > a {
+  display: block;
+  padding: 0.6rem;
+}
+menu li > a:hover {
+  background-color: #006E95;
+}
+menu li:hover > span > ul {
+  display: block;
+}
+
+main {
+  padding: 0.2rem;
+}
+main .navigate {
+  padding: 1rem;
+}
+main h1 {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+main table.select > thead > tr {
+  background-color: #006E95;
+  color: #FFFFFF;
+}
+main table.select > thead > tr > th {
+  padding: 0.6rem;
+  font-weight: 400;
+}
+main table.select > tbody > tr:nth-child(even) {
+  background-color: #C3C3C3;
+}
+main table.select > tbody > tr:hover {
+  background-color: #68909F;
+}
+main table.select > tbody > tr > td {
+  padding: 0.6rem;
+}
+main table.create > tbody > tr > th, main table.update > tbody > tr > th {
+  padding: 0.6rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=main.css.map */

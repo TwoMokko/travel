@@ -2,17 +2,17 @@
 
     namespace Proj\Site\Templates\Tour;
 
-    use Base\Templates\View;
+    use Base\Templates\Template;
 
-    class Select extends View {
+   abstract class Select {
 
-        public function ToVar(array $data): string {
-            $this->Start();
-            $this->Render($data);
-            return $this->Read();
+        public static function ToVar(array $data): string {
+			Template::Start();
+            self::Render($data);
+            return Template::Read();
         }
 
-        public function Render(array $data) { ?>
+        public static function Render(array $data): void { ?>
             <div class = "block check_tour">
                 <div>
                     <form>

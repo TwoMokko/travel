@@ -2,24 +2,23 @@
 
     namespace Proj\Site\Templates\Tour;
 
-    use Base\Templates\View;
-    use Proj\Site\Units\General;
+    use Base\Templates\Template;
     use Proj\Site\Units\Tour;
     use Proj\Units\Consts;
 
-    class All extends View {
+    abstract class All {
 
-        public function ToVar(array $items): string {
-            $this->Start();
-            $this->All($items);
-            return $this->Read();
+        public static function ToVar(array $items): string {
+			Template::Start();
+            self::All($items);
+            return Template::Read();
         }
 
-        public function All($data) { ?>
+        public static function All($data): void { ?>
             <div class = "relative_tours">
-                <?php $this->Navigation($data); ?>
+                <?php self::Navigation($data); ?>
                 <div>
-                    <?php foreach ($data as $type) $this->Type($type); ?>
+                    <?php foreach ($data as $type) self::Type($type); ?>
                 </div>
             </div>
             <script>
@@ -27,7 +26,7 @@
             </script>
         <?php }
 
-        private function Navigation($data) { ?>
+        private static function Navigation($data): void { ?>
             <div class = "navigation_tour">
                 <?php foreach ($data as $type) { ?>
                     <div><a href = "#<?= $type['alias']; ?>"><?= $type['name']; ?></a></div>
@@ -35,16 +34,16 @@
             </div>
         <?php }
 
-        private function Type($type) { ?>
+        private static function Type($type): void { ?>
             <div class = "block page_tours p">
                 <div class = "header" id = "<?= $type['alias']; ?>"><?= $type['name']; ?></div>
                 <div class = "cards_tours">
-                    <?php foreach ($type['tours'] as $tour) $this->Item($tour); ?>
+                    <?php foreach ($type['tours'] as $tour) self::Item($tour); ?>
                 </div>
             </div>
         <?php }
 
-        private function Item($tour) { ?>
+        private static function Item($tour): void { ?>
             <div>
                 <div style = "background-image: url(<?= Consts\Tour::PATH_TOUR_RELATIVE, $tour['image']; ?>);">
                     <span><?= $tour['price']; ?></span>

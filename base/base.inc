@@ -11,4 +11,4 @@
 
 	require DIR_BASE . 'template/layout.inc';
 	require DIR_BASE . 'template/section.inc';
-	require DIR_BASE . 'template/view.inc';
+	require DIR_BASE . 'template/template.inc';

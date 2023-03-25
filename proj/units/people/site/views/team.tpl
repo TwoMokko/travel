@@ -2,24 +2,25 @@
 
     namespace Proj\Site\Templates\People;
 
-    use Base\Templates\View;
-    use Proj\Units\Consts;
+    use Base\Templates\Template;
+//	use Proj\Site\Templates\Template;
+	use Proj\Units\Consts;
 
-    class Team extends View {
+    abstract class Team {
 
-        public function ToVar(array $items): string {
-            $this->Start();
-            $this->Team($items);
-            return $this->Read();
+        public static function ToVar(array $items): string {
+            Template::Start();
+            self::Team($items);
+            return Template::Read();
         }
 
-        public function Team($items) { ?>
+        public static function Team($items): void { ?>
             <div class = "block p team">
-                <?php foreach ($items as $item) $this->Item($item); ?>
+                <?php foreach ($items as $item) self::Item($item); ?>
             </div>
         <?php }
 
-        private function Item($data) { ?>
+        private static function Item($data): void { ?>
             <div>
                 <div class = "about_pic" style = "background-image: url(<?= Consts\People::PATH_AVATAR_RELATIVE, $data['image']; ?>);"></div>
                 <div class = "about_text">

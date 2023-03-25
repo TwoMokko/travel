@@ -20,14 +20,6 @@
 			$this->header = new Section();
 			$this->main = new Section();
 			$this->footer = new Section();
-
-			self::AddScript('jq', 'https://code.jquery.com/jquery-3.6.1.min.js');
-			self::AddVersionScript('base_common', '/base/template/js/common', BaseVersions\COMMON_JS);
-			self::AddVersionScript('site_common', '/proj/templates/site/js/common', SiteVersions\COMMON_JS);
-//			self::AddVersionScript('site_catalogs', '/proj/templates/site/js/catalogs', SiteVersions\CATALOGS_JS);
-//			self::AddVersionScript('skin_select', '/proj/templates/site/js/skins/select', SiteVersions\SKIN_SELECT_JS);
-
-			self::AddVersionStylesheet('main', DIR_REL_TPL . 'site/css/main', SiteVersions\MAIN_CSS);
 		}
 
 	}

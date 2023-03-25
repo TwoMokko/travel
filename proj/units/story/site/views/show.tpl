@@ -2,18 +2,18 @@
 
 	namespace Proj\Site\Templates\Story;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
     use Proj\Site\Units\Story;
 
-	class Show extends View {
+	abstract class Show {
 
-		public function ToVar(array $data): string {
-			$this->Start();
-			$this->Render($data);
-			return $this->Read();
+		public static function ToVar(array $data): string {
+			Template::Start();
+			self::Render($data);
+			return Template::Read();
 		}
 
-		public function Render($data) { ?>
+		public static function Render($data): void { ?>
             <div class = "block p page_one_adventure">
                 <div class = "adventure_text">
                     <div><?= $data['text']; ?></div>
@@ -25,13 +25,13 @@
             </div>
 		<?php }
 
-        public function ToVarCarousel(array $items): string {
-            $this->Start();
-            $this->Carousel($items);
-            return $this->Read();
+        public static function ToVarCarousel(array $items): string {
+			Template::Start();
+            self::Carousel($items);
+            return Template::Read();
         }
 
-        public function Carousel($items) { ?>
+        public static function Carousel($items): void { ?>
             <div class = "other_publication block p">
                 <div>
                     <span class = "header" onclick = " window.location.href = '/stories';">Другие приключения</span>

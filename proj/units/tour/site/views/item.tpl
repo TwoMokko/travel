@@ -2,19 +2,17 @@
 
     namespace Proj\Site\Templates\Tour;
 
-    use Base\Templates\View;
-	use Proj\Site\Units\Tour;
-	use Proj\Units\Consts;
+    use Base\Templates\Template;
 
-    class Item extends View {
+    abstract class Item {
 
-        public function ToVar(array $data): string {
-            $this->Start();
-            $this->Render($data);
-            return $this->Read();
+        public static function ToVar(array $data): string {
+			Template::Start();
+           self::Render($data);
+            return Template::Read();
         }
 
-        public function Render($data) { ?>
+        public static function Render($data): void { ?>
             <div class = "about_tour block p">
                 <div><?= $data['description']; ?></div>
                 <div class = "about_mini">

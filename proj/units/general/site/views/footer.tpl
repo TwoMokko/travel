@@ -2,17 +2,17 @@
 
 	namespace Proj\Site\Templates\General;
 
-	use Base\Templates\View;
+	use Base\Templates\Template;
 
-	class Footer extends View {
+	abstract class Footer {
 
-		public function ToVar(): string {
-			$this->Start();
-			$this->Render();
-			return $this->Read();
+		public static function ToVar(): string {
+			Template::Start();
+			self::Render();
+			return Template::Read();
 		}
 
-		public function Render() { ?>
+		public static function Render(): void { ?>
 			<div class = "block footer">
 				<div class = "block p">
 					<div>

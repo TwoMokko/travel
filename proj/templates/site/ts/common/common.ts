@@ -412,7 +412,6 @@ class Gallery {
 		let gallerySize = [self.$gallery.width(), self.$gallery.height()];
 		let newSize = self.GetNewSize(gallerySize);
 		this.Resize(newSize);
-		console.log('работает');
 	}
 
 	/**
@@ -561,7 +560,7 @@ class Carousel {
 
 		/* Set elements */
 		this.$wrap = $('<div/>', {class: 'wrap'});
-		this.$scroll = $('<div/>', {class: 'scroll'});
+		this.$scroll = $('<div/>', {class: `scroll count_${count}`});
 		this.$manage = $('<div/>', {class: 'manage'});
 		this.$array_left = $('<div/>');
 		this.$array_right = $('<div/>');
@@ -588,6 +587,7 @@ class Carousel {
 		});
 
 		this.ShowItems();
+		this.$container.addClass('carousel');
 	}
 
 	private ShowItems(): void {
@@ -595,7 +595,7 @@ class Carousel {
 			let $element = $(element);
 			$element.detach();
 		});
-		for (let i = 0, a = this.active; i < this.count && i < (this.$items.length - 1); i++) {
+		for (let i = 0, a = this.active; i < this.count && i <= (this.$items.length - 1); i++) {
 			this.ShowItem(a);
 			a = this.GetNext(a);
 		}
@@ -613,12 +613,10 @@ class Carousel {
 	private GetActive(side): any {
 		switch (side) {
 			case('left'):
-				console.log('left');
 				if (this.active == 0) this.active = (this.$items.length - 1)
 				else this.active--;
 				break;
 			case('right'):
-				console.log('right');
 				if (this.active == (this.$items.length - 1)) this.active = 0
 				else this.active++;
 				break;

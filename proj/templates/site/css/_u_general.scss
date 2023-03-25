@@ -1,0 +1,219 @@
+@use "sass:map";
+
+@use "variable" as *;
+@use "func" as *;
+
+.block.top {
+	@mixin ViewTop($params: null) {
+		$default: (
+				size_logo: 80px,
+				padding_left_logo: 8%,
+				display_menu: flex,
+				display_open_menu: none
+		);
+		position: relative; display: flex;
+		> div {
+			&:first-child {
+				flex: auto; padding-top: 2%; padding-left: GetValue($default, $params, 'padding_left_logo');
+				> a { display: inline-block; background-image: url("pic/logo_travel.png"); background-position: left; background-size: cover; background-repeat: no-repeat; height: GetValue($default, $params, 'size_logo'); width: GetValue($default, $params, 'size_logo'); }
+			}
+			&:nth-of-type(2) {
+				flex: none; display: GetValue($default, $params, 'display_menu'); padding-top: 2%; padding-right: 6%;
+				> div {  }
+			}
+			&:nth-of-type(3) { display: GetValue($default, $params, 'display_open_menu'); background-image: url("pic/menu_thin.svg"); background-position: right; background-size: cover; background-repeat: no-repeat; height: 32px; width: 32px; margin: 8px 6% 0 0; cursor: pointer; }
+		}
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewTop((size_logo: 50px, padding_left_logo: 10%, display_menu: none, display_open_menu: inline-block)); }
+	@include MixScreen($sizeL, $size3XL) { @include ViewTop((size_logo: 60px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewTop((size_logo: 70px)); }
+	@include MixScreen($size4XL, null) { @include ViewTop(()); }
+}
+
+.block.menu {
+	> div {
+		margin: 0.5rem;
+		> a {
+			color: $color_white; text-decoration: none; transition: all 500ms ease;
+			&:hover { border-bottom: solid 1px $color_white; }
+		}
+	}
+}
+
+.mini_menu {
+	background-color: #000000cc; display: flex; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+	.space { position: fixed; top: 0; right: 0; left: 0; bottom: 0; }
+	.content_menu {
+		margin-top: 98px;
+		background-color: transparent;
+		position: fixed;
+		right: 0;
+		height: 100%;
+		flex-direction: column;
+		align-items: flex-end;
+		//width: 40%;
+		display: flex;
+
+		//.close_menu {
+		//	margin: 10%; background-image: url("pic/cross_darkgray.svg"); background-size: cover; background-position: center; width: 32px; height: 32px; cursor: pointer;
+		//	&:hover { background-image: url("pic/cross_green.svg"); }
+		//}
+
+	}
+	.close_menu {
+		background-color: transparent; cursor: pointer; position: fixed; top: 8px; right: 6%; background-image: url("pic/cross_white.svg"); background-size: cover; background-position: center; width: 32px; height: 32px;
+		&:hover { background-image: url("pic/cross_green.svg"); }
+	}
+	.pages_menu {
+		display: flex; flex-direction: column; text-align: end;
+		position: fixed;
+		top: 64px;
+		right: 6%;
+		> div { &:not(:last-child){ margin-bottom: 8%; } }
+		a {
+			display: inline-block; flex: auto; text-decoration: none; color: $color_white; font-family: Intro, sans-serif; cursor: pointer; font-size: 24px;
+			&:hover { color: $color_main_green; }
+		}
+	}
+}
+
+.block.hat.main {
+	@mixin ViewHat($params: null) {
+		$default: (
+				fontsize_hat: 2rem,
+				fontsize_3: 1.3rem,
+		);
+
+		position: relative;
+		> div {
+			&:first-child { background-position: bottom; background-image: url("pic/hat.jpg"); background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+			&:last-child {
+				padding: 2% 12% 10%; position: relative;
+				> div {
+					color: $color_white;
+					&:nth-of-type(1) {}
+					&:nth-of-type(2) { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'fontsize_hat'); padding: 0.3rem 0 0.6rem 0; }
+					&:nth-of-type(3) { font-family: Intro, sans-serif; width: 100%; font-size: GetValue($default, $params, 'fontsize_3'); }
+					&:nth-of-type(4) {
+						> span {
+							margin-top: 2%; display: inline-flex; align-items: center; cursor: pointer;
+							> span {
+								&:first-child { background-image: url(pic/play.png); width: 30px; height: 30px; background-position: center; background-size: 80%; background-repeat: no-repeat; margin-right: 0.3rem; }
+								&:last-child {}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeM) { @include ViewHat((fontsize_hat: 1.5rem, fontsize_3: 16px)); }
+	@include MixScreen($sizeM, $sizeXL) { @include ViewHat((fontsize_3: 1rem)); }
+	//@include MixScreen($sizeM, $size3XL) { @include ViewHat((fontsize_3: 18px)); }
+	//@include MixScreen($size3XL, $size4XL) { @include ViewHat((fontsize_3: 20px)); }
+	@include MixScreen($sizeXL, null) { @include ViewHat(); }
+
+
+}
+
+.block.about_us {
+
+	@mixin ViewAbout($params:null) {
+		$default: (
+				padding: 190px 10% 10%
+			//head_fontsize: 1.5rem
+		);
+
+		padding: GetValue($default, $params, 'padding');
+		> div {
+			//text-align: center;
+			&:nth-of-type(1) { color: $color_main_green; }
+			//&:nth-of-type(2) { padding-bottom: 4%; line-height: 1.5; }
+			&:nth-of-type(3) {}
+		}
+	}
+	@include MixScreen(null, $size5XL) { @include ViewAbout((padding:10%)); }
+	@include MixScreen($size5XL, null) { @include ViewAbout(()); }
+}
+
+.block.page_about_us { text-align: center; }
+.page_about_us {
+	@mixin ViewAboutVideo($params: null) {
+		$default: (
+				display_header: flex,
+				padding_video: 0 10%,
+		);
+		> div {
+			//padding: 5% 10%;
+			&:nth-of-type(1) { display: GetValue($default, $params, 'display_header'); padding: 10%; }
+			&:nth-of-type(2) { padding: GetValue($default, $params, 'padding_video');  }
+			&:nth-of-type(3) { padding: 10% }
+			//&:nth-of-type(2) { margin-bottom: 10%; }
+			//&:not(:nth-of-type(2)) { padding: 10%; }
+		}
+	}
+	@include MixScreen(null, $sizeL) { @include ViewAboutVideo((padding_video: 0, display_header: revert)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutVideo((padding_video: 0, display_header: revert)); }
+	@include MixScreen($sizeXL, null) { @include ViewAboutVideo(()); }
+}
+
+.block.about_header {
+	@mixin ViewAboutHeader($params: null) {
+		$default: (
+				margin: 0 2% 0 0,
+				width_text: 58%,
+				width_pic: 40%,
+				height_pic: auto,
+				padding_bottom: 8%,
+				padding_left: 50%,
+				font_size: 0.8rem
+
+		);
+		> div {
+			&:first-child {
+				width: GetValue($default, $params, 'width_text'); margin: GetValue($default, $params, 'margin');
+				> div {
+					text-align: left; display: flex; flex-direction: column;
+					&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
+					&:nth-of-type(2) {
+						padding-bottom: GetValue($default, $params, 'padding_bottom');
+						> div { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'font_size'); padding-bottom: 0.7rem; }
+					}
+					&:nth-of-type(3) { flex: auto; }
+				}
+			}
+			&:last-child { width: GetValue($default, $params, 'width_pic'); background-color: $color_gray; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); }
+		}
+		.right_text { padding-left: GetValue($default, $params, 'padding_left'); }
+	}
+
+	//.right_text { width: 60%; margin: 0 0 0 auto; }
+
+	@include MixScreen(null, $size2XS) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 120px, padding_left: 0, padding_bottom: 4%, font_size: 0.7rem)); }
+	@include MixScreen($size2XS, $sizeM) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 200px, padding_left: 0, padding_bottom: 4%, font_size: 0.7rem)); }
+	@include MixScreen($sizeM, $sizeL) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 300px, padding_left: 30%, padding_bottom: 4%)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 300px, padding_left: 30%, padding_bottom: 4%)); }
+	@include MixScreen($sizeXL, null) { @include ViewAboutHeader(()); }
+
+}
+
+.block.tour_video {
+	@mixin ViewTourVideo($params: null) {
+		$default: (
+				padding: 10%,
+		);
+		> div {
+			padding: GetValue($default, $params, 'padding'); margin: 0 auto; max-width: 1200px;
+			> div {
+				&:nth-of-type(1) { text-align: center !important; }
+				&:nth-of-type(2) {
+					//text-align: center; padding: 180px; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
+				}
+			}
+		}
+	}
+	@include MixScreen(null, $sizeXL) { @include ViewTourVideo((padding: 10% 0)); }
+	@include MixScreen($sizeXL, null) { @include ViewTourVideo(()); }
+}

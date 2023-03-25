@@ -2,32 +2,32 @@
 
     namespace Proj\Site\Templates\Reviews;
 
-    use Base\Templates\View;
+    use Base\Templates\Template;
 	use Proj\Site\Units;
     use Proj\Units\Consts;
 
-	class Lists extends View {
+	abstract class Lists {
 
-		public function ToVarCarousel(array $items): string {
-			$this->Start();
-			$this->Carousel($items);
-			return $this->Read();
+		public static function ToVarCarousel(array $items): string {
+			Template::Start();
+			self::Carousel($items);
+			return Template::Read();
 		}
 
-		public function ToVarGrid(array $items): string {
-			$this->Start();
-			$this->Grid($items);
-			return $this->Read();
+		public static function ToVarGrid(array $items): string {
+			Template::Start();
+			self::Grid($items);
+			return Template::Read();
 		}
 
-        public function Carousel($items) { ?>
+        public static function Carousel($items): void { ?>
             <div class = "block p reviews">
                 <div>
                     <div class = "header" onclick = "window.location.href = '<?= Units\Reviews::instance()->for_list->GetPath(); ?>';">Отзывы</div>
                     <span title = "оставить отзыв"></span>
                 </div>
                 <div id = "review" class = "carousel">
-                    <?php foreach ($items as $item) $this->Item($item); ?>
+                    <?php foreach ($items as $item) self::Item($item); ?>
                 </div>
             </div>
             <script>
@@ -35,15 +35,15 @@
             </script>
         <?php }
 
-        public function Grid($items) { ?>
+        public static function Grid($items): void { ?>
             <div class = "block p page_reviews">
                 <div class = "review_cards">
-					<?php foreach ($items as $item) $this->Item($item); ?>
+					<?php foreach ($items as $item) self::Item($item); ?>
                 </div>
             </div>
         <?php }
 
-        private function Item($data) { ?>
+        private static function Item($data): void { ?>
             <div class = "review_card" onclick = "GetReview('<?= Units\Reviews::instance()->get->GetPath(); ?>', <?= $data['id']; ?>);">
                 <div class = "review_person">
                     <div style = "background-image: url(<?= Consts\Reviews::PATH_AVATAR_RELATIVE, $data['image']; ?>);"></div>

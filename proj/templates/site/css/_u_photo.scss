@@ -1,0 +1,149 @@
+@use "sass:map";
+
+@use "variable" as *;
+@use "func" as *;
+
+.block.photo {
+
+	@mixin ViewPhoto($params: null) {
+		$default: (
+				head_photo_padding: 120px,
+			//head_photo_fontsize: 1.5rem,
+				mini_photo_count: 3
+
+		);
+
+		.head_photo {
+			display: flex; padding-top: GetValue($default, $params, 'head_photo_padding');
+			> div {
+				&:nth-of-type(1) { flex: auto; text-align: center !important; }
+			}
+		}
+		> div {
+			&:nth-of-type(2) { display: flex; align-items: center; margin-bottom: 50px; }
+			&:nth-of-type(3) { text-align: center; }
+		}
+		.mini_photo {
+			flex: auto; margin: 0 2%; display: grid; grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); grid-column-gap: 2%; grid-row-gap: 2%; color: $color_white;
+			> div {
+				background-color: $color_gray; border-radius: 24px; display: flex; align-items: end; cursor: pointer; padding-top: 70%; position: relative;
+				&:nth-of-type(1) {  }
+				&:nth-of-type(2) {  }
+				&:nth-of-type(3) {  }
+				&:hover { box-shadow: $box_shadow_white; }
+				> div { padding: 24px 30px; position: absolute; }
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewPhoto((head_photo_padding: 50px, head_photo_fontsize: 1rem, mini_photo_count: 1)); }
+	@include MixScreen($sizeL, $size4XL) { @include ViewPhoto((head_photo_padding: 100px, head_photo_fontsize: 1rem, mini_photo_count: 2)); }
+	@include MixScreen($size2XL, $size4XL) { @include ViewPhoto((head_photo_fontsize: 1.2rem)); }
+	@include MixScreen($size4XL, null) { @include ViewPhoto(); }
+}
+
+.photo_carousel {
+	.scroll > div { height: 200px; background-size: cover; border-radius: 24px; cursor: pointer; }
+}
+
+.block.tour_photo {
+	@mixin ViewTourPhoto($params: null) {
+		$default: (
+				display: none,
+				display_grid: grid
+		);
+		> div {
+			&:first-child { text-align: center !important; }
+			&:last-child { text-align: center; margin-top: 4%; }
+		}
+
+		.tour_mini_photo {
+			display: GetValue($default, $params, 'display_grid'); grid-row-gap: 1rem; grid-column-gap: 1rem; margin-bottom: 4%;
+			grid-template-areas:
+		"a b b c"
+		"d d e f";
+			> div {
+				background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%; background-size: cover;
+				&:hover { box-shadow: $box_shadow_white; }
+				&:nth-of-type(1) { grid-area: a; }
+				&:nth-of-type(2) { grid-area: b; }
+				&:nth-of-type(3) { grid-area: c; }
+				&:nth-of-type(4) { grid-area: d; }
+				&:nth-of-type(5) { grid-area: e; }
+				&:nth-of-type(6) { grid-area: f; }
+			}
+		}
+		.tour_mini_photo_carousel { display: GetValue($default, $params, 'display'); }
+		.scroll > div { height: 200px; background-size: cover; border-radius: 24px; cursor: pointer; }
+	}
+
+	@include MixScreen(null, $sizeXL) { @include ViewTourPhoto((display_grid: none, display: revert)); }
+	@include MixScreen($sizeXL, null) { @include ViewTourPhoto(()); }
+}
+
+.page_photo {
+	@mixin ViewPhotoPage($params: null) {
+		$default: (
+				photo_count: 3
+		);
+		color: $color_white;
+		.photo_albums {
+			padding: 10% 0 70px 0; display: grid; grid-template-columns: repeat(GetValue($default, $params, 'photo_count'), 1fr); grid-column-gap: 2%;
+			> a {
+				padding-top: 50%; overflow: hidden; margin-bottom: 6%; background-color: $color_gray; background-size: cover; border-radius: 24px; transition: all 200ms ease; cursor: pointer; display: flex; align-items: end; text-decoration: none; color: $color_white;
+				&:hover { box-shadow: $box_shadow_white; }
+				>div { padding: 24px 30px; }
+			}
+		}
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewPhotoPage((photo_count: 1)); }
+	@include MixScreen($sizeL, $size2XL) { @include ViewPhotoPage((photo_count: 2)); }
+	@include MixScreen($size2XL, null) { @include ViewPhotoPage(()); }
+}
+
+.photo_album {
+
+	@mixin ViewPhotoAlbum($params: null) {
+		$default: (
+				photo_between: 24px
+		);
+		padding: 10% 0;
+		display: grid; grid-row-gap: GetValue($default, $params, 'photo_between'); grid-column-gap: GetValue($default, $params, 'photo_between'); grid-template-areas:
+        "a b b c"
+		"d d e f"
+		"g h i i"
+		"j k k l"
+		"m m n o"
+		"p q r r";
+		> div {
+			background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%; background-size: cover; background-position: center;
+			&:hover { box-shadow: $box_shadow_white; }
+			&:nth-of-type(1) { grid-area: a; }
+			&:nth-of-type(2) { grid-area: b; }
+			&:nth-of-type(3) { grid-area: c; }
+			&:nth-of-type(4) { grid-area: d; }
+			&:nth-of-type(5) { grid-area: e; }
+			&:nth-of-type(6) { grid-area: f; }
+			&:nth-of-type(7) { grid-area: g; }
+			&:nth-of-type(8) { grid-area: h; }
+			&:nth-of-type(9) { grid-area: i; }
+			&:nth-of-type(10) { grid-area: j; }
+			&:nth-of-type(11) { grid-area: k; }
+			&:nth-of-type(12) { grid-area: l; }
+			&:nth-of-type(13) { grid-area: m; }
+			&:nth-of-type(14) { grid-area: n; }
+			&:nth-of-type(15) { grid-area: o; }
+			&:nth-of-type(16) { grid-area: p; }
+			&:nth-of-type(17) { grid-area: q; }
+			&:nth-of-type(18) { grid-area: r; }
+		}
+	}
+
+	@include MixScreen(null, $sizeL) { @include ViewPhotoAlbum((photo_between: 6px)); }
+	@include MixScreen($sizeL, $sizeXL) { @include ViewPhotoAlbum((photo_between: 10px)); }
+	@include MixScreen($sizeXL, $size3XL) { @include ViewPhotoAlbum((photo_between: 12px)); }
+	@include MixScreen($size3XL, $size4XL) { @include ViewPhotoAlbum((photo_between: 20px)); }
+	@include MixScreen($size4XL, null) { @include ViewPhotoAlbum(); }
+
+}

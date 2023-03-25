@@ -42,6 +42,7 @@ input[type="text"] {
 .hide { display: none !important; }
 .show { opacity: 1 !important; }
 .active { color: $color_text_main !important; }
+
 .arrow_top {
 	@mixin ViewArrowTop($params: null) {
 		$default: (
@@ -69,22 +70,7 @@ input[type="text"] {
 	//background-image: url('pic/arrow/right/darkgray.svg'); background-repeat: no-repeat; background-position: center; background-size: 32px;
 	//&:hover { background-image: url('pic/arrow/right/green.svg'); }
 }
-.play {
-	@mixin ViewVideo($params: null) {
-		$default: (
-			background_size: 90px,
-			background_size_hover: 100px
-		);
-		background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; text-align: center; padding: 16%;
-		> div {
-			background-position: center; background-image: url("pic/about_play.png"); height: 100px; background-repeat: no-repeat; background-size: GetValue($default, $params, 'background_size'); display: inline-block; width: 100px; cursor: pointer; transition: background-size 200ms ease;
-			&:hover { background-size: GetValue($default, $params, 'background_size_hover'); }
-		}
-	}
-	@include MixScreen(null, $sizeXS) { @include ViewVideo((background_size: 50px, background_size_hover: 55px)); }
-	@include MixScreen($sizeXS, $sizeL) { @include ViewVideo((background_size: 70px, background_size_hover: 77px)); }
-	@include MixScreen($sizeL, null) { @include ViewVideo(()); }
-}
+
 .p { margin: 0 auto; padding: 0 10%; max-width: 1200px; }
 .header {
 	@mixin ViewHeader($params:null) {
@@ -123,6 +109,24 @@ input[type="text"] {
 		}
 	}
 }
+
+.play {
+	@mixin ViewVideo($params: null) {
+		$default: (
+				background_size: 90px,
+				background_size_hover: 100px
+		);
+		background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; text-align: center; padding: 16%;
+		> div {
+			background-position: center; background-image: url("pic/about_play.png"); height: 100px; background-repeat: no-repeat; background-size: GetValue($default, $params, 'background_size'); display: inline-block; width: 100px; cursor: pointer; transition: background-size 200ms ease;
+			&:hover { background-size: GetValue($default, $params, 'background_size_hover'); }
+		}
+	}
+	@include MixScreen(null, $sizeXS) { @include ViewVideo((background_size: 50px, background_size_hover: 55px)); }
+	@include MixScreen($sizeXS, $sizeL) { @include ViewVideo((background_size: 70px, background_size_hover: 77px)); }
+	@include MixScreen($sizeL, null) { @include ViewVideo(()); }
+}
+
 .other_publication {
 
 	@mixin ViewOtherPublication($params: null) {
@@ -152,7 +156,10 @@ input[type="text"] {
 			//	}
 			//}
 		}
-		.scroll { grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); }
+
+		//.scroll { grid-template-columns: repeat(GetValue($default, $params, 'mini_photo_count'), 1fr); }
+
+
 		//&.other_adventure > div:last-child > div:nth-of-type(2) > a { justify-content: center; align-items: center; }
 		//&.other_tour > div:last-child > div:nth-of-type(2) > a {
 		//	flex-direction: column;
@@ -178,77 +185,6 @@ input[type="text"] {
 	@include MixScreen($sizeS, $sizeX) { @include ViewOtherPublication((mini_photo_count: 2)); }
 	@include MixScreen($sizeX, $size2XL) { @include ViewOtherPublication((mini_photo_count: 3)); }
 	@include MixScreen($size2XL, null) { @include ViewOtherPublication(()); }
-}
-
-
-.mini_menu {
-	background-color: #000000cc; display: flex; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-	.space { position: fixed; top: 0; right: 0; left: 0; bottom: 0; }
-	.content_menu {
-		margin-top: 98px;
-		background-color: transparent;
-		position: fixed;
-		right: 0;
-		height: 100%;
-		flex-direction: column;
-		align-items: flex-end;
-		//width: 40%;
-		display: flex;
-
-		//.close_menu {
-		//	margin: 10%; background-image: url("pic/cross_darkgray.svg"); background-size: cover; background-position: center; width: 32px; height: 32px; cursor: pointer;
-		//	&:hover { background-image: url("pic/cross_green.svg"); }
-		//}
-
-	}
-	.close_menu {
-		background-color: transparent; cursor: pointer; position: fixed; top: 8px; right: 6%; background-image: url("pic/cross_white.svg"); background-size: cover; background-position: center; width: 32px; height: 32px;
-		&:hover { background-image: url("pic/cross_green.svg"); }
-	}
-	.pages_menu {
-		display: flex; flex-direction: column; text-align: end;
-		position: fixed;
-		top: 64px;
-		right: 6%;
-		> div { &:not(:last-child){ margin-bottom: 8%; } }
-		a {
-			display: inline-block; flex: auto; text-decoration: none; color: $color_white; font-family: Intro, sans-serif; cursor: pointer; font-size: 24px;
-			&:hover { color: $color_main_green; }
-		}
-	}
-}
-
-.block.reviews {
-	padding: 10%;
-	> div:first-child {
-		display: flex; justify-content: center;
-		> div:first-child {
-			cursor: pointer;
-			&:hover { color: $color_main_green; }
-		}
-		> span { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/chat_gray.png"); background-size: cover; }
-
-	}
-	//> div:last-child { display: flex; align-items: center; }
-	.scroll { grid-template-columns: repeat(2, 1fr); }
-}
-
-.review_cards {
-	display: grid; grid-template-columns: repeat(2, 1fr); grid-column-gap: 2%; grid-row-gap: 4%; align-content: center; flex: 100%; // grid-auto-rows: minmax(6rem, auto);
-}
-
-.review_card {
-	background-color: white; padding: 6% 10% 10%; border-radius: 24px; cursor: pointer; height: 120px;
-	&:hover { box-shadow: $box_shadow_white; }
-	.review_person {
-		@include review_person;
-	}
-	.review_text { padding-top: 6%; overflow: hidden; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; }
-}
-
-.review_window {
-	.review_person { @include review_person; }
-	.review_text { text-align: left !important; padding-top: 1rem; max-width: 550px; }
 }
 
 .other_public {
@@ -278,34 +214,42 @@ input[type="text"] {
 }
 
 .carousel {
-	display: flex; align-items: center;
-	.manage {
+	@mixin ViewCarousel($params: null) {
+		display: flex; align-items: center;
+		.manage {
 
-		> div {
-			position: absolute; margin-top: -15px;
-			&:first-child { @include arrow_left; left: 6%; }
-			&:last-child { @include arrow_right; right: 6%; }
+			> div {
+				position: absolute; margin-top: -15px;
+				&:first-child { @include arrow_left; left: 6%; }
+				&:last-child { @include arrow_right; right: 6%; }
+			}
+		}
+		.wrap {
+			width: 100%;
+			.scroll {
+				display: grid; grid-column-gap: 2%;
+				&.count_2 { grid-template-columns: repeat(2, 1fr); }
+				&.count_3 { grid-template-columns: repeat(GetParam($params, -count-3, 3), 1fr); }
+				&.count_4 { grid-template-columns: repeat(GetParam($params, -count-4, 4), 1fr); }
+			}
 		}
 	}
-	.wrap {
-		width: 100%;
-		.scroll { display: grid; /*grid-template-columns: repeat(2, 1fr);*/ grid-column-gap: 2%; }
-	}
+
+	@include MixScreen($sizeX) { @include ViewCarousel(); }
+	@include MixScreen(null, $sizeX) { @include ViewCarousel((-count-3: 2, -count-4: 2)); }
 }
 
 
-@import "page_main";
 @import "footer";
-@import "page_about";
-@import "page_tours";
-@import "page_tour";
-@import "page_reviews";
-@import "page_adventures";
-@import "page_adventure";
-@import "page_photo";
-@import "photo_line";
 @import "window";
 @import "gallery";
+@import "u_feedback";
+@import "u_general";
+@import "u_people";
+@import "u_photo";
+@import "u_review";
+@import "u_story";
+@import "u_tour";
 
 
 //.block.form {

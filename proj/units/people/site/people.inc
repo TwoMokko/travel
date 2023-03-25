@@ -32,7 +32,7 @@
 		}
 
         public function Header() {
-            Layout::instance()->header->Push(General\HeaderForPages::object()->ToVar('safdzssad', 'О нас', 'Возможно, текст'));
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'О нас', 'Возможно, текст'));
         }
 
 		public function Team(): void {
@@ -40,7 +40,7 @@
 			$result = $this->db->Select(self::TABLES['people'], ['id', 'name', 'text', 'number', 'link_vk', 'link_wa'], "`state` = {$state}", '`date_create`', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(Team::object()->ToVar($items));
+			Layout::instance()->main->Push(Team::ToVar($items));
 		}
 
 	}

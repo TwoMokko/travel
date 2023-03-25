@@ -3,66 +3,6 @@
 @use "variable" as *;
 @use "func" as *;
 
-.block.page_about_us { text-align: center; }
-.page_about_us {
-	@mixin ViewAboutVideo($params: null) {
-		$default: (
-				display_header: flex,
-				padding_video: 0 10%,
-		);
-		> div {
-			//padding: 5% 10%;
-			&:nth-of-type(1) { display: GetValue($default, $params, 'display_header'); padding: 10%; }
-			&:nth-of-type(2) { padding: GetValue($default, $params, 'padding_video');  }
-			&:nth-of-type(3) { padding: 10% }
-			//&:nth-of-type(2) { margin-bottom: 10%; }
-			//&:not(:nth-of-type(2)) { padding: 10%; }
-		}
-	}
-	@include MixScreen(null, $sizeL) { @include ViewAboutVideo((padding_video: 0, display_header: revert)); }
-	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutVideo((padding_video: 0, display_header: revert)); }
-	@include MixScreen($sizeXL, null) { @include ViewAboutVideo(()); }
-}
-
-.block.about_header {
-	@mixin ViewAboutHeader($params: null) {
-		$default: (
-				margin: 0 2% 0 0,
-				width_text: 58%,
-				width_pic: 40%,
-				height_pic: auto,
-				padding_bottom: 8%,
-				padding_left: 50%,
-				font_size: 0.8rem
-
-		);
-		> div {
-			&:first-child {
-				width: GetValue($default, $params, 'width_text'); margin: GetValue($default, $params, 'margin');
-				> div {
-					text-align: left; display: flex; flex-direction: column;
-					&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
-					&:nth-of-type(2) {
-						padding-bottom: GetValue($default, $params, 'padding_bottom');
-						> div { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'font_size'); padding-bottom: 0.7rem; }
-					}
-					&:nth-of-type(3) { flex: auto; }
-				}
-			}
-			&:last-child { width: GetValue($default, $params, 'width_pic'); background-color: $color_gray; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); }
-		}
-		.right_text { padding-left: GetValue($default, $params, 'padding_left'); }
-	}
-
-	//.right_text { width: 60%; margin: 0 0 0 auto; }
-
-	@include MixScreen(null, $size2XS) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 120px, padding_left: 0, padding_bottom: 4%, font_size: 0.7rem)); }
-	@include MixScreen($size2XS, $sizeM) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 200px, padding_left: 0, padding_bottom: 4%, font_size: 0.7rem)); }
-	@include MixScreen($sizeM, $sizeL) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 300px, padding_left: 30%, padding_bottom: 4%)); }
-	@include MixScreen($sizeL, $sizeXL) { @include ViewAboutHeader((margin: 0 0 8%, width_text: 100%, width_pic: 100%, height_pic: 300px, padding_left: 30%, padding_bottom: 4%)); }
-	@include MixScreen($sizeXL, null) { @include ViewAboutHeader(()); }
-
-}
 .block.team {
 	@mixin ViewAboutTeam($params: null) {
 		$default: (
@@ -125,5 +65,3 @@
 	@include MixScreen($sizeL, $size2XL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, width_card: 70%, padding_name: 8% 0)); }
 	@include MixScreen($size2XL, null) { @include ViewAboutTeam(()); }
 }
-
-

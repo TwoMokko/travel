@@ -2,20 +2,20 @@
 
     namespace Proj\Site\Templates\General;
 
-    use Base\Templates\View;
+    use Base\Templates\Template;
 
-    class HeaderForMain extends View {
+    abstract class HeaderForMain {
 
-        public function ToVar(): string {
-            $this->Start();
-            $this->Render();
-            return $this->Read();
+        public static function ToVar(): string {
+            Template::Start();
+            self::Render();
+            return Template::Read();
         }
 
-        public function Render() { ?>
+        public static function Render(): void { ?>
             <div class = "block hat main">
                 <div></div>
-                <?php Header::object()->Render(); ?>
+                <?php Header::Render(); ?>
                 <div>
                     <div>Авторские туры</div>
                     <div>i Da Travel</div>

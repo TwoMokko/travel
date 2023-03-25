@@ -48,7 +48,7 @@
 
 			if (!$items) return;
 
-			Layout::instance()->main->Push(Lists::object()->ToVarCarousel($items));
+			Layout::instance()->main->Push(Lists::ToVarCarousel($items));
 		}
 
 		public function ForTour(): void {
@@ -59,7 +59,7 @@
 
 			if (!$items) return;
 
-			Layout::instance()->main->Push(Lists::object()->ToVarCarousel($items));
+			Layout::instance()->main->Push(Lists::ToVarCarousel($items));
 		}
 
 		public function ForList(): void {
@@ -67,7 +67,7 @@
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(Lists::object()->ToVarGrid($items));
+			Layout::instance()->main->Push(Lists::ToVarGrid($items));
 		}
 
 		#[NoReturn] public function OnReview(): void {
