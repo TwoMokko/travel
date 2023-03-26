@@ -7,19 +7,24 @@
     require DIR_UNITS . 'general/site/views/headerForMain.tpl';
     require DIR_UNITS . 'general/site/views/headerForPages.tpl';
     require DIR_UNITS . 'general/site/views/footer.tpl';
+    require DIR_UNITS . 'general/site/views/other.tpl';
 
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
+	use Proj\DBQuery;
 	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\Site\Templates\Layout;
 	use Proj\Site\Templates\General\HeaderForMain;
 	use Proj\Site\Templates\General\Footer;
+	use Proj\Site\Templates\General\Other;
 
 	class General extends Units implements Consts\General {
 		use Instance;
+
+		private DBQuery $db;
 
 		private Action $header;
 		private Action $tours;
@@ -27,18 +32,22 @@
 		private Action $footer;
 		private Action $set_data_page;
 		private Action $set_seo_main;
+		private Action $about_main;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
+			$this->db = DBQuery::instance();
 
-			$this->set_data_page = new Action('always', 'always');
-			$this->set_seo_main	= new Action();
+			$this->set_data_page 	= new Action('always', 'always');
+			$this->set_seo_main		= new Action();
+			$this->about_main		= new Action();
 
-			$this->header = new Action();
-			$this->footer = new Action('always', 'always');
+			$this->header 			= new Action();
+			$this->footer 			= new Action('always', 'always');
 
 			Controller::instance()->view->Push($this->set_data_page, [$this, 'SetDataPage']);
 			Controller::instance()->view->Push($this->set_seo_main, [$this, 'SetSeoForMain']);
+			Controller::instance()->view->Push($this->about_main, [$this, 'AboutMain']);
 
 			Controller::instance()->view->Push($this->header, [$this, 'Header']);
 			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
@@ -65,6 +74,12 @@
 			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');
 		}
 
+		public function AboutMain(): void {
+			$main_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_header')");
+			$main_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_text')");
+
+			Layout::instance()->main->Push(Other::AboutMain($main_about_header, $main_about_text));
+		}
 	}
 
 	General::init();

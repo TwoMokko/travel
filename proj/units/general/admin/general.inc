@@ -2,12 +2,12 @@
 
 	namespace Proj\Admin\Units;
 
-	require DIR_UNITS . 'general/consts.inc';
+	require DIR_UNITS . 'general/admin/general.structure.inc';
 	require DIR_UNITS . 'general/admin/views/group.tpl';
 
 	use JetBrains\PhpStorm\NoReturn;
 
-	use Base\Units;
+	use Proj\Admin\Structure;
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
@@ -17,7 +17,7 @@
 	use Proj\Admin\Templates\General\Item;
 	use Proj\Admin\Templates\General\Group;
 
-	class General extends Units implements Consts\General {
+	class General extends Structure\General {
 		use Instance;
 
 		private DBObject $db;

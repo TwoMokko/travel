@@ -17,3 +17,4 @@
 
 	require DIR_BASE . 'editor/skins/text.inc';
 	require DIR_BASE . 'editor/skins/int2IP.inc';
+	require DIR_BASE . 'editor/skins/valueFromArray.inc';
