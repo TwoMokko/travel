@@ -44,6 +44,7 @@
 
 		protected array $where = [];
 		protected array $order = [];
+		protected array $calc = [];
 
 		protected array $fieldsSelect = [];
 		protected array $fieldsCreate = [];
@@ -70,6 +71,7 @@
 
 			$this->SetWhere($this->params);
 			$this->SetOrder();
+			$this->SetCalc();
 
 			$this->RegTitles();
 
@@ -125,6 +127,9 @@
 		protected function SetOrder(): void { $this->order = $this->Order(); }
 		protected function Order(): array { return []; }
 
+		protected function SetCalc(): void { $this->calc = $this->Calc(); }
+		protected function Calc(): array { return []; }
+
 		protected function SetFields(array $params): void {
 			$this->fieldsSelect = $this->FieldsSelect($params);
 			$this->fieldsCreate = $this->FieldsCreate($params);
@@ -166,6 +171,7 @@
 		protected function Select(): string {
 			$where = ($this->where) ? implode(' AND ', $this->where) : null;
 			$order = ($this->order) ? implode(', ', $this->order) : null;
+			$calc = $this->calc ?: null;
 
 			$limit = null;
 			$ext = [];
@@ -183,7 +189,7 @@
 				];
 			}
 
-			$result = $this->table->Select(null, $where, $order, $limit);
+			$result = $this->table->Select(null, $where, $order, $limit, $calc);
 			$items = $this->table->FetchAll($result, function(& $items, $item) {
 				$items[] = $item;
 			});
@@ -196,7 +202,10 @@
 		}
 
 		#[NoReturn] public function OnCreate(): void {
-			SendJSONSuccess(['html' => Create::ToVar($this, $this->fieldsCreate, [], $this->titleCreate)]);
+            $data = [];
+
+            $this->PrepareOnCreate($data);
+			SendJSONSuccess(['html' => Create::ToVar($this, $this->fieldsCreate, $data, $this->titleCreate)]);
 		}
 
 		#[NoReturn] public function OnUpdate(): void {
@@ -210,7 +219,8 @@
 
 		#[NoReturn] public function OnBrowse(): void {
 			$id = GetInt('id');
-			$item = $this->table->SelectOne(null, "(`id` = {$id})");
+            $calc = $this->calc ?: null;
+			$item = $this->table->SelectOne(null, "(`id` = {$id})", null, null, $calc);
 			$data = [];
 
 			$this->PrepareOnBrowse($id, $item, $data);
@@ -242,6 +252,7 @@
 			SendJSONSuccess(['message' => $this->titleDoDelete, 'html' => $this->Select()]);
 		}
 
+		protected function PrepareOnCreate(array & $data): void { }
 		protected function PrepareOnUpdate(int $id, array & $item, array & $data): void { }
 		protected function PrepareOnSelect(int $id, array & $item, array & $data): void { }
 		protected function PrepareOnBrowse(int $id, array & $item, array & $data): void { }

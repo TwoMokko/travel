@@ -162,5 +162,8 @@ main table.create > tbody > tr > th, main table.update > tbody > tr > th {
   text-align: left;
   font-weight: 700;
 }
+main table.browse th {
+  vertical-align: top;
+}
 
 /*# sourceMappingURL=main.css.map */

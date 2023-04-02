@@ -75,8 +75,8 @@
 		}
 
 		public function AboutMain(): void {
-			$main_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_header')");
-			$main_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_text')");
+			$main_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_header')") ?: '';
+			$main_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_text')") ?: '';
 
 			Layout::instance()->main->Push(Other::AboutMain($main_about_header, $main_about_text));
 		}

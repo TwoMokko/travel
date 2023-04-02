@@ -1,6 +1,8 @@
 <?php
 
-	namespace Base\Editor\Skins;
+	namespace Base\Editor\Skins\Browse;
+
+    use Base\Editor\Skins\Skin;
 
 	class Int2IP extends Skin {
 

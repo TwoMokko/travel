@@ -22,8 +22,8 @@
 				<tbody>
 				<?php foreach ($fields as $name => $field) { ?>
 					<tr>
-						<th><?= $field['name']; ?>:</th>
-						<td><?= nl2br(htmlspecialchars($item[$name])); ?></td>
+						<th><?= $field->GetName(); ?>:</th>
+						<td><?= $field->ToVar($item[$name]); ?></td>
 					</tr>
 				<?php } ?>
 				</tbody>
