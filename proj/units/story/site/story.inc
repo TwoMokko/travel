@@ -30,8 +30,8 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->all = new Action('story', 'null');
-			$this->show = new Action('story', 'show', '/story/show?id=%id%');
+			$this->all = new Action('stories', 'null');
+			$this->show = new Action('stories', 'show', '/stories/show?id=%id%');
 
 			Controller::instance()->view->Push($this->all, [$this, 'All']);
 			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll']);

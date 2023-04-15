@@ -3,6 +3,7 @@
 	namespace Base\Editor;
 
 	require DIR_BASE . 'editor/skin.inc';
+	require DIR_BASE . 'editor/skinEdit.inc';
 	require DIR_BASE . 'editor/views/select.tpl';
 	require DIR_BASE . 'editor/views/create.tpl';
 	require DIR_BASE . 'editor/views/update.tpl';

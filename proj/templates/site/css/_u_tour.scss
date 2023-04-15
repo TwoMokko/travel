@@ -175,7 +175,7 @@
 			}
 			> div {
 				&:first-child {
-					background-color: $color_gray; height: 200px; display: flex; justify-content: right; align-items: flex-end;
+					background-color: $color_gray; height: 200px; display: flex; justify-content: right; align-items: flex-end; background-size: cover; background-position: center;
 					> span {
 						padding: 16px 32px; color: $color_white;
 						&:after {

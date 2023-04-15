@@ -4834,6 +4834,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;
@@ -4910,6 +4912,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;
@@ -4986,6 +4990,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;
@@ -5062,6 +5068,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;
@@ -5138,6 +5146,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;
@@ -5214,6 +5224,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;
@@ -5290,6 +5302,8 @@ input[type=text].footer_input::placeholder {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    background-size: cover;
+    background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
     padding: 16px 32px;

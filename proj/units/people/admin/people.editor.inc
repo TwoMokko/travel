@@ -1,122 +1,152 @@
 <?php
 
-namespace Proj\Admin\Editor;
+	namespace Proj\Admin\Editor;
 
-use JetBrains\PhpStorm\NoReturn;
+	use JetBrains\PhpStorm\NoReturn;
 
-use Base\Editor\EditorMySQLi;
-use Base\DB\TableMySQLi;
-use Proj\Units\Consts;
+	use Base\DB\TableMySQLi;
+	use Base\Editor\EditorMySQLi;
+	use Base\Editor\Skins;
+	use Proj\Units\Consts;
 
-class People extends EditorMySQLi {
+	class People extends EditorMySQLi {
 
-	public function __construct(string $name, TableMySQLi $table) {
-		parent::__construct($name, $table);
-	}
-
-	protected function Where(array $params): array {
-		return [
-			'`state` != ' . Consts\People::STATES['delete']
-		];
-	}
-
-	protected function Order(): array {
-		return [
-			'`datecr` DESC',
-			'`id` ASC'
-		];
-	}
-
-	protected function RegTitles(): void {
-		$this->titleSelect = 'Список новостей';
-		$this->titleCreate = 'Добавить новость';
-		$this->titleUpdate = 'Редактирование новости';
-		$this->titleDelete = 'Удалить новость?';
-
-		$this->titleDoCreate = 'Новость добавлена';
-		$this->titleDoUpdate = 'Новость изменена';
-		$this->titleDoDelete = 'Новость удалена';
-	}
-
-	protected function FieldsSelect(array $params): array {
-		return [
-			'id' => '#',
-			'state' => 'Состояние',
-			'datepb' => 'Дата публикации',
-			'header' => 'Заголовок'
-		];
-	}
-
-	protected function FieldsCreate(array $params): array {
-		return [
-			'state' => ['skin' => 'hidden', 'name' => 'Состояние', 'default' => Consts\People::STATES['draft']],
-			'header' => ['skin' => 'text', 'name' => 'Заголовок', 'default' => ''],
-			'content' => ['skin' => 'textarea', 'name' => 'Текст', 'default' => ''],
-			'cover' => ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			'datepb' => ['skin' => 'datetime', 'name' => 'Дата публикации']
-		];
-	}
-
-	protected function FieldsUpdate(array $params): array {
-		return [
-			'state' => ['skin' => 'select', 'name' => 'Состояние'],
-			'header' => ['skin' => 'text', 'name' => 'Заголовок'],
-			'content' => ['skin' => 'textarea', 'name' => 'Текст'],
-			'cover' => ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			'datepb' => ['skin' => 'datetime', 'name' => 'Дата публикации']
-		];
-	}
-
-	public function PrepareOnUpdate(int $id, array & $item, array &$data): void {
-		$data['state'] = [
-			Consts\People::STATE_DRAFT	=> 'Черновик',
-			Consts\People::STATE_ACTIVE	=> 'Активная',
-			Consts\People::STATE_INACTIVE	=> 'Не активная',
-		];
-	}
-
-	#[NoReturn] public function DoCreate(): void {
-		$data = GetParam('form', []);
-
-		$id = $this->table->Insert($data);
-
-		if ($_FILES['form']['tmp_name']['cover']) {
-			[$hash, $ext] = $this->SaveFile($id);
-			$this->table->Update(['hash' => $hash, 'ext' => $ext], "`id` = {$id}");
+		public function __construct(string $name, TableMySQLi $table) {
+			parent::__construct($name, $table);
 		}
 
-		SendJSONSuccess(['message' => $this->titleDoCreate, 'html' => $this->Select()]);
-	}
-
-	#[NoReturn] public function DoUpdate(): void {
-		$id = (int)GetParam('id', 0);
-		$data = GetParam('form', []);
-
-		if ($_FILES['form']['tmp_name']['cover']) {
-			$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-			if ($old_file) unlink(Consts\People::PATH_COVER . $old_file);
-
-			[$data['hash'], $data['ext']] = $this->SaveFile($id);
+		protected function Where(array $params): array {
+			return [
+				'`state` != ' . Consts\People::STATES['delete']
+			];
 		}
 
-		$this->table->Update($data, "`id` = {$id}");
+		protected function Order(): array {
+			return [
+				'`date_create` DESC',
+				'`id` ASC'
+			];
+		}
 
-		SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);
+		protected function Calc(): array {
+			return [
+				"*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"
+			];
+		}
+
+		protected function RegTitles(): void {
+			$this->titleSelect = 'Список людей';
+			$this->titleCreate = 'Добавить человека';
+			$this->titleUpdate = 'Редактирование человека';
+			$this->titleDelete = 'Удалить человека?';
+
+			$this->titleDoCreate = 'Человек добавлена';
+			$this->titleDoUpdate = 'Человек изменена';
+			$this->titleDoDelete = 'Человек удалена';
+		}
+
+		protected function FieldsSelect(array $params): array {
+			return [
+				'id' 		=> new Skins\Browse\Text('#'),
+				'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\People::STATES_RU),
+				'name' 	=> new Skins\Browse\Text('Имя')
+			];
+		}
+
+		protected function FieldsBrowse(array $params) : array {
+			return [
+				'state'     	=> new Skins\Browse\ValueFromArray('Состояние', Consts\People::STATES_RU),
+				'name'    		=> new Skins\Browse\Text('Имя'),
+				'text'      	=> new Skins\Browse\Text('Текст'),
+				'number'      	=> new Skins\Browse\Text('Номер'),
+				'link_vk'      	=> new Skins\Browse\Text('Вконтакте'),
+				'link_wa'      	=> new Skins\Browse\Text('ВотсАпп'),
+				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\People::PATH_AVATAR_RELATIVE)
+			];
+		}
+
+		protected function FieldsCreate(array $params): array {
+			return [
+				'state' => ['skin' => 'select', 'name' => 'Состояние', 'default' => Consts\People::STATES['draft']],
+				'name' => ['skin' => 'text', 'name' => 'Имя', 'default' => ''],
+				'text' => ['skin' => 'textarea', 'name' => 'Текст', 'default' => ''],
+				'number' => ['skin' => 'textarea', 'name' => 'Номер', 'default' => ''],
+				'link_vk' => ['skin' => 'textarea', 'name' => 'Вконтакте', 'default' => ''],
+				'link_wa' => ['skin' => 'textarea', 'name' => 'ВотсАпп', 'default' => ''],
+				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
+			];
+		}
+
+		protected function FieldsUpdate(array $params): array {
+			return [
+				'state' => ['skin' => 'select', 'name' => 'Состояние'],
+				'name' => ['skin' => 'text', 'name' => 'Заголовок'],
+				'text' => ['skin' => 'textarea', 'name' => 'Текст'],
+				'number' => ['skin' => 'textarea', 'name' => 'Номер'],
+				'link_vk' => ['skin' => 'textarea', 'name' => 'Вконтакте'],
+				'link_wa' => ['skin' => 'textarea', 'name' => 'ВотсАпп'],
+				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
+			];
+		}
+
+		public function PrepareOnCreate(array & $data): void {
+			$data['state'] = [
+				Consts\People::STATE_DRAFT	=> 'Черновик',
+				Consts\People::STATE_ACTIVE	=> 'Активная',
+				Consts\People::STATE_INACTIVE	=> 'Не активная',
+			];
+		}
+
+		public function PrepareOnUpdate(int $id, array & $item, array & $data): void {
+			$data['state'] = [
+				Consts\People::STATE_DRAFT	=> 'Черновик',
+				Consts\People::STATE_ACTIVE	=> 'Активная',
+				Consts\People::STATE_INACTIVE	=> 'Не активная',
+			];
+		}
+
+		#[NoReturn] public function DoCreate(): void {
+			$data = GetParam('form', []);
+
+			$id = $this->table->Insert($data);
+
+			if ($_FILES['form']['tmp_name']['cover']) {
+				[$hash, $ext] = $this->SaveFile($id);
+				$this->table->Update(['hash' => $hash, 'ext' => $ext], "`id` = {$id}");
+			}
+
+			SendJSONSuccess(['message' => $this->titleDoCreate, 'html' => $this->Select()]);
+		}
+
+		#[NoReturn] public function DoUpdate(): void {
+			$id = (int)GetParam('id', 0);
+			$data = GetParam('form', []);
+
+			if ($_FILES['form']['tmp_name']['cover']) {
+				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
+				if ($old_file) unlink(Consts\People::PATH_AVATAR . $old_file);
+
+				[$data['hash'], $data['ext']] = $this->SaveFile($id);
+			}
+
+			$this->table->Update($data, "`id` = {$id}");
+
+			SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);
+		}
+
+		private function SaveFile(int $id): array {
+			$temp_path = $_FILES['form']['tmp_name']['cover'];
+			$temp_name = $_FILES['form']['name']['cover'];
+			$dir = Consts\People::PATH_AVATAR;
+			$hash = hash_file('md5', $temp_path);
+			$info = pathinfo($temp_name);
+			$ext = $info['extension'];
+			$name = "{$hash}.{$id}.{$ext}";
+
+			if (!is_dir($dir)) mkdir($dir, 0777, true);
+			move_uploaded_file($temp_path, $dir . $name);
+
+			return [$hash, $ext];
+		}
+
 	}
-
-	private function SaveFile(int $id): array {
-		$temp_path = $_FILES['form']['tmp_name']['cover'];
-		$temp_name = $_FILES['form']['name']['cover'];
-		$dir = Consts\People::PATH_COVER;
-		$hash = hash_file('md5', $temp_path);
-		$info = pathinfo($temp_name);
-		$ext = $info['extension'];
-		$name = "{$hash}.{$id}.{$ext}";
-
-		if (!is_dir($dir)) mkdir($dir, 0777, true);
-		move_uploaded_file($temp_path, $dir . $name);
-
-		return [$hash, $ext];
-	}
-
-}
