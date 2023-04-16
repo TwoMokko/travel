@@ -49,7 +49,7 @@ input {
   font-family: AjarSans, sans-serif;
   font-size: 1rem;
 }
-input[type=submit] {
+input[type=submit], input[type=button] {
   padding: 0.6rem 1.6rem;
   border: 0.2rem solid #006E95;
   border-radius: 0.4rem;
@@ -57,11 +57,11 @@ input[type=submit] {
   color: #FFFFFF;
   cursor: pointer;
 }
-input[type=submit]:hover {
+input[type=submit]:hover, input[type=button]:hover {
   border-color: #00506C;
   background-color: #00506C;
 }
-input[type=submit]:focus-visible, input[type=submit]:active {
+input[type=submit]:focus-visible, input[type=submit]:active, input[type=button]:focus-visible, input[type=button]:active {
   border-color: #00506C;
   background-color: #007fAD;
 }
@@ -161,9 +161,71 @@ main table.create > tbody > tr > th, main table.update > tbody > tr > th {
   padding: 0.6rem;
   text-align: left;
   font-weight: 700;
+  vertical-align: top;
 }
 main table.browse th {
   vertical-align: top;
+}
+
+div.uploader_photo > input {
+  display: none;
+}
+div.uploader_photo div.upload_space {
+  border: 1px dashed #006E95;
+  border-radius: 4px;
+  padding: 24px;
+  cursor: pointer;
+  display: inline-block;
+  width: 424px;
+  text-align: center;
+}
+div.uploader_photo div.upload_space.active {
+  border-color: #00506C;
+  background-color: #C3C3C3;
+}
+div.uploader_photo div.img_container {
+  display: flex;
+  gap: 8px;
+  padding: 12px 0;
+  max-width: 500px;
+  flex-wrap: wrap;
+}
+div.uploader_photo div.img_container div.img {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+div.uploader_photo div.img_container div.img:hover > div.delete.active {
+  display: block;
+}
+div.uploader_photo div.img_container div.img div.delete {
+  display: none;
+  background-color: brown;
+  width: 24px;
+  height: 24px;
+  border-radius: 0 4px;
+  cursor: pointer;
+}
+div.uploader_photo div.img_container div.img div.wait {
+  display: none;
+}
+div.uploader_photo div.img_container div.img div.wait.active {
+  background-repeat: no-repeat;
+  display: block;
+  background-image: url("svg/loader-icon.svg");
+  background-color: rgba(0, 127, 173, 0.1607843137);
+  background-size: 60%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
 }
 
 /*# sourceMappingURL=main.css.map */

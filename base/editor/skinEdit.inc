@@ -27,3 +27,4 @@
 	require DIR_BASE . 'editor/skins/edit/hidden.inc';
 	require DIR_BASE . 'editor/skins/edit/file.inc';
 	require DIR_BASE . 'editor/skins/edit/select.inc';
+	require DIR_BASE . 'editor/skins/edit/uploader.inc';

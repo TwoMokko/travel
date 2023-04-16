@@ -31,6 +31,7 @@
 			$this->table_photo_show = new TableMySQLi(self::TABLES['photo_show'], $this->db);
 			$this->table_photo_show->id('id');
 			$this->table_photo_show->uint32('all_id');
+			$this->table_photo_show->string('u_id', 13);
 			$this->table_photo_show->uint8('state');
 			$this->table_photo_show->timestamp('date_create');
 			$this->table_photo_show->timestamp('date_modify');

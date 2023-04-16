@@ -10,7 +10,7 @@ li { list-style-type: none; }
 a { text-decoration: none; color: $color-link; }
 input {
 	outline: none; font-family: AjarSans, sans-serif; font-size: 1rem;
-	&[type="submit"] { @include MixBtn; cursor: pointer; }
+	&[type="submit"], &[type="button"] { @include MixBtn; cursor: pointer; }
 }
 body {
 	margin: 0; height: 100%; display: flex; flex-direction: column;
@@ -59,11 +59,32 @@ main {
 		}
 		&.create, &.update {
 			> tbody > tr {
-				> th { padding: 0.6rem; text-align: left; font-weight: 700; }
+				> th { padding: 0.6rem; text-align: left; font-weight: 700; vertical-align: top; }
 			}
 		}
 		&.browse {
 			th { vertical-align: top; }
+		}
+	}
+}
+
+div.uploader_photo {
+	> input { display: none; }
+	div.upload_space {
+		border: 1px dashed $color-secondary; border-radius: 4px; padding: 24px; cursor: pointer; display: inline-block; width: 424px; text-align: center;
+		&.active { border-color: $color-secondary-dark; background-color: $color-primary-super-light; }
+		//div.background_text { text-align: center; width: 200px; }
+	}
+	div.img_container {
+		display: flex; gap: 8px; padding: 12px 0; max-width: 500px; flex-wrap: wrap;
+		div.img {
+			position: relative; width: 100px; height: 100px; border-radius: 4px; display: flex; justify-content: flex-end; background-size: cover; background-position: center;
+			&:hover > div.delete.active { display: block; }
+			div.delete { display: none; background-color: brown; width: 24px; height: 24px; border-radius: 0 4px; cursor: pointer; }
+			div.wait {
+				display: none;
+				&.active { background-repeat: no-repeat; display: block; background-image: url("svg/loader-icon.svg"); background-color: #007fad29; background-size: 60%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-position: center; }
+			}
 		}
 	}
 }

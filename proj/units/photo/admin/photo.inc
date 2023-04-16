@@ -23,7 +23,7 @@
 		private function __construct() {
 			parent::__construct();
 
-			$this->editor_photo = new \Proj\Admin\Editor\Photo(self::NAME, $this->table_photo_all);
+			$this->editor_photo = new \Proj\Admin\Editor\Photo(self::NAME, [$this->table_photo_all, $this->table_photo_show]);
 
 			$this->out_menu = new Action();
 

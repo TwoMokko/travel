@@ -33,7 +33,7 @@ interface Photo {
 		self::STATE_DELETE			=> 'Удалена'
 	];
 
-	const PATH_ALL				= DIR_RESOURCE_IMAGE . 'photo/all/';
+	const PATH_COVER				= DIR_RESOURCE_IMAGE . 'photo/all/';
 	const PATH_ALL_RELATIVE		= '/proj/resource/image/photo/all/';
 	const PATH_SHOW				= DIR_RESOURCE_IMAGE . 'photo/show/';
 	const PATH_SHOW_RELATIVE	= '/proj/resource/image/photo/show/';

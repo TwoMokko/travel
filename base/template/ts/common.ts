@@ -36,7 +36,7 @@ namespace Base {
 
 				if (params) {
 					if (params.method) method = params.method;
-					if (params.request) request = params.request;
+					if (params.request !== undefined) request = params.request;
 					if (params.contentType !== undefined) contentType = params.contentType;
 					if (params.processData !== undefined) processData = params.processData;
 				}

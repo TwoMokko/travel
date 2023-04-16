@@ -5,27 +5,28 @@
 	class Uploader extends Input {
 		private string $value;
 		private string $accept;
+		private string $path_load;
+		private string $path_del;
+		private string $path_view;
 
-		public function __construct(string $name, string $title, string $value = 'Выберите', string $accept = '') {
+		public function __construct(string $name, string $title, string $path_load, string $path_del, string $path_view, string $value = 'Выберите', string $accept = '') {
 			parent::__construct($name, $title, 'file');
 
 			$this->value = $value;
 			$this->accept = $accept;
+			$this->path_load = $path_load;
+			$this->path_del = $path_del;
+			$this->path_view = $path_view;
 		}
 
 		public function Render(string $value): void {
 			$accept = $this->accept ? ' accept = "' . $this->accept . '"' : '';
+            $uid = uniqid('uploader_');
 		?>
-            <div>
-                <div class = "upload">
-                    <input type = "<?= $this->type; ?>" name = "<?= $this->name; ?>" value = "<?= $this->value; ?>"<?= $accept; ?>>
-                </div>
-                <div class = "img_container">
-                    <div class = "img">
-                        <div class = "delete"></div>
-                    </div>
-                </div>
-            </div>
+            <input id = "<?= $uid; ?>" type = "<?= $this->type; ?>" name = "<?= $this->name; ?>" <?= $accept; ?> multiple>
+            <script>
+                new Functions.UploaderPhoto('#<?= $uid; ?>', 'Нажмите для загрузки или перетащите сюда', '<?= $this->path_load; ?>', '<?= $this->path_del; ?>');
+            </script>
 		<?php }
 
 	}
