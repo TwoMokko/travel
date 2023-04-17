@@ -9,7 +9,7 @@ namespace Functions {
 
 		constructor(selector: string, text: string, path_load: string, path_del: string) {
 			this.$wrap 			= $('<div/>', {class: 'uploader_photo'});
-			this.$input 		= $(selector);
+			this.$input  		= $(selector);
 			this.$space 		= $('<div/>', {class: 'upload_space'});
 			this.$container 	= $('<div/>', {class: 'img_container'});
 			this.path_load 		= path_load;
@@ -25,7 +25,7 @@ namespace Functions {
 			this.$wrap.prepend(this.$input);
 
 			this.$input.on('change', (e) => {
-				this.LoadFiles(e.target.files);
+				this.LoadFiles(( e.target as HTMLInputElement ).files);
 			})
 			this.$space.on('click', () => {
 				this.$input.trigger('click');
