@@ -39,6 +39,10 @@
 			);
 		}
 
+        public function GetPhotoShow(int $id_album): array {
+            $result = $this->table_photo_show->Select(['id'], "`all_id` = {$id_album}", null, null, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+            return $this->table_photo_show->FetchAll($result);
+        }
 	}
 
 	Photo::init();

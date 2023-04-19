@@ -9,6 +9,7 @@
 	use Base\DB\TableMySQLi;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
+	use Proj\Admin\Units;
 	use Proj\Units\Consts;
 
 	class Photo extends EditorMySQLi {
@@ -18,7 +19,7 @@
 
 		public function __construct(string $name, array $tables) {
             [$table, $this->table_show] = $tables;
-            $this->photo_load = new Action($name, 'load', "/{$name}/load?uid=%uid%");
+            $this->photo_load = new Action($name, 'load', "/{$name}/load?uid=%uid%&id=%id%");
             $this->photo_del = new Action($name, 'del', "/{$name}/del");
 
             parent::__construct($name, $table);
@@ -87,11 +88,14 @@
 				'state' => new Skins\Edit\Select('form[state]', 'Состояние', $states),
 				'header' => new Skins\Edit\Text('form[header]', 'Заголовок'),
 				'cover' => new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
-				'photos' => new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => $uid]), $this->photo_del->GetHref(), '', 'Выберите фотографии', '.jpg, .jpeg, .png')
+				'photos' => new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => $uid, 'id' => 0]), $this->photo_del->GetHref(), '', 'Выберите фотографии', '.jpg, .jpeg, .png')
 			];
 		}
 
 		protected function FieldsUpdate(array $params): array {
+            $id = GetParam('id');
+            $photos = Units\Photo::instance()->GetPhotoShow($id);
+
 			$states = [
 				Consts\Photo::STATE_DRAFT => Consts\Photo::STATES_RU[Consts\Photo::STATE_DRAFT],
 				Consts\Photo::STATE_ACTIVE => Consts\Photo::STATES_RU[Consts\Photo::STATE_ACTIVE],
@@ -102,13 +106,8 @@
 				'state' => new Skins\Edit\Select('form[state]', 'Состояние', $states),
 				'header' => new Skins\Edit\Text('form[header]', 'Заголовок'),
 				'cover' => new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
-//				'photos' => new Skins\Edit\Uploader('photos', 'Фотографии', 'Выберите фотографии', '.jpg, .jpeg, .png')
+                'photos' => new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => '', 'id' => $id]), $this->photo_del->GetHref(),  Consts\Photo::PATH_SHOW_RELATIVE, 'Выберите фотографии', '.jpg, .jpeg, .png', $photos)
 			];
-//			return [
-//				'state' => ['skin' => 'select', 'name' => 'Состояние'],
-//				'header' => ['skin' => 'text', 'name' => 'Заголовок'],
-//				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-//			];
 		}
 
 		public function PrepareOnCreate(array & $data): void {
@@ -184,7 +183,8 @@
             }
 
 
-            $uid = GetParam('uid');
+            $uid = GetParam('uid', '');
+            $id_album = GetParam('id', 0);
 
             $temp_path = $_FILES['file']['tmp_name'];
             $temp_name = $_FILES['file']['name'];
@@ -195,6 +195,7 @@
 
             $id = $this->table_show->Insert([
                 'u_id' => $uid,
+                'all_id' => $id_album,
                 'state' => Consts\Photo::STATE_ACTIVE,
                 'hash' => $hash,
                 'ext' => $ext

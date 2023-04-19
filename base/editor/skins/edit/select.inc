@@ -22,8 +22,10 @@
 
 		public function Render(string $value): void { ?>
 			<select name = "<?= $this->name; ?>">
-				<?php foreach ($this->data as $value => $text) { ?>
-					<option value = "<?= $value; ?>"><?= $text; ?></option>
+				<?php foreach ($this->data as $key => $text) {
+                    $selected = ($value == $key) ? ' selected' : '';
+                ?>
+					<option value = "<?= $key; ?>"<?= $selected; ?>><?= $text; ?></option>
 				<?php } ?>
 			</select>
 		<?php }

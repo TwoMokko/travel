@@ -76,7 +76,7 @@
 
 			$this->RegTitles();
 
-			$this->SetFields($this->params);
+//			$this->SetFields($this->params);
 
 			$this->RegActions();
 			$this->SetHandlers();
@@ -131,12 +131,12 @@
 		protected function SetCalc(): void { $this->calc = $this->Calc(); }
 		protected function Calc(): array { return []; }
 
-		protected function SetFields(array $params): void {
-			$this->fieldsSelect = $this->FieldsSelect($params);
-			$this->fieldsCreate = $this->FieldsCreate($params);
-			$this->fieldsUpdate = $this->FieldsUpdate($params);
-			$this->fieldsBrowse = $this->FieldsBrowse($params);
-		}
+//		protected function SetFields(array $params): void {
+////			$this->fieldsSelect = $this->FieldsSelect($params);
+////			$this->fieldsCreate = $this->FieldsCreate($params);
+////			$this->fieldsUpdate = $this->FieldsUpdate($params);
+////			$this->fieldsBrowse = $this->FieldsBrowse($params);
+//		}
 
 		protected function FieldsSelect(array $params): array { return []; }
 		protected function FieldsCreate(array $params): array { return []; }
@@ -199,6 +199,7 @@
 		}
 
 		#[NoReturn] public function OnSelect(): void {
+            $this->fieldsSelect = $this->FieldsSelect([]);
 			SendJSONSuccess(['html' => $this->Select()]);
 		}
 
@@ -206,6 +207,7 @@
             $data = [];
 
             $this->PrepareOnCreate($data);
+            $this->fieldsCreate = $this->FieldsCreate([]);
 			SendJSONSuccess(['html' => Create::ToVar($this, $this->fieldsCreate, $data, $this->titleCreate)]);
 		}
 
@@ -215,6 +217,7 @@
 			$data = [];
 
 			$this->PrepareOnUpdate($id, $item, $data);
+            $this->fieldsUpdate = $this->FieldsUpdate([]);
 			SendJSONSuccess(['html' => Update::ToVar($this, $id, $this->fieldsUpdate, $item, $data, $this->titleUpdate)]);
 		}
 
@@ -225,6 +228,7 @@
 			$data = [];
 
 			$this->PrepareOnBrowse($id, $item, $data);
+            $this->fieldsBrowse = $this->FieldsBrowse([]);
 			SendJSONSuccess(['html' => Browse::ToVar($this, $id, $this->fieldsBrowse, $item, $data, $this->titleBrowse)]);
 		}
 

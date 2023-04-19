@@ -66,36 +66,30 @@
 		}
 
 		protected function FieldsCreate(array $params): array {
-			return [
-				'state' => ['skin' => 'select', 'name' => 'Состояние', 'default' => Consts\People::STATES['draft']],
-				'name' => ['skin' => 'text', 'name' => 'Имя', 'default' => ''],
-				'text' => ['skin' => 'textarea', 'name' => 'Текст', 'default' => ''],
-				'number' => ['skin' => 'textarea', 'name' => 'Номер', 'default' => ''],
-				'link_vk' => ['skin' => 'textarea', 'name' => 'Вконтакте', 'default' => ''],
-				'link_wa' => ['skin' => 'textarea', 'name' => 'ВотсАпп', 'default' => ''],
-				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			];
+            return $this->FieldsCreateAndUpdate($params);
 		}
 
 		protected function FieldsUpdate(array $params): array {
-			return [
-				'state' => ['skin' => 'select', 'name' => 'Состояние'],
-				'name' => ['skin' => 'text', 'name' => 'Заголовок'],
-				'text' => ['skin' => 'textarea', 'name' => 'Текст'],
-				'number' => ['skin' => 'textarea', 'name' => 'Номер'],
-				'link_vk' => ['skin' => 'textarea', 'name' => 'Вконтакте'],
-				'link_wa' => ['skin' => 'textarea', 'name' => 'ВотсАпп'],
-				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			];
+            return $this->FieldsCreateAndUpdate($params);
 		}
+        
+        private function FieldsCreateAndUpdate(array $params): array {
+            $states = [
+                Consts\People::STATE_DRAFT => Consts\People::STATES_RU[Consts\People::STATE_DRAFT],
+                Consts\People::STATE_ACTIVE => Consts\People::STATES_RU[Consts\People::STATE_ACTIVE],
+                Consts\People::STATE_INACTIVE => Consts\People::STATES_RU[Consts\People::STATE_INACTIVE],
+            ];
 
-		public function PrepareOnCreate(array & $data): void {
-			$data['state'] = [
-				Consts\People::STATE_DRAFT	=> 'Черновик',
-				Consts\People::STATE_ACTIVE	=> 'Активная',
-				Consts\People::STATE_INACTIVE	=> 'Не активная',
-			];
-		}
+            return [
+                'state' => new Skins\Edit\Select('form[state]', 'Состояние', $states),
+                'name' => new Skins\Edit\Text('form[name]', 'Имя'),
+                'text' => new Skins\Edit\TextArea('form[text]', 'Текст'),
+                'number' => new Skins\Edit\Text('form[number]', 'Номер'),
+                'link_vk' => new Skins\Edit\Text('form[link_vk]', 'Вконтакте'),
+                'link_wa' => new Skins\Edit\Text('form[link_wa]', 'ВотсАпп'),
+                'cover' => new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
+            ];
+        }
 
 		public function PrepareOnUpdate(int $id, array & $item, array & $data): void {
 			$data['state'] = [

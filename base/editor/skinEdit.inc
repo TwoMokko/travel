@@ -24,6 +24,7 @@
 
 	require DIR_BASE . 'editor/skins/edit/input.inc';
 	require DIR_BASE . 'editor/skins/edit/text.inc';
+	require DIR_BASE . 'editor/skins/edit/textarea.inc';
 	require DIR_BASE . 'editor/skins/edit/hidden.inc';
 	require DIR_BASE . 'editor/skins/edit/file.inc';
 	require DIR_BASE . 'editor/skins/edit/select.inc';

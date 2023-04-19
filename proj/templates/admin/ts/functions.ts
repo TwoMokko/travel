@@ -1,3 +1,5 @@
+type TypePhotos = {[key: string] : { id: number, image: string }};
+
 namespace Functions {
 	export class UploaderPhoto {
 		$wrap					: JQuery;
@@ -6,14 +8,16 @@ namespace Functions {
 		$container				: JQuery;
 		path_load				: string;
 		path_del				: string;
+		path_view				: string;
 
-		constructor(selector: string, text: string, path_load: string, path_del: string) {
+		constructor(selector: string, text: string, path_load: string, path_del: string, path_view: string, photos: TypePhotos) {
 			this.$wrap 			= $('<div/>', {class: 'uploader_photo'});
-			this.$input  		= $(selector);
+			this.$input 		= $(selector);
 			this.$space 		= $('<div/>', {class: 'upload_space'});
 			this.$container 	= $('<div/>', {class: 'img_container'});
 			this.path_load 		= path_load;
 			this.path_del 		= path_del;
+			this.path_view 		= path_view;
 
 
 			this.$input.after(
@@ -22,10 +26,13 @@ namespace Functions {
 					this.$container
 				)
 			);
+
+			this.ShowFiles(photos);
+
 			this.$wrap.prepend(this.$input);
 
 			this.$input.on('change', (e) => {
-				this.LoadFiles(( e.target as HTMLInputElement ).files);
+				this.LoadFiles((e.target as HTMLInputElement).files);
 			})
 			this.$space.on('click', () => {
 				this.$input.trigger('click');
@@ -45,12 +52,26 @@ namespace Functions {
 			});
 		}
 
-		LoadFiles(files: FileList) {
+		private LoadFiles(files: FileList) {
 			for (let i = 0; i < files.length; i++) {
 				new File(files[i], this.$container, this.path_load, this.path_del);
 			}
+		}
 
-			// for (const i in files) if (files.hasOwnProperty(i)) new File(files[i], this.$container);
+		private ShowFiles(photos: TypePhotos) {
+			console.log(photos);
+			for (let i in photos) {
+				let $image = $('<div/>', {class: 'img'});
+				let $del = $('<div/>', {class: 'delete active'});
+
+				this.$container.append($image.append($del));
+				$image.css('background-image', `url(${this.path_view}${photos[i].image})`);
+				$del.on('click', () => {
+					Base.Common.Query.SendData(this.path_del, {id: photos[i].id}, () => {
+						$image.remove();
+					}, {request: ''});
+				});
+			}
 		}
 	}
 
