@@ -11,6 +11,7 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
+	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
 	use Proj\Site\Templates\Layout;
@@ -33,9 +34,8 @@
 			$this->all = new Action('stories', 'null');
 			$this->show = new Action('stories', 'show', '/stories/show?id=%id%');
 
-			Controller::instance()->view->Push($this->all, [$this, 'All']);
-			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll']);
-			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'Show'], [$this, 'Carousel']);
+			Controller::instance()->view->Push($this->all, [$this, 'All'], [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
+			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'Show'], [$this, 'Carousel'], [$this, 'SetSeoForShow']);
 		}
 
         public function HeaderForAll() {
@@ -77,6 +77,19 @@
 
             Layout::instance()->main->Push(Show::ToVarCarousel($items));
         }
+
+		public function SetSeoForAll() {
+			Template::instance()->SetTitle('Приключения');
+			Template::instance()->SetDescription('');
+		}
+
+		public function SetSeoForShow() {
+			$id = GetParam('id');
+			$header = $this->db->SelectOneField(self::TABLES['story'], 'header', "`id` = {$id}");
+
+			Template::instance()->SetTitle("{$header}");
+			Template::instance()->SetDescription('');
+		}
 
 	}
 

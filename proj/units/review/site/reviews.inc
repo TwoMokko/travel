@@ -11,6 +11,7 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
+	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
 	use Proj\Site\Templates\Layout;
@@ -37,7 +38,7 @@
 
 			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
 			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
-			Controller::instance()->view->Push($this->for_list, [$this, 'ForList']);
+			Controller::instance()->view->Push($this->for_list, [$this, 'ForList'], [$this, 'SetSeoForReview']);
 			Controller::instance()->view->Push($this->get, [$this, 'OnReview']);
 		}
 
@@ -78,6 +79,11 @@
 			$item = $this->db->SelectOne(self::TABLES['review'], ['name', 'text'], "(`state` = {$state}) AND (`id` = {$id})", null, null, ["CONCAT('{$path}', `hash`, '.', `id`, '.', `ext`) AS `image`"]);
 
 			SendJSONSuccess($item);
+		}
+
+		public function SetSeoForReview() {
+			Template::instance()->SetTitle('Отзывы');
+			Template::instance()->SetDescription('');
 		}
 
 	}

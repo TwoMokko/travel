@@ -63,20 +63,25 @@
 		}
 
 		protected function FieldsCreate(array $params): array {
-			return [
-				'state' => ['skin' => 'select', 'name' => 'Состояние', 'default' => Consts\Story::STATES['draft']],
-				'header' => ['skin' => 'text', 'name' => 'Заголовок', 'default' => ''],
-				'text' => ['skin' => 'textarea', 'name' => 'Текст', 'default' => ''],
-				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			];
+			return $this->FieldsCreateAndUpdate($params);
 		}
 
 		protected function FieldsUpdate(array $params): array {
+			return $this->FieldsCreateAndUpdate($params);
+		}
+
+		private function FieldsCreateAndUpdate(array $params): array {
+			$states = [
+				Consts\People::STATE_DRAFT => Consts\People::STATES_RU[Consts\People::STATE_DRAFT],
+				Consts\People::STATE_ACTIVE => Consts\People::STATES_RU[Consts\People::STATE_ACTIVE],
+				Consts\People::STATE_INACTIVE => Consts\People::STATES_RU[Consts\People::STATE_INACTIVE],
+			];
+
 			return [
-				'state' => ['skin' => 'select', 'name' => 'Состояние'],
-				'header' => ['skin' => 'text', 'name' => 'Заголовок'],
-				'text' => ['skin' => 'textarea', 'name' => 'Текст'],
-				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
+				'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
+				'header' 	=> new Skins\Edit\Text('form[header]', 'Заголовок'),
+				'text' 		=> new Skins\Edit\TextArea('form[text]', 'Текст'),
+				'cover' 	=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
 			];
 		}
 

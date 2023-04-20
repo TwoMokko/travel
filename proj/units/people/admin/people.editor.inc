@@ -49,19 +49,19 @@
 			return [
 				'id' 		=> new Skins\Browse\Text('#'),
 				'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\People::STATES_RU),
-				'name' 	=> new Skins\Browse\Text('Имя')
+				'name' 		=> new Skins\Browse\Text('Имя')
 			];
 		}
 
 		protected function FieldsBrowse(array $params) : array {
 			return [
-				'state'     	=> new Skins\Browse\ValueFromArray('Состояние', Consts\People::STATES_RU),
-				'name'    		=> new Skins\Browse\Text('Имя'),
-				'text'      	=> new Skins\Browse\Text('Текст'),
-				'number'      	=> new Skins\Browse\Text('Номер'),
-				'link_vk'      	=> new Skins\Browse\Text('Вконтакте'),
-				'link_wa'      	=> new Skins\Browse\Text('ВотсАпп'),
-				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\People::PATH_AVATAR_RELATIVE)
+				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\People::STATES_RU),
+				'name'    	=> new Skins\Browse\Text('Имя'),
+				'text'      => new Skins\Browse\Text('Текст'),
+				'number'    => new Skins\Browse\Text('Номер'),
+				'link_vk'   => new Skins\Browse\Text('Вконтакте'),
+				'link_wa'   => new Skins\Browse\Text('ВотсАпп'),
+				'cover'     => new Skins\Browse\Image('Картинка', Consts\People::PATH_AVATAR_RELATIVE)
 			];
 		}
 
@@ -81,13 +81,13 @@
             ];
 
             return [
-                'state' => new Skins\Edit\Select('form[state]', 'Состояние', $states),
-                'name' => new Skins\Edit\Text('form[name]', 'Имя'),
-                'text' => new Skins\Edit\TextArea('form[text]', 'Текст'),
-                'number' => new Skins\Edit\Text('form[number]', 'Номер'),
-                'link_vk' => new Skins\Edit\Text('form[link_vk]', 'Вконтакте'),
-                'link_wa' => new Skins\Edit\Text('form[link_wa]', 'ВотсАпп'),
-                'cover' => new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
+                'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
+                'name' 		=> new Skins\Edit\Text('form[name]', 'Имя'),
+                'text' 		=> new Skins\Edit\TextArea('form[text]', 'Текст'),
+                'number' 	=> new Skins\Edit\Text('form[number]', 'Номер'),
+                'link_vk' 	=> new Skins\Edit\Text('form[link_vk]', 'Вконтакте'),
+                'link_wa' 	=> new Skins\Edit\Text('form[link_wa]', 'ВотсАпп'),
+                'cover' 	=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
             ];
         }
 

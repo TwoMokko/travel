@@ -13,6 +13,7 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
+	use Proj\Site\Templates\Template;
 	use Proj\Site\Templates\Tour\Carousel;
 	use Proj\Units\Consts;
     use Proj\DBQuery;
@@ -44,8 +45,8 @@
 
             Controller::instance()->view->Push($this->select, [$this, 'Select']);
             Controller::instance()->view->Push($this->types, [$this, 'Types']);
-            Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'All']);
-            Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'Item'], [$this, 'Carousel']);
+            Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'All'], [$this, 'SetSeoForAll']);
+            Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'Item'], [$this, 'Carousel'], [$this, 'SetSeoForItem']);
 		}
 
         public function Select() {
@@ -114,6 +115,20 @@
 			$items = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(Carousel::ToVarCarousel($items));
+		}
+
+		public function SetSeoForAll() {
+			Template::instance()->SetTitle('Путешествия');
+			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');
+		}
+
+		public function SetSeoForItem() {
+			$id = GetParam('id');
+			$name = $this->db->SelectOneField(self::TABLES['tour'], 'name', "`id` = {$id}");
+			$description = $this->db->SelectOneField(self::TABLES['tour'], 'description', "`id` = {$id}");
+
+			Template::instance()->SetTitle("{$name}");
+			Template::instance()->SetDescription("{$description}");
 		}
 
 	}

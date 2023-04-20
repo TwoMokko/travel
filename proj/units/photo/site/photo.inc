@@ -13,6 +13,7 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
+	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
 	use Proj\Site\Templates\Layout;
@@ -41,8 +42,8 @@
 			$this->for_tour = new Action('tours', 'show', '/tour/show?id=%id%');
 			$this->for_main = new Action();
 
-			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'All']);
-			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'Show']);
+			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'All'], [$this, 'SetSeoForAll']);
+			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'Show'], [$this, 'SetSeoForShow']);
 			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
 			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
 		}
@@ -115,6 +116,19 @@
 			if (!$data) return;
 
 			Layout::instance()->main->Push(ForMain::ToVar($data));
+		}
+
+		public function SetSeoForAll() {
+			Template::instance()->SetTitle('Фотографии');
+			Template::instance()->SetDescription('');
+		}
+
+		public function SetSeoForShow() {
+			$id = GetParam('id');
+			$header = $this->db->SelectOneField(self::TABLES['photo_all'], 'header', "`id` = {$id}");
+
+			Template::instance()->SetTitle("{$header}");
+			Template::instance()->SetDescription('');
 		}
 	}
 

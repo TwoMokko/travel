@@ -50,7 +50,7 @@
 			Controller::instance()->view->Push($this->set_data_page, [$this, 'SetDataPage']);
 			Controller::instance()->view->Push($this->set_seo_main, [$this, 'SetSeoForMain']);
 			Controller::instance()->view->Push($this->about_main, [$this, 'AboutMain'], [$this, 'StoryMain']);
-			Controller::instance()->view->Push($this->about_page, [$this, 'AboutPage']);
+			Controller::instance()->view->Push($this->about_page, [$this, 'AboutPage'], [$this, 'SetSeoForAbout']);
 
 			Controller::instance()->view->Push($this->header, [$this, 'Header']);
 			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
@@ -98,6 +98,11 @@
 			$page_about_mini_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_mini_text')") ?: '';
 
 			Layout::instance()->main->Push(Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text));
+		}
+
+		public function SetSeoForAbout() {
+			Template::instance()->SetTitle('О нас');
+			Template::instance()->SetDescription('');
 		}
 	}
 

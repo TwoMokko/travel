@@ -64,32 +64,31 @@
 		}
 
 		protected function FieldsCreate(array $params): array {
-			return [
-				'state' 			=> ['skin' => 'select', 'name' => 'Состояние', 'default' => Consts\Tour::STATES['draft']],
-				'name' 				=> ['skin' => 'text', 'name' => 'Заголовок', 'default' => ''],
-				'date' 				=> ['skin' => 'text', 'name' => 'Дата', 'default' => ''],
-				'description' 		=> ['skin' => 'textarea', 'name' => 'Описание', 'default' => ''],
-				'tid' 				=> ['skin' => 'textarea', 'name' => 'Тип тура', 'default' => ''],
-				'price' 			=> ['skin' => 'textarea', 'name' => 'Цена', 'default' => ''],
-				'duration' 			=> ['skin' => 'textarea', 'name' => 'Длительность', 'default' => ''],
-				'video' 			=> ['skin' => 'textarea', 'name' => 'Ссылка видео', 'default' => ''],
-				'photo_id' 			=> ['skin' => 'textarea', 'name' => 'Фотоальбом', 'default' => ''],
-				'cover' 			=> ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			];
+			return $this->FieldsCreateAndUpdate($params);
 		}
 
 		protected function FieldsUpdate(array $params): array {
+			return $this->FieldsCreateAndUpdate($params);
+		}
+
+		private function FieldsCreateAndUpdate(array $params): array {
+			$states = [
+				Consts\People::STATE_DRAFT => Consts\People::STATES_RU[Consts\People::STATE_DRAFT],
+				Consts\People::STATE_ACTIVE => Consts\People::STATES_RU[Consts\People::STATE_ACTIVE],
+				Consts\People::STATE_INACTIVE => Consts\People::STATES_RU[Consts\People::STATE_INACTIVE],
+			];
+
 			return [
-				'state' 			=> ['skin' => 'select', 'name' => 'Состояние'],
-				'name' 				=> ['skin' => 'text', 'name' => 'Заголовок'],
-				'date' 				=> ['skin' => 'text', 'name' => 'Дата', 'default' => ''],
-				'description' 		=> ['skin' => 'textarea', 'name' => 'Описание', 'default' => ''],
-				'tid' 				=> ['skin' => 'textarea', 'name' => 'Тип тура', 'default' => ''],
-				'price' 			=> ['skin' => 'textarea', 'name' => 'Цена', 'default' => ''],
-				'duration' 			=> ['skin' => 'textarea', 'name' => 'Длительность', 'default' => ''],
-				'video' 			=> ['skin' => 'textarea', 'name' => 'Ссылка видео', 'default' => ''],
-				'photo_id' 			=> ['skin' => 'textarea', 'name' => 'Фотоальбом', 'default' => ''],
-				'cover' 			=> ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
+				'state' 			=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
+				'name' 				=> new Skins\Edit\Text('form[name]', 'Заголовок'),
+				'date' 				=> new Skins\Edit\Text('form[date]', 'Дата'),
+				'description' 		=> new Skins\Edit\TextArea('form[description]', 'Описание'),
+				'tid' 				=> new Skins\Edit\Select('form[tid]', 'Тип тура', ),
+				'price' 			=> new Skins\Edit\Text('form[price]', 'Цена'),
+				'duration' 			=> new Skins\Edit\Text('form[duration]', 'Длительность'),
+				'video' 			=> new Skins\Edit\Text('form[video]', 'Ссылка видео'),
+				'photo_id' 			=> new Skins\Edit\Select('form[photo_id]', 'Фотоальбом', ),
+				'cover' 			=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
 			];
 		}
 

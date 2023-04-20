@@ -47,36 +47,41 @@
 
 		protected function FieldsSelect(array $params): array {
 			return [
-				'id' 				=> new Skins\Browse\Text('#'),
-				'state' 			=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
-				'name' 				=> new Skins\Browse\Text('Название')
+				'id' 			=> new Skins\Browse\Text('#'),
+				'state' 		=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
+				'name' 			=> new Skins\Browse\Text('Название')
 			];
 		}
 
 		protected function FieldsBrowse(array $params) : array {
 			return [
-				'state'    	 		=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
-				'name'    			=> new Skins\Browse\Text('Заголовок'),
-				'description'     	=> new Skins\Browse\Text('Текст'),
-				'cover'     		=> new Skins\Browse\Image('Картинка', Consts\Tour::PATH_TYPE_RELATIVE)
+				'state'    	 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
+				'name'    		=> new Skins\Browse\Text('Заголовок'),
+				'description' 	=> new Skins\Browse\Text('Текст'),
+				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\Tour::PATH_TYPE_RELATIVE)
 			];
 		}
 
 		protected function FieldsCreate(array $params): array {
-			return [
-				'state' 			=> ['skin' => 'select', 'name' => 'Состояние', 'default' => Consts\Tour::STATES['draft']],
-				'name' 				=> ['skin' => 'text', 'name' => 'Заголовок', 'default' => ''],
-				'description' 		=> ['skin' => 'textarea', 'name' => 'Текст', 'default' => ''],
-				'cover' 			=> ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-			];
+			return $this->FieldsCreateAndUpdate($params);
 		}
 
 		protected function FieldsUpdate(array $params): array {
+			return $this->FieldsCreateAndUpdate($params);
+		}
+
+		private function FieldsCreateAndUpdate(array $params): array {
+			$states = [
+				Consts\People::STATE_DRAFT => Consts\People::STATES_RU[Consts\People::STATE_DRAFT],
+				Consts\People::STATE_ACTIVE => Consts\People::STATES_RU[Consts\People::STATE_ACTIVE],
+				Consts\People::STATE_INACTIVE => Consts\People::STATES_RU[Consts\People::STATE_INACTIVE],
+			];
+
 			return [
-				'state' 			=> ['skin' => 'select', 'name' => 'Состояние'],
-				'name' 				=> ['skin' => 'text', 'name' => 'Заголовок'],
-				'description' 		=> ['skin' => 'textarea', 'name' => 'Текст'],
-				'cover' 			=> ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
+				'state' 			=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
+				'name' 				=> new Skins\Edit\Text('form[name]', 'Заголовок'),
+				'description' 		=> new Skins\Edit\TextArea('form[description]', 'Текст'),
+				'cover' 			=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
 			];
 		}
 

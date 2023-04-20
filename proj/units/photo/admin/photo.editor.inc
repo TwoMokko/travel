@@ -84,11 +84,11 @@
 			];
 
 			return [
-				'uid' => new Skins\Edit\Hidden('uid', 'UID', $uid),
-				'state' => new Skins\Edit\Select('form[state]', 'Состояние', $states),
-				'header' => new Skins\Edit\Text('form[header]', 'Заголовок'),
-				'cover' => new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
-				'photos' => new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => $uid, 'id' => 0]), $this->photo_del->GetHref(), '', 'Выберите фотографии', '.jpg, .jpeg, .png')
+				'uid' 		=> new Skins\Edit\Hidden('uid', 'UID', $uid),
+				'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
+				'header' 	=> new Skins\Edit\Text('form[header]', 'Заголовок'),
+				'cover' 	=> new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
+				'photos' 	=> new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => $uid, 'id' => 0]), $this->photo_del->GetHref(), '', 'Выберите фотографии', '.jpg, .jpeg, .png')
 			];
 		}
 
@@ -103,10 +103,10 @@
 			];
 
 			return [
-				'state' => new Skins\Edit\Select('form[state]', 'Состояние', $states),
-				'header' => new Skins\Edit\Text('form[header]', 'Заголовок'),
-				'cover' => new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
-                'photos' => new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => '', 'id' => $id]), $this->photo_del->GetHref(),  Consts\Photo::PATH_SHOW_RELATIVE, 'Выберите фотографии', '.jpg, .jpeg, .png', $photos)
+				'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
+				'header' 	=> new Skins\Edit\Text('form[header]', 'Заголовок'),
+				'cover' 	=> new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
+                'photos' 	=> new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => '', 'id' => $id]), $this->photo_del->GetHref(),  Consts\Photo::PATH_SHOW_RELATIVE, 'Выберите фотографии', '.jpg, .jpeg, .png', $photos)
 			];
 		}
 
