@@ -7,6 +7,7 @@
 	use Base\DB\TableMySQLi;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
+	use Proj\Admin\Units\Tours;
 	use Proj\Units\Consts;
 
 	class Tour extends EditorMySQLi {
@@ -83,11 +84,11 @@
 				'name' 				=> new Skins\Edit\Text('form[name]', 'Заголовок'),
 				'date' 				=> new Skins\Edit\Text('form[date]', 'Дата'),
 				'description' 		=> new Skins\Edit\TextArea('form[description]', 'Описание'),
-				'tid' 				=> new Skins\Edit\Select('form[tid]', 'Тип тура', ),
+				'tid' 				=> new Skins\Edit\Select('form[tid]', 'Тип тура', Tours::instance()->GetTypes()),
 				'price' 			=> new Skins\Edit\Text('form[price]', 'Цена'),
 				'duration' 			=> new Skins\Edit\Text('form[duration]', 'Длительность'),
 				'video' 			=> new Skins\Edit\Text('form[video]', 'Ссылка видео'),
-				'photo_id' 			=> new Skins\Edit\Select('form[photo_id]', 'Фотоальбом', ),
+				'photo_id' 			=> new Skins\Edit\Select('form[photo_id]', 'Фотоальбом'),
 				'cover' 			=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
 			];
 		}

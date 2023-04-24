@@ -1374,40 +1374,40 @@ input[type=text].footer_input::placeholder {
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
-  .block.tour_form > div {
+  .block.tour_form > * {
     margin: 0 auto;
   }
-  .block.tour_form > div:first-child {
+  .block.tour_form > *:first-child {
     text-align: center !important;
   }
-  .block.tour_form > div:last-child {
+  .block.tour_form > *:last-child {
     width: 100%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: revert;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     width: revert;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
     margin: 0 0 4% 0;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div > input {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     width: 100%;
     padding: 0;
     margin: 0;
     border-bottom: none;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) {
+  .block.tour_form > *:last-child > div:nth-of-type(2) {
     background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
     border-radius: 24px;
     height: 150px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) > textarea {
+  .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
     width: 90%;
     outline: none;
     -moz-appearance: none;
@@ -1419,10 +1419,10 @@ input[type=text].footer_input::placeholder {
     font-family: MoshitaMono, sans-serif;
     font-size: 18px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) {
+  .block.tour_form > *:last-child > div:nth-of-type(3) {
     margin-top: 8%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) > a {
+  .block.tour_form > *:last-child > div:nth-of-type(3) > a {
     width: 100%;
     box-sizing: border-box;
   }
@@ -1434,40 +1434,40 @@ input[type=text].footer_input::placeholder {
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
-  .block.tour_form > div {
+  .block.tour_form > * {
     margin: 0 auto;
   }
-  .block.tour_form > div:first-child {
+  .block.tour_form > *:first-child {
     text-align: center !important;
   }
-  .block.tour_form > div:last-child {
+  .block.tour_form > *:last-child {
     width: 100%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: revert;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     width: revert;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
     margin: 0 0 4% 0;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div > input {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     width: 100%;
     padding: 0;
     margin: 0;
     border-bottom: none;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) {
+  .block.tour_form > *:last-child > div:nth-of-type(2) {
     background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
     border-radius: 24px;
     height: 150px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) > textarea {
+  .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
     width: 90%;
     outline: none;
     -moz-appearance: none;
@@ -1479,10 +1479,10 @@ input[type=text].footer_input::placeholder {
     font-family: MoshitaMono, sans-serif;
     font-size: 18px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) {
+  .block.tour_form > *:last-child > div:nth-of-type(3) {
     margin-top: 8%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) > a {
+  .block.tour_form > *:last-child > div:nth-of-type(3) > a {
     width: 100%;
     box-sizing: border-box;
   }
@@ -1494,40 +1494,40 @@ input[type=text].footer_input::placeholder {
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
-  .block.tour_form > div {
+  .block.tour_form > * {
     margin: 0 15% 0 45%;
   }
-  .block.tour_form > div:first-child {
+  .block.tour_form > *:first-child {
     text-align: center !important;
   }
-  .block.tour_form > div:last-child {
+  .block.tour_form > *:last-child {
     width: 40%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: flex;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     width: 48%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
     margin: 0 4% 0 0;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div > input {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     width: 100%;
     padding: 0;
     margin: 0;
     border-bottom: none;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) {
+  .block.tour_form > *:last-child > div:nth-of-type(2) {
     background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
     border-radius: 24px;
     height: 150px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) > textarea {
+  .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
     width: 90%;
     outline: none;
     -moz-appearance: none;
@@ -1539,10 +1539,10 @@ input[type=text].footer_input::placeholder {
     font-family: MoshitaMono, sans-serif;
     font-size: 20px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) {
+  .block.tour_form > *:last-child > div:nth-of-type(3) {
     margin-top: 8%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) > a {
+  .block.tour_form > *:last-child > div:nth-of-type(3) > a {
     width: 100%;
     box-sizing: border-box;
   }
@@ -1554,40 +1554,40 @@ input[type=text].footer_input::placeholder {
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
-  .block.tour_form > div {
+  .block.tour_form > * {
     margin: 0 15% 0 45%;
   }
-  .block.tour_form > div:first-child {
+  .block.tour_form > *:first-child {
     text-align: center !important;
   }
-  .block.tour_form > div:last-child {
+  .block.tour_form > *:last-child {
     width: 40%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: flex;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     width: 48%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
     margin: 0 4% 0 0;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(1) > div > input {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     width: 100%;
     padding: 0;
     margin: 0;
     border-bottom: none;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) {
+  .block.tour_form > *:last-child > div:nth-of-type(2) {
     background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
     border-radius: 24px;
     height: 150px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(2) > textarea {
+  .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
     width: 90%;
     outline: none;
     -moz-appearance: none;
@@ -1599,10 +1599,10 @@ input[type=text].footer_input::placeholder {
     font-family: MoshitaMono, sans-serif;
     font-size: 24px;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) {
+  .block.tour_form > *:last-child > div:nth-of-type(3) {
     margin-top: 8%;
   }
-  .block.tour_form > div:last-child > div:nth-of-type(3) > a {
+  .block.tour_form > *:last-child > div:nth-of-type(3) > a {
     width: 100%;
     box-sizing: border-box;
   }

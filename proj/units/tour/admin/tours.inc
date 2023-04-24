@@ -9,6 +9,7 @@
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
+	use Proj\Units\Consts;
 	use Proj\Admin\Editor\TypeTour;
 	use Proj\Admin\Editor\Tour;
 	use Proj\Admin\Structure;
@@ -49,6 +50,15 @@
 				])
 			);
 		}
+
+		public function GetTypes(): array {
+			$state = Consts\Tour::STATE_ACTIVE;
+			$result = $this->table_tour_types->Select(['id', 'name'], "`state` = {$state}");
+			return $this->table_tour_types->FetchAll($result, function(& $types, $type) {
+				$types[$type['id']] = $type['name'];
+			});
+		}
+
 	}
 
 	Tours::init();

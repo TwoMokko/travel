@@ -41,7 +41,8 @@
             $data = [
                 'name' => $name,
                 'contact' => $contact,
-                'text' => $text
+                'text' => $text,
+				'state' => Consts\Feedback::STATE_UNVERIFIED
             ];
 
             $this->db->Insert(self::TABLES['feedback'], $data);

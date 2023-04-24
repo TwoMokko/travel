@@ -41,8 +41,7 @@
 					<form action = "/feedback">
 						<input name = "name" type = "text" placeholder = "Имя*" class = "footer_input">
 						<input name = "contact" type = "text" placeholder = "Способ связи*" class = "footer_input">
-						<a class = "button semi_white" onclick = "Base.Common.Query.SendForm($(this).closest('form'), AfterSend);/*AfterSend(this); event.preventDefault();*/">Отправить</a>
-<!--					<input type = "submit" value = "Отправить" class = "semi_white" onclick = "AfterSend(); event.preventDefault();" >-->
+						<a class = "button semi_white" onclick = "Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Отправить</a>
 					</form>
 				</div>
 			</div>

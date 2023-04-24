@@ -3,42 +3,41 @@
 	namespace Proj\Admin\Units;
 
 	require DIR_UNITS . 'feedback/admin/feedback.structure.inc';
-//	require DIR_UNITS . 'feedback/admin/feedback.editor.inc';
+	require DIR_UNITS . 'feedback/admin/feedback.editor.inc';
 
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
-//	use Base\Editor\EditorMySQLi;
+	use Base\Editor\EditorMySQLi;
 	use Proj\Admin\Structure;
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Group;
 
-	class News extends Structure\Feedback {
+	class Feedback extends Structure\Feedback {
 		use Instance;
 
-//		private EditorMySQLi $editor_news;
-//
-//		private Action $out_menu;
-//
-//		private function __construct() {
-//			parent::__construct();
-//
-//			$this->editor_news = new \Proj\Admin\Editor\News(self::NAME, $this->table_news);
-//
-//			$this->out_menu = new Action();
-//
-//			Controller::instance()->view->Push($this->out_menu, [$this, 'OutMenu']);
-//		}
+		private EditorMySQLi $editor_feedback;
 
-//		public function OutMenu() {
-//			Layout::instance()->menu->Push(
-//				Group::object()->ToVar('Новости', [
-//					$this->editor_news->select->GetLink('Список новостей'),
-//					$this->editor_news->create->GetLink('Добавить новость')
-//				])
-//			);
-//		}
+		private Action $out_menu;
+
+		private function __construct() {
+			parent::__construct();
+
+			$this->editor_feedback = new \Proj\Admin\Editor\Feedback(self::NAME, $this->table_feedback);
+
+			$this->out_menu = new Action();
+
+			Controller::instance()->view->Push($this->out_menu, [$this, 'OutMenu']);
+		}
+
+		public function OutMenu() {
+			Layout::instance()->menu->Push(
+				Group::ToVar('Обратная связь', [
+					$this->editor_feedback->select->GetLink('Список', ['page' => 1])
+				])
+			);
+		}
 
 	}
 
-	News::init();
+	Feedback::init();

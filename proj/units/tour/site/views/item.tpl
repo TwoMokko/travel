@@ -187,23 +187,23 @@
             <div class = "tour_dates block p"></div>
             <div class = "block tour_form">
                 <div class = "header">Оставить заявку</div>
-                <div>
+                <form action = "/feedback">
                     <div>
                         <div>
-                            <input type = "text" placeholder = "Имя*">
+                            <input name = "name" type = "text" placeholder = "Имя*">
                         </div>
                         <div>
-                            <input type = "text" placeholder = "Способ связи*">
+                            <input name = "contact" type = "text" placeholder = "Способ связи*">
                         </div>
                     </div>
                     <div>
-                        <textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
+                        <textarea name = "text" rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
                     </div>
                     <div>
-                        <a class = "button" onclick = "AfterSend(this); event.preventDefault();">Оставить заявку</a>
+                        <a class = "button" onclick = "Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Оставить заявку</a>
                         <!--						<input type = "button" value = "Оставить заявку" onclick = "AfterSend(); event.preventDefault();" >-->
                     </div>
-                </div>
+                </form>
             </div>
 <!--            <div class = "block p">-->
 <!--                <div class = "other_publication other_tour">-->
