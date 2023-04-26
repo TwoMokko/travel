@@ -8,6 +8,7 @@
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
+	use Proj\Units\Consts;
 	use Base\Editor\EditorMySQLi;
 	use Proj\Admin\Structure;
 	use Proj\Admin\Templates\Layout;
@@ -43,6 +44,14 @@
             $result = $this->table_photo_show->Select(['id'], "`all_id` = {$id_album}", null, null, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             return $this->table_photo_show->FetchAll($result);
         }
+
+		public function GetAlbums(): array {
+			$state = Consts\Photo::STATE_ACTIVE;
+			$result = $this->table_photo_all->Select(['id', 'header'], "`state` = {$state}");
+			return $this->table_photo_all->FetchAll($result, function(& $all, $item) {
+				$all[$item['id']] = $item['header'];
+			});
+		}
 	}
 
 	Photo::init();

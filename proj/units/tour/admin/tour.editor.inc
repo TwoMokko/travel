@@ -7,7 +7,7 @@
 	use Base\DB\TableMySQLi;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
-	use Proj\Admin\Units\Tours;
+	use Proj\Admin\Units;
 	use Proj\Units\Consts;
 
 	class Tour extends EditorMySQLi {
@@ -84,11 +84,11 @@
 				'name' 				=> new Skins\Edit\Text('form[name]', 'Заголовок'),
 				'date' 				=> new Skins\Edit\Text('form[date]', 'Дата'),
 				'description' 		=> new Skins\Edit\TextArea('form[description]', 'Описание'),
-				'tid' 				=> new Skins\Edit\Select('form[tid]', 'Тип тура', Tours::instance()->GetTypes()),
+				'tid' 				=> new Skins\Edit\Select('form[tid]', 'Тип тура', Units\Tours::instance()->GetTypes()),
 				'price' 			=> new Skins\Edit\Text('form[price]', 'Цена'),
 				'duration' 			=> new Skins\Edit\Text('form[duration]', 'Длительность'),
 				'video' 			=> new Skins\Edit\Text('form[video]', 'Ссылка видео'),
-				'photo_id' 			=> new Skins\Edit\Select('form[photo_id]', 'Фотоальбом'),
+				'photo_id' 			=> new Skins\Edit\Select('form[photo_id]', 'Фотоальбом', Units\Photo::instance()->GetAlbums()),
 				'cover' 			=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
 			];
 		}
@@ -128,7 +128,7 @@
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\Tour::PATH_TOUR . $old_file);
+				if ($old_file && file_exists(Consts\Tour::PATH_TOUR . $old_file)) unlink(Consts\Tour::PATH_TOUR . $old_file);
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
