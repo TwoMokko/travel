@@ -24,7 +24,7 @@
             <div class = "block p reviews">
                 <div>
                     <div class = "header" onclick = "window.location.href = '<?= Units\Reviews::instance()->for_list->GetPath(); ?>';">Отзывы</div>
-                    <span title = "оставить отзыв"></span>
+                    <span onclick = "LeaveReview();" title = "оставить отзыв"></span>
                 </div>
                 <div id = "review" class = "carousel">
                     <?php foreach ($items as $item) self::Item($item); ?>

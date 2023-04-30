@@ -26,6 +26,7 @@
 		public Action $for_tour;
 		public Action $for_list;
 		public Action $get;
+		public Action $add;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
@@ -35,11 +36,13 @@
 			$this->for_tour = new Action('tours', 'show');
 			$this->for_list = new Action('review');
 			$this->get = new Action('review', 'get');
+			$this->add = new Action('review', 'add');
 
 			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
 			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
 			Controller::instance()->view->Push($this->for_list, [$this, 'ForList'], [$this, 'SetSeoForReview']);
 			Controller::instance()->view->Push($this->get, [$this, 'OnReview']);
+			Controller::instance()->work->Push($this->add, [$this, 'AddReview']);
 		}
 
 		public function ForMain(): void {
@@ -84,6 +87,21 @@
 		public function SetSeoForReview() {
 			Template::instance()->SetTitle('Отзывы');
 			Template::instance()->SetDescription('');
+		}
+
+		#[NoReturn] public function AddReview() {
+			$name = GetParam('name', '');
+			$text = GetParam('text', '');
+
+			$data = [
+				'name' => $name,
+				'text' => $text,
+				'state' => Consts\Reviews::STATE_NEW
+			];
+
+			$this->db->Insert(self::TABLES['review'], $data);
+
+			SendJSONSuccess(null);
 		}
 
 	}

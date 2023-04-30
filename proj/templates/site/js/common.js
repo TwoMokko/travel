@@ -99,17 +99,38 @@ function Switcher(selector_menu, selector_list) {
  * @constructor
  */
 function ToDrive() {
-    let $form = $('<form/>', { class: '' });
-    let $name = $('<input/>', { class: '', type: 'text', placeholder: 'Имя*' });
-    let $call = $('<input/>', { class: '', type: 'text', placeholder: 'Способ связи*' });
+    let $form = $('<form/>', { class: '', action: '//' });
+    let $name = $('<input/>', { name: 'name', class: '', type: 'text', placeholder: 'Имя*' });
+    let $call = $('<input/>', { name: 'contact', class: '', type: 'text', placeholder: 'Способ связи*' });
     let $send = $('<a/>', { class: 'button', text: 'Отправить' });
+    $send.on('click', () => {
+        Base.Common.Query.SendForm($form, Success);
+    });
     $form.append($name, $call, $send);
     let wind = Common.Window.Create('Оставьте заявку', $form);
-    $send.on('click', Success);
     function Success() {
-        $send.closest('form').submit();
         wind.Close();
         Common.Window.ShowMessage('Спасибо, ваша заяка принята');
+    }
+}
+/**
+ * Вывод формы обратной связи через кнопку "поехать" в "tours"
+ * @constructor
+ */
+function LeaveReview() {
+    let $form = $('<form/>', { class: '', action: '/review/add' });
+    let $name = $('<input/>', { name: 'name', class: '', type: 'text', placeholder: 'Имя*' });
+    let $text_container = $('<div/>', { class: '' });
+    let $text = $('<textarea/>', { name: 'text', class: '', type: 'text', placeholder: 'Напишите отзыв*', rows: '5' });
+    let $send = $('<a/>', { class: 'button', text: 'Отправить' });
+    $send.on('click', () => {
+        Base.Common.Query.SendForm($form, Success);
+    });
+    $form.append($name, $text_container.append($text), $send);
+    let wind = Common.Window.Create('Оставьте отзыв', $form);
+    function Success() {
+        wind.Close();
+        Common.Window.ShowMessage('Спасибо за отзыв');
     }
 }
 /**
