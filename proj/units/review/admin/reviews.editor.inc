@@ -1,122 +1,109 @@
 <?php
 
-	namespace Proj\Admin\Editor;
+    namespace Proj\Admin\Editor;
 
-	use JetBrains\PhpStorm\NoReturn;
+    require DIR_UNITS . 'review/admin/views/publish.tpl';
 
-	use Base\Editor\EditorMySQLi;
-	use Base\DB\TableMySQLi;
-	use Proj\Units\Consts;
+    use JetBrains\PhpStorm\NoReturn;
 
-	class News extends EditorMySQLi {
+    use Base\Action;
+    use Base\Controller;
+    use Base\DB\TableMySQLi;
+    use Base\Editor\EditorMySQLi;
+    use Base\Editor\Skins;
+    use Proj\Admin\Units\Tours;
+    use Proj\Units\Consts;
+    use Proj\Admin\Templates;
 
-		public function __construct(string $name, TableMySQLi $table) {
-			parent::__construct($name, $table);
-		}
+    class Reviews extends EditorMySQLi {
+        public Action $publish;
+        public Action $do_publish;
 
-		protected function Where(array $params): array {
-			return [
-				'`state` != ' . Consts\News::STATES['delete']
-			];
-		}
+        public function __construct(string $name, TableMySQLi $table) {
+            parent::__construct($name, $table);
 
-		protected function Order(): array {
-			return [
-				'`datecr` DESC',
-				'`id` ASC'
-			];
-		}
+            $this->publish = new Action($this->name, 'publish', "/{$this->name}/publish?id=%id%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/publish', {id: %id%}, Admin.General.Render.ToMain); return false;");
+            $this->do_publish = new Action($this->name, 'do_publish', "/{$this->name}/do_publish?id=%id%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/do_publish', {id: %id%}, Admin.General.Render.ToMain); return false;");
 
-		protected function RegTitles(): void {
-			$this->titleSelect = 'Список новостей';
-			$this->titleCreate = 'Добавить новость';
-			$this->titleUpdate = 'Редактирование новости';
-			$this->titleDelete = 'Удалить новость?';
+            Controller::instance()->view->Push($this->publish, [$this, 'Publish']);
+            Controller::instance()->view->Push($this->do_publish, [$this, 'DoPublish']);
+        }
 
-			$this->titleDoCreate = 'Новость добавлена';
-			$this->titleDoUpdate = 'Новость изменена';
-			$this->titleDoDelete = 'Новость удалена';
-		}
+        protected function Where(array $params): array {
+            return [
+                '`state` != ' . Consts\Reviews::STATES['error']
+            ];
+        }
 
-		protected function FieldsSelect(array $params): array {
-			return [
-				'id' => '#',
-				'state' => 'Состояние',
-				'datepb' => 'Дата публикации',
-				'header' => 'Заголовок'
-			];
-		}
+        protected function Order(): array {
+            return [
+                '`date_create` DESC',
+                '`id` ASC'
+            ];
+        }
 
-		protected function FieldsCreate(array $params): array {
-			return [
-				'state' => ['skin' => 'hidden', 'name' => 'Состояние', 'default' => Consts\News::STATES['draft']],
-				'header' => ['skin' => 'text', 'name' => 'Заголовок', 'default' => ''],
-				'content' => ['skin' => 'textarea', 'name' => 'Текст', 'default' => ''],
-				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'default' => 'Выберите обложку', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-				'datepb' => ['skin' => 'datetime', 'name' => 'Дата публикации']
-			];
-		}
+    		protected function Calc(): array {
+    			return [
+    				"*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"
+    			];
+    		}
 
-		protected function FieldsUpdate(array $params): array {
-			return [
-				'state' => ['skin' => 'select', 'name' => 'Состояние'],
-				'header' => ['skin' => 'text', 'name' => 'Заголовок'],
-				'content' => ['skin' => 'textarea', 'name' => 'Текст'],
-				'cover' => ['skin' => 'file', 'name' => 'Обложка', 'params' => ['accept' => '.jpg, .jpeg, .png']],
-				'datepb' => ['skin' => 'datetime', 'name' => 'Дата публикации']
-			];
-		}
+        protected function Manage(): array {
+            return [
+                function (array $params, array $item) { return $this->publish->GetLink('Опубликовать', ['id' => $item['id']]); },
+                function (array $params, array $item) { return $this->browse->GetLink('Просмотреть', ['id' => $item['id']]); }
+            ];
+        }
 
-		public function PrepareOnUpdate(int $id, array & $item, array &$data): void {
-			$data['state'] = [
-				Consts\News::STATE_DRAFT	=> 'Черновик',
-				Consts\News::STATE_ACTIVE	=> 'Активная',
-				Consts\News::STATE_INACTIVE	=> 'Не активная',
-			];
-		}
+        protected function RegTitles(): void {
+            $this->titleSelect = 'Список';
+            //		$this->titleCreate = 'Добавить человека';
+            //		$this->titleUpdate = 'Редактирование человека';
+            $this->titleDelete = 'Удалить?';
 
-		#[NoReturn] public function DoCreate(): void {
-			$data = GetParam('form', []);
+            //		$this->titleDoCreate = 'Человек добавлена';
+            //		$this->titleDoUpdate = 'Человек изменена';
+            $this->titleDoDelete = 'Удалено';
+        }
 
-			$id = $this->table->Insert($data);
+        protected function FieldsSelect(array $params): array {
+            return [
+                'id' 		=> new Skins\Browse\Text('#'),
+                'tid' 		=> new Skins\Browse\Text('#'),
+                'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\Reviews::STATES_RU),
+                'name' 		=> new Skins\Browse\Text('Имя')
+            ];
+        }
 
-			if ($_FILES['form']['tmp_name']['cover']) {
-				[$hash, $ext] = $this->SaveFile($id);
-				$this->table->Update(['hash' => $hash, 'ext' => $ext], "`id` = {$id}");
-			}
+        protected function FieldsBrowse(array $params) : array {
+            return [
+                'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\Reviews::STATES_RU),
+                'name'    	=> new Skins\Browse\Text('Имя'),
+                'text'      => new Skins\Browse\Text('Текст'),
+            ];
+        }
 
-			SendJSONSuccess(['message' => $this->titleDoCreate, 'html' => $this->Select()]);
-		}
+        public function Publish(): void {
+            $id = GetInt('id');
+            $item = $this->table->SelectOne(null, "(`id` = {$id})");
+            $fields = [
+                'tour_id'       => new Skins\Edit\Select('К какому туру относится', 'tid', array_merge(['Выберите'], Tours::instance()->GetTours())),
+                'name'          => new Skins\Edit\Text('Имя', 'name'),
+                'text'          => new Skins\Edit\TextArea('Текст', 'text')
+            ];
 
-		#[NoReturn] public function DoUpdate(): void {
-			$id = (int)GetParam('id', 0);
-			$data = GetParam('form', []);
+//            $this->PrepareOnUpdate($id, $item, $data);
+//            $this->fieldsUpdate = $this->FieldsUpdate([]);
+            SendJSONSuccess(['html' => Templates\Reviews\Publish::ToVar($this, $id, $fields, $item, [], 'Публикация отзыва')]);
+        }
 
-			if ($_FILES['form']['tmp_name']['cover']) {
-				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\News::PATH_COVER . $old_file);
+        #[NoReturn] public function DoPublish(): void {
+            $id = GetInt('id');
+            $old_state = Consts\Reviews::STATE_UNVERIFIED;
+            $this->table->Update(['state' => Consts\Reviews::STATE_VERIFIED], "(`state` = {$old_state}) AND (`id` = {$id})");
 
-				[$data['hash'], $data['ext']] = $this->SaveFile($id);
-			}
+            $this->fieldsSelect = $this->FieldsSelect([]);
+            SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);
+        }
 
-			$this->table->Update($data, "`id` = {$id}");
-
-			SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);
-		}
-
-		private function SaveFile(int $id): array {
-			$temp_path = $_FILES['form']['tmp_name']['cover'];
-			$temp_name = $_FILES['form']['name']['cover'];
-			$dir = Consts\News::PATH_COVER;
-			$hash = hash_file('md5', $temp_path);
-			$info = pathinfo($temp_name);
-			$ext = $info['extension'];
-			$name = "{$hash}.{$id}.{$ext}";
-
-			if (!is_dir($dir)) mkdir($dir, 0777, true);
-			move_uploaded_file($temp_path, $dir . $name);
-
-			return [$hash, $ext];
-		}
-
-	}
+    }

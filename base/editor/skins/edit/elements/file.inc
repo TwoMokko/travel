@@ -6,8 +6,8 @@
 		private string $value;
 		private string $accept;
 
-		public function __construct(string $name, string $title, string $value = 'Выберите', string $accept = '') {
-			parent::__construct($name, $title, 'file');
+		public function __construct(string $title, string $name, string $value = 'Выберите', string $accept = '') {
+			parent::__construct($title, $name, 'file');
 
 			$this->value = $value;
 			$this->accept = $accept;

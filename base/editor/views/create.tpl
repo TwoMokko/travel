@@ -25,15 +25,14 @@
 			<?php
 				$form->Begin($editor->do_create->GetPath());
 				foreach ($editor->params as $name => $params) Text::Render($name, $params, ['type' => 'hidden']);
-				foreach ($fields as $field) if ($field->GetType() == 'hidden') echo $field->ToVar();
+				foreach ($fields as $field) if (get_class($field) == 'Base\Editor\Skins\Edit\Hidden') echo $field->ToVar();
 			?>
 			<table class = "create">
 				<tbody>
-					<?php foreach ($fields as $field) { if ($field->GetType() == 'hidden') continue; ?>
+					<?php foreach ($fields as $field) { if (get_class($field) == 'Base\Editor\Skins\Edit\Hidden') continue; ?>
 						<tr>
-							<th><?= $field->GetTitle();/*['name'];*/ ?>:</th>
-<!--							<td>--><?php //$form->Element($field['skin'], $name, $field['default'] ?? '', $field['params'] ?? []); ?><!--</td>-->
-							<td><?= $field->ToVar(); /*$form->Element($field['skin'], $name, $field['default'] ?? '', $field['params'] ?? []);*/ ?></td>
+							<th><?= $field->GetTitle(); ?>:</th>
+							<td><?= $field->ToVar(); ?></td>
 						</tr>
 					<?php } ?>
 				</tbody>

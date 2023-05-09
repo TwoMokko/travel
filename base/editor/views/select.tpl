@@ -26,7 +26,7 @@
 				<thead>
 					<tr>
 						<?php foreach ($fields as $field) { ?>
-							<th><?= $field->GetName(); ?></th>
+							<th><?= $field->GetTitle(); ?></th>
 						<?php } ?>
 						<?php if ($col) { ?><th colspan = "<?= $col ?>">Управление</th><?php } ?>
 					</tr>

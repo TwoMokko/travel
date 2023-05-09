@@ -25,4 +25,5 @@
 			self::STATE_VERIFIED		=> 'Проверено',
 			self::STATE_UNVERIFIED		=> 'Не проверено'
 		];
+
     }

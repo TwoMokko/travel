@@ -22,7 +22,7 @@
 				<tbody>
 				<?php foreach ($fields as $name => $field) { ?>
 					<tr>
-						<th><?= $field->GetName(); ?>:</th>
+						<th><?= $field->GetTitle(); ?>:</th>
 						<td><?= $field->ToVar($item[$name]); ?></td>
 					</tr>
 				<?php } ?>

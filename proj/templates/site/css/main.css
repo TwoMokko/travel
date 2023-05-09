@@ -1147,12 +1147,31 @@ input[type=text].footer_input::placeholder {
     text-align: center;
   }
   .windows .instance .window .container > form {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     width: 180px;
   }
   .windows .instance .window .container > form > input:not(:last-child) {
     margin-bottom: 24px;
+  }
+  .windows .instance .window .container > form > div {
+    margin-bottom: 24px;
+    border-radius: 24px;
+    height: 150px;
+    border: 1px solid #a9a9a9;
+  }
+  .windows .instance .window .container > form > div > textarea {
+    width: 90%;
+    outline: none;
+    -moz-appearance: none;
+    resize: none;
+    border: none;
+    background-color: transparent;
+    border-radius: 24px;
+    padding: 16px;
+    font-family: MoshitaMono, sans-serif;
+    font-size: 24px;
   }
   .windows .instance .window .container_null_title {
     background-color: #ffffff;
@@ -1234,12 +1253,31 @@ input[type=text].footer_input::placeholder {
     text-align: center;
   }
   .windows .instance .window .container > form {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     width: 240px;
   }
   .windows .instance .window .container > form > input:not(:last-child) {
     margin-bottom: 24px;
+  }
+  .windows .instance .window .container > form > div {
+    margin-bottom: 24px;
+    border-radius: 24px;
+    height: 150px;
+    border: 1px solid #a9a9a9;
+  }
+  .windows .instance .window .container > form > div > textarea {
+    width: 90%;
+    outline: none;
+    -moz-appearance: none;
+    resize: none;
+    border: none;
+    background-color: transparent;
+    border-radius: 24px;
+    padding: 16px;
+    font-family: MoshitaMono, sans-serif;
+    font-size: 24px;
   }
   .windows .instance .window .container_null_title {
     background-color: #ffffff;

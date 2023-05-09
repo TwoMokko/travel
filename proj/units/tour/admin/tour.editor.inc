@@ -11,8 +11,10 @@
 	use Proj\Units\Consts;
 
 	class Tour extends EditorMySQLi {
+        private TableMySQLi $table_program;
 
-		public function __construct(string $name, TableMySQLi $table) {
+		public function __construct(string $name, array $tables) {
+            [$table, $this->table_program] = $tables;
 			parent::__construct($name, $table);
 		}
 
@@ -50,7 +52,8 @@
 			return [
 				'id' 				=> new Skins\Browse\Text('#'),
 				'state' 			=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
-				'name' 				=> new Skins\Browse\Text('Название')
+                'date'    			=> new Skins\Browse\Text('Дата'),
+                'name' 				=> new Skins\Browse\Text('Название')
 			];
 		}
 
@@ -80,16 +83,18 @@
 			];
 
 			return [
-				'state' 			=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
-				'name' 				=> new Skins\Edit\Text('form[name]', 'Заголовок'),
-				'date' 				=> new Skins\Edit\Text('form[date]', 'Дата'),
-				'description' 		=> new Skins\Edit\TextArea('form[description]', 'Описание'),
-				'tid' 				=> new Skins\Edit\Select('form[tid]', 'Тип тура', Units\Tours::instance()->GetTypes()),
-				'price' 			=> new Skins\Edit\Text('form[price]', 'Цена'),
-				'duration' 			=> new Skins\Edit\Text('form[duration]', 'Длительность'),
-				'video' 			=> new Skins\Edit\Text('form[video]', 'Ссылка видео'),
-				'photo_id' 			=> new Skins\Edit\Select('form[photo_id]', 'Фотоальбом', Units\Photo::instance()->GetAlbums()),
-				'cover' 			=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
+				'state' 			=> new Skins\Edit\Select('Состояние', 'form[state]', $states),
+				'gid' 			    => new Skins\Edit\Select('Заголовок', 'form[gid]', Units\Tours::instance()->GetGroupTour()),
+				'date' 				=> new Skins\Edit\Text('Дата', 'form[date]'),
+				'description' 		=> new Skins\Edit\TextArea('Описание', 'form[description]'),
+				'tid' 				=> new Skins\Edit\Select('Тип тура', 'form[tid]', Units\Tours::instance()->GetTypes()),
+				'price' 			=> new Skins\Edit\Text('Цена', 'form[price]'),
+				'duration' 			=> new Skins\Edit\Text('Длительность', 'form[duration]'),
+				'cover' 			=> new Skins\Edit\File('Фотография', 'form[cover]', 'Выберите фотографию', '.jpg, .jpeg, .png'),
+                'program'           => new Skins\Edit\Table('Маршрут', 'form[program]', [
+                    'day' => ['alias' => 'день', 'type' => 'number', 'name' => 'day'],
+                    'description' => ['alias' => 'описание', 'type' => 'textarea', 'name' => 'description']
+                ])
 			];
 		}
 
@@ -107,12 +112,23 @@
 				Consts\Tour::STATE_ACTIVE	=> 'Активная',
 				Consts\Tour::STATE_INACTIVE	=> 'Не активная',
 			];
+
+            $result = $this->table_program->Select(['day', 'description'], "`tour_id`={$id}", '`day`');
+            $item['program'] = $this->table_program->FetchAll($result);
 		}
 
 		#[NoReturn] public function DoCreate(): void {
 			$data = GetParam('form', []);
 
+            $program = [];
+            if (isset($data['program'])) {
+                $program = $data['program'];
+                unset($data['program']);
+            }
+
 			$id = $this->table->Insert($data);
+
+            $this->SaveProgram($program, $id);
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				[$hash, $ext] = $this->SaveFile($id);
@@ -126,6 +142,15 @@
 			$id = (int)GetParam('id', 0);
 			$data = GetParam('form', []);
 
+            $program = [];
+            if (isset($data['program'])) {
+                $program = $data['program'];
+                unset($data['program']);
+            }
+
+            $this->table_program->Delete("`tour_id` = {$id}");
+            $this->SaveProgram($program, $id);
+
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
 				if ($old_file && file_exists(Consts\Tour::PATH_TOUR . $old_file)) unlink(Consts\Tour::PATH_TOUR . $old_file);
@@ -137,6 +162,15 @@
 
 			SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);
 		}
+
+        private function SaveProgram(array $program, int $id): void {
+            if ($program) {
+                $valuesItems = [];
+                foreach ($program as $item) $valuesItems[] = "({$id}, {$item['day']}, '{$item['description']}')";
+                $values = implode(', ', $valuesItems);
+                $this->table_program->Query("INSERT INTO `{$this->table_program->GetName()}` (`tour_id`, `day`, `description`) VALUES {$values}");
+            }
+        }
 
 		private function SaveFile(int $id): array {
 			$temp_path = $_FILES['form']['tmp_name']['cover'];

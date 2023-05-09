@@ -76,6 +76,10 @@
 			return $this->db->Delete($this->name, $where);
 		}
 
+        public function Query(string $query) {
+            return $this->db->Query($query);
+        }
+
 		public function GetName(): string { return $this->name; }
 
 		protected function PushField(Field $field): void {

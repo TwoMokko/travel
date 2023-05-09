@@ -15,6 +15,7 @@
 
 			$this->AddScript('jq', 'https://code.jquery.com/jquery-3.6.1.min.js');
 			$this->AddVersionScript('base_common', '/base/template/js/common', BaseVersions\COMMON_JS);
+			$this->AddVersionScript('base_skin', '/base/template/js/skins', BaseVersions\SKINS_JS);
 			$this->AddVersionScript('admin_common', '/proj/templates/admin/js/common', AdminVersions\COMMON_JS);
 			$this->AddVersionScript('admin_general', '/proj/templates/admin/js/general', AdminVersions\GENERAL_JS);
 			$this->AddVersionScript('admin_functions', '/proj/templates/admin/js/functions', AdminVersions\FUNCTIONS_JS);

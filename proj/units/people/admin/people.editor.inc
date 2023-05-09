@@ -81,13 +81,13 @@
             ];
 
             return [
-                'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
-                'name' 		=> new Skins\Edit\Text('form[name]', 'Имя'),
-                'text' 		=> new Skins\Edit\TextArea('form[text]', 'Текст'),
-                'number' 	=> new Skins\Edit\Text('form[number]', 'Номер'),
-                'link_vk' 	=> new Skins\Edit\Text('form[link_vk]', 'Вконтакте'),
-                'link_wa' 	=> new Skins\Edit\Text('form[link_wa]', 'ВотсАпп'),
-                'cover' 	=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
+                'state' 	=> new Skins\Edit\Select('Состояние', 'form[state]', $states),
+                'name' 		=> new Skins\Edit\Text('Имя', 'form[name]'),
+                'text' 		=> new Skins\Edit\TextArea('Текст', 'form[text]'),
+                'number' 	=> new Skins\Edit\Text('Номер', 'form[number]'),
+                'link_vk' 	=> new Skins\Edit\Text('Вконтакте', 'form[link_vk]'),
+                'link_wa' 	=> new Skins\Edit\Text('ВотсАпп', 'form[link_wa]'),
+                'cover' 	=> new Skins\Edit\File('Фотография', 'form[cover]', 'Выберите фотографию', '.jpg, .jpeg, .png')
             ];
         }
 

@@ -56,6 +56,8 @@ class SelectTour {
         this.$select_categories = $('#categories');
         this.$select_tours = $('#tours');
         this.$btn_see_tour = $('#see_tour');
+        this.$select_categories.attr('autocomplete', 'off');
+        this.$select_tours.attr('autocomplete', 'off');
         this.$select_categories.on('change', this.RestructureTours.bind(this));
         this.$select_tours.on('change', this.RestructureBtn.bind(this));
         this.RestructureCategory();
@@ -70,12 +72,14 @@ class SelectTour {
         let category = Number(this.$select_categories.val());
         this.$select_tours.empty();
         for (let i in this.data[category].tours) {
-            this.$select_tours.append($('<option/>', { value: 'qqq' /*this.data[category].tours[i].href*/ }).text(this.data[category].tours[i].name));
+            this.$select_tours.append($('<option/>', { value: i }).text(this.data[category].tours[i].name));
         }
         this.$select_tours.trigger('change');
     }
     RestructureBtn() {
-        this.$btn_see_tour.attr('href', this.$select_tours.val().toString());
+        let category = this.$select_categories.val().toString();
+        let tour = this.$select_tours.val();
+        this.$btn_see_tour.attr('href', this.data[category].tours[tour].href);
     }
 }
 function Switcher(selector_menu, selector_list) {

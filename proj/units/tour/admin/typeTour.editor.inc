@@ -78,10 +78,10 @@
 			];
 
 			return [
-				'state' 			=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
-				'name' 				=> new Skins\Edit\Text('form[name]', 'Заголовок'),
-				'description' 		=> new Skins\Edit\TextArea('form[description]', 'Текст'),
-				'cover' 			=> new Skins\Edit\File('form[cover]', 'Фотография', 'Выберите фотографию', '.jpg, .jpeg, .png')
+				'state' 			=> new Skins\Edit\Select('Состояние', 'form[state]',  $states),
+				'name' 				=> new Skins\Edit\Text('Заголовок', 'form[name]'),
+				'description' 		=> new Skins\Edit\TextArea('Текст', 'form[description]'),
+				'cover' 			=> new Skins\Edit\File('Фотография','form[cover]',  'Выберите фотографию', '.jpg, .jpeg, .png')
 			];
 		}
 

@@ -53,11 +53,18 @@
             $state = self::STATE_ACTIVE;
 
             $result = $this->db->Select(self::TABLES['type'], ['id', 'name'], "`state` = {$state}");
-            $data = $this->db->FetchAll($result);
+            $data = $this->db->FetchAll($result, function (& $items, $item) {
+                $items[$item['id']] = ['name' => $item['name']];
+            });
 
-            foreach ($data as & $type) {
-                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name'], "(`state` = {$state}) AND (`tid` = {$type['id']})");
-                $type['tours'] = $this->db->FetchAll($result);
+            foreach ($data as $key => & $type) {
+                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name'], "(`state` = {$state}) AND (`tid` = {$key})");
+                $type['tours'] = $this->db->FetchAll($result, function (& $items, $item) {
+                    $items[$item['id']] = [
+                        'name' => $item['name'],
+                        'href' => $this->item->GetHref(['id'=>$item['id']])
+                    ];
+                });
             }
 
             Layout::instance()->main->Push(Select::ToVar($data));
@@ -93,18 +100,29 @@
             if (!$id = GetInt('id')) die;//TODO 404
             $state = self::STATE_ACTIVE;
 
-            $item = $this->db->SelectOne(self::TABLES['tour'], ['name', 'date'], "(`id` = {$id}) AND (`state` = {$state})");
+//            $item = $this->db->SelectOne(self::TABLES['tour'], ['name', 'date'], "(`id` = {$id}) AND (`state` = {$state})");
+            $table_tour = self::TABLES['tour'];
+            $table_group = self::TABLES['group'];
+            $result = $this->db->Query("SELECT `tour`.`date`, `group`.`name` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`id` = {$id}) AND (`tour`.`state` = {$state})");
+            $item = $this->db->Fetch($result);
 
             $image = 'safdzssad';
             Layout::instance()->header->Push(General\HeaderForPages::ToVar($image, $item['name'], $item['date']));
         }
 
         public function Item(): void {
+            $id = GetInt('id');
             $state = self::STATE_ACTIVE;
-            $result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'description', 'price', 'duration', 'video'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+//            $result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'description', 'price', 'duration', 'video'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+            $table_tour = self::TABLES['tour'];
+            $table_group = self::TABLES['group'];
+            $result = $this->db->Query("SELECT `tour`.*, `group`.`name`, `group`.`video`, `group`.`photo_id` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`)");
             $data = $this->db->Fetch($result);
 
-            Layout::instance()->main->Push(Item::ToVar($data));
+            $result_program = $this->db->Select(self::TABLES['program'], ['day', 'description'], "`tour_id` = {$id}");
+            $program = $this->db->FetchAll($result_program);
+
+            Layout::instance()->main->Push(Item::ToVar($data, $program));
         }
 
 		public function Carousel(): void {

@@ -2,19 +2,19 @@
 
 	namespace Base\Editor\Skins\Edit;
 
-	use Base\Editor\Skins\SkinEdit;
-	use Base\Templates\Template;
+    use Base\Editor\Skins\SkinEditHTMLElement;
+    use Base\Templates\Template;
 
-	class Select extends SkinEdit {
+	class Select extends SkinEditHTMLElement {
 		private array $data;
 
-		public function __construct(string $name, string $title, array $data = []) {
-			parent::__construct('select', $name, $title);
+		public function __construct(string $title, string $name, array $data = []) {
+			parent::__construct($title, $name);
 
 			$this->data = $data;
 		}
 
-		public function ToVar(string $value = ''): string {
+		public function ToVar(mixed $value = ''): string {
 			Template::Start();
 			$this->Render($value);
 			return Template::Read();

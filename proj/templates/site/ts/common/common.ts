@@ -50,26 +50,29 @@ function ScrollTop(selector: string): void {
 	Redraw();
 }
 
-type TypeTour = { id: number, name: string, href: string }
-type TypeCategory = { id: number, name: string, tours: TypeTour[] };
+type TypeTour = {[key: number]: { name: string, href: string } }
+type TypeCategory = {[key: number]: { name: string, tours: TypeTour } };
 
 
 /**
  * Работа с селектами на главной странице
  */
 class SelectTour {
-	data: TypeCategory[];
+	data: TypeCategory;
 
 	$select_categories: JQuery;
 	$select_tours: JQuery;
 	$btn_see_tour: JQuery;
 
-	constructor(data: TypeCategory[]) {
+	constructor(data: TypeCategory) {
 		this.data = data;
 
 		this.$select_categories = $('#categories');
 		this.$select_tours = $('#tours');
 		this.$btn_see_tour = $('#see_tour');
+
+		this.$select_categories.attr('autocomplete', 'off');
+		this.$select_tours.attr('autocomplete', 'off');
 
 		this.$select_categories.on('change', this.RestructureTours.bind(this));
 		this.$select_tours.on('change', this.RestructureBtn.bind(this));
@@ -83,7 +86,6 @@ class SelectTour {
 				$('<option/>', {value: i}).text(this.data[i].name)
 			);
 		}
-
 		this.$select_categories.trigger('change');
 	}
 
@@ -93,15 +95,16 @@ class SelectTour {
 		this.$select_tours.empty();
 		for (let i in this.data[category].tours) {
 			this.$select_tours.append(
-				$('<option/>', {value: 'qqq'/*this.data[category].tours[i].href*/}).text(this.data[category].tours[i].name)
+				$('<option/>', {value: i}).text(this.data[category].tours[i].name)
 			);
 		}
-
 		this.$select_tours.trigger('change');
 	}
 
 	private RestructureBtn(): void {
-		this.$btn_see_tour.attr('href', this.$select_tours.val().toString());
+		let category = this.$select_categories.val().toString();
+		let tour = this.$select_tours.val();
+		this.$btn_see_tour.attr('href', this.data[category].tours[tour].href);
 	}
 
 }

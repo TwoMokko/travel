@@ -2,16 +2,19 @@
 
     namespace Base\Editor\Skins\Edit;
 
-    use Base\Editor\Skins\SkinEdit;
+    use Base\Editor\Skins\SkinEditHTMLElement;
     use Base\Templates\Template;
 
-    class Input extends SkinEdit {
+    class Input extends SkinEditHTMLElement {
+        protected string $type;
 
-        public function __construct(string $name, string $title, string $type, string $default = '') {
-			parent::__construct($type, $name, $title, $default);
+        public function __construct(string $title, string $name, string $type, string $default = '') {
+			parent::__construct($title, $name, $default);
+
+            $this->type = $type;
         }
 
-        public function ToVar(?string $value = null): string {
+        public function ToVar(mixed $value = null): string {
             Template::Start();
             $this->Render($value ?? $this->default);
             return Template::Read();

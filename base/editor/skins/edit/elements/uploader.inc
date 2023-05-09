@@ -10,7 +10,7 @@
 		private string  $path_view;
 		private array   $photos;
 
-		public function __construct(string $name, string $title, string $path_load, string $path_del, string $path_view, string $value = 'Выберите', string $accept = '', array $photos = []) {
+		public function __construct(string $title, string $name, string $path_load, string $path_del, string $path_view, string $value = 'Выберите', string $accept = '', array $photos = []) {
 			parent::__construct($name, $title, 'file');
 
 			$this->value = $value;
@@ -27,7 +27,7 @@
 		?>
             <input id = "<?= $uid; ?>" type = "<?= $this->type; ?>" name = "<?= $this->name; ?>" <?= $accept; ?> multiple>
             <script>
-                new Functions.UploaderPhoto('#<?= $uid; ?>', 'Нажмите для загрузки или перетащите сюда', '<?= $this->path_load; ?>', '<?= $this->path_del; ?>', '<?= $this->path_view; ?>', <?= json_encode($this->photos); ?>);
+                new Base.Skins.UploaderPhoto('#<?= $uid; ?>', 'Нажмите для загрузки или перетащите сюда', '<?= $this->path_load; ?>', '<?= $this->path_del; ?>', '<?= $this->path_view; ?>', <?= json_encode($this->photos); ?>);
             </script>
 		<?php }
 

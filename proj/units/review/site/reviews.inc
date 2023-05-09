@@ -46,7 +46,7 @@
 		}
 
 		public function ForMain(): void {
-			$state = self::STATE_ACTIVE;
+			$state = self::STATE_VERIFIED;
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
@@ -56,7 +56,7 @@
 		}
 
 		public function ForTour(): void {
-			$state = self::STATE_ACTIVE;
+			$state = self::STATE_VERIFIED;
 			$tid = GetInt('id');
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "(`state` = {$state}) AND (`tid` = {$tid})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
@@ -67,7 +67,7 @@
 		}
 
 		public function ForList(): void {
-			$state = self::STATE_ACTIVE;
+			$state = self::STATE_VERIFIED;
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
@@ -77,7 +77,7 @@
 		#[NoReturn] public function OnReview(): void {
 			$id = GetInt('id');
 
-			$state = self::STATE_ACTIVE;
+			$state = self::STATE_VERIFIED;
 			$path = Consts\Reviews::PATH_AVATAR_RELATIVE;
 			$item = $this->db->SelectOne(self::TABLES['review'], ['name', 'text'], "(`state` = {$state}) AND (`id` = {$id})", null, null, ["CONCAT('{$path}', `hash`, '.', `id`, '.', `ext`) AS `image`"]);
 
@@ -96,7 +96,7 @@
 			$data = [
 				'name' => $name,
 				'text' => $text,
-				'state' => Consts\Reviews::STATE_NEW
+				'state' => Consts\Reviews::STATE_UNVERIFIED
 			];
 
 			$this->db->Insert(self::TABLES['review'], $data);

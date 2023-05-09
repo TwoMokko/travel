@@ -25,15 +25,14 @@
 		<?php
 			$form->Begin($editor->do_update->GetPath());
 			Text::Render('id', $id, ['type' => 'hidden']);
-//			foreach ($editor->params as $name => $params) Text::Render($name, $params, ['type' => 'hidden']);
-//			foreach ($fields as $name => $field) if ($field['skin'] == 'hidden') $form->Element('hidden', $name, $item[$name]);
+            foreach ($fields as $field) if (get_class($field) == 'Base\Editor\Skins\Edit\Hidden') echo $field->ToVar();
 		?>
 			<table class = "update">
 				<tbody>
-				<?php foreach ($fields as $name => $field) { /*-if ($field['skin'] == 'hidden') continue;**/ ?>
+				<?php foreach ($fields as $name => $field) { if (get_class($field) == 'Base\Editor\Skins\Edit\Hidden') continue; ?>
 					<tr>
 						<th><?= $field->GetTitle(); ?>:</th>
-						<td><?= $field->ToVar($item[$name] ?? ''); /*php $form->Element($field['skin'], $name, $item[$name] ?? '', $fields['params'] ?? []);*/ ?></td>
+						<td><?= $field->ToVar($item[$name] ?? ''); ?></td>
 					</tr>
 				<?php } ?>
 				</tbody>

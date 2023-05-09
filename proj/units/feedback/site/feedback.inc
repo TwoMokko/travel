@@ -3,6 +3,7 @@
 	namespace Proj\Site\Units;
 
 	require DIR_UNITS . '/feedback/consts.inc';
+	require DIR_UNITS . '/feedback/site/views/forTour.tpl';
 
 	use JetBrains\PhpStorm\NoReturn;
 
@@ -10,7 +11,9 @@
 	use Base\Controller;
 	use Base\Action;
 	use Base\Units;
-	use Proj\Units\Consts;
+    use Proj\Site\Templates\Layout;
+    use Proj\Site\Templates\Feedback\ForTour;
+    use Proj\Units\Consts;
 	use Proj\DBQuery;
 
 	class Feedback extends Units implements Consts\Feedback {
@@ -19,24 +22,23 @@
         private DBQuery $db;
 
 		private Action $feedback;
+		private Action $for_tour;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
             $this->db = DBQuery::instance();
 
 			$this->feedback = new Action('feedback', 'null');
+			$this->for_tour = new Action('tours', 'show');
 
 			Controller::instance()->view->Push($this->feedback, [$this, 'Feedback']);
+			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
 		}
 
 		#[NoReturn] public function Feedback() {
 			$name = GetParam('name', '');
 			$contact = GetParam('contact', '');
 			$text = GetParam('text', '');
-
-//			$file = fopen('feedback.txt', 'a');
-//			fwrite($file, "Имя: {$name} Контакт: {$contact}\n");
-//			fclose($file);
 
             $data = [
                 'name' => $name,
@@ -49,6 +51,10 @@
 
 			SendJSONSuccess(null);
 		}
+
+        public function ForTour(): void {
+            Layout::instance()->main->Push(ForTour::ToVar());
+        }
 	}
 
 	Feedback::init();

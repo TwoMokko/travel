@@ -6,13 +6,13 @@
 
     abstract class Item {
 
-        public static function ToVar(array $data): string {
+        public static function ToVar(array $data, array $program): string {
 			Template::Start();
-           self::Render($data);
+           self::Render($data, $program);
             return Template::Read();
         }
 
-        public static function Render($data): void { ?>
+        public static function Render($data, $program): void { ?>
             <div class = "about_tour block p">
                 <div><?= $data['description']; ?></div>
                 <div class = "about_mini">
@@ -73,50 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class = "tour_program block p">
-                <div class = "header">Маршрут</div>
-                <div>
-                    <div class = "map"></div>
-                    <div class = "days">
-                        <div>
-                            <div>1</div>
-                            <div>Встреча группы в Иркутске.
-                                Приезжаем на остров Ольхон 30 декабря после обеда.
-                                Заселение и ознакомительная экскурсия.</div>
-                        </div>
-                        <div>
-                            <div>2</div>
-                            <div>Прогулка по посёлку и к роднику.
-                                Подготовка к встрече Нового года, баня.</div>
-                        </div>
-                        <div>
-                            <div>3</div>
-                            <div>Пешая прогулка на смотровую площадку.</div>
-                        </div>
-                        <div>
-                            <div>4</div>
-                            <div>Поездка на мыс Хобой,
-                                экскурсия по северу острова.</div>
-                        </div>
-                        <div>
-                            <div>5</div>
-                            <div>Трекинг на мыс Хатха (поперёк острова),
-                                альтернатива пешая прогулка по льду озера,
-                                катание на коньках.</div>
-                        </div>
-                        <div>
-                            <div>6</div>
-                            <div>Свободное время, катание на коньках,
-                                прогулки по острову.</div>
-                        </div>
-                        <div>
-                            <div>7</div>
-                            <div>Выезд с острова в Иркутск.</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <?php if ($program) self::Program($program); ?>
 <!--            <div class = "tour_photo block p">-->
 <!--                <div class = "header">Фотографии</div>-->
 <!--                <div class = "block tour_mini_photo">-->
@@ -185,26 +142,7 @@
                 </div>
             </div>
             <div class = "tour_dates block p"></div>
-            <div class = "block tour_form">
-                <div class = "header">Оставить заявку</div>
-                <form action = "/feedback">
-                    <div>
-                        <div>
-                            <input name = "name" type = "text" placeholder = "Имя*">
-                        </div>
-                        <div>
-                            <input name = "contact" type = "text" placeholder = "Способ связи*">
-                        </div>
-                    </div>
-                    <div>
-                        <textarea name = "text" rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
-                    </div>
-                    <div>
-                        <a class = "button" onclick = "Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Оставить заявку</a>
-                        <!--						<input type = "button" value = "Оставить заявку" onclick = "AfterSend(); event.preventDefault();" >-->
-                    </div>
-                </form>
-            </div>
+
 <!--            <div class = "block p">-->
 <!--                <div class = "other_publication other_tour">-->
 <!--                    <div>-->
@@ -246,6 +184,24 @@
 <!--                    </div>-->
 <!--                </div>-->
 <!--            </div>-->
+        <?php }
+
+        public static function Item($item): void { ?>
+            <div>
+                <div><?= $item['day']; ?></div>
+                <div><?= $item['description']; ?></div>
+            </div>
+        <?php }
+
+        public static function Program($program): void { ?>
+            <div class = "tour_program block p">
+                <div class = "header">Маршрут</div>
+                <div>
+                    <div class = "map"></div>
+                    <div class = "days"><?php foreach ($program as $item) self::Item($item); ?></div>
+                </div>
+
+            </div>
         <?php }
 
     }

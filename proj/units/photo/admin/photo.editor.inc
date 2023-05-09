@@ -85,10 +85,10 @@
 
 			return [
 				'uid' 		=> new Skins\Edit\Hidden('uid', 'UID', $uid),
-				'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
-				'header' 	=> new Skins\Edit\Text('form[header]', 'Заголовок'),
-				'cover' 	=> new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
-				'photos' 	=> new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => $uid, 'id' => 0]), $this->photo_del->GetHref(), '', 'Выберите фотографии', '.jpg, .jpeg, .png')
+				'state' 	=> new Skins\Edit\Select('Состояние','form[state]',  $states),
+				'header' 	=> new Skins\Edit\Text('Заголовок', 'form[header]'),
+				'cover' 	=> new Skins\Edit\File('Обложка','form[cover]',  'Выберите обложку', '.jpg, .jpeg, .png'),
+				'photos' 	=> new Skins\Edit\Uploader('Фотографии','photos',  $this->photo_load->GetHref(['uid' => $uid, 'id' => 0]), $this->photo_del->GetHref(), '', 'Выберите фотографии', '.jpg, .jpeg, .png')
 			];
 		}
 

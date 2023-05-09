@@ -24,7 +24,6 @@
 			parent::__construct();
 
 			$this->editor_feedback = new \Proj\Admin\Editor\Feedback(self::NAME, $this->table_feedback);
-
 			$this->out_menu = new Action();
 
 			Controller::instance()->view->Push($this->out_menu, [$this, 'OutMenu']);

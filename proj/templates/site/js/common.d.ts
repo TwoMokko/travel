@@ -15,24 +15,26 @@ declare function NavigationTour(selector: string, top_absolute: number, top_fixe
  */
 declare function ScrollTop(selector: string): void;
 declare type TypeTour = {
-    id: number;
-    name: string;
-    href: string;
+    [key: number]: {
+        name: string;
+        href: string;
+    };
 };
 declare type TypeCategory = {
-    id: number;
-    name: string;
-    tours: TypeTour[];
+    [key: number]: {
+        name: string;
+        tours: TypeTour;
+    };
 };
 /**
  * Работа с селектами на главной странице
  */
 declare class SelectTour {
-    data: TypeCategory[];
+    data: TypeCategory;
     $select_categories: JQuery;
     $select_tours: JQuery;
     $btn_see_tour: JQuery;
-    constructor(data: TypeCategory[]);
+    constructor(data: TypeCategory);
     private RestructureCategory;
     private RestructureTours;
     private RestructureBtn;
