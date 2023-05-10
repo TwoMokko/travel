@@ -58,7 +58,11 @@
             });
 
             foreach ($data as $key => & $type) {
-                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name'], "(`state` = {$state}) AND (`tid` = {$key})");
+//                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name'], "(`state` = {$state}) AND (`tid` = {$key})");
+                $table_tour = self::TABLES['tour'];
+                $table_group = self::TABLES['group'];
+                $result = $this->db->Query("SELECT `tour`.`id`, `group`.`name` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`tid` = {$key}) AND (`tour`.`state` = {$state})");
+
                 $type['tours'] = $this->db->FetchAll($result, function (& $items, $item) {
                     $items[$item['id']] = [
                         'name' => $item['name'],
@@ -84,8 +88,12 @@
             $result = $this->db->Select(self::TABLES['type'], ['id', 'name', 'alias'], "`state` = {$state}");
             $items = $this->db->FetchAll($result);
 
+            $table_tour = self::TABLES['tour'];
+            $table_group = self::TABLES['group'];
             foreach ($items as & $type) {
-                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'description', 'price', 'date'], "(`state` = {$state}) AND (`tid` = {$type['id']})", null, null, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+                $result = $this->db->Query("SELECT `tour`.`id`, `tour`.`description`, `tour`.`price`, `tour`.`date`, CONCAT(`tour`.`hash`, '.', `tour`.`id`, '.', `tour`.`ext`) AS `image`, `group`.`name` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`state` = {$state}) AND (`tour`.`tid` = {$type['id']})");
+//                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'description', 'price', 'date'], "(`state` = {$state}) AND (`tid` = {$type['id']})", null, null, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+
                 $type['tours'] = $this->db->FetchAll($result);
             }
 
@@ -129,8 +137,12 @@
 			$id = GetInt('id');
 			$state = self::STATE_ACTIVE;
 
-			$result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'date', 'price'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
-			$items = $this->db->FetchAll($result);
+//			$result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'date', 'price'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+            $table_tour = self::TABLES['tour'];
+            $table_group = self::TABLES['group'];
+            $result = $this->db->Query("SELECT `tour`.`id`, `tour`.`date`, `tour`.`price`, CONCAT(`tour`.`hash`, '.', `tour`.`id`, '.', `tour`.`ext`) AS `image`, `group`.`name` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`state` = {$state}) AND (`tour`.`id` != {$id}) ORDER BY `tour`.`date_create` DESC");
+
+            $items = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(Carousel::ToVarCarousel($items));
 		}

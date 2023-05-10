@@ -3,11 +3,13 @@
 	require DIR_BASE . 'db/DBObject.inc';
 	require DIR_BASE . 'db/table.inc';
 	require DIR_BASE . 'db/field.inc';
+	require DIR_BASE . 'db/query.inc';
 
 	require DIR_BASE . 'db/MySQLi/DBMySQLi.inc';
 	require DIR_BASE . 'db/MySQLi/DBObjectMySQLi.inc';
 	require DIR_BASE . 'db/MySQLi/tableMySQLi.inc';
 	require DIR_BASE . 'db/MySQLi/fieldMySQLi.inc';
+	require DIR_BASE . 'db/MySQLi/queryMySQLi.inc';
 
 	require DIR_PROJ . 'DBObject.inc';
 

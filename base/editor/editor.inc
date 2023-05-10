@@ -8,7 +8,8 @@
 	require DIR_BASE . 'editor/views/update.tpl';
 	require DIR_BASE . 'editor/views/browse.tpl';
 
-	use JetBrains\PhpStorm\NoReturn;
+    use Base\DB\QueryMySQLi;
+    use JetBrains\PhpStorm\NoReturn;
 
 	use Base\Controller;
 	use Base\Action;
@@ -169,6 +170,7 @@
 		}
 
 		protected function Select(): string {
+//            echo QueryMySQLi::select()->fields('id', 'name', 'date_cr')->table('student')->where('`id` > 3', "`name` LIKE '%ан'")->leftJoin('group', '`student`.`gid` = `group`.`id`')->leftJoin('university', '`student`.`uid` = `university`.`id`')->execute();die;
 			$where = ($this->where) ? implode(' AND ', $this->where) : null;
 			$order = ($this->order) ? implode(', ', $this->order) : null;
 			$calc = $this->calc ?: null;

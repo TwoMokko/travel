@@ -82,6 +82,7 @@ class SelectTour {
 
 	private RestructureCategory(): void {
 		for (let i in this.data) {
+			if (IsEmpty(this.data[i].tours)) continue;
 			this.$select_categories.append(
 				$('<option/>', {value: i}).text(this.data[i].name)
 			);

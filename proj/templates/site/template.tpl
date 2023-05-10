@@ -15,6 +15,7 @@
 
 			$this->AddScript('jq', 'https://code.jquery.com/jquery-3.6.1.min.js');
 			$this->AddVersionScript('base_common', '/base/template/js/common', BaseVersions\COMMON_JS);
+			$this->AddVersionScript('base_function', '/base/template/js/function', BaseVersions\FUNCTION_JS);
 			$this->AddVersionScript('site_common', '/proj/templates/site/js/common', SiteVersions\COMMON_JS);
 
 			$this->AddVersionStylesheet('main', DIR_REL_TPL . 'site/css/main', SiteVersions\MAIN_CSS);

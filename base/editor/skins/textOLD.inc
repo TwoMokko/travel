@@ -8,7 +8,7 @@
 			parent::__construct($name);
 		}
 
-		public function ToVar(string $value) : string {
+		public function ToVar(mixed $value) : string {
 			return $value;
 		}
 

@@ -89,7 +89,7 @@
 				'description' 		=> new Skins\Edit\TextArea('Описание', 'form[description]'),
 				'tid' 				=> new Skins\Edit\Select('Тип тура', 'form[tid]', Units\Tours::instance()->GetTypes()),
 				'price' 			=> new Skins\Edit\Text('Цена', 'form[price]'),
-				'duration' 			=> new Skins\Edit\Text('Длительность', 'form[duration]'),
+				'duration' 			=> new Skins\Edit\Text('Длительность (цифрой)', 'form[duration]'),
 				'cover' 			=> new Skins\Edit\File('Фотография', 'form[cover]', 'Выберите фотографию', '.jpg, .jpeg, .png'),
                 'program'           => new Skins\Edit\Table('Маршрут', 'form[program]', [
                     'day' => ['alias' => 'день', 'type' => 'number', 'name' => 'day'],

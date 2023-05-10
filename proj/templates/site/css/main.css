@@ -4876,8 +4876,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -4954,8 +4957,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -5032,8 +5038,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -5110,8 +5119,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -5188,8 +5200,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -5266,8 +5281,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -5344,8 +5362,11 @@ input[type=text].footer_input::placeholder {
     background-position: center;
   }
   .cards_tours > a > div:first-child > span, .cards_tours > div > div:first-child > span {
-    padding: 16px 32px;
-    color: #ffffff;
+    color: #365f41;
+    background-color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 18px;
+    margin: 10px 24px;
   }
   .cards_tours > a > div:first-child > span:after, .cards_tours > div > div:first-child > span:after {
     content: "₽";
@@ -5505,6 +5526,7 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: revert;
+    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;
@@ -5550,6 +5572,7 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: revert;
+    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;
@@ -5595,6 +5618,7 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: flex;
+    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;
@@ -5640,6 +5664,7 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: flex;
+    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;

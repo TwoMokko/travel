@@ -18,7 +18,7 @@
             <div class = "relative_tours">
                 <?php self::Navigation($data); ?>
                 <div>
-                    <?php foreach ($data as $type) self::Type($type); ?>
+                    <?php foreach ($data as $type) if ($type['tours']) self::Type($type); ?>
                 </div>
             </div>
             <script>
@@ -28,7 +28,7 @@
 
         private static function Navigation($data): void { ?>
             <div class = "navigation_tour">
-                <?php foreach ($data as $type) { ?>
+                <?php foreach ($data as $type) { if (!$type['tours']) continue; ?>
                     <div><a href = "#<?= $type['alias']; ?>"><?= $type['name']; ?></a></div>
                 <?php } ?>
             </div>
