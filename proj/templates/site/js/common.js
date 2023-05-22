@@ -139,6 +139,49 @@ function LeaveReview() {
         Common.Window.ShowMessage('Спасибо за отзыв');
     }
 }
+class Validation {
+    static Form($form) {
+        let $check = true;
+        let $elements = $form.find('input[type="text"], textarea');
+        $elements.each((i, element) => {
+            let value = '';
+            switch ($(element).prop('nodeName')) {
+                case 'INPUT':
+                    value = $(element).val().toString();
+                    break;
+                case 'TEXTAREA':
+                    value = $(element).text();
+                    break;
+            }
+            if (!Validation.Element($(element), value))
+                $check = false;
+        });
+        return $check;
+    }
+    static Element($element, value) {
+        let errors = [];
+        let minlength = $element.attr('minlength');
+        if ((minlength != undefined) && (value.trim().length < Number(minlength)))
+            errors.push(`Не менее ${minlength} символов`);
+        let maxlength = Number($element.attr('maxlength'));
+        if ((maxlength != undefined) && (value.trim().length > Number(maxlength)))
+            errors.push(`Не более ${maxlength} символов`);
+        if (errors.length) {
+            Validation.ShowErrors($element, errors);
+            return false;
+        }
+        Validation.HideErrors($element);
+        return true;
+    }
+    static ShowErrors($element, errors) {
+        $element.next('.validation.error').remove();
+        let $errors = $('<span/>', { class: 'validation error', title: errors.join(`\n`) });
+        $element.after($errors);
+    }
+    static HideErrors($element) {
+        $element.next('.validation.error').remove();
+    }
+}
 /**
  * Вывод окна после отправки данных пользователем
  * @constructor

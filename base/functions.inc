@@ -32,6 +32,15 @@
 	}
 
 	/**
+	 * Отправка положительного ответа
+	 * @param string $message - Сообщение об ошибке
+	 * @return void
+	 */
+	#[NoReturn] function SendJSONError(string $message): void {
+		SendJSONData(['state' => 'message', 'data' => ['type' => 'error', 'text' => $message]]);
+	}
+
+	/**
 	 * Возвращает значение параметра запроса
 	 * @param string $key - Ключ POST/GET параметра
 	 * @param mixed $default - Значение по умолчанию

@@ -50,6 +50,12 @@ declare function ToDrive(): void;
  * @constructor
  */
 declare function LeaveReview(): void;
+declare class Validation {
+    static Form($form: JQuery): boolean;
+    static Element($element: JQuery, value: string): boolean;
+    static ShowErrors($element: JQuery, errors: string[]): void;
+    static HideErrors($element: JQuery): void;
+}
 /**
  * Вывод окна после отправки данных пользователем
  * @constructor

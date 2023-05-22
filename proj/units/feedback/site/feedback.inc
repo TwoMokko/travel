@@ -36,14 +36,16 @@
 		}
 
 		#[NoReturn] public function Feedback() {
-			$name = GetParam('name', '');
-			$contact = GetParam('contact', '');
-			$text = GetParam('text', '');
+			$name = trim(GetParam('name', ''));
+			$contact = trim(GetParam('contact', ''));
+			$text = trim(GetParam('text', ''));
+
+            if (mb_strlen($name) < 3) SendJSONError('Имя не менее 3 символов');
 
             $data = [
-                'name' => $name,
-                'contact' => $contact,
-                'text' => $text,
+                'name' => mysqli_real_escape_string($name),
+                'contact' => mysqli_real_escape_string($contact),
+                'text' => mysqli_real_escape_string($text),
 				'state' => Consts\Feedback::STATE_UNVERIFIED
             ];
 

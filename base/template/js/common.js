@@ -62,6 +62,10 @@ var Base;
                         if (handler)
                             handler(response['data']);
                         break;
+                    case 'message':
+                        console.log(response['data']['text']);
+                        window.Common.Window.ShowMessage(response['data']['text']);
+                        break;
                 }
             }
         }

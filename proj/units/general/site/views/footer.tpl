@@ -39,9 +39,9 @@
 						</div>
 					</div>
 					<form action = "/feedback">
-						<input name = "name" type = "text" placeholder = "Имя*" class = "footer_input">
-						<input name = "contact" type = "text" placeholder = "Способ связи*" class = "footer_input">
-						<a class = "button semi_white" onclick = "Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Отправить</a>
+						<input name = "name" type = "text" placeholder = "Имя*" class = "footer_input" minlength="3" maxlength="20">
+						<input name = "contact" type = "text" placeholder = "Способ связи*" class = "footer_input" maxlength="20">
+						<a class = "button semi_white" onclick = "if (Validation.Form($(this).closest('form'))) Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Отправить</a>
 					</form>
 				</div>
 			</div>

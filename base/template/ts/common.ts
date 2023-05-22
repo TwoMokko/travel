@@ -77,6 +77,7 @@ namespace Base {
 			private static Response(response :TypeResponse, handler :Function) {
 				switch (response['state']) {
 					case 'ok': if (handler) handler(response['data']); break;
+					case 'message': console.log(response['data']['text']); window.Common.Window.ShowMessage(response['data']['text']); break;
 				}
 			}
 
