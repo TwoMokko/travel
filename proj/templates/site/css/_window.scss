@@ -27,14 +27,15 @@
 					.close { background-image: url("pic/cross_green.svg"); background-size: cover; height: 2rem; width: 2rem;  margin: 0.6rem 2rem; cursor: pointer; }
 				}
 				.container {
-					background-color: $color_white; overflow: hidden; overflow-y: auto;  padding: 1.5rem 2.5rem 2rem; text-align: center;
+					background-color: $color_white; overflow: hidden; overflow-y: auto;  padding: 1.5rem 2.5rem 2rem;
 					> form {
 						margin: 0 auto; display: flex; flex-direction: column; width: GetValue($default, $params, 'width_content');
-						> input { &:not(:last-child) { margin-bottom: 24px; } }
+						> input { &:not(:first-child) { margin-top: 24px; } }
 						> div {
-							margin-bottom: 24px; border-radius: 24px; height: 150px; border: 1px solid $color_gray;
+							margin-top: 24px; border-radius: 24px; height: 150px; border: 1px solid $color_gray;
 							> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: 24px; }
 						}
+						a { margin-top: 24px; }
 					}
 				}
 				.container_null_title { background-color: $color_white; overflow: hidden; overflow-y: auto;  padding: 1.5rem 2.5rem 3.2rem; text-align: center; }

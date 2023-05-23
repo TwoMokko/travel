@@ -139,12 +139,12 @@ function Switcher(selector_menu, selector_list) {
  */
 function ToDrive(): void {
 	let $form = $('<form/>', {class : '', action: '//'});
-	let $name = $('<input/>', {name: 'name', class : '', type : 'text', placeholder : 'Имя*'});
-	let $call = $('<input/>', {name: 'contact', class : '', type : 'text', placeholder : 'Способ связи*'});
+	let $name = $('<input/>', {name: 'name', class : '', type : 'text', placeholder : 'Имя*', minlength: '3', maxlength: '50'});
+	let $call = $('<input/>', {name: 'contact', class : '', type : 'text', placeholder : 'Способ связи*', minlength: '3', maxlength: '50'});
 	let $send = $('<a/>', {class : 'button', text : 'Отправить'});
 
 	$send.on('click', () => {
-		Base.Common.Query.SendForm($form, Success);
+		if (Validation.Form($form)) Base.Common.Query.SendForm($form, Success);
 	});
 
 	$form.append(
@@ -170,13 +170,13 @@ function ToDrive(): void {
  */
 function LeaveReview(): void {
 	let $form 				= $('<form/>', {class : '', action: '/review/add'});
-	let $name 				= $('<input/>', {name: 'name', class : '', type : 'text', placeholder : 'Имя*'});
+	let $name 				= $('<input/>', {name: 'name', class : '', type : 'text', placeholder : 'Имя*', minlength: '3', maxlength: '50'});
 	let $text_container 	= $('<div/>', {class : ''});
-	let $text 				= $('<textarea/>', {name: 'text', class : '', type : 'text', placeholder : 'Напишите отзыв*', rows: '5'});
+	let $text 				= $('<textarea/>', {name: 'text', class : '', type : 'text', placeholder : 'Напишите отзыв*', rows: '5', minlength: '3', maxlength: '255'});
 	let $send 				= $('<a/>', {class : 'button', text : 'Отправить'});
 
 	$send.on('click', () => {
-		Base.Common.Query.SendForm($form, Success);
+		if (Validation.Form($form)) Base.Common.Query.SendForm($form, Success);
 	});
 
 	$form.append(
@@ -229,13 +229,13 @@ class Validation {
 	}
 
 	static ShowErrors($element: JQuery, errors: string[]): void {
-		$element.next('.validation.error').remove();
-		let $errors = $('<span/>', {class: 'validation error', title: errors.join(`\n`)});
+		$element.next('.validation_error').remove();
+		let $errors = $('<span/>', {class: 'validation_error', title: errors.join(`\n`)});
 		$element.after($errors);
 	}
 
 	static HideErrors($element: JQuery): void {
-		$element.next('.validation.error').remove();
+		$element.next('.validation_error').remove();
 	}
 
 }

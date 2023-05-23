@@ -41,6 +41,11 @@
 			$text = trim(GetParam('text', ''));
 
             if (mb_strlen($name) < 3) SendJSONError('Имя не менее 3 символов');
+            if (mb_strlen($name) > 50) SendJSONError('Имя не более 50 символов');
+            if (mb_strlen($contact) < 3) SendJSONError('Контакт не менее 3 символов');
+            if (mb_strlen($contact) > 50) SendJSONError('Контакт не более 50 символов');
+            if (mb_strlen($text) < 3) SendJSONError('Текст не менее 3 символов');
+            if (mb_strlen($text) > 255) SendJSONError('Текст не более 255 символов');
 
             $data = [
                 'name' => mysqli_real_escape_string($name),

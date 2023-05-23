@@ -199,17 +199,18 @@
 				<div>
 					<div>
 						<div>
-							<input type = "text" placeholder = "Имя*">
+							<input type = "text" placeholder = "Имя*" minlength="3" maxlength="50">
 						</div>
 						<div>
-							<input type = "text" placeholder = "Способ связи*">
+							<input type = "text" placeholder = "Способ связи*" minlength="3" maxlength="50">
 						</div>
 					</div>
 					<div>
-						<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым"></textarea>
+						<textarea rows="5" placeholder = "Напишите сообщение или оставьте поле пустым" minlength="3" maxlength="255"></textarea>
 					</div>
 					<div>
-						<a class = "button" onclick = "AfterSend(this); event.preventDefault();">Оставить заявку</a>
+						<a class = "button" onclick = "if (Validation.Form($(this).closest('form'))) Base.Common.Query.SendForm($(this).closest('form'), AfterSend); event.preventDefault();">Оставить заявку</a>
+<!--						<a class = "button" onclick = "AfterSend(this); event.preventDefault();">Оставить заявку</a>-->
 <!--						<input type = "button" value = "Оставить заявку" onclick = "AfterSend(); event.preventDefault();" >-->
 					</div>
 				</div>

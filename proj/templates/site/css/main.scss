@@ -239,6 +239,8 @@ input[type="text"] {
 	@include MixScreen(null, $sizeX) { @include ViewCarousel((-count-3: 2, -count-4: 2)); }
 }
 
+.validation_error { margin-top: 4px; height: 1.2rem; width: 1.2rem; border-radius: 50%; cursor: pointer; background-image: url("pic/error_red.png"); background-size: cover; display: inline-block; }
+
 
 @import "footer";
 @import "window";
