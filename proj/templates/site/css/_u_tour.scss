@@ -335,7 +335,7 @@
 				&:last-child { border-left: 1px solid $color_gray; width: GetValue($default, $params, 'width'); padding-left: 20px; padding-bottom: 50px; }
 			}
 		}
-		.map { background-image: url("pic/map.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: GetValue($default, $params, 'background_position_y'); }
+		.map { background-image: url("pic/mymap.png"); background-size: contain; width: 80%; background-repeat: no-repeat; background-position-y: GetValue($default, $params, 'background_position_y'); }
 	}
 
 	@include MixScreen(null, $sizeM) { @include ViewTourProgram((display: revert, width: 90%, fontsize_number: 40px, width_number: 50px)); }

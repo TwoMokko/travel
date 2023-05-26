@@ -5609,7 +5609,7 @@ input[type=text].footer_input::placeholder {
     padding-bottom: 50px;
   }
   .block.tour_program .map {
-    background-image: url("pic/map.png");
+    background-image: url("pic/mymap.png");
     background-size: contain;
     width: 80%;
     background-repeat: no-repeat;
@@ -5655,7 +5655,7 @@ input[type=text].footer_input::placeholder {
     padding-bottom: 50px;
   }
   .block.tour_program .map {
-    background-image: url("pic/map.png");
+    background-image: url("pic/mymap.png");
     background-size: contain;
     width: 80%;
     background-repeat: no-repeat;
@@ -5701,7 +5701,7 @@ input[type=text].footer_input::placeholder {
     padding-bottom: 50px;
   }
   .block.tour_program .map {
-    background-image: url("pic/map.png");
+    background-image: url("pic/mymap.png");
     background-size: contain;
     width: 80%;
     background-repeat: no-repeat;
@@ -5747,7 +5747,7 @@ input[type=text].footer_input::placeholder {
     padding-bottom: 50px;
   }
   .block.tour_program .map {
-    background-image: url("pic/map.png");
+    background-image: url("pic/mymap.png");
     background-size: contain;
     width: 80%;
     background-repeat: no-repeat;
