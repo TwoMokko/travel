@@ -188,7 +188,7 @@ input[type="text"] {
 }
 
 .other_public {
-	min-height: 6rem; display: flex; padding: 1rem; text-align: center; text-decoration: none; background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer;
+	min-height: 6rem; display: flex; padding: 1rem; text-align: center; text-decoration: none; background-color: $color_gray; color: $color_white; border-radius: 24px; cursor: pointer; background-size: cover;
 	&:hover { box-shadow: $box_shadow_cards; }
 	&.other_story {
 		justify-content: center; align-items: center;
@@ -239,6 +239,7 @@ input[type="text"] {
 	@include MixScreen(null, $sizeX) { @include ViewCarousel((-count-3: 2, -count-4: 2)); }
 }
 
+.show_video { width: 560px; height: 315px; display: inline-block; vertical-align: top; }
 .validation_error { margin-top: 4px; height: 1.2rem; width: 1.2rem; border-radius: 50%; cursor: pointer; background-image: url("pic/error_red.png"); background-size: cover; display: inline-block; }
 
 

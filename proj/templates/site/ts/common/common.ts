@@ -66,6 +66,7 @@ class SelectTour {
 
 	constructor(data: TypeCategory) {
 		this.data = data;
+		console.log(this.data);
 
 		this.$select_categories = $('#categories');
 		this.$select_tours = $('#tours');
@@ -192,6 +193,17 @@ function LeaveReview(): void {
 		Common.Window.ShowMessage('Спасибо за отзыв');
 
 	}
+}
+
+function ShowVideo(): void {
+	console.log('123');
+	let $iframe			= $('<iframe/>', {class: 'show_video', src: 'https://www.youtube.com/embed/XDziNYkyFww', allowfullscreen: '', frameborder: 0});
+	let $video			= $('<video/>', {class: 'show_video', controls: 'controls'});
+	let $source			= $('<source/>', {src: 'https://youtu.be/XDziNYkyFww'});
+
+	// $video.append($source);
+	Common.Window.Create('Смотреть видео', $iframe);
+	$iframe.parent().removeClass('container');
 }
 
 class Validation {
@@ -670,6 +682,8 @@ class Carousel {
 
 		this.ShowItems();
 		this.$container.addClass('carousel');
+
+		if (this.count >= this.$items.length) { this.$array_left.addClass('hide'); this.$array_right.addClass('hide'); }
 	}
 
 	private ShowItems(): void {

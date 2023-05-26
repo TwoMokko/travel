@@ -4,6 +4,7 @@
 
 	use Base\Templates\Template;
 	use Proj\Site\Units\Tour;
+	use Proj\Units\Consts;
 
 	abstract class Carousel {
 
@@ -19,7 +20,10 @@
 					<span class = "header" onclick = " window.location.href = '/tours';">Другие путешествия</span>
 				</div>
 				<div id = "other_publication">
-					<?php foreach ($items as $item) echo Tour::instance()->item->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_tour']); ?>
+					<?php foreach ($items as $item) {
+						$url = Consts\Tour::PATH_TOUR_RELATIVE . $item['image'];
+						echo Tour::instance()->item->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_tour', 'style' => "background-image: url('{$url}');"]);
+					} ?>
 				</div>
 			</div>
 			<script>

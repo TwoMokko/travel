@@ -61,11 +61,11 @@
 //                $result = $this->db->Select(self::TABLES['tour'], ['id', 'name'], "(`state` = {$state}) AND (`tid` = {$key})");
                 $table_tour = self::TABLES['tour'];
                 $table_group = self::TABLES['group'];
-                $result = $this->db->Query("SELECT `tour`.`id`, `group`.`name` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`tid` = {$key}) AND (`tour`.`state` = {$state})");
+                $result = $this->db->Query("SELECT `tour`.`id`, CONCAT (`group`.`name`, ', ', `tour`.`date`) AS name_date FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`tid` = {$key}) AND (`tour`.`state` = {$state})");
 
                 $type['tours'] = $this->db->FetchAll($result, function (& $items, $item) {
                     $items[$item['id']] = [
-                        'name' => $item['name'],
+                        'name' => $item['name_date'],
                         'href' => $this->item->GetHref(['id'=>$item['id']])
                     ];
                 });

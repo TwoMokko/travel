@@ -70,9 +70,10 @@
 		}
 
         public function Carousel(): void {
+			$id = GetInt('id');
             $state = self::STATE_ACTIVE;
 
-            $result = $this->db->Select(self::TABLES['story'], ['id', 'header'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+            $result = $this->db->Select(self::TABLES['story'], ['id', 'header'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
             Layout::instance()->main->Push(Show::ToVarCarousel($items));

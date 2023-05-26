@@ -26,7 +26,7 @@
                         <div>нами маршрутам</div>
                     </div>
                     <div>
-                    <span>
+                    <span onclick = "ShowVideo();">
                        <span></span>
                     <span>Смотреть видео</span>
                     </span>

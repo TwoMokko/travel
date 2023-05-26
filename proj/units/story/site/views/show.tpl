@@ -4,6 +4,7 @@
 
 	use Base\Templates\Template;
     use Proj\Site\Units\Story;
+	use Proj\Units\Consts;
 
 	abstract class Show {
 
@@ -37,7 +38,10 @@
                     <span class = "header" onclick = " window.location.href = '/stories';">Другие приключения</span>
                 </div>
                 <div id = "story" class = "carousel">
-                   <?php foreach ($items as $item) echo Story::instance()->show->GetLink($item['header'], ['id' => $item['id']], ['class' => 'other_public other_story']); ?>
+                   <?php foreach ($items as $item) {
+					   $url = Consts\Story::PATH_COVER_RELATIVE . $item['image'];
+					   echo Story::instance()->show->GetLink($item['header'], ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);
+				   } ?>
                 </div>
             </div>
             <script>

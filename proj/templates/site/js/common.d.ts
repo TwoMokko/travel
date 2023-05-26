@@ -50,6 +50,7 @@ declare function ToDrive(): void;
  * @constructor
  */
 declare function LeaveReview(): void;
+declare function ShowVideo(): void;
 declare class Validation {
     static Form($form: JQuery): boolean;
     static Element($element: JQuery, value: string): boolean;

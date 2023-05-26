@@ -4,6 +4,7 @@
 
 	use Base\Templates\Template;
     use Proj\Site\Units\Story;
+	use Proj\Units\Consts;
 
     abstract class All {
 
@@ -22,7 +23,7 @@
 		<?php }
 
 		private static function Item($data): void { ?>
-            <div></div>
+            <div style = "background-image: url(<?= Consts\Story::PATH_COVER_RELATIVE, $data['image']; ?>);"></div>
             <div>
                 <div><?= $data['header']; ?></div>
                 <div><?= $data['text']; ?></div>
