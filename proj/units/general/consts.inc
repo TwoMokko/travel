@@ -37,4 +37,6 @@
 		const PATH_IMAGE_RELATIVE		= '/proj/resource/image/general/';
 		const PATH_ABOUT				= DIR_RESOURCE_IMAGE . 'general/';
 		const PATH_ABOUT_RELATIVE		= '/proj/resource/image/general/';
+		const PATH_HEADER				= DIR_RESOURCE_IMAGE . 'general/header/';
+		const PATH_HEADER_RELATIVE		= '/proj/resource/image/general/header/';
 	}

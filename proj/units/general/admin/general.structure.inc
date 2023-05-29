@@ -13,6 +13,7 @@
 		private DBObject $db;
 
 		protected TableMySQLi $table_text;
+		protected TableMySQLi $table_image;
 
 		protected function __construct() {
 			parent::__construct(self::ID, self::NAME);
@@ -26,7 +27,14 @@
 			$this->table_text->string('alias', 20);
 			$this->table_text->text('text');
 
-			$this->db->PushTables($this->table_text);
+			$this->table_image = new TableMySQLi(self::TABLES['image'], $this->db);
+			$this->table_image->id('id');
+			$this->table_image->uint8('state');
+			$this->table_image->string('name', 50);
+			$this->table_image->string('hash', 32);
+			$this->table_image->string('ext', 6);
+
+			$this->db->PushTables($this->table_text, $this->table_image);
 		}
 
 	}

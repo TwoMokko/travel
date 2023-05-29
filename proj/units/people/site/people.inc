@@ -32,6 +32,7 @@
 		}
 
         public function Header() {
+
             Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'О нас', 'Возможно, текст'));
         }
 

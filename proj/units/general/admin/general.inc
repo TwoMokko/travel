@@ -4,6 +4,8 @@
 
 	require DIR_UNITS . 'general/admin/general.structure.inc';
 	require DIR_UNITS . 'general/admin/views/group.tpl';
+	require DIR_UNITS . 'general/admin/image.editor.inc';
+	require DIR_UNITS . 'general/admin/text.editor.inc';
 
 	use JetBrains\PhpStorm\NoReturn;
 
@@ -11,16 +13,19 @@
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
-	use Proj\Units\Consts;
+	use Base\Editor\EditorMySQLi;
 	use Proj\DBObject;
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Item;
 	use Proj\Admin\Templates\General\Group;
+	use Proj\Admin\Editor;
 
 	class General extends Structure\General {
 		use Instance;
 
 		private DBObject $db;
+		private EditorMySQLi $editor_image;
+		private EditorMySQLi $editor_text;
 
 		private Action $site;
 		private Action $out_head;
@@ -31,8 +36,10 @@
 		private Action $db_make;
 
 		private function __construct() {
-			parent::__construct(self::ID, self::NAME);
+			parent::__construct();
 			$this->db = DBObject::instance();
+			$this->editor_image = new Editor\General\Image(self::NAME, $this->table_image);
+			$this->editor_text = new Editor\General\Text(self::NAME, $this->table_text);
 
 			$this->out_head 	= new Action();
 			$this->out_menu 	= new Action();
@@ -59,6 +66,12 @@
 				Group::ToVar('База данных', [
 					$this->db_struct->GetLink('Структура'),
 					$this->db_check->GetLink('Проверить')
+				])
+			);
+			Layout::instance()->menu->Push(
+				Group::ToVar('Другое', [
+					$this->editor_image->select->GetLink('Список изображений', ['page' => 1]),
+					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
 				])
 			);
 		}
