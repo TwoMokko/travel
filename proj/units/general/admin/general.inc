@@ -38,8 +38,8 @@
 		private function __construct() {
 			parent::__construct();
 			$this->db = DBObject::instance();
-			$this->editor_image = new Editor\General\Image(self::NAME, $this->table_image);
-			$this->editor_text = new Editor\General\Text(self::NAME, $this->table_text);
+			$this->editor_image = new Editor\General\Image(self::NAME . '_image', $this->table_image);
+			$this->editor_text = new Editor\General\Text(self::NAME . '_text', $this->table_text);
 
 			$this->out_head 	= new Action();
 			$this->out_menu 	= new Action();
@@ -69,11 +69,22 @@
 				])
 			);
 			Layout::instance()->menu->Push(
-				Group::ToVar('Другое', [
+				Group::ToVar('Изображения и текста', [
 					$this->editor_image->select->GetLink('Список изображений', ['page' => 1]),
+					$this->editor_image->create->GetLink('Добавить изображение', ['page' => 1]),
 					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
+					$this->editor_text->create->GetLink('Добавить текст', ['page' => 1]),
 				])
 			);
+
+//			Layout::instance()->menu->Push(
+//				Group::ToVar('Текста', [
+////					$this->editor_image->select->GetLink('Список изображений', ['page' => 1]),
+////					$this->editor_image->create->GetLink('Добавить изображение', ['page' => 1]),
+//					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
+//					$this->editor_text->create->GetLink('Добавить текст', ['page' => 1]),
+//				])
+//			);
 		}
 
 		public function OutFooter() {

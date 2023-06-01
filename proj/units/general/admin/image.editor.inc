@@ -18,13 +18,12 @@
 
 		protected function Where(array $params): array {
 			return [
-				'`state` != ' . Consts\General::STATES['delete']
+				'`state` != ' . Consts\General::STATE_DELETE
 			];
 		}
 
 		protected function Order(): array {
 			return [
-				'`date_create` DESC',
 				'`id` ASC'
 			];
 		}

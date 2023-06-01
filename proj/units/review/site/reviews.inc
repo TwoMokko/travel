@@ -14,8 +14,10 @@
 	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
+	use Proj\Site;
 	use Proj\Site\Templates\Layout;
 	use Proj\Site\Templates\Reviews\Lists;
+	use Proj\Site\Templates\General;
 
 	class Reviews extends Units implements Consts\Reviews {
 		use Instance;
@@ -40,7 +42,7 @@
 
 			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
 			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
-			Controller::instance()->view->Push($this->for_list, [$this, 'ForList'], [$this, 'SetSeoForReview']);
+			Controller::instance()->view->Push($this->for_list, [$this, 'ForList'], [$this, 'SetSeoForReview'], [$this, 'Header']);
 			Controller::instance()->view->Push($this->get, [$this, 'OnReview']);
 			Controller::instance()->work->Push($this->add, [$this, 'AddReview']);
 		}
@@ -72,6 +74,12 @@
 			$items = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(Lists::ToVarGrid($items));
+		}
+
+		public function Header() {
+			$image = Site\Units\General::instance()->GetImage('review');
+			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Отзывы', 'Возможно, текст'));
 		}
 
 		#[NoReturn] public function OnReview(): void {

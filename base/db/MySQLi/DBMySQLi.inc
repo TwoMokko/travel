@@ -94,6 +94,14 @@
 		}
 
 		/**
+		 * Возвращает последний запрос
+		 * @return string | bool
+		 */
+		public function GetLastQuery(): string | bool {
+			return end($this->history);
+		}
+
+		/**
 		 * Вставка записи
 		 * @param string $tablename - Имя таблицы
 		 * @param array $data - Данные

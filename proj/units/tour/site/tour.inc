@@ -17,6 +17,7 @@
 	use Proj\Site\Templates\Tour\Carousel;
 	use Proj\Units\Consts;
     use Proj\DBQuery;
+    use Proj\Site;
     use Proj\Site\Templates\Layout;
     use Proj\Site\Templates\Tour\Select;
     use Proj\Site\Templates\Tour\Types;
@@ -101,7 +102,9 @@
         }
 
         public function HeaderForAll() {
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'Путешествия', 'Возможно, текст'));
+			$image = Site\Units\General::instance()->GetImage('tour');
+			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Путешествия', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {
@@ -114,8 +117,11 @@
             $result = $this->db->Query("SELECT `tour`.`date`, `group`.`name` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`id` = {$id}) AND (`tour`.`state` = {$state})");
             $item = $this->db->Fetch($result);
 
-            $image = 'safdzssad';
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar($image, $item['name'], $item['date']));
+			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `tour` WHERE `id` = '{$id}'");
+			$image = $this->db->Fetch($result)['image'];
+//			$image = $this->db->SelectOneFieldCalc(self::TABLES['tour'], "CONCAT(`hash`, '.', `id`, '.', `ext`)", 'image', "`id` = '{$id}'");
+			$path = Consts\Tour::PATH_TOUR_RELATIVE . $image;
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['name'], $item['date']));
         }
 
         public function Item(): void {

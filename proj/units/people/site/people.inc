@@ -8,14 +8,14 @@
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
-	use Base\Units;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
+	use Proj\Site\Units;
 	use Proj\Site\Templates\Layout;
 	use Proj\Site\Templates\People\Team;
     use Proj\Site\Templates\General;
 
-	class People extends Units implements Consts\People {
+	class People extends \Base\Units implements Consts\People {
 		use Instance;
 
 		private DBQuery $db;
@@ -32,8 +32,9 @@
 		}
 
         public function Header() {
-
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'О нас', 'Возможно, текст'));
+			$image = Units\General::instance()->GetImage('about');
+			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'О нас', 'Возможно, текст'));
         }
 
 		public function Team(): void {

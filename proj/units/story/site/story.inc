@@ -14,6 +14,7 @@
 	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
+	use Proj\Site;
 	use Proj\Site\Templates\Layout;
 	use Proj\Site\Templates\Story\All;
 	use Proj\Site\Templates\Story\Show;
@@ -39,18 +40,27 @@
 		}
 
         public function HeaderForAll() {
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'Приключения', 'Возможно, текст'));
+			$image = Site\Units\General::instance()->GetImage('story');
+			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Приключения', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {
             if (!$id = GetInt('id')) die;//TODO 404
 
-            $state = self::STATE_ACTIVE;
+			$image = Site\Units\General::instance()->GetImage('story');
+			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Приключения', 'Возможно, текст'));
 
-            $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
-
-            $image = 'safdzssad';
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar($image, $item['header'], ''));
+//            $state = self::STATE_ACTIVE;
+//
+//            $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
+//
+//			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `story` WHERE `id` = '{$id}'");
+//			$image = $this->db->Fetch($result)['image'];
+////			$image = $this->db->SelectOneFieldCalc(self::TABLES['story'], "CONCAT(`hash`, '.', `id`, '.', `ext`)", 'image', "`id` = '{$id}'");
+//			$path = Consts\Story::PATH_COVER_RELATIVE . $image;
+//            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['header'], ''));
         }
 
 		public function All(): void {

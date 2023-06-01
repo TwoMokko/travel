@@ -16,6 +16,7 @@
 	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\DBQuery;
+	use Proj\Site;
 	use Proj\Site\Templates\Layout;
 	use Proj\Site\Templates\photo\All;
 	use Proj\Site\Templates\photo\Show;
@@ -49,7 +50,9 @@
 		}
 
 		public function HeaderForAll() {
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar('safdzssad', 'Фотографии', 'Возможно, текст'));
+			$image = Site\Units\General::instance()->GetImage('photo');
+			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Фотографии', 'Возможно, текст'));
 		}
 
 		public function HeaderForItem() {

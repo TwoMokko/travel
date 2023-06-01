@@ -22,8 +22,8 @@
 			$this->table_text = new TableMySQLi(self::TABLES['text'], $this->db);
 			$this->table_text->id('id');
 			$this->table_text->uint8('state');
-			$this->table_text->timestamp('date_create');
-			$this->table_text->timestamp('date_modify');
+//			$this->table_text->timestamp('date_create');
+//			$this->table_text->timestamp('date_modify');
 			$this->table_text->string('alias', 20);
 			$this->table_text->text('text');
 

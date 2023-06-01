@@ -104,6 +104,12 @@
 			Template::instance()->SetTitle('О нас');
 			Template::instance()->SetDescription('');
 		}
+
+		public function GetImage(string $name): string {
+			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `general_image` WHERE `name` = '{$name}'");
+			return $this->db->Fetch($result)['image'];
+		}
+
 	}
 
 	General::init();
