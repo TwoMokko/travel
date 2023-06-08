@@ -41,16 +41,14 @@
 
         public function HeaderForAll() {
 			$image = Site\Units\General::instance()->GetImage('story');
-			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Приключения', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Приключения', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {
             if (!$id = GetInt('id')) die;//TODO 404
 
 			$image = Site\Units\General::instance()->GetImage('story');
-			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Приключения', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Приключения', 'Возможно, текст'));
 
 //            $state = self::STATE_ACTIVE;
 //

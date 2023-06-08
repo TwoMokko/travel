@@ -57,7 +57,7 @@
 			return [
 				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\General::STATES_RU),
 				'name'    	=> new Skins\Browse\Text('Имя'),
-				'cover'     => new Skins\Browse\Image('Картинка', Consts\General::PATH_HEADER_RELATIVE)
+				'cover'     => new Skins\Browse\Image('Картинка', Consts\General::PATH_IMAGE_RELATIVE)
 			];
 		}
 
@@ -110,7 +110,7 @@
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\General::PATH_HEADER . $old_file);
+				if ($old_file) unlink(Consts\General::PATH_IMAGE . $old_file);
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
@@ -123,7 +123,7 @@
 		private function SaveFile(int $id): array {
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
-			$dir = Consts\General::PATH_HEADER;
+			$dir = Consts\General::PATH_IMAGE;
 			$hash = hash_file('md5', $temp_path);
 			$info = pathinfo($temp_name);
 			$ext = $info['extension'];

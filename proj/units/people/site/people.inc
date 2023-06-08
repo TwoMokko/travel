@@ -33,12 +33,16 @@
 
         public function Header() {
 			$image = Units\General::instance()->GetImage('about');
-			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'О нас', 'Возможно, текст'));
+            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'О нас', 'Возможно, текст'));
         }
 
 		public function Team(): void {
 			$state = self::STATE_ACTIVE;
+
+//			$table_people = self::TABLES['people'];
+//			$table_image = Consts\General::TABLES['image'];
+//			$result = $this->db->Query("SELECT `people`.`id`, `people`.`name`, `people`.`text`, `people`.`number`, `people`.`link_vk`, `people`.`link_wa`, CONCAT(`people`.`hash`, '.', `people`.`id`, '.', `people`.`ext`) AS `image`, CONCAT(`image`.`hash`, '.', `image`.`id`, '.', `image`.`ext`) AS `image_about` FROM `{$table_people}` AS `people` LEFT JOIN `{$table_image}` AS `image` ON (`image`.`name` = 'about_description') WHERE `people`.`state` = {$state}");
+
 			$result = $this->db->Select(self::TABLES['people'], ['id', 'name', 'text', 'number', 'link_vk', 'link_wa'], "`state` = {$state}", '`date_create`', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 

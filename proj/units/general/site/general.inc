@@ -96,8 +96,9 @@
 			$page_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_header')") ?: '';
 			$page_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_text')") ?: '';
 			$page_about_mini_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_mini_text')") ?: '';
+			$image = $this->GetImage('about_description');
 
-			Layout::instance()->main->Push(Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text));
+			Layout::instance()->main->Push(Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $image));
 		}
 
 		public function SetSeoForAbout() {
@@ -106,8 +107,11 @@
 		}
 
 		public function GetImage(string $name): string {
-			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `general_image` WHERE `name` = '{$name}'");
-			return $this->db->Fetch($result)['image'];
+			return Consts\General::PATH_IMAGE_RELATIVE . $this->db->SelectOneFieldCalc(self::TABLES['image'], "CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`", 'image',  "`name` = '{$name}'");
+		}
+
+		public function GetText(string $alias): string {
+			return $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = '{$alias}')") ?: '';
 		}
 
 	}

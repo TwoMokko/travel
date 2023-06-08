@@ -103,10 +103,10 @@
 			];
 
 			return [
-				'state' 	=> new Skins\Edit\Select('form[state]', 'Состояние', $states),
-				'header' 	=> new Skins\Edit\Text('form[header]', 'Заголовок'),
-				'cover' 	=> new Skins\Edit\File('form[cover]', 'Обложка', 'Выберите обложку', '.jpg, .jpeg, .png'),
-                'photos' 	=> new Skins\Edit\Uploader('photos', 'Фотографии', $this->photo_load->GetHref(['uid' => '', 'id' => $id]), $this->photo_del->GetHref(),  Consts\Photo::PATH_SHOW_RELATIVE, 'Выберите фотографии', '.jpg, .jpeg, .png', $photos)
+				'state' 	=> new Skins\Edit\Select('Состояние', 'form[state]', $states),
+				'header' 	=> new Skins\Edit\Text('Заголовок', 'form[header]'),
+				'cover' 	=> new Skins\Edit\File('Обложка', 'form[cover]', 'Выберите обложку', '.jpg, .jpeg, .png'),
+                'photos' 	=> new Skins\Edit\Uploader('Фотографии', 'photos', $this->photo_load->GetHref(['uid' => '', 'id' => $id]), $this->photo_del->GetHref(),  Consts\Photo::PATH_SHOW_RELATIVE, 'Выберите фотографии', '.jpg, .jpeg, .png', $photos)
 			];
 		}
 
@@ -148,7 +148,7 @@
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\Photo::PATH_COVER . $old_file);
+				if ($old_file && file_exists(Consts\Photo::PATH_COVER . $old_file)) unlink(Consts\Photo::PATH_COVER . $old_file);
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
@@ -214,7 +214,7 @@
             $dir = Consts\Photo::PATH_SHOW;
             $name = $this->table_show->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
 
-            unlink($dir . $name);
+            if (file_exists($dir . $name)) unlink($dir . $name);
             $this->table_show->Delete("`id` = {$id}");
 
             SendJSONSuccess([]);

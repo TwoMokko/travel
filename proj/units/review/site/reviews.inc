@@ -78,8 +78,7 @@
 
 		public function Header() {
 			$image = Site\Units\General::instance()->GetImage('review');
-			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Отзывы', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Отзывы', 'Возможно, текст'));
 		}
 
 		#[NoReturn] public function OnReview(): void {

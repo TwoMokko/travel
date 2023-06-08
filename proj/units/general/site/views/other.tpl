@@ -37,13 +37,13 @@
             </div>
 		<?php }
 
-		public static function AboutPage(string $header, string $text, string $mini_text): string {
+		public static function AboutPage(string $header, string $text, string $mini_text, string $image): string {
 			Template::Start();
-			self::RenderAboutPage($header, $text, $mini_text);
+			self::RenderAboutPage($header, $text, $mini_text, $image);
 			return Template::Read();
 		}
 
-		public static function RenderAboutPage(string $header, string $text, string $mini_text): void { ?>
+		public static function RenderAboutPage(string $header, string $text, string $mini_text, string $image): void { ?>
 
             <div class = "page_about_us">
                 <div class = "about_header block p">
@@ -52,7 +52,7 @@
                         <div><?= nl2br($text); ?></div>
                         <div class = "right_text"><?= nl2br($mini_text); ?></div>
                     </div>
-                    <div></div>
+                    <div style = "background-image: url('<?= $image; ?>');"></div>
                 </div>
                 <div class = "block p"">
                 <div class = "play">

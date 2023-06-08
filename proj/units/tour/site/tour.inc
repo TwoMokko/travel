@@ -103,8 +103,7 @@
 
         public function HeaderForAll() {
 			$image = Site\Units\General::instance()->GetImage('tour');
-			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Путешествия', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Путешествия', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {

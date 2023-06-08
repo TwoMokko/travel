@@ -51,8 +51,7 @@
 
 		public function HeaderForAll() {
 			$image = Site\Units\General::instance()->GetImage('photo');
-			$path = Consts\General::PATH_HEADER_RELATIVE . $image;
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", 'Фотографии', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Фотографии', 'Возможно, текст'));
 		}
 
 		public function HeaderForItem() {
@@ -113,7 +112,7 @@
 //
 //			if (!$photo_id) return;
 
-			$result = $this->db->Select(self::TABLES['photo_show'], ['id'], "(`state` = {$state})", '`date_create` DESC', 10, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['photo_all'], ['id'], "(`state` = {$state})", '`date_create` DESC', 10, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$data = $this->db->FetchAll($result);
 
 			if (!$data) return;
