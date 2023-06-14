@@ -88,4 +88,20 @@
 			$this->structure[$name] = $field;
 		}
 
+		/**
+		 * Возвращает историю запросов
+		 * @return array
+		 */
+		public function GetQueryList(): array {
+			return $this->db->GetQueryList();
+		}
+
+		/**
+		 * Возвращает последний запрос
+		 * @return string | bool
+		 */
+		public function GetLastQuery(): string | bool {
+			return $this->db->GetLastQuery();
+		}
+
 	}

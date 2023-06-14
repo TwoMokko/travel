@@ -16,6 +16,8 @@
         protected TableMySQLi $table_tour;
         protected TableMySQLi $table_group;
         protected TableMySQLi $table_program;
+        protected TableMySQLi $table_expense;
+        protected TableMySQLi $table_additional_expense;
 
         protected function __construct() {
 			parent::__construct(self::ID, self::NAME);
@@ -58,7 +60,15 @@
             $this->table_program->uint8('day');
             $this->table_program->string('description', 1000);
 
-            $this->db->PushTables($this->table_types, $this->table_group, $this->table_tour, $this->table_program);
+            $this->table_expense = new TableMySQLi(self::TABLES['expense'], $this->db);
+            $this->table_expense->uint32('tour_id');
+            $this->table_expense->string('expense', 1000);
+
+            $this->table_additional_expense = new TableMySQLi(self::TABLES['additional_expense'], $this->db);
+            $this->table_additional_expense->uint32('tour_id');
+            $this->table_additional_expense->string('additional_expense', 1000);
+
+            $this->db->PushTables($this->table_types, $this->table_group, $this->table_tour, $this->table_program, $this->table_expense, $this->table_additional_expense);
 		}
 
 	}

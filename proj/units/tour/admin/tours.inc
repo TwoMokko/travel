@@ -29,7 +29,7 @@
 			parent::__construct();
 
 			$this->editor_tour_types = new Editor\TypeTour(self::NAME . '_type', $this->table_types);
-			$this->editor_tour_group = new Editor\TourGroup(self::NAME . '_group', $this->table_group);
+			$this->editor_tour_group = new Editor\TourGroup(self::NAME . '_group', [$this->table_group, $this->table_expense, $this->table_additional_expense]);
 			$this->editor_tour = new Editor\Tour(self::NAME, [$this->table_tour, $this->table_program]);
 
 			$this->out_menu = new Action();

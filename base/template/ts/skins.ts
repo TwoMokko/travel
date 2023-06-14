@@ -53,21 +53,22 @@ namespace Base {
 				let $elem = $();
 				for (let i in this.columns) {
 					let value = values ? values[this.columns[i].name] : '';
+					let name = this.columns[i].name ? `[${this.columns[i].name}]` : '';
 					switch (this.columns[i].type) {
-						case 'number': $elem = this.GetInput(this.columns[i], this.number, value); break;
-						case 'textarea': $elem = this.GetTextarea(this.columns[i], this.number, value); break;
+						case 'text': case 'number': $elem = this.GetInput(this.columns[i], this.number, value, name); break;
+						case 'textarea': $elem = this.GetTextarea(this.columns[i], this.number, value, name); break;
 					}
 					tr.append($('<td/>').append($elem));
 				}
 				tr.append($('<td/>').append($('<input/>', {type: 'button', value: 'удалить' })).on('click', () => tr.remove() ));
 			}
 
-			private GetInput(params: TypeColumn, iter: number, value: string = ''): JQuery {
-				return $('<input/>', {type: params.type, name: `${this.name}[${iter}][${params.name}]`, value: value});
+			private GetInput(params: TypeColumn, iter: number, value: string = '', name: string = ''): JQuery {
+				return $('<input/>', {type: params.type, name: `${this.name}[${iter}]${name}`, value: value});
 			}
 
-			private GetTextarea(params: TypeColumn, iter: number, value: string = ''): JQuery {
-				return $('<textarea/>', {name: `${this.name}[${iter}][${params.name}]`, text: value});
+			private GetTextarea(params: TypeColumn, iter: number, value: string = '', name: string = ''): JQuery {
+				return $('<textarea/>', {name: `${this.name}[${iter}]${name}`, text: value});
 			}
 
 		}

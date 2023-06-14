@@ -8,9 +8,11 @@
 
         const TABLES = [
             'tour'                      => self::NAME,
-            'group'                      => self::NAME . '_group',
+            'group'                     => self::NAME . '_group',
             'type'                      => self::NAME . '_type',
-            'program'                   => self::NAME . '_program'
+            'program'                   => self::NAME . '_program',
+            'expense'                   => self::NAME . '_expense',
+            'additional_expense'        => self::NAME . '_additional_expense'
         ];
 
 		const STATE_ERROR				= 0;
