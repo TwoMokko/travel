@@ -129,13 +129,29 @@
 //            $result = $this->db->Select(self::TABLES['tour'], ['id', 'name', 'description', 'price', 'duration', 'video'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $table_tour = self::TABLES['tour'];
             $table_group = self::TABLES['group'];
-            $result = $this->db->Query("SELECT `tour`.*, `group`.`name`, `group`.`video`, `group`.`photo_id` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`)");
+            $result = $this->db->Query("SELECT `tour`.*, `group`.`name`, `group`.`video`, `group`.`photo_id` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`id` = {$id})");
             $data = $this->db->Fetch($result);
+
+			Debug($id, 'Tour');
+			Debug($data['gid'], 'Group');
 
             $result_program = $this->db->Select(self::TABLES['program'], ['day', 'description'], "`tour_id` = {$id}");
             $program = $this->db->FetchAll($result_program);
 
-            Layout::instance()->main->Push(Item::ToVar($data, $program));
+            $result_expense = $this->db->Select(self::TABLES['expense'], ['expense'], "`tour_id` = {$data['gid']}");
+            $expense = $this->db->FetchAll($result_expense, function (& $items, $item) {
+				$items[] = $item['expense'];
+			});
+
+            $result_additional_expense = $this->db->Select(self::TABLES['additional_expense'], ['additional_expense'], "`tour_id` = {$data['gid']}");
+            $additional_expense = $this->db->FetchAll($result_additional_expense, function (& $items, $item) {
+				$items[] = $item['additional_expense'];
+			});
+
+//			$expense = $this->db->SelectOneField(self::TABLES['expense'], 'expense', "`tour_id` = {$id}");
+//			$additional_expense = $this->db->SelectOneField(self::TABLES['additional_expense'], 'additional_expense', "`tour_id` = {$id}");
+
+            Layout::instance()->main->Push(Item::ToVar($data, $program, $expense, $additional_expense));
         }
 
 		public function Carousel(): void {

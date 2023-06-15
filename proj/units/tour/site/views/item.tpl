@@ -6,13 +6,13 @@
 
     abstract class Item {
 
-        public static function ToVar(array $data, array $program): string {
+        public static function ToVar(array $data, array $program, array $expense, array $additional_expense): string {
 			Template::Start();
-           self::Render($data, $program);
+        	self::Render($data, $program, $expense, $additional_expense);
             return Template::Read();
         }
 
-        public static function Render($data, $program): void { ?>
+        public static function Render(array $data, array $program, array $expense, array $additional_expense): void { ?>
             <div class = "about_tour block p">
                 <div><?= $data['description']; ?></div>
                 <div class = "about_mini">
@@ -34,45 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class = "tour_price block p">
-                <div>Что входит в стоимость</div>
-                <div>
-                    <div>
-                        <div>Цена <?= $data['price']; ?> ₽ включает:</div>
-                        <div class = "list">
-                            <div>
-                                <div>-</div>
-                                <div>Трансфер с места сбора и обратно</div>
-                            </div>
-                            <div>
-                                <div>-</div>
-                                <div>Питание</div>
-                            </div>
-                            <div>
-                                <div>-</div>
-                                <div>Проживание в домике</div>
-                            </div>
-                            <div>
-                                <div>-</div>
-                                <div>Обслуживание по программе</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>Дополнительные расходы:</div>
-                        <div class = "list">
-                            <div>
-                                <div>-</div>
-                                <div>Билет на самолет/поезд до места встречи группы в Иркутске</div>
-                            </div>
-                            <div>
-                                <div>-</div>
-                                <div>Карманные расходы</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<?php if ($expense && $additional_expense) self::Expenses($data, $expense, $additional_expense); ?>
+			<?php /*if ($expense && $additional_expense) self::Expenses($data, $expense, $additional_expense);*/ ?>
             <?php if ($program) self::Program($program); ?>
 <!--            <div class = "tour_photo block p">-->
 <!--                <div class = "header">Фотографии</div>-->
@@ -186,22 +149,52 @@
 <!--            </div>-->
         <?php }
 
-        public static function Item($item): void { ?>
-            <div>
-                <div><?= $item['day']; ?></div>
-                <div><?= $item['description']; ?></div>
-            </div>
+        public static function Expense(string $expense): void { ?>
+			<div>
+				<div>-</div>
+				<div><?= $expense; ?></div>
+			</div>
         <?php }
 
-        public static function Program($program): void { ?>
+        public static function AdditionalExpense(string $expense): void { ?>
+			<div>
+				<div>-</div>
+				<div><?= $expense; ?></div>
+			</div>
+        <?php }
+
+		public static function ProgramItem($item): void { ?>
+			<div>
+				<div><?= $item['day']; ?></div>
+				<div><?= $item['description']; ?></div>
+			</div>
+		<?php }
+
+        private static function Program(array $program): void { ?>
             <div class = "tour_program block p">
                 <div class = "header">Маршрут</div>
                 <div>
                     <div class = "map"></div>
-                    <div class = "days"><?php foreach ($program as $item) self::Item($item); ?></div>
+                    <div class = "days"><?php foreach ($program as $item) self::ProgramItem($item); ?></div>
                 </div>
 
             </div>
+        <?php }
+
+        public static function Expenses($data, $expenses, $additional_expenses): void { ?>
+			<div class = "tour_price block p">
+				<div>Что входит в стоимость</div>
+				<div>
+					<div>
+						<div>Цена <?= $data['price']; ?> ₽ включает:</div>
+						<div class = "list"><?php foreach ($expenses as $item) self::Expense($item); ?></div>
+					</div>
+					<div>
+						<div>Дополнительные расходы:</div>
+						<div class = "list"><?php foreach ($additional_expenses as $item) self::AdditionalExpense($item); ?></div>
+					</div>
+				</div>
+			</div>
         <?php }
 
     }

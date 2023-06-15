@@ -78,28 +78,28 @@
 				'video' 				=> new Skins\Edit\Text('Ссылка видео', 'form[video]'),
 				'photo_id' 				=> new Skins\Edit\Select('Фотоальбом', 'form[photo_id]', Units\Photo::instance()->GetAlbums()),
 				'expense'           	=> new Skins\Edit\Table('Входит в стоимость', 'form[expense]', [
-					'expense' => ['alias' => 'входит в стоимость', 'type' => 'text', 'name' => '']
+					'expense' => ['alias' => 'входит в стоимость', 'type' => 'text', 'name' => 'expense']
 				]),
 				'additional_expense'	=> new Skins\Edit\Table('Дополнительные расходы', 'form[additional_expense]', [
-					'additional_expense' => ['alias' => 'дополнительные расходы', 'type' => 'text', 'name' => '']
+					'additional_expense' => ['alias' => 'дополнительные расходы', 'type' => 'text', 'name' => 'additional_expense']
 				])
 			];
 		}
 
-//		public function PrepareOnCreate(array & $data): void {
-//			$data['state'] = [
-//				Consts\Tour::STATE_DRAFT	=> 'Черновик',
-//				Consts\Tour::STATE_ACTIVE	=> 'Активная',
-//				Consts\Tour::STATE_INACTIVE	=> 'Не активная',
-//			];
-//		}
+		public function PrepareOnCreate(array & $data): void {
+			$data['state'] = [
+				Consts\Tour::STATE_DRAFT	=> 'Черновик',
+				Consts\Tour::STATE_ACTIVE	=> 'Активная',
+				Consts\Tour::STATE_INACTIVE	=> 'Не активная',
+			];
+		}
 
 		public function PrepareOnUpdate(int $id, array & $item, array & $data): void {
-//			$data['state'] = [
-//				Consts\Tour::STATE_DRAFT	=> 'Черновик',
-//				Consts\Tour::STATE_ACTIVE	=> 'Активная',
-//				Consts\Tour::STATE_INACTIVE	=> 'Не активная',
-//			];
+			$data['state'] = [
+				Consts\Tour::STATE_DRAFT	=> 'Черновик',
+				Consts\Tour::STATE_ACTIVE	=> 'Активная',
+				Consts\Tour::STATE_INACTIVE	=> 'Не активная',
+			];
 
 			$result = $this->table_expense->Select(['expense'], "`tour_id`={$id}");
 			$item['expense'] = $this->table_expense->FetchAll($result);
@@ -162,7 +162,7 @@
 		private function SaveExpense(array $items, int $id): void {
 			if ($items) {
 				$valuesItems = [];
-				foreach ($items as $item) $valuesItems[] = "({$id}, {$item})";
+				foreach ($items as $item) $valuesItems[] = "({$id}, '{$item['expense']}')";
 				$values = implode(', ', $valuesItems);
 				$this->table_expense->Query("INSERT INTO `{$this->table_expense->GetName()}` (`tour_id`, `expense`) VALUES {$values}");
 			}
@@ -171,7 +171,7 @@
 		private function SaveAdditionalExpense(array $items, int $id): void {
 			if ($items) {
 				$valuesItems = [];
-				foreach ($items as $item) $valuesItems[] = "({$id}, {$item})";
+				foreach ($items as $item) $valuesItems[] = "({$id}, '{$item['additional_expense']}')";
 				$values = implode(', ', $valuesItems);
 				$this->table_additional_expense->Query("INSERT INTO `{$this->table_additional_expense->GetName()}` (`tour_id`, `additional_expense`) VALUES {$values}");
 			}
