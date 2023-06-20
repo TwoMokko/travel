@@ -49,7 +49,7 @@ declare function ToDrive(tour_id: any): void;
  * Вывод формы обратной связи через кнопку "поехать" в "tours"
  * @constructor
  */
-declare function LeaveReview(): void;
+declare function LeaveReview(avatars: any): void;
 declare function ShowVideo(): void;
 declare class Validation {
     static Form($form: JQuery): boolean;

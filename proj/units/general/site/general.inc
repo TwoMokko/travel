@@ -31,6 +31,7 @@
 		private Action $tour;
 		private Action $footer;
 		private Action $set_data_page;
+		private Action $scroll_top;
 		private Action $set_seo_main;
 		private Action $about_main;
 		private Action $about_page;
@@ -40,6 +41,7 @@
 			$this->db = DBQuery::instance();
 
 			$this->set_data_page 	= new Action('always', 'always');
+			$this->scroll_top 	    = new Action('always', 'always');
 			$this->set_seo_main		= new Action();
 			$this->about_main		= new Action();
 			$this->about_page		= new Action('about');
@@ -48,6 +50,7 @@
 			$this->footer 			= new Action('always', 'always');
 
 			Controller::instance()->view->Push($this->set_data_page, [$this, 'SetDataPage']);
+			Controller::instance()->view->Push($this->scroll_top, [$this, 'ScrollTop']);
 			Controller::instance()->view->Push($this->set_seo_main, [$this, 'SetSeoForMain']);
 			Controller::instance()->view->Push($this->about_main, [$this, 'AboutMain'], [$this, 'StoryMain']);
 			Controller::instance()->view->Push($this->about_page, [$this, 'AboutPage'], [$this, 'SetSeoForAbout']);
@@ -71,6 +74,10 @@
 			$value = $path ? implode('_', $path) : 'main';
 			Template::instance()->SetDataPage($value);
 		}
+
+        public function ScrollTop() {
+            Layout::instance()->main->Push(Other::ScrollTop());
+        }
 
 		public function SetSeoForMain() {
 			Template::instance()->SetTitle('I Da Travel | Главная');

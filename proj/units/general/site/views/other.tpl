@@ -61,4 +61,17 @@
                 </div>
             </div>
 		<?php }
+
+        public static function ScrollTop(): string {
+            Template::Start();
+            self::RenderScrollTop();
+            return Template::Read();
+        }
+
+
+        public static function RenderScrollTop(): void { ?>
+            <script>
+                $(() => ScrollTop('main'));
+            </script>
+        <?php }
 	}

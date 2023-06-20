@@ -125,17 +125,25 @@ function ToDrive(tour_id) {
  * Вывод формы обратной связи через кнопку "поехать" в "tours"
  * @constructor
  */
-function LeaveReview() {
+function LeaveReview(avatars) {
     let $form = $('<form/>', { class: '', action: '/review/add' });
     let $name = $('<input/>', { name: 'name', class: '', type: 'text', placeholder: 'Имя*', minlength: '3', maxlength: '50' });
     let $text_container = $('<div/>', { class: '' });
     let $text = $('<textarea/>', { name: 'text', class: '', type: 'text', placeholder: 'Напишите отзыв*', rows: '5', minlength: '3', maxlength: '255' });
+    let $avatar_container = $('<span/>', { class: 'avatar_container' });
     let $send = $('<a/>', { class: 'button', text: 'Отправить' });
     $send.on('click', () => {
         if (Validation.Form($form))
             Base.Common.Query.SendForm($form, Success);
     });
-    $form.append($name, $text_container.append($text), $send);
+    for (let i = 0; i < avatars.length; i++) {
+        let $label = $('<label/>', { class: '' });
+        let $ava = $('<div/>', { class: 'ava' });
+        $ava.css('background-color', 'brown');
+        let $radio = $('<input/>', { type: 'radio', class: 'hide' });
+        $avatar_container.append($label.append($ava, $radio));
+    }
+    $form.append($name, $text_container.append($text), $avatar_container, $send);
     let wind = Common.Window.Create('Оставьте отзыв', $form);
     function Success() {
         wind.Close();
@@ -462,15 +470,17 @@ class Menu {
         let $div3 = $('<div/>');
         let $div4 = $('<div/>');
         let $div5 = $('<div/>');
+        let $div6 = $('<div/>');
         let $page1 = $('<a/>', { class: 'page1', text: 'Главная', href: '/' });
         let $page2 = $('<a/>', { class: 'page2', text: 'Путешествия', href: '/tours' });
         let $page3 = $('<a/>', { class: 'page3', text: 'О нас', href: '/about' });
         let $page4 = $('<a/>', { class: 'page4', text: 'Наши приключения', href: '/adventures' });
         let $page5 = $('<a/>', { class: 'page5', text: 'Фотографии', href: '/photo' });
+        let $page6 = $('<a/>', { class: 'page5', text: 'Отзывы', href: '/review' });
         /* Building DOM */
         $('body').append(this.$container.append($space, 
         // $content.append(
-        $close, $pages.append($div1.append($page1), $div2.append($page2), $div3.append($page3), $div4.append($page4), $div5.append($page5))
+        $close, $pages.append($div1.append($page1), $div2.append($page2), $div3.append($page3), $div4.append($page4), $div5.append($page5), $div6.append($page6))
         // )
         ));
         $space.on('click', this.Close.bind(this));

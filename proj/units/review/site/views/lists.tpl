@@ -23,8 +23,8 @@
         public static function Carousel($items): void { ?>
             <div class = "block p reviews">
                 <div>
-                    <div class = "header" onclick = "window.location.href = '<?= Units\Reviews::instance()->for_list->GetPath(); ?>';">Отзывы</div>
-                    <span onclick = "LeaveReview();" title = "оставить отзыв"></span>
+                    <a class = "header" onclick = "window.location.href = '<?= Units\Reviews::instance()->for_list->GetPath(); ?>';" href = "<?= Units\Reviews::instance()->for_list->GetPath(); ?>">Отзывы</a>
+                    <span onclick = "LeaveReview([1, 2, 3, 4, 5]);" title = "оставить отзыв"></span>
                 </div>
                 <div id = "review" class = "carousel">
                     <?php foreach ($items as $item) self::Item($item); ?>

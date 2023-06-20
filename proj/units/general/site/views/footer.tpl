@@ -3,6 +3,7 @@
 	namespace Proj\Site\Templates\General;
 
 	use Base\Templates\Template;
+    use Proj\Site\Units;
 
 	abstract class Footer {
 
@@ -32,10 +33,11 @@
 						</div>
 						<div  class = "footer_menu">
 							<div><a href = "/">Главная</a></div>
-							<div><a href = "/tours">Путешествия</a></div>
-							<div><a href = "/about">О нас</a></div>
-							<div><a href = "/stories">Наши приключения</a></div>
-							<div><a href = "/photo">Фотографии</a></div>
+							<div><a href = "<?= Units\Tour::instance()->all->GetPath(); ?>">Путешествия</a></div>
+							<div><a href = "<?= Units\People::instance()->people->GetPath(); ?>">О нас</a></div>
+							<div><a href = "<?= Units\Story::instance()->all->GetPath(); ?>">Наши приключения</a></div>
+							<div><a href = "<?= Units\Photo::instance()->all->GetPath(); ?>">Фотографии</a></div>
+							<div><a href = "<?= Units\Reviews::instance()->for_list->GetPath(); ?>">Отзывы</a></div>
 						</div>
 					</div>
 					<form action = "/feedback">

@@ -6,7 +6,7 @@
 .windows {
 	@mixin ViewWindow($params: null) {
 		$default: (
-				width_content: 240px,
+				width_content: 340px,
 		);
 		.instance {
 			&:last-child { background-color: #00000070; }
@@ -43,7 +43,8 @@
 		}
 	}
 
-	@include MixScreen(null, $size3XL) { @include ViewWindow((width_content: 180px)); }
-	@include MixScreen($size3XL, null) { @include ViewWindow(()); }
+	@include MixScreen(null, $sizeXS) { @include ViewWindow((width_content: 140px)); }
+	@include MixScreen($sizeXS, $sizeM) { @include ViewWindow((width_content: 180px)); }
+	@include MixScreen($sizeM, null) { @include ViewWindow(()); }
 }
 
