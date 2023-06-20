@@ -44,7 +44,7 @@ declare function Switcher(selector_menu: any, selector_list: any): void;
  * Вывод формы обратной связи через кнопку "поехать" в "tours"
  * @constructor
  */
-declare function ToDrive(): void;
+declare function ToDrive(tour_id: any): void;
 /**
  * Вывод формы обратной связи через кнопку "поехать" в "tours"
  * @constructor

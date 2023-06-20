@@ -50,7 +50,7 @@
 			];
 		}
 
-		protected function FieldsBrowse(array $params) : array {
+		protected function FieldsBrowse(array $data) : array {
 			return [
                 'state'    	 	    => new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
                 'name'    		    => new Skins\Browse\Text('Заголовок'),

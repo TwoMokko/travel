@@ -9,7 +9,8 @@
 	use Base\DB\TableMySQLi;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
-	use Proj\Units\Consts;
+    use Proj\Admin\Units\Tours;
+    use Proj\Units\Consts;
 
 	class Feedback extends EditorMySQLi {
 		public Action $do_verified;
@@ -59,7 +60,15 @@
 			$this->titleDoDelete = 'Удалено';
 		}
 
-		protected function FieldsSelect(array $params): array {
+        protected function PrepareOnBrowse(int $id, array &$item, array &$data): void {
+            if (!$item['tour_id']) {$item['tour_id'] = 'С футера'; return; }
+            $tour = Tours::instance()->GetTour($item['tour_id']);
+            $name = Tours::instance()->GetNameGroupTour($tour['gid']);
+            $item['tour_id'] = "{$name} {$tour['date']}";
+
+        }
+
+        protected function FieldsSelect(array $params): array {
 			return [
 				'id' 		=> new Skins\Browse\Text('#'),
 				'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\Feedback::STATES_RU),
@@ -67,9 +76,10 @@
 			];
 		}
 
-		protected function FieldsBrowse(array $params) : array {
+		protected function FieldsBrowse(array $data) : array {
 			return [
 				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\Feedback::STATES_RU),
+				'tour_id' 	=> new Skins\Browse\Text('С какого тура'),
 				'name'    	=> new Skins\Browse\Text('Имя'),
 				'text'      => new Skins\Browse\Text('Текст'),
 				'contact'   => new Skins\Browse\Text('Контакт')

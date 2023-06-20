@@ -276,4 +276,8 @@
 			return $out;
 		}
 
+        public function Escaping(string $str): string {
+            return $this->db->real_escape_string($str);
+        }
+
 	}

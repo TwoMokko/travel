@@ -141,7 +141,7 @@
 		protected function FieldsSelect(array $params): array { return []; }
 		protected function FieldsCreate(array $params): array { return []; }
 		protected function FieldsUpdate(array $params): array { return []; }
-		protected function FieldsBrowse(array $params): array { return []; }
+		protected function FieldsBrowse(array $data): array { return []; }
 
 		protected function RegTitles(): void {  }
 
@@ -229,7 +229,7 @@
 			$data = [];
 
 			$this->PrepareOnBrowse($id, $item, $data);
-            $this->fieldsBrowse = $this->FieldsBrowse([]);
+            $this->fieldsBrowse = $this->FieldsBrowse($data);
 			SendJSONSuccess(['html' => Browse::ToVar($this, $id, $this->fieldsBrowse, $item, $data, $this->titleBrowse)]);
 		}
 

@@ -138,17 +138,18 @@ function Switcher(selector_menu, selector_list) {
  * Вывод формы обратной связи через кнопку "поехать" в "tours"
  * @constructor
  */
-function ToDrive(): void {
-	let $form = $('<form/>', {class : '', action: '//'});
-	let $name = $('<input/>', {name: 'name', class : '', type : 'text', placeholder : 'Имя*', minlength: '3', maxlength: '50'});
-	let $call = $('<input/>', {name: 'contact', class : '', type : 'text', placeholder : 'Способ связи*', minlength: '3', maxlength: '50'});
-	let $send = $('<a/>', {class : 'button', text : 'Отправить'});
+function ToDrive(tour_id): void {
+	let $form = $('<form/>', {class: '', action: '/feedback'});
+	let $name = $('<input/>', {name: 'name', class: '', type: 'text', placeholder: 'Имя*', minlength: '3', maxlength: '50'});
+	let $call = $('<input/>', {name: 'contact', class: '', type: 'text', placeholder: 'Способ связи*', minlength: '3', maxlength: '50'});
+	let $send = $('<a/>', {class: 'button', text: 'Отправить'});
 
 	$send.on('click', () => {
 		if (Validation.Form($form)) Base.Common.Query.SendForm($form, Success);
 	});
 
 	$form.append(
+		$('<input/>', {name: 'tour_id', type: 'hidden', value: tour_id}),
 		$name,
 		$call,
 		$send

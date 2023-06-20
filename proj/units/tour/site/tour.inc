@@ -77,7 +77,10 @@
 
         public function Types(): void {
             $state = self::STATE_ACTIVE;
-            $result = $this->db->Select(self::TABLES['type'], ['id', 'name', 'description', 'alias'], "`state` = {$state}", null, 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+            $table_tour = self::TABLES['tour'];
+            $table_type = self::TABLES['type'];
+            $result = $this->db->Query("SELECT `id`, `name`, `description`, `alias`, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `{$table_type}` WHERE `state` = {$state} AND (SELECT COUNT(*) FROM `{$table_tour}` WHERE `state` = {$state} AND `tid` = `{$table_type}`.`id`) > 0");
+//            $result = $this->db->Select(self::TABLES['type'], ['id', 'name', 'description', 'alias'], "`state` = {$state}", null, 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
             Layout::instance()->main->Push(Types::ToVar($items));
@@ -131,9 +134,6 @@
             $table_group = self::TABLES['group'];
             $result = $this->db->Query("SELECT `tour`.*, `group`.`name`, `group`.`video`, `group`.`photo_id` FROM `{$table_tour}` AS `tour` LEFT JOIN `{$table_group}` AS `group` ON (`tour`.`gid` = `group`.`id`) WHERE (`tour`.`id` = {$id})");
             $data = $this->db->Fetch($result);
-
-			Debug($id, 'Tour');
-			Debug($data['gid'], 'Group');
 
             $result_program = $this->db->Select(self::TABLES['program'], ['day', 'description'], "`tour_id` = {$id}");
             $program = $this->db->FetchAll($result_program);

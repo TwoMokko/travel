@@ -21,8 +21,8 @@
 
         private DBQuery $db;
 
-		private Action $feedback;
-		private Action $for_tour;
+		public Action $feedback;
+        public Action $for_tour;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
@@ -36,6 +36,7 @@
 		}
 
 		#[NoReturn] public function Feedback() {
+            $tour_id = GetInt('tour_id');
 			$name = trim(GetParam('name', ''));
 			$contact = trim(GetParam('contact', ''));
 			$text = trim(GetParam('text', ''));
@@ -44,23 +45,29 @@
             if (mb_strlen($name) > 50) SendJSONError('Имя не более 50 символов');
             if (mb_strlen($contact) < 3) SendJSONError('Контакт не менее 3 символов');
             if (mb_strlen($contact) > 50) SendJSONError('Контакт не более 50 символов');
-            if (mb_strlen($text) < 3) SendJSONError('Текст не менее 3 символов');
+//            if (mb_strlen($text) < 3) SendJSONError('Текст не менее 3 символов');
             if (mb_strlen($text) > 255) SendJSONError('Текст не более 255 символов');
 
-            $data = [
-                'name' => mysqli_real_escape_string($name),
-                'contact' => mysqli_real_escape_string($contact),
-                'text' => mysqli_real_escape_string($text),
-				'state' => Consts\Feedback::STATE_UNVERIFIED
-            ];
-
-            $this->db->Insert(self::TABLES['feedback'], $data);
+            $this->InsertFeedback($tour_id, $this->db->Escaping($name), $this->db->Escaping($contact), $this->db->Escaping($text));
 
 			SendJSONSuccess(null);
 		}
 
+        public function InsertFeedback($tour_id, $name, $contact, $text): void {
+            $data = [
+                'tour_id' => $tour_id,
+                'name' => $name,
+                'contact' => $contact,
+                'text' => $text,
+				'state' => Consts\Feedback::STATE_UNVERIFIED
+            ];
+
+            $this->db->Insert(self::TABLES['feedback'], $data);
+		}
+
         public function ForTour(): void {
-            Layout::instance()->main->Push(ForTour::ToVar());
+            $id = GetInt('id');
+            Layout::instance()->main->Push(ForTour::ToVar($id));
         }
 	}
 

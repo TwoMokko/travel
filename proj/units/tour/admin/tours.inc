@@ -76,6 +76,14 @@
 			});
 		}
 
+        public function GetTour(int $id): array {
+            return $this->table_tour->SelectOne(['date', 'gid'], "`id` = {$id}");
+        }
+
+        public function GetNameGroupTour($id): string {
+            return $this->table_group->SelectOneField('name', "`id` = {$id}");
+        }
+
         public function GetTours(): array {
             $state_active = Consts\Tour::STATE_ACTIVE;
             $state_inactive = Consts\Tour::STATE_INACTIVE;

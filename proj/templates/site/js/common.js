@@ -105,8 +105,8 @@ function Switcher(selector_menu, selector_list) {
  * Вывод формы обратной связи через кнопку "поехать" в "tours"
  * @constructor
  */
-function ToDrive() {
-    let $form = $('<form/>', { class: '', action: '//' });
+function ToDrive(tour_id) {
+    let $form = $('<form/>', { class: '', action: '/feedback' });
     let $name = $('<input/>', { name: 'name', class: '', type: 'text', placeholder: 'Имя*', minlength: '3', maxlength: '50' });
     let $call = $('<input/>', { name: 'contact', class: '', type: 'text', placeholder: 'Способ связи*', minlength: '3', maxlength: '50' });
     let $send = $('<a/>', { class: 'button', text: 'Отправить' });
@@ -114,7 +114,7 @@ function ToDrive() {
         if (Validation.Form($form))
             Base.Common.Query.SendForm($form, Success);
     });
-    $form.append($name, $call, $send);
+    $form.append($('<input/>', { name: 'tour_id', type: 'hidden', value: tour_id }), $name, $call, $send);
     let wind = Common.Window.Create('Оставьте заявку', $form);
     function Success() {
         wind.Close();

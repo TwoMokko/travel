@@ -55,7 +55,7 @@
                     <!--                                <div>Цена</div>-->
                     <div>
                         <?= Tour::instance()->item->GetLink('Подробнее', ['id' => $tour['id']], ['class' => 'button border']); ?>
-                        <a class = "button" onclick = "ToDrive(); event.preventDefault();">Поехать</a>
+                        <a class = "button" onclick = "ToDrive(<?= $tour['id']; ?>); event.preventDefault();">Поехать</a>
                         <!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                     </div>
                 </div>
