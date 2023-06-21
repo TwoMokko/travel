@@ -71,8 +71,9 @@
 
 		public function Show(): void {
 			$state = self::STATE_ACTIVE;
+			$id = GetInt('id');
 
-			$data = $this->db->SelectOne(self::TABLES['story'], ['id', 'header', 'text'], "(`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$data = $this->db->SelectOne(self::TABLES['story'], ['id', 'header', 'text'], "(`state` = {$state}) AND (`id` = {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 
 			Layout::instance()->main->Push(Show::ToVar($data));
 		}

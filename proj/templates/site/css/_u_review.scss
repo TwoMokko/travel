@@ -53,5 +53,6 @@
 .avatar_container {
 	display: flex; flex-wrap: wrap; justify-content: center;
 	> label { cursor: pointer; }
-	.ava { width: 60px; height: 60px; margin: 1px; border-radius: 50%; }
+	.ava { background-size: cover; width: 60px; height: 60px; margin: 2px; border-radius: 50%; opacity: 50%; }
+	.active { opacity: 100%; }
 }

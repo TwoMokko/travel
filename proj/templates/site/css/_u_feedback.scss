@@ -8,8 +8,8 @@
 		$default: (
 				margin: 0 15% 0 45%,
 				display: flex,
-				margin_input: 0 4% 0 0,
-				width_input: 48%,
+				margin_input: 0 8% 0 0,
+				width_input: 50%,
 				width_form: 40%,
 				font_size_text_area: 24px
 
@@ -25,15 +25,21 @@
 					&:nth-of-type(1) {
 						display: GetValue($default, $params, 'display');
 						> div {
-							padding: 16px; background-color: $color_semi_white; border-radius: 24px; width: GetValue($default, $params, 'width_input');
-							&:not(:last-child) { margin: GetValue($default, $params, 'margin_input'); }
-							> input { width: 100%; padding: 0; margin: 0; border-bottom: none; }
+							width: GetValue($default, $params, 'width_input');
+							//padding: 16px; background-color: $color_semi_white; border-radius: 24px; width: GetValue($default, $params, 'width_input');
+							&:not(:last-child) > input { margin: GetValue($default, $params, 'margin_input'); }
+							> input {
+								padding: 16px;
+								background-color: $color_semi_white;
+								border-radius: 24px;
+								//width: 80%;
+								margin: 0; border-bottom: none; }
 						}
 
 					}
 					&:nth-of-type(2) {
-						background-color: $color_semi_white; margin-top: 4%; border-radius: 24px; height: 150px;
-						> textarea { width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; background-color: transparent; border-radius: 24px; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: GetValue($default, $params, 'font_size_text_area'); }
+						margin-top: 4%;
+						> textarea { background-color: $color_semi_white; border-radius: 24px; height: 150px; width: 90%; outline: none; -moz-appearance: none; resize: none; border: none; padding: 16px; font-family: MoshitaMono, sans-serif; font-size: GetValue($default, $params, 'font_size_text_area'); }
 					}
 					&:nth-of-type(3) {
 						margin-top: 8%;

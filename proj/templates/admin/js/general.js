@@ -43,7 +43,7 @@ var Admin;
             }
             static Table($tbody, table) {
                 /* Elements */
-                let $checkbox = $('<input/>', { type: 'checkbox', name: `tables[${table.name}][state]`, value: table.state });
+                let $checkbox = $('<input/>', { type: 'checkbox', name: `tables[${table.name}][action]`, value: table.action });
                 /* Handlers */
                 let OnSelectTable = () => {
                     $(`input[name^="tables[${table.name}]["]`).prop('checked', $checkbox.is(':checked'));
@@ -61,12 +61,12 @@ var Admin;
             }
             static Field($tbody, tablename, field) {
                 /* Elements */
-                let $checkbox = $('<input/>', { type: 'checkbox', name: `tables[${tablename}][fields][${field.name}][state]`, value: field.state });
+                let $checkbox = $('<input/>', { type: 'checkbox', name: `tables[${tablename}][fields][${field.name}][action]`, value: field.action });
                 let textError = field.error + ((field.details) ? ` (${field.details})` : '');
                 /* Handlers */
                 let OnSelectField = () => {
                     if ($checkbox.is(':checked'))
-                        $(`input[name^="tables[${tablename}][state]"]`).prop('checked', true);
+                        $(`input[name^="tables[${tablename}][action]"]`).prop('checked', true);
                 };
                 /* Events */
                 $checkbox.on('click', OnSelectField);

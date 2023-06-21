@@ -1195,16 +1195,14 @@ input[type=text].footer_input::placeholder {
   }
   .windows .instance .window .container > form > div {
     margin-top: 24px;
-    border-radius: 24px;
-    height: 150px;
-    border: 1px solid #a9a9a9;
   }
   .windows .instance .window .container > form > div > textarea {
+    height: 150px;
+    border: 1px solid #a9a9a9;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
-    border: none;
     background-color: transparent;
     border-radius: 24px;
     padding: 16px;
@@ -1303,16 +1301,14 @@ input[type=text].footer_input::placeholder {
   }
   .windows .instance .window .container > form > div {
     margin-top: 24px;
-    border-radius: 24px;
-    height: 150px;
-    border: 1px solid #a9a9a9;
   }
   .windows .instance .window .container > form > div > textarea {
+    height: 150px;
+    border: 1px solid #a9a9a9;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
-    border: none;
     background-color: transparent;
     border-radius: 24px;
     padding: 16px;
@@ -1411,16 +1407,14 @@ input[type=text].footer_input::placeholder {
   }
   .windows .instance .window .container > form > div {
     margin-top: 24px;
-    border-radius: 24px;
-    height: 150px;
-    border: 1px solid #a9a9a9;
   }
   .windows .instance .window .container > form > div > textarea {
+    height: 150px;
+    border: 1px solid #a9a9a9;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
-    border: none;
     background-color: transparent;
     border-radius: 24px;
     padding: 16px;
@@ -1576,34 +1570,30 @@ input[type=text].footer_input::placeholder {
     display: revert;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
-    padding: 16px;
-    background-color: rgba(255, 255, 255, 0.5019607843);
-    border-radius: 24px;
     width: revert;
   }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
     margin: 0 0 4% 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    width: 100%;
-    padding: 0;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.5019607843);
+    border-radius: 24px;
     margin: 0;
     border-bottom: none;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
-    background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
-    border-radius: 24px;
-    height: 150px;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
+    background-color: rgba(255, 255, 255, 0.5019607843);
+    border-radius: 24px;
+    height: 150px;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
     border: none;
-    background-color: transparent;
-    border-radius: 24px;
     padding: 16px;
     font-family: MoshitaMono, sans-serif;
     font-size: 18px;
@@ -1636,34 +1626,30 @@ input[type=text].footer_input::placeholder {
     display: revert;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
-    padding: 16px;
-    background-color: rgba(255, 255, 255, 0.5019607843);
-    border-radius: 24px;
     width: revert;
   }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
     margin: 0 0 4% 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    width: 100%;
-    padding: 0;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.5019607843);
+    border-radius: 24px;
     margin: 0;
     border-bottom: none;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
-    background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
-    border-radius: 24px;
-    height: 150px;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
+    background-color: rgba(255, 255, 255, 0.5019607843);
+    border-radius: 24px;
+    height: 150px;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
     border: none;
-    background-color: transparent;
-    border-radius: 24px;
     padding: 16px;
     font-family: MoshitaMono, sans-serif;
     font-size: 18px;
@@ -1696,34 +1682,30 @@ input[type=text].footer_input::placeholder {
     display: flex;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
+    width: 50%;
+  }
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
+    margin: 0 8% 0 0;
+  }
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
-    width: 48%;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
-    margin: 0 4% 0 0;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    width: 100%;
-    padding: 0;
     margin: 0;
     border-bottom: none;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
-    background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
-    border-radius: 24px;
-    height: 150px;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
+    background-color: rgba(255, 255, 255, 0.5019607843);
+    border-radius: 24px;
+    height: 150px;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
     border: none;
-    background-color: transparent;
-    border-radius: 24px;
     padding: 16px;
     font-family: MoshitaMono, sans-serif;
     font-size: 20px;
@@ -1756,34 +1738,30 @@ input[type=text].footer_input::placeholder {
     display: flex;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
+    width: 50%;
+  }
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
+    margin: 0 8% 0 0;
+  }
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
-    width: 48%;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
-    margin: 0 4% 0 0;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    width: 100%;
-    padding: 0;
     margin: 0;
     border-bottom: none;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
-    background-color: rgba(255, 255, 255, 0.5019607843);
     margin-top: 4%;
-    border-radius: 24px;
-    height: 150px;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) > textarea {
+    background-color: rgba(255, 255, 255, 0.5019607843);
+    border-radius: 24px;
+    height: 150px;
     width: 90%;
     outline: none;
     -moz-appearance: none;
     resize: none;
     border: none;
-    background-color: transparent;
-    border-radius: 24px;
     padding: 16px;
     font-family: MoshitaMono, sans-serif;
     font-size: 24px;
@@ -3746,10 +3724,15 @@ input[type=text].footer_input::placeholder {
   cursor: pointer;
 }
 .avatar_container .ava {
+  background-size: cover;
   width: 60px;
   height: 60px;
-  margin: 1px;
+  margin: 2px;
   border-radius: 50%;
+  opacity: 50%;
+}
+.avatar_container .active {
+  opacity: 100%;
 }
 
 /* Sizes */
@@ -3869,22 +3852,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: revert;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 8rem;
+    width: 60%;
+    margin: auto;
+    height: 4rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 15px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 4%;
   }
 }
 @media (min-width: 241px) and (max-width: 420px) {
@@ -3899,22 +3875,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: revert;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 10rem;
+    width: 60%;
+    margin: auto;
+    height: 6rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 25px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 4%;
   }
 }
 @media (min-width: 421px) and (max-width: 480px) {
@@ -3929,22 +3898,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: revert;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 14rem;
+    width: 60%;
+    margin: auto;
+    height: 8rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 25px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 4%;
   }
 }
 @media (min-width: 481px) and (max-width: 560px) {
@@ -3959,22 +3921,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: revert;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 14rem;
+    width: 60%;
+    margin: auto;
+    height: 10rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 25px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 4%;
   }
 }
 @media (min-width: 561px) and (max-width: 680px) {
@@ -3989,22 +3944,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: revert;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 14rem;
+    width: 60%;
+    margin: auto;
+    height: 12rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 30px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 4%;
   }
 }
 @media (min-width: 681px) and (max-width: 760px) {
@@ -4019,22 +3967,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 14rem;
+    width: 60%;
+    margin: auto;
+    height: 12rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 30px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 0;
   }
 }
 @media (min-width: 761px) and (max-width: 860px) {
@@ -4049,22 +3990,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 18rem;
+    width: 60%;
+    margin: auto;
+    height: 14rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 40px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 0;
   }
 }
 @media (min-width: 861px) and (max-width: 1400px) {
@@ -4079,22 +4013,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
+    width: 60%;
+    margin: auto;
     height: 18rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 40px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 0;
   }
 }
 @media (min-width: 1401px) {
@@ -4109,22 +4036,15 @@ input[type=text].footer_input::placeholder {
   .page_one_adventure .adventure_text > div:first-child {
     margin-bottom: 4%;
   }
-  .page_one_adventure .adventure_text > div:last-child {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2%;
-    grid-row-gap: 0.8rem;
-  }
   .page_one_adventure .adventure_text > div:last-child > div {
-    height: 18rem;
+    width: 60%;
+    margin: auto;
+    height: 24rem;
     background-color: #a9a9a9;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 40px;
-  }
-  .page_one_adventure .adventure_text > div:last-child > div:not(:last-child) {
-    margin-bottom: 0;
   }
 }
 

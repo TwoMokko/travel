@@ -61,8 +61,14 @@
 
 			$item = $this->db->SelectOne(self::TABLES['photo_all'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
 
-			$image = 'safdzssad';
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar($image, $item['header'], ''));
+//			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `photo_all` WHERE `id` = '{$id}'");
+//			$image = $this->db->Fetch($result)['image'];
+//			$path = Consts\Photo::PATH_ALL_RELATIVE . $image;
+//			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['header'], ''));
+
+			$image = Site\Units\General::instance()->GetImage('photo');
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", $item['header'], ''));
+
 		}
 
 		public function All(): void {

@@ -48,16 +48,24 @@
 		protected function FieldsSelect(array $params): array {
 			return [
 				'id' 		=> new Skins\Browse\Text('#'),
-				'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\General::STATES_RU),
+//				'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\General::STATES_RU),
 				'name' 		=> new Skins\Browse\Text('Имя')
 			];
 		}
 
 		protected function FieldsBrowse(array $data) : array {
 			return [
-				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\General::STATES_RU),
+//				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\General::STATES_RU),
 				'name'    	=> new Skins\Browse\Text('Имя'),
 				'cover'     => new Skins\Browse\Image('Картинка', Consts\General::PATH_IMAGE_RELATIVE)
+			];
+		}
+
+		protected function Manage(): array {
+			return [
+				function (array $params, array $item) { return $this->update->GetLink('Изменить', ['id' => $item['id']]); },
+//				function (array $params, array $item) { return $this->do_delete->GetLink('Удалить', ['id' => $item['id']]); },
+				function (array $params, array $item) { return $this->browse->GetLink('Просмотреть', ['id' => $item['id']]); }
 			];
 		}
 
@@ -77,7 +85,7 @@
             ];
 
             return [
-                'state' 	=> new Skins\Edit\Select('Состояние', 'form[state]', $states),
+//                'state' 	=> new Skins\Edit\Select('Состояние', 'form[state]', $states),
                 'name' 		=> new Skins\Edit\Text('Имя', 'form[name]'),
                 'cover' 	=> new Skins\Edit\File('Фотография', 'form[cover]', 'Выберите фотографию', '.jpg, .jpeg, .png')
             ];

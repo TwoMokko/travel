@@ -19,8 +19,8 @@
                 <div class = "adventure_text">
                     <div><?= $data['text']; ?></div>
                     <div>
-                        <div data-id = "1" data-url = "css/pic/photoalbum/22.jpg" style = "background-image: url('proj/templates/site/css/pic/photoalbum/22.jpg');" onclick = "new Gallery(this);"></div>
-                        <div data-id = "1" data-url = "css/pic/photoalbum/18.jpg" style = "background-image: url('proj/templates/site/css/pic/photoalbum/18.jpg');" onclick = "new Gallery(this);"></div>
+                        <div data-id = "1" data-url = "<?= Consts\Story::PATH_COVER_RELATIVE . $data['image']; ?>" style = "background-image: url(<?= Consts\Story::PATH_COVER_RELATIVE . $data['image']; ?>););" onclick = "new Gallery(this);"></div>
+<!--                        <div data-id = "1" data-url = "css/pic/photoalbum/18.jpg" style = "background-image: url('proj/templates/site/css/pic/photoalbum/18.jpg');" onclick = "new Gallery(this);"></div>-->
                     </div>
                 </div>
             </div>

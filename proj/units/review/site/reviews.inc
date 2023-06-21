@@ -49,28 +49,28 @@
 
 		public function ForMain(): void {
 			$state = self::STATE_VERIFIED;
-			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "`state` = {$state}", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
 			if (!$items) return;
 
-			Layout::instance()->main->Push(Lists::ToVarCarousel($items));
+			Layout::instance()->main->Push(Lists::ToVarCarousel($items, Consts\Reviews::AVATARS));
 		}
 
 		public function ForTour(): void {
 			$state = self::STATE_VERIFIED;
 			$tid = GetInt('id');
-			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "(`state` = {$state}) AND (`tid` = {$tid})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "(`state` = {$state}) AND (`tid` = {$tid})", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
 			if (!$items) return;
 
-			Layout::instance()->main->Push(Lists::ToVarCarousel($items));
+			Layout::instance()->main->Push(Lists::ToVarCarousel($items, []));
 		}
 
 		public function ForList(): void {
 			$state = self::STATE_VERIFIED;
-			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "`state` = {$state}", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
 			Layout::instance()->main->Push(Lists::ToVarGrid($items));
@@ -85,8 +85,8 @@
 			$id = GetInt('id');
 
 			$state = self::STATE_VERIFIED;
-			$path = Consts\Reviews::PATH_AVATAR_RELATIVE;
-			$item = $this->db->SelectOne(self::TABLES['review'], ['name', 'text'], "(`state` = {$state}) AND (`id` = {$id})", null, null, ["CONCAT('{$path}', `hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$item = $this->db->SelectOne(self::TABLES['review'], ['name', 'text', 'avatar'], "(`state` = {$state}) AND (`id` = {$id})");
+			$item['image'] = Consts\Reviews::AVATARS[$item['avatar']];
 
 			SendJSONSuccess($item);
 		}
@@ -99,11 +99,15 @@
 		#[NoReturn] public function AddReview() {
 			$name = GetParam('name', '');
 			$text = GetParam('text', '');
+			$avatar = GetInt('avatar');
+
+			if (!in_array($avatar, self::AVATARS)) $avatar = rand(1, count(self::AVATARS));
 
 			$data = [
 				'name' => $name,
 				'text' => $text,
-				'state' => Consts\Reviews::STATE_UNVERIFIED
+				'state' => Consts\Reviews::STATE_UNVERIFIED,
+				'avatar' => $avatar
 			];
 
 			$this->db->Insert(self::TABLES['review'], $data);

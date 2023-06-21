@@ -171,10 +171,12 @@ function ToDrive(tour_id): void {
  * @constructor
  */
 function LeaveReview(avatars): void {
+	console.log(avatars);
+
 	let $form 				= $('<form/>', {class : '', action: '/review/add'});
 	let $name 				= $('<input/>', {name: 'name', class : '', type : 'text', placeholder : 'Имя*', minlength: '3', maxlength: '50'});
 	let $text_container 	= $('<div/>', {class : ''});
-	let $text 				= $('<textarea/>', {name: 'text', class : '', type : 'text', placeholder : 'Напишите отзыв*', rows: '5', minlength: '3', maxlength: '255'});
+	let $text 				= $('<textarea/>', {name: 'text', class : '', type : 'text', placeholder : 'Напишите отзыв*', rows: '5', maxlength: '255'});
 	let $avatar_container 	= $('<span/>', {class : 'avatar_container'});
 	let $send 				= $('<a/>', {class : 'button', text : 'Отправить'});
 
@@ -182,11 +184,15 @@ function LeaveReview(avatars): void {
 		if (Validation.Form($form)) Base.Common.Query.SendForm($form, Success);
 	});
 
-	for (let i = 0; i < avatars.length; i++) {
+	for (let i in avatars) {
 		let $label = $('<label/>', {class: ''});
 		let $ava = $('<div/>', {class: 'ava'});
-		$ava.css('background-color', 'brown')
-		let $radio = $('<input/>', {type: 'radio', class: 'hide'});
+		let $radio = $('<input/>', {type: 'radio', class: 'hide', value: i, name: 'avatar'});
+
+		$ava.css('background-image', `url(${avatars[i]})`).on('click', () => {
+			$avatar_container.find('.active').removeClass('active');
+			$ava.hasClass('active') ? $ava.removeClass('active') : $ava.addClass('active');
+		});
 
 		$avatar_container.append(
 			$label.append(
@@ -611,7 +617,7 @@ class Menu {
 		let $page1 = $('<a/>', {class: 'page1', text: 'Главная', href: '/'});
 		let $page2 = $('<a/>', {class: 'page2', text: 'Путешествия', href: '/tours'});
 		let $page3 = $('<a/>', {class: 'page3', text: 'О нас', href: '/about'});
-		let $page4 = $('<a/>', {class: 'page4', text: 'Наши приключения', href: '/adventures'});
+		let $page4 = $('<a/>', {class: 'page4', text: 'Наши истории', href: '/stories'});
 		let $page5 = $('<a/>', {class: 'page5', text: 'Фотографии', href: '/photo'});
 		let $page6 = $('<a/>', {class: 'page5', text: 'Отзывы', href: '/review'});
 

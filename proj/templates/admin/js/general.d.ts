@@ -2,13 +2,13 @@ declare namespace Admin {
     namespace General {
         type TypeField = {
             name: string;
-            state: number;
+            action: number;
             error: string;
             details: string;
         }[];
         type TypeTable = {
             name: string;
-            state: number;
+            action: number;
             error: string;
             fields?: TypeField;
         }[];

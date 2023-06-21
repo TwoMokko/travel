@@ -42,12 +42,6 @@
             ];
         }
 
-    		protected function Calc(): array {
-    			return [
-    				"*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"
-    			];
-    		}
-
         protected function Manage(): array {
             return [
                 function (array $params, array $item) { return $this->publish->GetLink('Опубликовать', ['id' => $item['id']]); },
