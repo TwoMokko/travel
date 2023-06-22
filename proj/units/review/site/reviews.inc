@@ -101,6 +101,8 @@
 			$text = GetParam('text', '');
 			$avatar = GetInt('avatar');
 
+//			Debug($avatar);
+
 			if (!in_array($avatar, self::AVATARS)) $avatar = rand(1, count(self::AVATARS));
 
 			$data = [

@@ -264,13 +264,15 @@ class Validation {
 	}
 
 	static ShowErrors($element: JQuery, errors: string[]): void {
-		$element.next('.validation_error').remove();
-		let $errors = $('<span/>', {class: 'validation_error', title: errors.join(`\n`)});
-		$element.after($errors);
+		// $element.next('.validation_error').remove();
+		// let $errors = $('<span/>', {class: 'validation_error', title: errors.join(`\n`)});
+		// $element.after($errors);
+		$element.addClass('error');
 	}
 
 	static HideErrors($element: JQuery): void {
-		$element.next('.validation_error').remove();
+		// $element.next('.validation_error').remove();
+		$element.removeClass('error');
 	}
 
 }

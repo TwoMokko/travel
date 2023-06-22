@@ -241,6 +241,7 @@ input[type="text"] {
 
 .show_video { width: 560px; height: 315px; display: inline-block; vertical-align: top; }
 .validation_error { margin-top: 4px; height: 1.2rem; width: 1.2rem; border-radius: 50%; cursor: pointer; background-image: url("pic/error_red.png"); background-size: cover; display: inline-block; }
+.error { border-color: $color_error !important; outline-color: $color_error !important; }
 
 
 @import "footer";

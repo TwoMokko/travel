@@ -655,6 +655,11 @@ input[type=text].footer_input::placeholder {
   display: inline-block;
 }
 
+.error {
+  border-color: #bb462a !important;
+  outline-color: #bb462a !important;
+}
+
 /* Sizes */
 @font-face {
   font-family: Intro;
@@ -1570,17 +1575,19 @@ input[type=text].footer_input::placeholder {
     display: revert;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
-    width: revert;
+    flex: auto;
   }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
     margin: 0 0 4% 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
+    border: none;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
     margin: 0;
-    border-bottom: none;
+    width: 100%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
     margin-top: 4%;
@@ -1589,7 +1596,8 @@ input[type=text].footer_input::placeholder {
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     height: 150px;
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     outline: none;
     -moz-appearance: none;
     resize: none;
@@ -1626,17 +1634,19 @@ input[type=text].footer_input::placeholder {
     display: revert;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
-    width: revert;
+    flex: auto;
   }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
     margin: 0 0 4% 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
+    border: none;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
     margin: 0;
-    border-bottom: none;
+    width: 100%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
     margin-top: 4%;
@@ -1645,7 +1655,8 @@ input[type=text].footer_input::placeholder {
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     height: 150px;
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     outline: none;
     -moz-appearance: none;
     resize: none;
@@ -1682,17 +1693,19 @@ input[type=text].footer_input::placeholder {
     display: flex;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
-    width: 50%;
+    flex: auto;
   }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
-    margin: 0 8% 0 0;
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
+    margin: 0 4% 0 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
+    border: none;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
     margin: 0;
-    border-bottom: none;
+    width: 100%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
     margin-top: 4%;
@@ -1701,7 +1714,8 @@ input[type=text].footer_input::placeholder {
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     height: 150px;
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     outline: none;
     -moz-appearance: none;
     resize: none;
@@ -1738,17 +1752,19 @@ input[type=text].footer_input::placeholder {
     display: flex;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
-    width: 50%;
+    flex: auto;
   }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) > input {
-    margin: 0 8% 0 0;
+  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
+    margin: 0 4% 0 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
-    padding: 16px;
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
+    border: none;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
     margin: 0;
-    border-bottom: none;
+    width: 100%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(2) {
     margin-top: 4%;
@@ -1757,7 +1773,8 @@ input[type=text].footer_input::placeholder {
     background-color: rgba(255, 255, 255, 0.5019607843);
     border-radius: 24px;
     height: 150px;
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     outline: none;
     -moz-appearance: none;
     resize: none;
