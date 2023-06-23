@@ -1573,12 +1573,10 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: revert;
+    gap: 4%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     flex: auto;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
-    margin: 0 0 4% 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     background-color: rgba(255, 255, 255, 0.5019607843);
@@ -1632,12 +1630,10 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: revert;
+    gap: 4%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     flex: auto;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
-    margin: 0 0 4% 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     background-color: rgba(255, 255, 255, 0.5019607843);
@@ -1691,12 +1687,10 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: flex;
+    gap: 4%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     flex: auto;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
-    margin: 0 4% 0 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     background-color: rgba(255, 255, 255, 0.5019607843);
@@ -1750,12 +1744,10 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) {
     display: flex;
+    gap: 4%;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div {
     flex: auto;
-  }
-  .block.tour_form > *:last-child > div:nth-of-type(1) > div:not(:last-child) {
-    margin: 0 4% 0 0;
   }
   .block.tour_form > *:last-child > div:nth-of-type(1) > div > input {
     background-color: rgba(255, 255, 255, 0.5019607843);

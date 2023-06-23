@@ -76,11 +76,11 @@
 				width:  GetValue($default, $params, 'width_form');
 				> div {
 					&:nth-of-type(1) {
-						display: GetValue($default, $params, 'display');
+						display: GetValue($default, $params, 'display'); gap: 4%;
 						> div {
 							//width: GetValue($default, $params, 'width_input');
 							flex: auto;
-							&:not(:last-child) { margin: GetValue($default, $params, 'margin_input'); }
+							//&:not(:last-child) { margin: GetValue($default, $params, 'margin_input'); }
 							> input {
 								background-color: $color_semi_white; border-radius: 24px; border: none;
 								//border: 1px solid transparent;

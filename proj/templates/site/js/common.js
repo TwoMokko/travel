@@ -198,13 +198,13 @@ class Validation {
         return true;
     }
     static ShowErrors($element, errors) {
-        $element.next('.validation_error').remove();
+        // $element.next('.validation_error').remove();
         // let $errors = $('<span/>', {class: 'validation_error', title: errors.join(`\n`)});
         // $element.after($errors);
         $element.addClass('error');
     }
     static HideErrors($element) {
-        $element.next('.validation_error').remove();
+        // $element.next('.validation_error').remove();
         $element.removeClass('error');
     }
 }
