@@ -4,15 +4,14 @@
 
 	use JetBrains\PhpStorm\NoReturn;
 
-	use Base\DB\TableMySQLi;
+	use Base\DB\MySQLi\Table;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
-	use Proj\Admin\Units;
 	use Proj\Units\Consts;
 
 	class Text extends EditorMySQLi {
 
-		public function __construct(string $name, TableMySQLi $table) {
+		public function __construct(string $name, Table $table) {
 			parent::__construct($name, $table);
 		}
 

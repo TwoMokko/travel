@@ -5,20 +5,20 @@ namespace Proj\Admin\Structure;
 require DIR_UNITS . 'people/consts.inc';
 
 use Base\Units;
-use Base\DB\TableMySQLi;
+use Base\DB\MySQLi\Table;
 use Proj\Units\Consts;
 use Proj\DBObject;
 
 class People extends Units implements Consts\People {
 	private DBObject $db;
 
-	protected TableMySQLi $table_people;
+	protected Table $table_people;
 
 	protected function __construct() {
 		parent::__construct(self::ID, self::NAME);
 		$this->db = DBObject::instance();
 
-		$this->table_people = new TableMySQLi(self::TABLES['people'], $this->db);
+		$this->table_people = new Table(self::TABLES['people'], $this->db);
 		$this->table_people->id('id');
 		$this->table_people->uint8('state');
 		$this->table_people->timestamp('date_create');

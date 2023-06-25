@@ -6,7 +6,7 @@
 
 	use Base\Action;
 	use Base\Controller;
-	use Base\DB\TableMySQLi;
+	use Base\DB\MySQLi\Table;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
     use Proj\Admin\Units\Tours;
@@ -15,7 +15,7 @@
 	class Feedback extends EditorMySQLi {
 		public Action $do_verified;
 
-		public function __construct(string $name, TableMySQLi $table) {
+		public function __construct(string $name, Table $table) {
 			parent::__construct($name, $table);
 
 			$this->do_verified = new Action($this->name, 'do_verified', "/{$this->name}/do_verified?id=%id%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/do_verified', {id: %id%}, Admin.General.Render.ToMain); return false;");

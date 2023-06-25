@@ -510,10 +510,10 @@ class Carousel {
     $manage;
     $array_left;
     $array_right;
-    constructor(container, count) {
+    constructor(container) {
         /*  */
         this.$container = $(container);
-        this.count = count;
+        this.count = 1;
         this.$items = [];
         this.active = 0;
         this.$container.children().each((index, element) => {
@@ -523,7 +523,7 @@ class Carousel {
         });
         /* Set elements */
         this.$wrap = $('<div/>', { class: 'wrap' });
-        this.$scroll = $('<div/>', { class: `scroll count_${count}` });
+        this.$scroll = $('<div/>', { class: 'scroll' });
         this.$manage = $('<div/>', { class: 'manage' });
         this.$array_left = $('<div/>');
         this.$array_right = $('<div/>');
@@ -538,12 +538,18 @@ class Carousel {
             this.GetActive('right');
             this.ShowItems();
         });
-        this.ShowItems();
         this.$container.addClass('carousel');
         if (this.count >= this.$items.length) {
             this.$array_left.addClass('hide');
             this.$array_right.addClass('hide');
         }
+        $(window).on('resize', this.Restructure.bind(this));
+        this.Restructure();
+    }
+    Restructure() {
+        let gtc = this.$scroll.css('grid-template-columns');
+        this.count = (gtc !== 'none') ? this.$scroll.css('grid-template-columns').split(' ').length : 1;
+        this.ShowItems();
     }
     ShowItems() {
         this.$scroll.children().each((index, element) => {

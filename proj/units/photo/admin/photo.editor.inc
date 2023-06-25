@@ -6,14 +6,14 @@
     use Base\Controller;
     use JetBrains\PhpStorm\NoReturn;
 
-	use Base\DB\TableMySQLi;
+	use Base\DB\MySQLi\Table;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
 	use Proj\Admin\Units;
 	use Proj\Units\Consts;
 
 	class Photo extends EditorMySQLi {
-        private TableMySQLi $table_show;
+        private Table $table_show;
         private Action $photo_load;
         private Action $photo_del;
 

@@ -60,7 +60,8 @@
 		public function ForTour(): void {
 			$state = self::STATE_VERIFIED;
 			$tid = GetInt('id');
-			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "(`state` = {$state}) AND (`tid` = {$tid})", '`date_create` DESC', 20);
+            $gid = Tour::instance()->GetGroupId($tid);
+			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "(`state` = {$state}) AND (`gid` = {$gid})", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
 			if (!$items) return;
@@ -101,9 +102,7 @@
 			$text = GetParam('text', '');
 			$avatar = GetInt('avatar');
 
-//			Debug($avatar);
-
-			if (!in_array($avatar, self::AVATARS)) $avatar = rand(1, count(self::AVATARS));
+			if (!isset(self::AVATARS[$avatar])) $avatar = rand(1, count(self::AVATARS));
 
 			$data = [
 				'name' => $name,

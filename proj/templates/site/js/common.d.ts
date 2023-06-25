@@ -185,7 +185,8 @@ declare class Carousel {
     $manage: JQuery;
     $array_left: JQuery;
     $array_right: JQuery;
-    constructor(container: string, count: number);
+    constructor(container: string);
+    private Restructure;
     private ShowItems;
     private ShowItem;
     private GetNext;

@@ -2,11 +2,11 @@
 
 	namespace Base\Editor;
 
-	use Base\DB\TableMySQLi;
+	use Base\DB\MySQLi\Table;
 
 	abstract class EditorMySQLi extends Editor {
 
-		public function __construct(string $name, TableMySQLi $table, array $params = []) {
+		public function __construct(string $name, Table $table, array $params = []) {
 			parent::__construct($name, $table, $params);
 		}
 

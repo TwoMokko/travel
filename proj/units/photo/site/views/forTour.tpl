@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<script>
-				$(() => new Carousel('#photo_adapter', 2));
+				$(() => new Carousel('#photo_adapter'));
 			</script>
 		<?php }
 	}

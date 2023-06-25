@@ -168,6 +168,10 @@
 			Layout::instance()->main->Push(Carousel::ToVarCarousel($items));
 		}
 
+        public function GetGroupId(int $id): int {
+            return $this->db->SelectOneField(self::TABLES['tour'], 'gid', "`id` = {$id}");
+        }
+
 		public function SetSeoForAll() {
 			Template::instance()->SetTitle('Путешествия');
 			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');

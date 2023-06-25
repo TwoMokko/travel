@@ -45,7 +45,7 @@
                 </div>
             </div>
             <script>
-                $(() => new Carousel('#story', 4));
+                $(() => new Carousel('#story'));
             </script>
         <?php }
 

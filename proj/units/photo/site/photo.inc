@@ -93,10 +93,13 @@
 		public function ForTour(): void {
 			if (!$id = GetInt('id')) die;//TODO 404
 
+            $gid = Tour::instance()->GetGroupId($id);
+
 			$tour_state = Consts\Tour::STATE_ACTIVE;
 			$state = self::STATE_ACTIVE;
 
-			$photo_id = $this->db->SelectOneField(Consts\Tour::TABLES['tour'], 'photo_id', "(`id` = {$id}) AND (`state` = {$tour_state})");
+//			$photo_id = $this->db->SelectOneField(Consts\Tour::TABLES['tour'], 'photo_id', "(`id` = {$id}) AND (`state` = {$tour_state})");
+			$photo_id = $this->db->SelectOneField(Consts\Tour::TABLES['group'], 'photo_id', "(`id` = {$gid}) AND (`state` = {$tour_state})");
 
 			if (!$photo_id) return;
 

@@ -228,16 +228,36 @@ input[type="text"] {
 			width: 100%;
 			.scroll {
 				display: grid; grid-column-gap: 2%;
-				&.count_2 { grid-template-columns: repeat(2, 1fr); }
-				&.count_3 { grid-template-columns: repeat(GetParam($params, -count-3, 3), 1fr); }
-				&.count_4 { grid-template-columns: repeat(GetParam($params, -count-4, 4), 1fr); }
 			}
 		}
 	}
 
-	@include MixScreen($sizeX) { @include ViewCarousel(); }
-	@include MixScreen(null, $sizeX) { @include ViewCarousel((-count-3: 2, -count-4: 2)); }
+	@include MixScreen() { @include ViewCarousel(); }
 }
+
+@mixin CarouselPhotoAdapter($params: null) {
+	#photo_adapter .scroll { grid-template-columns: repeat(GetParam($params, columns, 3), 1fr) }
+}
+
+@include MixScreen(null, $sizeL) { @include CarouselPhotoAdapter((columns: 1)); }
+@include MixScreen($sizeL, $sizeXL) { @include CarouselPhotoAdapter((columns: 2)); }
+@include MixScreen($sizeXL) { @include CarouselPhotoAdapter(); }
+
+@mixin CarouselReviewAdapter($params: null) {
+	#review .scroll { grid-template-columns: repeat(GetParam($params, columns, 2), 1fr) }
+}
+
+@include MixScreen(null, $sizeL) { @include CarouselReviewAdapter((columns: 1)); }
+@include MixScreen($sizeL) { @include CarouselReviewAdapter(); }
+
+@mixin CarouselFor4($params: null) {
+	#other_publication, #story { .scroll { grid-template-columns: repeat(GetParam($params, columns, 4), 1fr) } }
+}
+
+@include MixScreen(null, $sizeS) { @include CarouselFor4((columns: 1)); }
+@include MixScreen($sizeS, $sizeL) { @include CarouselFor4((columns: 2)); }
+@include MixScreen($sizeL, $sizeXL) { @include CarouselFor4((columns: 3)); }
+@include MixScreen($sizeXL) { @include CarouselFor4(); }
 
 .show_video { width: 560px; height: 315px; display: inline-block; vertical-align: top; }
 .validation_error { margin-top: 4px; height: 1.2rem; width: 1.2rem; border-radius: 50%; cursor: pointer; background-image: url("pic/error_red.png"); background-size: cover; display: inline-block; }

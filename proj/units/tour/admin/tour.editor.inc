@@ -4,14 +4,14 @@
 
 	use JetBrains\PhpStorm\NoReturn;
 
-	use Base\DB\TableMySQLi;
+	use Base\DB\MySQLi\Table;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
 	use Proj\Admin\Units;
 	use Proj\Units\Consts;
 
 	class Tour extends EditorMySQLi {
-        private TableMySQLi $table_program;
+        private Table $table_program;
 
 		public function __construct(string $name, array $tables) {
             [$table, $this->table_program] = $tables;

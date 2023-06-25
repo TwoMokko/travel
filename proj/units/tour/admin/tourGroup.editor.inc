@@ -4,15 +4,15 @@
 
 	use JetBrains\PhpStorm\NoReturn;
 
-	use Base\DB\TableMySQLi;
+	use Base\DB\MySQLi\Table;
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
 	use Proj\Admin\Units;
 	use Proj\Units\Consts;
 
 	class TourGroup extends EditorMySQLi {
-		private TableMySQLi $table_expense;
-		private TableMySQLi $table_additional_expense;
+		private Table $table_expense;
+		private Table $table_additional_expense;
 
 		public function __construct(string $name, array $tables) {
 			[$table, $this->table_expense, $this->table_additional_expense] = $tables;

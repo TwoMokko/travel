@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<script>
-				$(() => new Carousel('#review', 2));
+				$(() => new Carousel('#review'));
 			</script>
 		<?php }
 

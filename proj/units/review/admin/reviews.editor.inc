@@ -8,7 +8,7 @@
 
     use Base\Action;
     use Base\Controller;
-    use Base\DB\TableMySQLi;
+    use Base\DB\MySQLi\Table;
     use Base\Editor\EditorMySQLi;
     use Base\Editor\Skins;
     use Proj\Admin\Units\Tours;
@@ -19,7 +19,7 @@
         public Action $publish;
         public Action $do_publish;
 
-        public function __construct(string $name, TableMySQLi $table) {
+        public function __construct(string $name, Table $table) {
             parent::__construct($name, $table);
 
             $this->publish = new Action($this->name, 'publish', "/{$this->name}/publish?id=%id%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/publish', {id: %id%}, Admin.General.Render.ToMain); return false;");
@@ -63,7 +63,7 @@
         protected function FieldsSelect(array $params): array {
             return [
                 'id' 		=> new Skins\Browse\Text('#'),
-                'tid' 		=> new Skins\Browse\Text('#'),
+                'gid' 		=> new Skins\Browse\ValueFromArray('К какому направлению относится', Tours::instance()->GetGroupTour()),
                 'state' 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\Reviews::STATES_RU),
                 'name' 		=> new Skins\Browse\Text('Имя')
             ];
@@ -81,7 +81,7 @@
             $id = GetInt('id');
             $item = $this->table->SelectOne(null, "(`id` = {$id})");
             $fields = [
-                'tour_id'       => new Skins\Edit\Select('К какому туру относится', 'tid', array_merge(['Выберите'], Tours::instance()->GetTours())),
+                'tour_id'       => new Skins\Edit\Select('К какому направлению относится', 'gid', array_merge(['Выберите'], Tours::instance()->GetGroupTour())),
                 'name'          => new Skins\Edit\Text('Имя', 'name'),
                 'text'          => new Skins\Edit\TextArea('Текст', 'text')
             ];

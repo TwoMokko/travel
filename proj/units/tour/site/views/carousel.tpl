@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<script>
-				$(() => new Carousel('#other_publication', 4));
+				$(() => new Carousel('#other_publication'));
 			</script>
 		<?php }
 
