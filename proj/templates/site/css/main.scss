@@ -89,7 +89,7 @@ input[type="text"] {
 	position: relative;
 	> div {
 		&:first-child {
-			background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+			background-size: cover; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-position: center;
 			&.about_hat { background-image: url("pic/about_hat.jpg"); background-position: center; }
 			&.tours_hat { background-image: url("pic/tour_hat.jpg"); background-position: center; }
 			&.adventure_hat { background-image: url("pic/adventure_hat.jpg"); background-position: bottom; }
@@ -125,6 +125,20 @@ input[type="text"] {
 	@include MixScreen(null, $sizeXS) { @include ViewVideo((background_size: 50px, background_size_hover: 55px)); }
 	@include MixScreen($sizeXS, $sizeL) { @include ViewVideo((background_size: 70px, background_size_hover: 77px)); }
 	@include MixScreen($sizeL, null) { @include ViewVideo(()); }
+}
+
+.play_iframe {
+	@mixin ViewVideo($params: null) {
+		$default: (
+				height: 500px
+		);
+		height: GetValue($default, $params, 'height'); width: 100%;
+	}
+	@include MixScreen(null, $sizeS) { @include ViewVideo((height: 180px)); }
+	@include MixScreen($sizeS, $sizeM) { @include ViewVideo((height: 240px)); }
+	@include MixScreen($sizeM, $sizeXL) { @include ViewVideo((height: 360px)); }
+	@include MixScreen($sizeXL, $size4XL) { @include ViewVideo((height: 420px)); }
+	@include MixScreen($size4XL, null) { @include ViewVideo(()); }
 }
 
 .other_publication {

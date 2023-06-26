@@ -539,16 +539,20 @@ class Carousel {
             this.ShowItems();
         });
         this.$container.addClass('carousel');
-        if (this.count >= this.$items.length) {
-            this.$array_left.addClass('hide');
-            this.$array_right.addClass('hide');
-        }
         $(window).on('resize', this.Restructure.bind(this));
         this.Restructure();
     }
     Restructure() {
         let gtc = this.$scroll.css('grid-template-columns');
         this.count = (gtc !== 'none') ? this.$scroll.css('grid-template-columns').split(' ').length : 1;
+        if (this.count >= this.$items.length) {
+            this.$array_left.addClass('hide');
+            this.$array_right.addClass('hide');
+        }
+        else {
+            this.$array_left.removeClass('hide');
+            this.$array_right.removeClass('hide');
+        }
         this.ShowItems();
     }
     ShowItems() {

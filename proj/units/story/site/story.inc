@@ -41,14 +41,17 @@
 
         public function HeaderForAll() {
 			$image = Site\Units\General::instance()->GetImage('story');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Приключения', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Истории', 'Возможно, текст'));
         }
 
         public function HeaderForItem() {
             if (!$id = GetInt('id')) die;//TODO 404
 
+			$state = self::STATE_ACTIVE;
+            $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
+
 			$image = Site\Units\General::instance()->GetImage('story');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Приключения', 'Возможно, текст'));
+			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", $item['header'], 'Возможно, текст'));
 
 //            $state = self::STATE_ACTIVE;
 //

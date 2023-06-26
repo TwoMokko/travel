@@ -103,9 +103,10 @@
 			$page_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_header')") ?: '';
 			$page_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_text')") ?: '';
 			$page_about_mini_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_mini_text')") ?: '';
+			$page_about_video = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_video')") ?: '';
 			$image = $this->GetImage('about_description');
 
-			Layout::instance()->main->Push(Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $image));
+			Layout::instance()->main->Push(Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $page_about_video, $image));
 		}
 
 		public function SetSeoForAbout() {

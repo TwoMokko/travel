@@ -37,13 +37,13 @@
             </div>
 		<?php }
 
-		public static function AboutPage(string $header, string $text, string $mini_text, string $image): string {
+		public static function AboutPage(string $header, string $text, string $mini_text, string $video, string $image): string {
 			Template::Start();
-			self::RenderAboutPage($header, $text, $mini_text, $image);
+			self::RenderAboutPage($header, $text, $mini_text, $video, $image);
 			return Template::Read();
 		}
 
-		public static function RenderAboutPage(string $header, string $text, string $mini_text, string $image): void { ?>
+		public static function RenderAboutPage(string $header, string $text, string $mini_text, string $video, string $image): void { ?>
 
             <div class = "page_about_us">
                 <div class = "about_header block p">
@@ -55,10 +55,10 @@
                     <div style = "background-image: url('<?= $image; ?>');"></div>
                 </div>
                 <div class = "block p"">
-                <div class = "play">
-                    <div ></div>
-<!--                    style = "background-image: url(--><?//= Consts\General::PATH_ABOUT_RELATIVE, $photo['image']; ?><!--);"-->
-                </div>
+<!--                <div class = "play">-->
+<!--                    <div ></div>-->
+<!--                </div>-->
+				<iframe class = "play_iframe" src = "<?= nl2br($video); ?>" allowfullscreen frameborder = "0"></iframe>
             </div>
 		<?php }
 

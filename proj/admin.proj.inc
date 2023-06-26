@@ -6,7 +6,7 @@
 
 	require DIR_BASE . 'db/MySQLi/DB.inc';
 	require DIR_BASE . 'db/MySQLi/DBObject.inc';
-	require DIR_BASE . 'db/MySQLi/Query.inc';
+	require DIR_BASE . 'db/MySQLi/query.inc';
 	require DIR_BASE . 'db/MySQLi/table.inc';
 	require DIR_BASE . 'db/MySQLi/field.inc';
     require DIR_BASE . 'db/MySQLi/key.inc';

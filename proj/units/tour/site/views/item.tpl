@@ -29,9 +29,10 @@
             <div class = "tour_video block">
                 <div>
                     <div class = "header">Видео с путешествия</div>
-                    <div class = "play">
-                        <div></div>
-                    </div>
+<!--                    <div class = "play">-->
+<!--                        <div></div>-->
+<!--                    </div>-->
+					<iframe class = "play_iframe" src = "<?= $data['video']; ?>" allowfullscreen frameborder = "0"></iframe>
                 </div>
             </div>
 			<?php if ($expense && $additional_expense) self::Expenses($data, $expense, $additional_expense); ?>
