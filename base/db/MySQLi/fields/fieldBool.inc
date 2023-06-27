@@ -6,7 +6,7 @@
 		public function __construct(string $name, Table $table) {
 			parent::__construct('bool', $name, $table);
 
-			$this->_type = 'tinyint(1)';
+			$this->_type = ['tinyint(1)'];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = '0';

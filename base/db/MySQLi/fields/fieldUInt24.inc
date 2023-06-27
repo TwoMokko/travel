@@ -6,14 +6,14 @@
 		public function __construct(string $name, Table $table) {
 			parent::__construct('uint124', $name, $table);
 
-			$this->_type = 'mediumint unsigned';
+			$this->_type = ['mediumint unsigned', 'mediumint(8) unsigned'];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = '0';
 			$this->_extra = '';
 		}
 
-		private function GetFormat(): string { return "`{$this->name}` mediumint unsigned NOT NULL DEFAULT '0'"; }
+		private function GetFormat(): string { return "`{$this->name}` mediumint(8) unsigned NOT NULL DEFAULT '0'"; }
 
 		public function CreationFormat(): string { return $this->GetFormat(); }
 		public function UpdatingFormat(): string { return $this->GetFormat(); }

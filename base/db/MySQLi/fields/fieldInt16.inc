@@ -6,7 +6,7 @@
 		public function __construct(string $name, Table $table) {
 			parent::__construct('int16', $name, $table);
 
-			$this->_type = 'smallint';
+			$this->_type = ['smallint'];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = '0';

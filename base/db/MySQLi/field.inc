@@ -8,7 +8,7 @@
 		const ACTION_UPDATE		= -2;
 		const ACTION_DELETE		= -4;
 
-		protected string $_type;
+		protected array $_type;
 		protected string $_null;
 		protected string $_key;
 		protected ?string $_default;
@@ -20,16 +20,18 @@
 		abstract public function UpdatingFormat(): string;
 
 		public function Check(?array $data): bool {
-//			if ($this->type == 'uint8') {
+//			Debug($this->table->GetName());
+//			if ($this->type == 'uint16') {
 //				Debug($data);
 //				Debug($this->_type);
 //				Debug($this->_null);
 //				Debug($this->_key);
 //				Debug($this->_default);
 //				Debug($this->_extra);
+//				die;
 //			}
 			if (
-				$data['Type'] !== $this->_type ||
+				!in_array($data['Type'], $this->_type) ||
 				$data['Null'] !== $this->_null ||
 				$data['Key'] !== $this->_key ||
 				$data['Default'] !== $this->_default ||

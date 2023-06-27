@@ -10,7 +10,7 @@
 
 			$this->update = $update;
 
-			$this->_type = 'timestamp';
+			$this->_type = ['timestamp'];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = 'CURRENT_TIMESTAMP';

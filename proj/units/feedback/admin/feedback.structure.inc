@@ -27,7 +27,12 @@
             $this->table_feedback->string('contact', 50);
             $this->table_feedback->text('text');
 
-			$this->db->PushTables($this->table_feedback);
+			$kkk = new Table('kkk', $this->db);
+			$kkk->id('id');
+//			$kkk->uint32('tour_id');
+			$kkk->uint8('state');
+
+			$this->db->PushTables($this->table_feedback, $kkk);
 		}
 
 	}

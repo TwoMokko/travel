@@ -10,7 +10,7 @@
 
 			$this->length = $length;
 
-			$this->_type = "varchar({$this->length})";
+			$this->_type = ["varchar({$this->length})"];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = '';

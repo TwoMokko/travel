@@ -10,7 +10,7 @@
 
 			$this->set = $set;
 
-			$this->_type = "set('" . implode("','", $this->set) . "')";
+			$this->_type = ["set('" . implode("','", $this->set) . "')"];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = null;

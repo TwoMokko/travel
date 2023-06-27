@@ -10,7 +10,7 @@
 
 			$this->enum = $enum;
 
-			$this->_type = "enum('" . implode("','", $this->enum) . "')";
+			$this->_type = ["enum('" . implode("','", $this->enum) . "')"];
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = null;
