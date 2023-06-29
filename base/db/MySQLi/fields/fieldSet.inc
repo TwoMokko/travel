@@ -14,7 +14,7 @@
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = null;
-			$this->_extra = '';
+			$this->_extra = [''];
 		}
 
 		private function GetFormat(): string { return "`{$this->name}` set('" . implode("','", $this->set) . "') NOT NULL"; }

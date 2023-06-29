@@ -24,7 +24,7 @@
 
 		private DBQuery $db;
 
-		public Action $for_main;
+//		public Action $for_main;
 		public Action $for_tour;
 		public Action $for_list;
 		public Action $get;
@@ -34,47 +34,47 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->for_main = new Action();
+//			$this->for_main = new Action();
 			$this->for_tour = new Action('tours', 'show');
 			$this->for_list = new Action('review');
 			$this->get = new Action('review', 'get');
 			$this->add = new Action('review', 'add');
 
-			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
-			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
-			Controller::instance()->view->Push($this->for_list, [$this, 'ForList'], [$this, 'SetSeoForReview'], [$this, 'Header']);
+//			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
+//			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
+			Controller::instance()->view->Push($this->for_list, [$this, 'SetSeoForReview'], [$this, 'Header']);
 			Controller::instance()->view->Push($this->get, [$this, 'OnReview']);
 			Controller::instance()->work->Push($this->add, [$this, 'AddReview']);
 		}
 
-		public function ForMain(): void {
+		public function GetReviewsForMain(): string {
 			$state = self::STATE_VERIFIED;
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "`state` = {$state}", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
-			if (!$items) return;
+			if (!$items) return '';
 
-			Layout::instance()->main->Push(Lists::ToVarCarousel($items, Consts\Reviews::AVATARS));
+			return Lists::ToVarCarousel($items, Consts\Reviews::AVATARS);
 		}
 
-		public function ForTour(): void {
+		public function ForTour(): string {
 			$state = self::STATE_VERIFIED;
 			$tid = GetInt('id');
             $gid = Tour::instance()->GetGroupId($tid);
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "(`state` = {$state}) AND (`gid` = {$gid})", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
-			if (!$items) return;
+			if (!$items) return '';
 
-			Layout::instance()->main->Push(Lists::ToVarCarousel($items, []));
+			return Lists::ToVarCarousel($items, []);
 		}
 
-		public function ForList(): void {
+		public function ForList(): string {
 			$state = self::STATE_VERIFIED;
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "`state` = {$state}", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(Lists::ToVarGrid($items));
+			return Lists::ToVarGrid($items);
 		}
 
 		public function Header() {

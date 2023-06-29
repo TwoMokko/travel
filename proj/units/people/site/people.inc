@@ -28,7 +28,7 @@
 
 			$this->people = new Action('about', 'null');
 
-			Controller::instance()->view->Push($this->people, [$this, 'Header'], [$this, 'Team']);
+			Controller::instance()->view->Push($this->people, [$this, 'Header']);
 		}
 
         public function Header() {
@@ -36,7 +36,7 @@
             Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'О нас', 'Возможно, текст'));
         }
 
-		public function Team(): void {
+		public function Team(): string {
 			$state = self::STATE_ACTIVE;
 
 //			$table_people = self::TABLES['people'];
@@ -46,7 +46,7 @@
 			$result = $this->db->Select(self::TABLES['people'], ['id', 'name', 'text', 'number', 'link_vk', 'link_wa'], "`state` = {$state}", '`date_create`', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(Team::ToVar($items));
+			return Team::ToVar($items);
 		}
 
 	}

@@ -40,7 +40,7 @@
                 <div id = "story" class = "carousel">
                    <?php foreach ($items as $item) {
 					   $url = Consts\Story::PATH_COVER_RELATIVE . $item['image'];
-					   echo Story::instance()->show->GetLink($item['header'], ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);
+					   echo Story::instance()->show->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);
 				   } ?>
                 </div>
             </div>
@@ -48,5 +48,13 @@
                 $(() => new Carousel('#story'));
             </script>
         <?php }
+
+		private static function Item($data): string {
+			Template::Start();
+			?>
+			<span><?= $data['header']; ?></span>
+			<?php
+			return Template::Read();
+		}
 
 	}

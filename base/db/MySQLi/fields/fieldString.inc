@@ -14,7 +14,7 @@
 			$this->_null = 'NO';
 			$this->_key = '';
 			$this->_default = '';
-			$this->_extra = '';
+			$this->_extra = [''];
 		}
 
 		private function GetFormat(): string { return "`{$this->name}` varchar({$this->length}) NOT NULL DEFAULT ''"; }

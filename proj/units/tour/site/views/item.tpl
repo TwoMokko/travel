@@ -13,28 +13,6 @@
         }
 
         public static function Render(array $data, array $program, array $expense, array $additional_expense): void { ?>
-            <div class = "about_tour block p">
-                <div><?= $data['description']; ?></div>
-                <div class = "about_mini">
-                    <div>
-                        <div><?= $data['price']; ?> ₽</div>
-                        <div>Стоимость</div>
-                    </div>
-                    <div>
-                        <div><?= $data['duration']; ?> дней</div>
-                        <div>Длительность</div>
-                    </div>
-                </div>
-            </div>
-            <div class = "tour_video block">
-                <div>
-                    <div class = "header">Видео с путешествия</div>
-<!--                    <div class = "play">-->
-<!--                        <div></div>-->
-<!--                    </div>-->
-					<iframe class = "play_iframe" src = "<?= $data['video']; ?>" allowfullscreen frameborder = "0"></iframe>
-                </div>
-            </div>
 			<?php if ($expense && $additional_expense) self::Expenses($data, $expense, $additional_expense); ?>
 			<?php /*if ($expense && $additional_expense) self::Expenses($data, $expense, $additional_expense);*/ ?>
             <?php if ($program) self::Program($program); ?>

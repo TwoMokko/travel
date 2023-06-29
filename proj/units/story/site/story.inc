@@ -35,8 +35,8 @@
 			$this->all = new Action('stories', 'null');
 			$this->show = new Action('stories', 'show', '/stories/show?id=%id%');
 
-			Controller::instance()->view->Push($this->all, [$this, 'All'], [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
-			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'Show'], [$this, 'Carousel'], [$this, 'SetSeoForShow']);
+			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
+			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'SetSeoForShow']);
 		}
 
         public function HeaderForAll() {
@@ -64,31 +64,31 @@
 //            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['header'], ''));
         }
 
-		public function All(): void {
+		public function All(): string {
 			$state = self::STATE_ACTIVE;
 			$result = $this->db->Select(self::TABLES['story'], ['id', 'header', 'text'], "`state` = {$state}", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(All::ToVar($items));
+			return All::ToVar($items);
 		}
 
-		public function Show(): void {
+		public function Show(): string {
 			$state = self::STATE_ACTIVE;
 			$id = GetInt('id');
 
 			$data = $this->db->SelectOne(self::TABLES['story'], ['id', 'header', 'text'], "(`state` = {$state}) AND (`id` = {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 
-			Layout::instance()->main->Push(Show::ToVar($data));
+			return Show::ToVar($data);
 		}
 
-        public function Carousel(): void {
+        public function Carousel(): string {
 			$id = GetInt('id');
             $state = self::STATE_ACTIVE;
 
             $result = $this->db->Select(self::TABLES['story'], ['id', 'header'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
-            Layout::instance()->main->Push(Show::ToVarCarousel($items));
+            return Show::ToVarCarousel($items);
         }
 
 		public function SetSeoForAll() {

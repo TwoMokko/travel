@@ -22,17 +22,17 @@
         private DBQuery $db;
 
 		public Action $feedback;
-        public Action $for_tour;
+//        public Action $for_tour;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
             $this->db = DBQuery::instance();
 
 			$this->feedback = new Action('feedback', 'null');
-			$this->for_tour = new Action('tours', 'show');
+//			$this->for_tour = new Action('tours', 'show');
 
 			Controller::instance()->view->Push($this->feedback, [$this, 'Feedback']);
-			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
+//			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
 		}
 
 		#[NoReturn] public function Feedback() {

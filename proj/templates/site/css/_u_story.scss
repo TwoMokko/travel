@@ -4,7 +4,7 @@
 @use "func" as *;
 
 .block.adventure {
-	padding: 5%; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover;
+	padding: 5%; background-position: center; background-image: url("pic/adventure.jpg"); background-size: cover; margin-bottom: 10%;
 	> div { text-align: center !important;
 		> div {
 			color: $color_white;

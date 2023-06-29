@@ -33,7 +33,7 @@
 		private Action $set_data_page;
 		private Action $scroll_top;
 		private Action $set_seo_main;
-		private Action $about_main;
+//		private Action $about_main;
 		private Action $about_page;
 
 		private function __construct() {
@@ -43,7 +43,7 @@
 			$this->set_data_page 	= new Action('always', 'always');
 			$this->scroll_top 	    = new Action('always', 'always');
 			$this->set_seo_main		= new Action();
-			$this->about_main		= new Action();
+//			$this->about_main		= new Action();
 			$this->about_page		= new Action('about');
 
 			$this->header 			= new Action();
@@ -52,8 +52,8 @@
 			Controller::instance()->view->Push($this->set_data_page, [$this, 'SetDataPage']);
 			Controller::instance()->view->Push($this->scroll_top, [$this, 'ScrollTop']);
 			Controller::instance()->view->Push($this->set_seo_main, [$this, 'SetSeoForMain']);
-			Controller::instance()->view->Push($this->about_main, [$this, 'AboutMain'], [$this, 'StoryMain']);
-			Controller::instance()->view->Push($this->about_page, [$this, 'AboutPage'], [$this, 'SetSeoForAbout']);
+//			Controller::instance()->view->Push($this->about_main, [$this, 'GetStoryMain']);
+			Controller::instance()->view->Push($this->about_page, [$this, 'SetSeoForAbout']);
 
 			Controller::instance()->view->Push($this->header, [$this, 'Header']);
 			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
@@ -84,29 +84,29 @@
 			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');
 		}
 
-		public function AboutMain(): void {
+		public function GetAboutMain(): string {
 			$main_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_header')") ?: '';
 			$main_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_text')") ?: '';
 
-			Layout::instance()->main->Push(Other::AboutMain($main_about_header, $main_about_text));
+			return Other::AboutMain($main_about_header, $main_about_text);
 		}
 
-		public function StoryMain(): void {
+		public function GetStoryMain(): string {
 			$main_story_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_story_header')") ?: '';
 			$main_story_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_story_text')") ?: '';
 			$main_story_button = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_story_button')") ?: '';
 
-			Layout::instance()->main->Push(Other::StoryMain($main_story_header, $main_story_text, $main_story_button));
+			return Other::StoryMain($main_story_header, $main_story_text, $main_story_button);
 		}
 
-		public function AboutPage(): void {
+		public function AboutPage(): string {
 			$page_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_header')") ?: '';
 			$page_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_text')") ?: '';
 			$page_about_mini_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_mini_text')") ?: '';
 			$page_about_video = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_video')") ?: '';
 			$image = $this->GetImage('about_description');
 
-			Layout::instance()->main->Push(Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $page_about_video, $image));
+			return Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $page_about_video, $image);
 		}
 
 		public function SetSeoForAbout() {

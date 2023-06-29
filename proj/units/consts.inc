@@ -9,3 +9,4 @@
 	const ID_PEOPLE					= 5;
 	const ID_STORY					= 6;
 	const ID_REVIEWS				= 7;
+	const ID_PAGES					= 8;
