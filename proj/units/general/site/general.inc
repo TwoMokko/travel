@@ -17,9 +17,7 @@
 	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 	use Proj\Site\Templates\Layout;
-	use Proj\Site\Templates\General\HeaderForMain;
-	use Proj\Site\Templates\General\Footer;
-	use Proj\Site\Templates\General\Other;
+	use Proj\Site\Templates\General as TPL;
 
 	class General extends Units implements Consts\General {
 		use Instance;
@@ -55,16 +53,16 @@
 //			Controller::instance()->view->Push($this->about_main, [$this, 'GetStoryMain']);
 			Controller::instance()->view->Push($this->about_page, [$this, 'SetSeoForAbout']);
 
-			Controller::instance()->view->Push($this->header, [$this, 'Header']);
-			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
+//			Controller::instance()->view->Push($this->header, [$this, 'Header']);
+//			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
 		}
 
-		public function Header() {
-            Layout::instance()->header->Push(HeaderForMain::ToVar());
+		public function GetHeader(): string {
+           return TPL\HeaderForMain::ToVar();
 		}
 
 		public function Footer() {
-			Layout::instance()->footer->Push(Footer::ToVar());
+			Layout::instance()->footer->Push(TPL\Footer::ToVar());
 		}
 
 		public function SetDataPage() {
@@ -76,7 +74,7 @@
 		}
 
         public function ScrollTop() {
-            Layout::instance()->main->Push(Other::ScrollTop());
+            Layout::instance()->main->Push(TPL\Other::ScrollTop());
         }
 
 		public function SetSeoForMain() {
@@ -88,7 +86,7 @@
 			$main_about_header = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_header')") ?: '';
 			$main_about_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_about_text')") ?: '';
 
-			return Other::AboutMain($main_about_header, $main_about_text);
+			return TPL\Other::AboutMain($main_about_header, $main_about_text);
 		}
 
 		public function GetStoryMain(): string {
@@ -96,7 +94,7 @@
 			$main_story_text = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_story_text')") ?: '';
 			$main_story_button = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_story_button')") ?: '';
 
-			return Other::StoryMain($main_story_header, $main_story_text, $main_story_button);
+			return TPL\Other::StoryMain($main_story_header, $main_story_text, $main_story_button);
 		}
 
 		public function AboutPage(): string {
@@ -106,7 +104,7 @@
 			$page_about_video = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'page_about_video')") ?: '';
 			$image = $this->GetImage('about_description');
 
-			return Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $page_about_video, $image);
+			return TPL\Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $page_about_video, $image);
 		}
 
 		public function SetSeoForAbout() {

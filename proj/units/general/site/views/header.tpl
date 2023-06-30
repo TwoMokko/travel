@@ -25,10 +25,10 @@
 		private static function Menu(): void { ?>
 			<div class = "block menu">
 				<div><a href = "/">Главная</a></div>
-				<div><a href = "<?= Units\Tour::instance()->all->GetPath(); ?>">Путешествия</a></div>
-				<div><a href = "<?= Units\People::instance()->people->GetPath(); ?>">О нас</a></div>
-				<div><a href = "<?= Units\Story::instance()->all->GetPath(); ?>">Наши истории</a></div>
-				<div><a href = "<?= Units\Photo::instance()->all->GetPath(); ?>">Фотографии</a></div>
+				<div><a href = "<?= Units\Pages::instance()->tours->GetPath(); ?>">Путешествия</a></div>
+				<div><a href = "<?= Units\Pages::instance()->about->GetPath(); ?>">О нас</a></div>
+				<div><a href = "<?= Units\Pages::instance()->stories->GetPath(); ?>">Наши истории</a></div>
+				<div><a href = "<?= Units\Pages::instance()->photos->GetPath(); ?>">Фотографии</a></div>
 			</div>
 		<?php }
 

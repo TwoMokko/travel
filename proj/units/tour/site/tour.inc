@@ -38,17 +38,14 @@
 
 		private DBQuery $db;
 
-        public Action $all;
         public Action $item;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-            $this->all = new Action('tours');
             $this->item = new Action('tours', 'show', '/tours/show?id=%id%');
 
-            Controller::instance()->view->Push($this->all, [$this, 'SetSeoForAll']);
             Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'SetSeoForItem']);
 		}
 
@@ -190,11 +187,6 @@
         public function GetGroupId(int $id): int {
             return $this->db->SelectOneField(self::TABLES['tour'], 'gid', "`id` = {$id}");
         }
-
-		public function SetSeoForAll() {
-			Template::instance()->SetTitle('Путешествия');
-			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');
-		}
 
 		public function SetSeoForItem() {
 			$id = GetParam('id');

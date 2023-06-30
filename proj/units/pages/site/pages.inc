@@ -53,7 +53,8 @@
 		}
 
         public function Main(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->header->Push(General::instance()->GetHeader());
+			Layout::instance()->main->Push(
 				Tour::instance()->GetSelect(),
 				General::instance()->GetAboutMain(),
 				Tour::instance()->GetTypes(),
@@ -64,8 +65,9 @@
         }
 
 		public function Tours(): void {
-			Layout::instance()->header->Push(
-//				Tour::instance()->SetSeoForAll(),
+			Template::instance()->SetTitle('Путешествия');
+			Template::instance()->SetDescription('Недорогие туры на Алтай. Всем рады.');
+			Layout::instance()->main->Push(
 				Tour::instance()->GetHeaderForAll(),
 				Tour::instance()->GetAllTours()
 			);
@@ -84,39 +86,39 @@
 		}
 
 		public function About(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->main->Push(
 				General::instance()->AboutPage(),
 				People::instance()->Team()
 			);
 		}
 
 		public function Stories(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->main->Push(
 				Story::instance()->All()
 			);
 		}
 
 		public function Story(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->main->Push(
 				Story::instance()->Show(),
 				Story::instance()->Carousel()
 			);
 		}
 
 		public function Photos(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->main->Push(
 				Photo::instance()->All()
 			);
 		}
 
 		public function Photo(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->main->Push(
 				Photo::instance()->Show()
 			);
 		}
 
 		public function Review(): void {
-			Layout::instance()->header->Push(
+			Layout::instance()->main->Push(
 				Reviews::instance()->ForList()
 			);
 		}
