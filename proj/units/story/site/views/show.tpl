@@ -3,7 +3,8 @@
 	namespace Proj\Site\Templates\Story;
 
 	use Base\Templates\Template;
-    use Proj\Site\Units\Story;
+	use Proj\Site\Units\Pages;
+	use Proj\Site\Units\Story;
 	use Proj\Units\Consts;
 
 	abstract class Show {
@@ -40,7 +41,8 @@
                 <div id = "story" class = "carousel">
                    <?php foreach ($items as $item) {
 					   $url = Consts\Story::PATH_COVER_RELATIVE . $item['image'];
-					   echo Story::instance()->show->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);
+					   echo Pages::instance()->story->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);
+					   /*Story::instance()->show->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);*/
 				   } ?>
                 </div>
             </div>

@@ -4,6 +4,7 @@
 
 	use Base\Templates\Template;
 	use Proj\Site\Units\Photo;
+	use Proj\Site\Units\Pages;
 	use Proj\Units\Consts;
 
 	abstract class ForMain {
@@ -25,7 +26,7 @@
 					</div>
 				</div>
 				<div>
-					<?= Photo::instance()->all->GetLink('Перейти к альбомам', [], ['class' => 'button']); ?>
+					<?= Pages::instance()->photos->GetLink('Перейти к альбомам', [], ['class' => 'button']); ?>
 				</div>
 			</div>
 			<script>

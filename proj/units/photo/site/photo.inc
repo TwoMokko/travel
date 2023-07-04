@@ -29,8 +29,8 @@
 
 		private DBQuery $db;
 
-		public Action $all;
-		public Action $show;
+//		public Action $all;
+//		public Action $show;
 //		public Action $for_tour;
 //		public Action $for_main;
 
@@ -38,23 +38,23 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->all = new Action('photo', 'null', 'default');
-			$this->show = new Action('photo', 'show', '/photo/show?id=%id%');
+//			$this->all = new Action('photo', 'null', 'default');
+//			$this->show = new Action('photo', 'show', '/photo/show?id=%id%');
 //			$this->for_tour = new Action('tours', 'show', '/tour/show?id=%id%');
 //			$this->for_main = new Action();
 
-			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
-			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'SetSeoForShow']);
+//			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
+//			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'SetSeoForShow']);
 //			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
 //			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
 		}
 
-		public function HeaderForAll() {
+		public function HeaderForAll(): string {
 			$image = Site\Units\General::instance()->GetImage('photo');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Фотографии', 'Возможно, текст'));
+			return General\HeaderForPages::ToVar("{$image}", 'Фотографии', 'Возможно, текст');
 		}
 
-		public function HeaderForItem() {
+		public function HeaderForItem(): string {
 			if (!$id = GetInt('id')) die;//TODO 404
 
 			$state = self::STATE_ACTIVE;
@@ -67,7 +67,7 @@
 //			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['header'], ''));
 
 			$image = Site\Units\General::instance()->GetImage('photo');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", $item['header'], ''));
+			return General\HeaderForPages::ToVar("{$image}", $item['header'], '');
 
 		}
 
@@ -129,10 +129,10 @@
 			return ForMain::ToVar($data);
 		}
 
-		public function SetSeoForAll() {
-			Template::instance()->SetTitle('Фотографии');
-			Template::instance()->SetDescription('');
-		}
+//		public function SetSeoForAll() {
+//			Template::instance()->SetTitle('Фотографии');
+//			Template::instance()->SetDescription('');
+//		}
 
 		public function SetSeoForShow() {
 			$id = GetParam('id');

@@ -25,33 +25,33 @@
 
 		private DBQuery $db;
 
-		public Action $all;
-		public Action $show;
+//		public Action $all;
+//		public Action $show;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->all = new Action('stories', 'null');
-			$this->show = new Action('stories', 'show', '/stories/show?id=%id%');
+//			$this->all = new Action('stories', 'null');
+//			$this->show = new Action('stories', 'show', '/stories/show?id=%id%');
 
-			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
-			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'SetSeoForShow']);
+//			Controller::instance()->view->Push($this->all, [$this, 'HeaderForAll'], [$this, 'SetSeoForAll']);
+//			Controller::instance()->view->Push($this->show, [$this, 'HeaderForItem'], [$this, 'SetSeoForShow']);
 		}
 
-        public function HeaderForAll() {
+        public function HeaderForAll(): string {
 			$image = Site\Units\General::instance()->GetImage('story');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Истории', 'Возможно, текст'));
+			return General\HeaderForPages::ToVar("{$image}", 'Истории', 'Возможно, текст');
         }
 
-        public function HeaderForItem() {
+        public function HeaderForItem(): string {
             if (!$id = GetInt('id')) die;//TODO 404
 
 			$state = self::STATE_ACTIVE;
             $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
 
 			$image = Site\Units\General::instance()->GetImage('story');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", $item['header'], 'Возможно, текст'));
+			return General\HeaderForPages::ToVar("{$image}", $item['header'], 'Возможно, текст');
 
 //            $state = self::STATE_ACTIVE;
 //

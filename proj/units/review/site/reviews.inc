@@ -25,8 +25,8 @@
 		private DBQuery $db;
 
 //		public Action $for_main;
-		public Action $for_tour;
-		public Action $for_list;
+//		public Action $for_tour;
+//		public Action $for_list;
 		public Action $get;
 		public Action $add;
 
@@ -35,14 +35,14 @@
 			$this->db = DBQuery::instance();
 
 //			$this->for_main = new Action();
-			$this->for_tour = new Action('tours', 'show');
-			$this->for_list = new Action('review');
+//			$this->for_tour = new Action('tours', 'show');
+//			$this->for_list = new Action('review');
 			$this->get = new Action('review', 'get');
 			$this->add = new Action('review', 'add');
 
 //			Controller::instance()->view->Push($this->for_main, [$this, 'ForMain']);
 //			Controller::instance()->view->Push($this->for_tour, [$this, 'ForTour']);
-			Controller::instance()->view->Push($this->for_list, [$this, 'SetSeoForReview'], [$this, 'Header']);
+//			Controller::instance()->view->Push($this->for_list, [$this, 'SetSeoForReview'], [$this, 'Header']);
 			Controller::instance()->view->Push($this->get, [$this, 'OnReview']);
 			Controller::instance()->work->Push($this->add, [$this, 'AddReview']);
 		}
@@ -57,9 +57,9 @@
 			return Lists::ToVarCarousel($items, Consts\Reviews::AVATARS);
 		}
 
-		public function ForTour(): string {
+		public function ForTour($tid): string {
 			$state = self::STATE_VERIFIED;
-			$tid = GetInt('id');
+//			$tid = GetInt('id');
             $gid = Tour::instance()->GetGroupId($tid);
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "(`state` = {$state}) AND (`gid` = {$gid})", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
@@ -77,9 +77,9 @@
 			return Lists::ToVarGrid($items);
 		}
 
-		public function Header() {
+		public function Header(): string {
 			$image = Site\Units\General::instance()->GetImage('review');
-			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'Отзывы', 'Возможно, текст'));
+			return General\HeaderForPages::ToVar("{$image}", 'Отзывы', 'Возможно, текст');
 		}
 
 		#[NoReturn] public function OnReview(): void {
@@ -92,10 +92,10 @@
 			SendJSONSuccess($item);
 		}
 
-		public function SetSeoForReview() {
-			Template::instance()->SetTitle('Отзывы');
-			Template::instance()->SetDescription('');
-		}
+//		public function SetSeoForReview() {
+//			Template::instance()->SetTitle('Отзывы');
+//			Template::instance()->SetDescription('');
+//		}
 
 		#[NoReturn] public function AddReview() {
 			$name = GetParam('name', '');

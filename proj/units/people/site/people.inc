@@ -20,20 +20,19 @@
 
 		private DBQuery $db;
 
-		public Action $people;
+//		public Action $people;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-			$this->people = new Action('about', 'null');
-
-			Controller::instance()->view->Push($this->people, [$this, 'Header']);
+//			$this->people = new Action('about', 'null');
+//			Controller::instance()->view->Push($this->people, [$this, 'Header']);
 		}
 
-        public function Header() {
+        public function Header(): string {
 			$image = Units\General::instance()->GetImage('about');
-            Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$image}", 'О нас', 'Возможно, текст'));
+            return General\HeaderForPages::ToVar("{$image}", 'О нас', 'Возможно, текст');
         }
 
 		public function Team(): string {

@@ -17,7 +17,7 @@
 		public static function Carousel($items, $avatars): void { ?>
 			<div class = "block p reviews">
 				<div>
-					<a class = "header" onclick = "window.location.href = '<?= Units\Reviews::instance()->for_list->GetPath(); ?>';" href = "<?= Units\Reviews::instance()->for_list->GetPath(); ?>">Отзывы</a>
+					<a class = "header" onclick = "window.location.href = '<?= Units\Pages::instance()->review->GetPath(); ?>';" href = "<?= Units\Pages::instance()->review->GetPath(); ?>">Отзывы</a>
 					<span onclick = 'LeaveReview(<?= json_encode($avatars); ?>);' title = "оставить отзыв"></span>
 				</div>
 				<div id = "review" class = "carousel">

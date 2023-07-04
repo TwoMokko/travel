@@ -3,6 +3,7 @@
 	namespace Proj\Site\Templates\Photo;
 
 	use Base\Templates\Template;
+	use Proj\Site\Units\Pages;
 	use Proj\Site\Units\Photo;
 	use Proj\Units\Consts;
 
@@ -30,7 +31,7 @@
 					</div>
 				</div>
 				<div>
-					<?= Photo::instance()->show->GetLink('Смотреть альбом', ['id' => $photo_id], ['class' => 'button']); ?>
+					<?= Pages::instance()->photo->GetLink('Смотреть альбом', ['id' => $photo_id], ['class' => 'button']); ?>
 				</div>
 			</div>
 			<script>

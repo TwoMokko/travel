@@ -3,6 +3,7 @@
 	namespace Proj\Site\Templates\General;
 
 	use Base\Templates\Template;
+	use Proj\Site\Units\Pages;
 	use Proj\Units\Consts;
 
 	abstract class Other {
@@ -32,7 +33,8 @@
                 <div>
                     <div class = "header"><?= nl2br($header); ?></div>
                     <div><?= nl2br($text); ?></div>
-                    <a class = "button semi_white" href = "/stories"><?= nl2br($button); ?></a>
+					<?= Pages::instance()->stories->GetLink(nl2br($button), [], ['class' => 'button semi_white']); ?>
+<!--                    <a class = "button semi_white" href = "/stories">--><?//= nl2br($button); ?><!--</a>-->
                 </div>
             </div>
 		<?php }

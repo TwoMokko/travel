@@ -38,15 +38,14 @@
 
 		private DBQuery $db;
 
-        public Action $item;
+//        public Action $item;
 
 		private function __construct() {
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBQuery::instance();
 
-            $this->item = new Action('tours', 'show', '/tours/show?id=%id%');
-
-            Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'SetSeoForItem']);
+//            $this->item = new Action('tours', 'show', '/tours/show?id=%id%');
+//            Controller::instance()->view->Push($this->item, [$this, 'HeaderForItem'], [$this, 'SetSeoForItem']);
 		}
 
 		public function Show($id) {
@@ -82,7 +81,7 @@
 
 		}
 
-		public function GetThings() { Layout::instance()->header->Push(TPL\TakeThings::ToVar()); }
+		public function GetThings(): string { return TPL\TakeThings::ToVar(); }
 
         public function GetSelect(): string {
             $state = self::STATE_ACTIVE;
@@ -100,7 +99,7 @@
                 $type['tours'] = $this->db->FetchAll($result, function (& $items, $item) {
                     $items[$item['id']] = [
                         'name' => $item['name_date'],
-                        'href' => $this->item->GetHref(['id'=>$item['id']])
+                        'href' => Pages::instance()->tour->GetHref(['id'=>$item['id']])
                     ];
                 });
             }
@@ -171,8 +170,8 @@
 			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['name'], $item['date']));
 		}
 
-		public function GetCarousel(): void {
-			$id = GetInt('id');
+		public function GetCarousel($id): string {
+//			$id = GetInt('id');
 			$state = self::STATE_ACTIVE;
 
             $table_tour = self::TABLES['tour'];
@@ -181,15 +180,15 @@
 
             $items = $this->db->FetchAll($result);
 
-			Layout::instance()->main->Push(Carousel::ToVarCarousel($items));
+			return Carousel::ToVarCarousel($items);
 		}
 
         public function GetGroupId(int $id): int {
             return $this->db->SelectOneField(self::TABLES['tour'], 'gid', "`id` = {$id}");
         }
 
-		public function SetSeoForItem() {
-			$id = GetParam('id');
+		public function SetSeoForItem($id) {
+//			$id = GetParam('id');
 			$name = $this->db->SelectOneField(self::TABLES['tour'], 'name', "`id` = {$id}");
 			$description = $this->db->SelectOneField(self::TABLES['tour'], 'description', "`id` = {$id}");
 

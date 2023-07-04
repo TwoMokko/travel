@@ -3,7 +3,8 @@
     namespace Proj\Site\Templates\Tour;
 
     use Base\Templates\Template;
-    use Proj\Site\Units\Tour;
+	use Proj\Site\Units\Pages;
+	use Proj\Site\Units\Tour;
     use Proj\Units\Consts;
 
     abstract class All {
@@ -54,7 +55,7 @@
                     <div><?= $tour['description']; ?></div>
                     <!--                                <div>Цена</div>-->
                     <div>
-                        <?= Tour::instance()->item->GetLink('Подробнее', ['id' => $tour['id']], ['class' => 'button border']); ?>
+                        <?= Pages::instance()->tour->GetLink('Подробнее', ['id' => $tour['id']], ['class' => 'button border']); ?>
                         <a class = "button" onclick = "ToDrive(<?= $tour['id']; ?>); event.preventDefault();">Поехать</a>
                         <!--                                    <input type = "button" value = "Поехать" onclick = "ToDrive(); event.preventDefault();">-->
                     </div>

@@ -65,9 +65,9 @@
             $this->db->Insert(self::TABLES['feedback'], $data);
 		}
 
-        public function ForTour(): void {
-            $id = GetInt('id');
-            Layout::instance()->main->Push(ForTour::ToVar($id));
+        public function ForTour($id): string {
+//            $id = GetInt('id');
+            return ForTour::ToVar($id);
         }
 	}
 

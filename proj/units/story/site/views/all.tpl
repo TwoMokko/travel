@@ -3,7 +3,8 @@
 	namespace Proj\Site\Templates\Story;
 
 	use Base\Templates\Template;
-    use Proj\Site\Units\Story;
+	use Proj\Site\Units\Pages;
+	use Proj\Site\Units\Story;
 	use Proj\Units\Consts;
 
     abstract class All {
@@ -17,7 +18,8 @@
 		public static function Render($items): void { ?>
 			<div class = "block page_adventure p">
 				<div class = "cards_adventure">
-					<?php foreach ($items as $item) echo Story::instance()->show->GetLink(self::ItemToVar($item), ['id' => $item['id']]); ?>
+					<?php foreach ($items as $item) echo Pages::instance()->story->GetLink(self::ItemToVar($item), ['id' => $item['id']]);
+					/* Story::instance()->show->GetLink(self::ItemToVar($item), ['id' => $item['id']]);*/ ?>
 				</div>
 			</div>
 		<?php }
