@@ -309,7 +309,7 @@ class Gallery {
         let $arrow_left = $('<span>', { class: 'arrow_left' });
         let $arrow_right = $('<span>', { class: 'arrow_right' });
         /* Building DOM */
-        $('main').append(this.$gallery.append($space, this.$photo, $container_btn.append($close, $arrow_left, $arrow_right)));
+        $('main').append(this.$gallery.append($space, this.$photo, $container_btn.append($close, (this.images.length > 1) ? $arrow_left : $(), (this.images.length > 1) ? $arrow_right : $())));
         /* Events */
         $space.on('click', this.Close.bind(this));
         $close.on('click', this.Close.bind(this));

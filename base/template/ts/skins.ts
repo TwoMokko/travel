@@ -17,8 +17,6 @@ namespace Base {
 			$add		: JQuery;
 
 			constructor(selector: string, name: string, columns: TypeColumns, values: TypeValues = []) {
-				console.log(columns, values);
-
 				this.number = 0;
 				this.name = name;
 				this.columns = columns;
@@ -73,6 +71,7 @@ namespace Base {
 		}
 
 		type TypePhotos = {[key: string] : { id: number, image: string }};
+
 		export class UploaderPhoto {
 			$wrap					: JQuery;
 			$input					: JQuery;
@@ -105,6 +104,7 @@ namespace Base {
 
 				this.$input.on('change', (e) => {
 					this.LoadFiles((e.target as HTMLInputElement).files);
+					this.$input.val('');
 				})
 				this.$space.on('click', () => {
 					this.$input.trigger('click');
@@ -131,7 +131,6 @@ namespace Base {
 			}
 
 			private ShowFiles(photos: TypePhotos) {
-				console.log(photos);
 				for (let i in photos) {
 					let $image = $('<div/>', {class: 'img'});
 					let $del = $('<div/>', {class: 'delete active'});

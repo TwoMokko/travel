@@ -61,7 +61,7 @@
 		}
 
 		public function OutMenu() {
-			Layout::instance()->menu->Push(Item::ToVar($this->site->GetLink('Открыть сайт', [], ['target' => 'blank'])));
+			Layout::instance()->menu->Push(Item::ToVar('<a href = "/" target = "blank">Открыть сайт</a>'));
 			Layout::instance()->menu->Push(
 				Group::ToVar('База данных', [
 					$this->db_struct->GetLink('Структура'),
@@ -71,20 +71,9 @@
 			Layout::instance()->menu->Push(
 				Group::ToVar('Изображения и текста', [
 					$this->editor_image->select->GetLink('Список изображений', ['page' => 1]),
-//					$this->editor_image->create->GetLink('Добавить изображение', ['page' => 1]),
 					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
-//					$this->editor_text->create->GetLink('Добавить текст', ['page' => 1]),
 				])
 			);
-
-//			Layout::instance()->menu->Push(
-//				Group::ToVar('Текста', [
-////					$this->editor_image->select->GetLink('Список изображений', ['page' => 1]),
-////					$this->editor_image->create->GetLink('Добавить изображение', ['page' => 1]),
-//					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
-//					$this->editor_text->create->GetLink('Добавить текст', ['page' => 1]),
-//				])
-//			);
 		}
 
 		public function OutFooter() {

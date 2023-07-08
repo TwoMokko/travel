@@ -58,8 +58,9 @@
 		}
 
 		public function ForTour($tid): string {
+
 			$state = self::STATE_VERIFIED;
-//			$tid = GetInt('id');
+//			 = GetInt('id');
             $gid = Tour::instance()->GetGroupId($tid);
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "(`state` = {$state}) AND (`gid` = {$gid})", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);

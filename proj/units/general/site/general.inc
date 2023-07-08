@@ -99,12 +99,7 @@
 			return TPL\Other::AboutPage($page_about_header, $page_about_text, $page_about_mini_text, $page_about_video, $image);
 		}
 
-//		public function SetSeoForAbout() {
-//			Template::instance()->SetTitle('О нас');
-//			Template::instance()->SetDescription('');
-//		}
-
-		public function GetImage(string $name): string { return Consts\General::PATH_IMAGE_RELATIVE . $this->db->SelectOneFieldCalc(self::TABLES['image'], "CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`", 'image',  "`name` = '{$name}'"); }
+		public function GetImage(string $name): string { return Consts\General::PATH_IMAGE_RELATIVE . $this->db->SelectOneFieldCalc(self::TABLES['image'], "CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`", 'image',  "`alias` = '{$name}'"); }
 		public function GetText(string $alias): string { return $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = '{$alias}')") ?: ''; }
 
 	}

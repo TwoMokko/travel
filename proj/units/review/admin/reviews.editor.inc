@@ -81,9 +81,9 @@
             $id = GetInt('id');
             $item = $this->table->SelectOne(null, "(`id` = {$id})");
             $fields = [
-                'tour_id'       => new Skins\Edit\Select('К какому направлению относится', 'gid', array_merge(['Выберите'], Tours::instance()->GetGroupTour())),
-                'name'          => new Skins\Edit\Text('Имя', 'name'),
-                'text'          => new Skins\Edit\TextArea('Текст', 'text')
+                'tour_id'       => new Skins\Edit\Select('К какому направлению относится', 'form[gid]', ['Выберите'] + Tours::instance()->GetGroupTour()),
+                'name'          => new Skins\Edit\Text('Имя', 'form[name]'),
+                'text'          => new Skins\Edit\TextArea('Текст', 'form[text]')
             ];
 
 //            $this->PrepareOnUpdate($id, $item, $data);
@@ -93,8 +93,10 @@
 
         #[NoReturn] public function DoPublish(): void {
             $id = GetInt('id');
-            $old_state = Consts\Reviews::STATE_UNVERIFIED;
-            $this->table->Update(['state' => Consts\Reviews::STATE_VERIFIED], "(`state` = {$old_state}) AND (`id` = {$id})");
+            $data = GetParam('form', []);
+            $data['state'] = Consts\Reviews::STATE_VERIFIED;
+
+            $this->table->Update($data, "`id` = {$id}");
 
             $this->fieldsSelect = $this->FieldsSelect([]);
             SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);

@@ -15,7 +15,7 @@
 			return Template::Read();
 		}
 
-		public static function Render(Editor\Reviews $editor, int $id, array $fields, array $item, array $data, string $title): void { echo '123';
+		public static function Render(Editor\Reviews $editor, int $id, array $fields, array $item, array $data, string $title): void {
             $form = new Form($data);
         ?>
             <div class = "navigate">
@@ -30,7 +30,7 @@
                 <tbody>
                     <tr>
                         <th><?= $fields['tour_id']->GetTitle(); ?>:</th>
-                        <td><?= $fields['tour_id']->ToVar($item['tid']); ?></td>
+                        <td><?= $fields['tour_id']->ToVar($item['gid']); ?></td>
                     </tr>
                     <tr>
                         <th><?= $fields['name']->GetTitle(); ?>:</th>

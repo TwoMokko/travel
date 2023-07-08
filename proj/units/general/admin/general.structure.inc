@@ -24,13 +24,15 @@
 			$this->table_text->uint8('state');
 //			$this->table_text->timestamp('date_create');
 //			$this->table_text->timestamp('date_modify');
-			$this->table_text->string('alias', 20);
+			$this->table_text->string('description', 100);
+			$this->table_text->string('alias', 50);
 			$this->table_text->text('text');
 
 			$this->table_image = new Table(self::TABLES['image'], $this->db);
 			$this->table_image->id('id');
 			$this->table_image->uint8('state');
-			$this->table_image->string('name', 50);
+			$this->table_image->string('description', 100);
+			$this->table_image->string('alias', 50);
 			$this->table_image->string('hash', 32);
 			$this->table_image->string('ext', 6);
 

@@ -34,14 +34,14 @@
 
 			$this->always = new Action('always', 'always');
 			$this->main = new Action('null', 'null');
-			$this->tours = new Action('tours', 'null');
+			$this->tours = new Action('tours', 'null', 'default');
 			$this->tour = new Action('tours', 'show', '/tours/show?id=%id%');
-			$this->about = new Action('about', 'null');
+			$this->about = new Action('about', 'null', 'default');
 			$this->stories = new Action('stories', 'null', 'default');
 			$this->story = new Action('stories', 'show', '/stories/show?id=%id%');
-			$this->photos = new Action('photo', 'null');
+			$this->photos = new Action('photo', 'null', 'default');
 			$this->photo = new Action('photo', 'show', '/photo/show?id=%id%');
-			$this->review = new Action('review', 'null');
+			$this->review = new Action('review', 'null', 'default');
 
 			Controller::instance()->view->Push($this->always, [$this, 'Always']);
 			Controller::instance()->view->Push($this->main, [$this, 'Main']);

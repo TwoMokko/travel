@@ -23,29 +23,6 @@
 			parent::__construct(self::ID, self::NAME);
 			$this->db = DBObject::instance();
 
-			$test3 = new Table('test3', $this->db);
-			$test3->id('id');
-			$test3->bool('bool');
-			$test3->int8('int8');
-			$test3->int16('int16');
-			$test3->int24('int24');
-			$test3->int32('int32');
-			$test3->int64('int64');
-			$test3->uint8('uint8');
-			$test3->uint16('uint16');
-			$test3->uint24('uint24');
-			$test3->uint32('uint32');
-			$test3->uint64('uint64');
-			$test3->float('float');
-			$test3->double('double');
-			$test3->timestamp('timestamp_update', true);
-			$test3->timestamp('timestamp');
-			$test3->enum('enum', ['a', 'b', 'c']);
-			$test3->set('set', ['a', 'b', 'c']);
-			$test3->string('string', 20);
-			$test3->string('string_30', 20);
-			$test3->text('text');
-
 			$this->table_types = new Table(self::TABLES['type'], $this->db);
 			$this->table_types->id('id');
 			$this->table_types->uint8('state');
@@ -91,7 +68,7 @@
             $this->table_additional_expense->uint32('tour_id');
             $this->table_additional_expense->string('additional_expense', 1000);
 
-            $this->db->PushTables($test3, $this->table_types, $this->table_group, $this->table_tour, $this->table_program, $this->table_expense, $this->table_additional_expense);
+            $this->db->PushTables($this->table_types, $this->table_group, $this->table_tour, $this->table_program, $this->table_expense, $this->table_additional_expense);
 		}
 
 	}

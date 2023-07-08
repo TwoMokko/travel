@@ -33,7 +33,13 @@
 //			];
 //		}
 
-		protected function RegTitles(): void {
+        protected function NavigateSelect(): array {
+            return [
+                function () { return $this->create->GetLink('Добавить текст', ['page' => 1]); }
+            ];
+        }
+
+        protected function RegTitles(): void {
 			$this->titleSelect = 'Список текстов';
 			$this->titleCreate = 'Добавить текст';
 			$this->titleUpdate = 'Редактирование текста';
@@ -69,26 +75,18 @@
 		}
 
 		protected function FieldsCreate(array $params): array {
-            return $this->FieldsCreateAndUpdate($params);
+            return [
+                'alias' 	=> new Skins\Edit\Text('Имя', 'form[alias]'),
+                'text' 		=> new Skins\Edit\TextArea('Текст', 'form[text]')
+            ];
 		}
 
 		protected function FieldsUpdate(array $params): array {
-            return $this->FieldsCreateAndUpdate($params);
-		}
-
-        private function FieldsCreateAndUpdate(array $params): array {
-            $states = [
-                Consts\General::STATE_DRAFT => Consts\General::STATES_RU[Consts\People::STATE_DRAFT],
-                Consts\General::STATE_ACTIVE => Consts\General::STATES_RU[Consts\People::STATE_ACTIVE],
-                Consts\General::STATE_INACTIVE => Consts\General::STATES_RU[Consts\People::STATE_INACTIVE],
-            ];
-
             return [
-//                'state' 	=> new Skins\Edit\Select('Состояние', 'form[state]', $states),
-                'alias' 		=> new Skins\Edit\Text('Имя', 'form[alias]'),
+                'alias' 	=> new Skins\Browse\Text('Имя'),
                 'text' 		=> new Skins\Edit\TextArea('Текст', 'form[text]')
             ];
-        }
+		}
 
 		public function PrepareOnUpdate(int $id, array & $item, array & $data): void {
 			$data['state'] = [

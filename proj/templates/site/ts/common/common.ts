@@ -428,8 +428,8 @@ class Gallery {
 				this.$photo,
 				$container_btn.append(
 					$close,
-					$arrow_left,
-					$arrow_right
+					(this.images.length > 1) ? $arrow_left : $(),
+					(this.images.length > 1) ? $arrow_right : $()
 				)
 			)
 		);

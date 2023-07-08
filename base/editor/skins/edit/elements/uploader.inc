@@ -11,7 +11,7 @@
 		private array   $photos;
 
 		public function __construct(string $title, string $name, string $path_load, string $path_del, string $path_view, string $value = 'Выберите', string $accept = '', array $photos = []) {
-			parent::__construct($name, $title, 'file');
+			parent::__construct($title, $name, 'file');
 
 			$this->value = $value;
 			$this->accept = $accept;

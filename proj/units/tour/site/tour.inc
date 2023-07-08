@@ -73,7 +73,7 @@
 
 			Layout::instance()->header->Push(
 				TPL\About::ToVar($data),
-				TPL\Video::ToVar($data),
+                $data['video'] ? TPL\Video::ToVar($data) : '',
 				TPL\Expense::ToVar($data, $expense, $additional_expense),
 				TPL\Program::ToVar($program)
 //				TPL\TakeThings::ToVar()
