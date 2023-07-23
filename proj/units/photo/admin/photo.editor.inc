@@ -10,6 +10,7 @@
 	use Base\Editor\EditorMySQLi;
 	use Base\Editor\Skins;
 	use Proj\Admin\Units;
+	use Proj\Others\UploaderImage;
 	use Proj\Units\Consts;
 
 	class Photo extends EditorMySQLi {
@@ -176,24 +177,22 @@
         #[NoReturn] public function PhotoLoad(): void {
             $result = $this->table_show->Select(['id'],"`date_create` < DATE_SUB(NOW(), INTERVAL 1 MONTH) AND `all_id` = 0", null, null, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`"]);
             while ($row = $this->table_show->Fetch($result)) {
-                $dir = Consts\Photo::PATH_SHOW;
-
-                unlink($dir . $row['name']);
+                unlink(Consts\Photo::PATH_SHOW_ORIGINAL . $row['name']);
+                unlink(Consts\Photo::PATH_SHOW_PREVIEW . $row['name']);
                 $this->table_show->Delete("`id` = {$row['id']}");
             }
-
 
             $uid = GetParam('uid', '');
             $id_album = GetParam('id', 0);
 
             $temp_path = $_FILES['file']['tmp_name'];
-            $temp_name = $_FILES['file']['name'];
-            $dir = Consts\Photo::PATH_SHOW;
-            $hash = hash_file('md5', $temp_path);
-            $info = pathinfo($temp_name);
-            $ext = $info['extension'];
+			$temp_name = $_FILES['file']['name'];
 
-            $id = $this->table_show->Insert([
+			$info = pathinfo($temp_name);
+			$ext = $info['extension'];
+			$hash = hash_file('md5', $temp_path);
+
+			$id = $this->table_show->Insert([
                 'u_id' => $uid,
                 'all_id' => $id_album,
                 'state' => Consts\Photo::STATE_ACTIVE,
@@ -201,20 +200,24 @@
                 'ext' => $ext
             ]);
 
-            $name = "{$hash}.{$id}.{$ext}";
+			try {
+				$IMG = new UploaderImage($temp_path, $ext);
+				$IMG->Save(Consts\Photo::PATH_SHOW_ORIGINAL . '/', "{$hash}.{$id}");
+				$IMG->Save(Consts\Photo::PATH_SHOW_PREVIEW . '/', "{$hash}.{$id}", null, 500, 500, UploaderImage::SIZE_COVER);
+			}
+			catch (\Exception) { SendJSONSuccess(['action' => 'error', 'text' => 'Изображение не загружено']); }
 
-            if (!is_dir($dir)) mkdir($dir, 0777, true);
-            move_uploaded_file($temp_path, $dir . $name);
-
-            SendJSONSuccess(['id' => $id]);
+            SendJSONSuccess(['action' => 'ok', 'id' => $id]);
         }
 
         #[NoReturn] public function PhotoDel(): void {
             $id = GetParam('id');
-            $dir = Consts\Photo::PATH_SHOW;
+            $dir_orig = Consts\Photo::PATH_SHOW_ORIGINAL;
+            $dir_preview = Consts\Photo::PATH_SHOW_PREVIEW;
             $name = $this->table_show->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
 
-            if (file_exists($dir . $name)) unlink($dir . $name);
+            if (file_exists($dir_orig . $name)) unlink($dir_orig . $name);
+            if (file_exists($dir_preview . $name)) unlink($dir_preview . $name);
             $this->table_show->Delete("`id` = {$id}");
 
             SendJSONSuccess([]);

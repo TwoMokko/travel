@@ -1,33 +1,33 @@
 <?php
 
-	namespace Base\Templates\Editor;
+    namespace Base\Templates\Editor;
 
-	use Base\Editor\Editor;
-	use Base\Templates\Template;
+    use Base\Editor\Editor;
+    use Base\Templates\Buffering;
 
-	abstract class Browse {
+    abstract class Browse {
 
-		public static function ToVar(Editor $editor, int $id, array $fields, array $item, array $data, string $title): string {
-			Template::Start();
-			self::Render($editor, $id, $fields, $item, $data, $title);
-			return Template::Read();
-		}
+        public static function ToVar(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate): string {
+            Buffering::Start();
+            self::Render($editor, $fields, $id, $item, $title, $navigate);
+            return Buffering::Read();
+        }
 
-		public static function Render(Editor $editor, int $id, array $fields, array $item, array $data, string $title): void { ?>
-			<div class = "navigate">
-				<?php foreach ($editor->navigateBrowse as $navigate) echo $navigate($editor->params); ?>
-			</div>
-			<h1><?= $title; ?></h1>
-			<table class = "browse">
-				<tbody>
-				<?php foreach ($fields as $name => $field) { ?>
-					<tr>
-						<th><?= $field->GetTitle(); ?>:</th>
-						<td><?= $field->ToVar($item[$name]); ?></td>
-					</tr>
-				<?php } ?>
-				</tbody>
-			</table>
-		<?php }
+        public static function Render(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate): void { ?>
+            <div class = "navigate">
+                <?php foreach ($navigate as $func) echo $func(); ?>
+            </div>
+            <h1><?= $title; ?></h1>
+            <table class = "browse">
+                <tbody>
+                <?php foreach ($fields as $key => $field) { ?>
+                    <tr>
+                        <th><?= $field->GetTitle(); ?>:</th>
+                        <td><?= $field->ToVar($item[$key]); ?></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        <?php }
 
-	}
+    }

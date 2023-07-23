@@ -2,266 +2,162 @@
 
 	namespace Base\Editor;
 
+	require DIR_BASE . 'editor/editor.actions.inc';
+	require DIR_BASE . 'editor/editor.model.inc';
+
 	require DIR_BASE . 'editor/skins/skin.inc';
+
 	require DIR_BASE . 'editor/views/select.tpl';
+	require DIR_BASE . 'editor/views/browse.tpl';
 	require DIR_BASE . 'editor/views/create.tpl';
 	require DIR_BASE . 'editor/views/update.tpl';
-	require DIR_BASE . 'editor/views/browse.tpl';
 
-    use Base\DB\QueryMySQLi;
-    use JetBrains\PhpStorm\NoReturn;
+	use JetBrains\PhpStorm\NoReturn;
 
+	use Base;
 	use Base\Controller;
-	use Base\Action;
-	use Base\DB\Table;
 	use Base\Pages;
 	use Base\Templates\Editor\Select;
 	use Base\Templates\Editor\Create;
 	use Base\Templates\Editor\Update;
 	use Base\Templates\Editor\Browse;
 
-	abstract class Editor {
-		protected string $name;
-		protected Table $table;
-
-		public Action $select;
-		public Action $create;
-		public Action $update;
-		public Action $delete;
-		public Action $browse;
-
-		public Action $do_create;
-		public Action $do_update;
-		public Action $do_delete;
-
-		public array $navigateSelect = [];
-		public array $navigateCreate = [];
-		public array $navigateUpdate = [];
-		public array $navigateBrowse = [];
-
-		public array $manage = [];
-
-		public array $params = [];
-
-		protected array $where = [];
-		protected array $order = [];
-		protected array $calc = [];
-
-		protected array $fieldsSelect = [];
-		protected array $fieldsCreate = [];
-		protected array $fieldsUpdate = [];
-		protected array $fieldsBrowse = [];
+	abstract class Editor extends Actions {
+		protected Model $model;
 
 		protected string $titleSelect = 'Выборка';
+		protected string $titleBrowse = 'Просмотр';
 		protected string $titleCreate = 'Создание';
 		protected string $titleUpdate = 'Редактирование';
 		protected string $titleDelete = 'Удалить?';
-		protected string $titleBrowse = 'Просмотр';
+		protected string $titleState = 'Изменить состояние?';
 
 		protected string $titleDoCreate = 'Создано';
 		protected string $titleDoUpdate = 'Изменено';
 		protected string $titleDoDelete = 'Удалено';
+		protected string $titleSetState = 'Состояние изменено';
 
-		public int $page_entries = 100;
+		protected string $errorAccess = 'Доступ запрещён';
+		protected string $errorSave = 'Ошибка сохранения';
 
-		protected function __construct(string $name, Table $table) {
-			$this->name = $name;
-			$this->table = $table;
+		protected array $params = [];
 
-			$this->GetParams();
+		protected int $page_entries = 10;
 
-			$this->SetWhere($this->params);
-			$this->SetOrder();
-			$this->SetCalc();
+		protected function __construct(string $name) {
+			parent::__construct($name);
 
-			$this->RegTitles();
-
-//			$this->SetFields($this->params);
-
-			$this->RegActions();
 			$this->SetHandlers();
-
-			$this->SetNavigates();
-			$this->SetManage();
 		}
-
-		protected function RegActions(): void {
-			$this->RegActionSelect();
-			$this->RegActionCreate();
-			$this->RegActionUpdate();
-			$this->RegActionDelete();
-			$this->RegActionBrowse();
-
-			$this->RegActionDoCreate();
-			$this->RegActionDoUpdate();
-			$this->RegActionDoDelete();
-		}
-
-//		protected function RegActionSelect(): void { $this->select = new Action($this->name, 'select', 'default', /* @lang JavaScript */"Base.Common.Query.Send('/{$this->name}/select', Admin.General.Render.ToMain); return false;"); }
-		protected function RegActionSelect(): void { $this->select = new Action($this->name, 'select', "/{$this->name}/select?page=%page%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/select', {page: %page%}, Admin.General.Render.ToMain); return false;"); }
-		protected function RegActionCreate(): void { $this->create = new Action($this->name, 'create', 'default', /* @lang JavaScript */"Base.Common.Query.Send('/{$this->name}/create', Admin.General.Render.ToMain); return false;"); }
-		protected function RegActionUpdate(): void { $this->update = new Action($this->name, 'update', "/{$this->name}/update?id=%id%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/update', {id: %id%}, Admin.General.Render.ToMain); return false;"); }
-		protected function RegActionDelete(): void { /* $this->delete = new Action($this->name, 'delete', "/{$this->name}/delete?id=%id", /* @lang JavaScript * /"if (confirm({$this->titleDelete})) Base.Common.Query.SendData('/{$this->name}/delete', {id: %id%}, Admin.General.Render.ToMain); return false;"); */ }
-		protected function RegActionBrowse(): void { $this->browse = new Action($this->name, 'browse', "/{$this->name}/browse?id=%id%", /* @lang JavaScript */"Base.Common.Query.SendData('/{$this->name}/browse', {id: %id%}, Admin.General.Render.ToMain); return false;"); }
-
-		protected function RegActionDoCreate(): void { $this->do_create = new Action($this->name, 'do_create', 'default', /* @lang JavaScript */ "Base.Common.Query.SubmitForm(this, Admin.General.Render.ToMain); return false;"); }
-		protected function RegActionDoUpdate(): void { $this->do_update = new Action($this->name, 'do_update', "/{$this->name}/do_update?id=%id%", /* @lang JavaScript */ "Base.Common.Query.SubmitForm(this, Admin.General.Render.ToMain); return false;"); }
-		protected function RegActionDoDelete(): void { $this->do_delete = new Action($this->name, 'do_delete', "/{$this->name}/do_delete?id=%id%", /* @lang JavaScript */ "if (confirm('{$this->titleDelete}')) Base.Common.Query.SendData('/{$this->name}/do_delete', {id: %id%}, Admin.General.Render.ToMain); return false;"); }
 
 		protected function SetHandlers(): void {
 			Controller::instance()->view->Push($this->select, [$this, 'OnSelect']);
+			Controller::instance()->view->Push($this->browse, [$this, 'OnBrowse']);
 			Controller::instance()->view->Push($this->create, [$this, 'OnCreate']);
 			Controller::instance()->view->Push($this->update, [$this, 'OnUpdate']);
-			Controller::instance()->view->Push($this->browse, [$this, 'OnBrowse']);
 
 			Controller::instance()->view->Push($this->do_create, [$this, 'DoCreate']);
 			Controller::instance()->view->Push($this->do_update, [$this, 'DoUpdate']);
 			Controller::instance()->view->Push($this->do_delete, [$this, 'DoDelete']);
+			Controller::instance()->view->Push($this->set_state, [$this, 'SetState']);
 		}
 
-		protected function GetParams(): void { $this->params = $this->Params(); }
-		protected function Params(): array { return []; }
-
-		protected function SetWhere(array $params): void { $this->where = $this->Where($params); }
-		protected function Where(array $params): array { return []; }
-
-		protected function SetOrder(): void { $this->order = $this->Order(); }
-		protected function Order(): array { return []; }
-
-		protected function SetCalc(): void { $this->calc = $this->Calc(); }
-		protected function Calc(): array { return []; }
-
-//		protected function SetFields(array $params): void {
-////			$this->fieldsSelect = $this->FieldsSelect($params);
-////			$this->fieldsCreate = $this->FieldsCreate($params);
-////			$this->fieldsUpdate = $this->FieldsUpdate($params);
-////			$this->fieldsBrowse = $this->FieldsBrowse($params);
-//		}
-
-		protected function FieldsSelect(array $params): array { return []; }
-		protected function FieldsCreate(array $params): array { return []; }
-		protected function FieldsUpdate(array $params): array { return []; }
-		protected function FieldsBrowse(array $data): array { return []; }
-
-		protected function RegTitles(): void {  }
-
-		protected function SetNavigates(): void {
-			$this->navigateSelect = $this->NavigateSelect();
-			$this->navigateCreate = $this->NavigateCreate();
-			$this->navigateUpdate = $this->NavigateUpdate();
-			$this->navigateBrowse = $this->NavigateBrowse();
-		}
+		protected function FieldsSelect(): array { return []; }
+		protected function FieldsBrowse(): array { return []; }
+		protected function FieldsCreate(): array { return []; }
+		protected function FieldsUpdate(): array { return []; }
 
 		protected function NavigateSelect(): array { return []; }
-		protected function NavigateCreate(): array { return [ function (array $params) { return $this->select->GetLink("<< {$this->titleSelect}", ['page' => 1]); } ]; }
-		protected function NavigateUpdate(): array { return [ function (array $params) { return $this->select->GetLink("<< {$this->titleSelect}", ['page' => 1]); } ]; }
-		protected function NavigateBrowse(): array { return [ function (array $params) { return $this->select->GetLink("<< {$this->titleSelect}", ['page' => 1]); } ]; }
+		protected function NavigateBrowse(): array { return [ function () { return $this->select->GetLink("<< {$this->titleSelect}", array_merge(['page' => 1], $this->params)); } ]; }
+		protected function NavigateCreate(): array { return [ function () { return $this->select->GetLink("<< {$this->titleSelect}", array_merge(['page' => 1], $this->params)); } ]; }
+		protected function NavigateUpdate(): array { return [ function () { return $this->select->GetLink("<< {$this->titleSelect}", array_merge(['page' => 1], $this->params)); } ]; }
 
-		protected function SetManage(): void {
-			$this->manage = $this->Manage();
-		}
-
-		protected function Manage(): array {
+		protected function ManageSelect(): array {
 			return [
-				function (array $params, array $item) { return $this->update->GetLink('Изменить', ['id' => $item['id']]); },
-				function (array $params, array $item) { return $this->do_delete->GetLink('Удалить', ['id' => $item['id']]); },
-				function (array $params, array $item) { return $this->browse->GetLink('Просмотреть', ['id' => $item['id']]); }
+				function (array $item) { return $this->update->GetLink('Изменить', array_merge(['id' => $item['id']], $this->params)); },
+				function (array $item) { return $this->do_delete->GetLink('Удалить', array_merge(['id' => $item['id']], $this->params)); },
+				function (array $item) { return $this->browse->GetLink('Просмотреть', array_merge(['id' => $item['id']], $this->params)); }
 			];
 		}
 
-		protected function Select(): string {
-//            echo QueryMySQLi::select()->fields('id', 'name', 'date_cr')->table('student')->where('`id` > 3', "`name` LIKE '%ан'")->leftJoin('group', '`student`.`gid` = `group`.`id`')->leftJoin('university', '`student`.`uid` = `university`.`id`')->execute();die;
-			$where = ($this->where) ? implode(' AND ', $this->where) : null;
-			$order = ($this->order) ? implode(', ', $this->order) : null;
-			$calc = $this->calc ?: null;
+		protected function GetOnSelectHTML(): string {
+			$page = GetInt('page', 1);
 
-			$limit = null;
-			$ext = [];
+			$fields				= $this->FieldsSelect();
+			[$items, $ext]		= $this->model->SelectData($page, $this->page_entries);
+			$navigate			= $this->NavigateSelect();
+			$manage				= $this->ManageSelect();
 
-			if ($this->page_entries) {
-				$page_current = GetInt('page', 1);
-				$start = ($page_current - 1) * $this->page_entries;
-				$limit = "{$start}, {$this->page_entries}";
-				$page_records = $this->table->SelectOneFieldCalc('COUNT(*) AS `count`', 'count', $where);
-
-				$ext['page'] = [
-					'records' => $page_records,
-					'current' => $page_current,
-					'count' => ceil($page_records / $this->page_entries)
-				];
-			}
-
-			$result = $this->table->Select(null, $where, $order, $limit, $calc);
-			$items = $this->table->FetchAll($result, function(& $items, $item) {
-				$items[] = $item;
-			});
-
-			return Select::ToVar($this, $this->fieldsSelect, $items, $this->titleSelect, $ext);
+			return Select::ToVar($this, $fields, $items, $ext, $this->titleSelect, $navigate, $manage);
 		}
 
 		#[NoReturn] public function OnSelect(): void {
-            $this->fieldsSelect = $this->FieldsSelect([]);
-			SendJSONSuccess(['html' => $this->Select()]);
-		}
-
-		#[NoReturn] public function OnCreate(): void {
-            $data = [];
-
-            $this->PrepareOnCreate($data);
-            $this->fieldsCreate = $this->FieldsCreate([]);
-			SendJSONSuccess(['html' => Create::ToVar($this, $this->fieldsCreate, $data, $this->titleCreate)]);
-		}
-
-		#[NoReturn] public function OnUpdate(): void {
-			$id = GetInt('id');
-			$item = $this->table->SelectOne(null, "(`id` = {$id})");
-			$data = [];
-
-			$this->PrepareOnUpdate($id, $item, $data);
-            $this->fieldsUpdate = $this->FieldsUpdate([]);
-			SendJSONSuccess(['html' => Update::ToVar($this, $id, $this->fieldsUpdate, $item, $data, $this->titleUpdate)]);
+			SendJSONSuccess(['html' => $this->GetOnSelectHTML()]);
 		}
 
 		#[NoReturn] public function OnBrowse(): void {
 			$id = GetInt('id');
-            $calc = $this->calc ?: null;
-			$item = $this->table->SelectOne(null, "(`id` = {$id})", null, null, $calc);
-			$data = [];
+			$item = $this->model->GetItemForBrowse($id);
 
-			$this->PrepareOnBrowse($id, $item, $data);
-            $this->fieldsBrowse = $this->FieldsBrowse($data);
-			SendJSONSuccess(['html' => Browse::ToVar($this, $id, $this->fieldsBrowse, $item, $data, $this->titleBrowse)]);
+			$fields				= $this->FieldsBrowse();
+			$navigate			= $this->NavigateBrowse();
+
+			SendJSONSuccess(['html' => Browse::ToVar($this, $fields, $id, $item, "{$this->titleBrowse} #{$id}", $navigate)]);
+		}
+
+		#[NoReturn] public function OnCreate(): void {
+			$fields				= $this->FieldsCreate();
+			$navigate			= $this->NavigateCreate();
+
+			SendJSONSuccess(['html' => Create::ToVar($this, $fields, $this->titleCreate, $navigate, $this->params)]);
+		}
+
+		#[NoReturn] public function OnUpdate(): void {
+			$id = GetInt('id');
+			$item = $this->model->GetItem($id);
+
+			$fields				= $this->FieldsUpdate();
+			$navigate			= $this->NavigateUpdate();
+
+			SendJSONSuccess(['html' => Update::ToVar($this, $fields, $id, $item, "{$this->titleUpdate} #{$id}", $navigate, $this->params)]);
 		}
 
 		#[NoReturn] public function DoCreate(): void {
 			$data = GetParam('form', []);
 
-			$this->table->Insert($data);
+			if (!$this->model->Create($data)) SendJSONSuccess(['message' => $this->titleDoUpdate]);
 
-			SendJSONSuccess(['message' => $this->titleDoCreate, 'html' => $this->Select()]);
+			SendJSONSuccess(['message' => $this->titleDoCreate, 'html' => $this->GetOnSelectHTML()]);
 		}
 
 		#[NoReturn] public function DoUpdate(): void {
 			$id = GetInt('id');
 			$data = GetParam('form', []);
 
-			$this->table->Update($data, "`id` = {$id}");
+			if (!$this->model->Update($data, $id)) SendJSONSuccess(['message' => $this->titleDoUpdate]);
 
-			SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->Select()]);
+			SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->GetOnSelectHTML()]);
 		}
 
 		#[NoReturn] public function DoDelete(): void {
 			$id = GetInt('id');
 
-			$this->table->Update(['state' => 100], "`id` = {$id}");
+			$this->model->Delete($id);
 
-			SendJSONSuccess(['message' => $this->titleDoDelete, 'html' => $this->Select()]);
+			SendJSONSuccess(['message' => $this->titleDoDelete, 'html' => $this->GetOnSelectHTML()]);
 		}
 
-		protected function PrepareOnCreate(array & $data): void { }
-		protected function PrepareOnUpdate(int $id, array & $item, array & $data): void { }
-		protected function PrepareOnSelect(int $id, array & $item, array & $data): void { }
-		protected function PrepareOnBrowse(int $id, array & $item, array & $data): void { }
+		#[NoReturn] public function SetState(): void {
+			$id = GetInt('id');
+			$state = GetInt('state');
+
+			$oldState = $this->model->GetState($id);
+			if ($this->model->AccessState($oldState, $state)) SendJSONSuccess(['message' => $this->errorAccess, 'html' => $this->GetOnSelectHTML()]);
+
+			$this->model->SetState($state, $id);
+
+			SendJSONSuccess(['message' => $this->titleSetState, 'html' => $this->GetOnSelectHTML()]);
+		}
 
 		public function Pages($pages): string {
 			if (!$this->page_entries) return '';
@@ -269,4 +165,4 @@
 			return (new Pages($this->select, $pages['current'], $pages['count']))->ToString();
 		}
 
-	}
+}

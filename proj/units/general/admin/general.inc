@@ -4,8 +4,8 @@
 
 	require DIR_UNITS . 'general/admin/general.structure.inc';
 	require DIR_UNITS . 'general/admin/views/group.tpl';
-	require DIR_UNITS . 'general/admin/image.editor.inc';
-	require DIR_UNITS . 'general/admin/text.editor.inc';
+	require DIR_UNITS . 'general/admin/editors/image/image.editor.inc';
+//	require DIR_UNITS . 'general/admin/text.editor.inc';
 
 	use JetBrains\PhpStorm\NoReturn;
 
@@ -13,7 +13,6 @@
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
-	use Base\Editor\EditorMySQLi;
 	use Proj\DBObject;
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Item;
@@ -24,8 +23,8 @@
 		use Instance;
 
 		private DBObject $db;
-		private EditorMySQLi $editor_image;
-		private EditorMySQLi $editor_text;
+		private Editor\General\Image $editor_image;
+//		private Editor\General\Text $editor_text;
 
 		private Action $site;
 		private Action $out_head;
@@ -39,7 +38,7 @@
 			parent::__construct();
 			$this->db = DBObject::instance();
 			$this->editor_image = new Editor\General\Image(self::NAME . '_image', $this->table_image);
-			$this->editor_text = new Editor\General\Text(self::NAME . '_text', $this->table_text);
+//			$this->editor_text = new Editor\General\Text(self::NAME . '_text', $this->table_text);
 
 			$this->out_head 	= new Action();
 			$this->out_menu 	= new Action();
@@ -71,7 +70,7 @@
 			Layout::instance()->menu->Push(
 				Group::ToVar('Изображения и текста', [
 					$this->editor_image->select->GetLink('Список изображений', ['page' => 1]),
-					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
+//					$this->editor_text->select->GetLink('Список текстов', ['page' => 1]),
 				])
 			);
 		}

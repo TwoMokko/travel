@@ -90,7 +90,6 @@ namespace Base {
 				this.path_del 		= path_del;
 				this.path_view 		= path_view;
 
-
 				this.$input.after(
 					this.$wrap.append(
 						this.$space.text(text),
@@ -171,12 +170,17 @@ namespace Base {
 					let data = new FormData();
 					data.append('file', file);
 					Base.Common.Query.SendData(path_load, data, data => {
-						this.$wait.removeClass('active');
-						this.$del.addClass('active').on('click', () => {
-							Base.Common.Query.SendData(path_del, data, () => {
-								this.$image.remove();
-							}, {request: ''});
-						});
+						switch (data['action']) {
+							case 'ok':
+								this.$wait.removeClass('active');
+								this.$del.addClass('active').on('click', () => {
+									Base.Common.Query.SendData(path_del, data, () => {
+										this.$image.remove();
+									}, {request: ''});
+								});
+								break;
+							case 'error': alert(data['text']);
+						}
 					}, {processData : false, contentType : false, request: ''});
 				};
 

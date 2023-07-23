@@ -34,7 +34,8 @@ interface Photo {
 	];
 
 	const PATH_COVER				= DIR_RESOURCE_IMAGE . 'photo/all/';
-	const PATH_ALL_RELATIVE		= '/proj/resource/image/photo/all/';
-	const PATH_SHOW				= DIR_RESOURCE_IMAGE . 'photo/show/';
-	const PATH_SHOW_RELATIVE	= '/proj/resource/image/photo/show/';
+	const PATH_ALL_RELATIVE			= '/proj/resource/image/photo/all/';
+	const PATH_SHOW_ORIGINAL		= DIR_RESOURCE_IMAGE . 'photo/show/original';
+	const PATH_SHOW_PREVIEW			= DIR_RESOURCE_IMAGE . 'photo/show/preview';
+	const PATH_SHOW_RELATIVE		= '/proj/resource/image/photo/show/';
 }
