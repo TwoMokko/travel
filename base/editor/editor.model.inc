@@ -61,7 +61,7 @@
 			return (int)$this->table->SelectOneField('state', "`id` = {$id}");
 		}
 
-		public function Create(array $data): bool {
+		public function Create(array $data, array $params): bool {
 			$this->table->Insert($data);
 
 			return true;

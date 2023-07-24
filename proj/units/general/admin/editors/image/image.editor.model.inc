@@ -26,7 +26,7 @@
 			return $this->table->SelectOne(null, "(`id` = {$id})", null, null, ["*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"]);
 		}
 
-		public function Create(array $data): bool {
+		public function Create(array $data, array $params): bool {
 			$id = $this->table->Insert($data);
 
 			if ($_FILES['form']['tmp_name']['cover']) {

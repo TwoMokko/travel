@@ -18,7 +18,7 @@
 				<div></div>
 				<div class = "photo_album">
 					<?php foreach ($data as $item) { ?>
-						<div data-id = "gallery_1" data-url = "<?= Consts\Photo::PATH_SHOW_RELATIVE . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_SHOW_RELATIVE . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
+						<div data-id = "gallery_1" data-url = "<?= Consts\Photo::PATH_SHOW_RELATIVE_ORIGINAL . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_SHOW_RELATIVE_PREVIEW . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
 					<?php } ?>
 				</div>
 			</div>

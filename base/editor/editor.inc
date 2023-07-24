@@ -122,13 +122,14 @@
 			SendJSONSuccess(['html' => Update::ToVar($this, $fields, $id, $item, "{$this->titleUpdate} #{$id}", $navigate, $this->params)]);
 		}
 
-		protected function PrepareDoCreate(& $data): void {  }
+		protected function PrepareDoCreate(array & $data, array & $params): void {  }
 
 		#[NoReturn] public function DoCreate(): void {
 			$data = GetParam('form', []);
-			$this->PrepareDoCreate($data);
+			$params = [];
+			$this->PrepareDoCreate($data, $params);
 
-			if (!$this->model->Create($data)) SendJSONSuccess(['message' => $this->titleDoUpdate]);
+			if (!$this->model->Create($data, $params)) SendJSONSuccess(['message' => $this->errorSave]);
 
 			SendJSONSuccess(['message' => $this->titleDoCreate, 'html' => $this->GetOnSelectHTML()]);
 		}
@@ -137,7 +138,7 @@
 			$id = GetInt('id');
 			$data = GetParam('form', []);
 
-			if (!$this->model->Update($data, $id)) SendJSONSuccess(['message' => $this->titleDoUpdate]);
+			if (!$this->model->Update($data, $id)) SendJSONSuccess(['message' => $this->errorSave]);
 
 			SendJSONSuccess(['message' => $this->titleDoUpdate, 'html' => $this->GetOnSelectHTML()]);
 		}

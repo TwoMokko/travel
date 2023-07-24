@@ -3,28 +3,28 @@
 	namespace Proj\Admin\Units;
 
 	require DIR_UNITS . 'photo/admin/photo.structure.inc';
-	require DIR_UNITS . 'photo/admin/photo.editor.inc';
+	require DIR_UNITS . 'photo/admin/editors/photo.editor.inc';
 
 	use Base\Instance;
 	use Base\Controller;
 	use Base\Action;
 	use Proj\Units\Consts;
-	use Base\Editor\EditorMySQLi;
 	use Proj\Admin\Structure;
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Group;
+	use Proj\Admin\Editor;
 
 	class Photo extends Structure\Photo {
 		use Instance;
 
-		private EditorMySQLi $editor_photo;
+		private Editor\Photo\Photo $editor_photo;
 
 		private Action $out_menu;
 
 		private function __construct() {
 			parent::__construct();
 
-			$this->editor_photo = new \Proj\Admin\Editor\Photo(self::NAME, [$this->table_photo_all, $this->table_photo_show]);
+			$this->editor_photo = new Editor\Photo\Photo(self::NAME, [$this->table_photo_all, $this->table_photo_show]);
 
 			$this->out_menu = new Action();
 

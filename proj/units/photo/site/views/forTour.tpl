@@ -20,13 +20,13 @@
 				<div class = "header">Фотографии</div>
 				<div class = "block tour_mini_photo">
 					<?php foreach ($items as $item) { ?>
-						<div data-id = "gallery_1" data-url = "<?= Consts\Photo::PATH_SHOW_RELATIVE . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_SHOW_RELATIVE . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
+						<div data-id = "gallery_1" data-url = "<?= Consts\Photo::PATH_SHOW_RELATIVE_ORIGINAL . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_SHOW_RELATIVE_PREVIEW . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
 					<?php } ?>
 				</div>
 				<div class = "block tour_mini_photo_carousel">
 					<div id = "photo_adapter" class = "carousel">
 						<?php foreach ($items as $item) { ?>
-							<div data-id = "gallery_2" data-url = "<?= Consts\Photo::PATH_SHOW_RELATIVE . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_SHOW_RELATIVE . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
+							<div data-id = "gallery_2" data-url = "<?= Consts\Photo::PATH_SHOW_RELATIVE_ORIGINAL . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_SHOW_RELATIVE_PREVIEW . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
 						<?php } ?>
 					</div>
 				</div>

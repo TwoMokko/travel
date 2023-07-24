@@ -87,7 +87,7 @@
             ];
 		}
 
-		protected function PrepareDoCreate(& $data): void {
+		protected function PrepareDoCreate(array & $data, array & $params): void {
 			$data['state'] = Consts\General::STATE_ACTIVE;
 		}
 
