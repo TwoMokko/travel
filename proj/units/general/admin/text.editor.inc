@@ -9,7 +9,7 @@
 	use Base\Editor\Skins;
 	use Proj\Units\Consts;
 
-	class Text extends EditorMySQLi {
+	class Text1 extends EditorMySQLi {
 
 		public function __construct(string $name, Table $table) {
 			parent::__construct($name, $table);
@@ -90,9 +90,9 @@
 
 		public function PrepareOnUpdate(int $id, array & $item, array & $data): void {
 			$data['state'] = [
-				Consts\General::STATE_DRAFT	=> 'Черновик',
+//				Consts\General::STATE_DRAFT	=> 'Черновик',
 				Consts\General::STATE_ACTIVE	=> 'Активная',
-				Consts\General::STATE_INACTIVE	=> 'Не активная',
+//				Consts\General::STATE_INACTIVE	=> 'Не активная',
 			];
 		}
 

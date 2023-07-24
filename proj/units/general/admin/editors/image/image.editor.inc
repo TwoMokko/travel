@@ -19,11 +19,11 @@
 			$this->titleSelect = 'Список изображений';
 			$this->titleCreate = 'Добавить изображение';
 			$this->titleUpdate = 'Редактирование изображения';
-//			$this->titleDelete = 'Удалить изображение?';
+			$this->titleDelete = 'Удалить изображение?';
 
 			$this->titleDoCreate = 'Изображение добавлено';
 			$this->titleDoUpdate = 'Изображение изменено';
-//			$this->titleDoDelete = 'Изображение удалено';
+			$this->titleDoDelete = 'Изображение удалено';
 
 			$this->model = new Model\Image($table, $this->params);
 		}
@@ -36,6 +36,7 @@
 
 			Controller::instance()->view->Push($this->do_create, [$this, 'DoCreate']);
 			Controller::instance()->view->Push($this->do_update, [$this, 'DoUpdate']);
+			Controller::instance()->view->Push($this->do_delete, [$this, 'DoDelete']);
 //			Controller::instance()->view->Push($this->set_state, [$this, 'SetState']);
 		}
 
@@ -65,6 +66,7 @@
 			return [
 				function (array $item) { return $this->update->GetLink('Изменить', array_merge(['id' => $item['id']], $this->params)); },
 				function (array $item) { return $this->browse->GetLink('Просмотреть', array_merge(['id' => $item['id']], $this->params)); },
+				function (array $item) { return $this->delete->GetLink('Удалить', array_merge(['id' => $item['id']], $this->params)); },
 //				function (array $item) { return $this->set_state->GetLink('Проверена', array_merge(['id' => $item['id'], 'state' => Consts\General::STATE_DELETE], $this->params)); }
 			];
 		}
@@ -83,6 +85,10 @@
                 'description' 		=> new Skins\Edit\Text('Описание', 'form[description]'),
                 'cover' 	        => new Skins\Edit\File('Фотография', 'form[cover]', 'Выберите фотографию', '.jpg, .jpeg, .png')
             ];
+		}
+
+		protected function PrepareDoCreate(& $data): void {
+			$data['state'] = Consts\General::STATE_ACTIVE;
 		}
 
 	}

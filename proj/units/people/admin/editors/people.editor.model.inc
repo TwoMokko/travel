@@ -8,7 +8,7 @@
 	use Proj\Units\Consts;
 	use Proj\Others\UploaderImage;
 
-	class Image extends Model {
+	class People extends Model {
 		public function __construct(Table $table, array $params = []) {
 			parent::__construct($table, $params);
 		}
@@ -18,8 +18,9 @@
 			$this->querySelect
 				->calc("*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`")
 				->table($this->table->GetName())
-				->where('`state` = ' . Consts\General::STATE_ACTIVE)
-				->order('id');
+				->where('`state` != ' . Consts\People::STATES['delete'])
+				->order('date_create', 'DESC');
+			/*id order*/
 		}
 
 		public function GetItemForBrowse(int $id): array {
@@ -27,11 +28,12 @@
 		}
 
 		public function Create(array $data): bool {
+			$data = GetParam('form', []);
+
 			$id = $this->table->Insert($data);
 
 			if ($_FILES['form']['tmp_name']['cover']) {
-				$data_file = [$hash, $ext] = $this->SaveFile($id);
-				if (!$data_file) return false;
+				[$hash, $ext] = $this->SaveFile($id);
 				$this->table->Update(['hash' => $hash, 'ext' => $ext], "`id` = {$id}");
 			}
 
@@ -39,14 +41,14 @@
 		}
 
 		public function Update(array $data, int $id): bool {
-			if ($_FILES['form']['tmp_name']['cover']) {
-				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `alias`", 'alias', "`id` = {$id}");
-				if ($old_file) unlink(Consts\General::PATH_IMAGE . $old_file);
+			$id = (int)GetParam('id', 0);
+			$data = GetParam('form', []);
 
-				$data_file = [$hash, $ext] = $this->SaveFile($id);
-				if (!$data_file) return false;
-				$data['hash'] = $hash;
-				$data['ext'] = $ext;
+			if ($_FILES['form']['tmp_name']['cover']) {
+				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
+				if ($old_file) unlink(Consts\People::PATH_AVATAR . $old_file);
+
+				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
 
 			$this->table->Update($data, "`id` = {$id}");
@@ -55,21 +57,16 @@
 		}
 
 		private function SaveFile(int $id): array {
-			$dir = Consts\General::PATH_IMAGE;
-			if (!is_dir($dir)) mkdir($dir, 0777, true);
-
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
-
+			$dir = Consts\People::PATH_AVATAR;
+			$hash = hash_file('md5', $temp_path);
 			$info = pathinfo($temp_name);
 			$ext = $info['extension'];
-			$hash = hash_file('md5', $temp_path);
+			$name = "{$hash}.{$id}.{$ext}";
 
-			try {
-				$IMG = new UploaderImage($temp_path, $ext);
-				$IMG->Save( $dir . '/', "{$hash}.{$id}");
-			}
-			catch (\Exception) { return []; }
+			if (!is_dir($dir)) mkdir($dir, 0777, true);
+			move_uploaded_file($temp_path, $dir . $name);
 
 			return [$hash, $ext];
 		}

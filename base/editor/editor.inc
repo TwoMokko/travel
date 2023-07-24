@@ -42,7 +42,7 @@
 
 		protected array $params = [];
 
-		protected int $page_entries = 10;
+		protected int $page_entries = 50;
 
 		protected function __construct(string $name) {
 			parent::__construct($name);
@@ -122,8 +122,11 @@
 			SendJSONSuccess(['html' => Update::ToVar($this, $fields, $id, $item, "{$this->titleUpdate} #{$id}", $navigate, $this->params)]);
 		}
 
+		protected function PrepareDoCreate(& $data): void {  }
+
 		#[NoReturn] public function DoCreate(): void {
 			$data = GetParam('form', []);
+			$this->PrepareDoCreate($data);
 
 			if (!$this->model->Create($data)) SendJSONSuccess(['message' => $this->titleDoUpdate]);
 

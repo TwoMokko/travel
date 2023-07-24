@@ -22,8 +22,6 @@
 			$this->table_text = new Table(self::TABLES['text'], $this->db);
 			$this->table_text->id('id');
 			$this->table_text->uint8('state');
-//			$this->table_text->timestamp('date_create');
-//			$this->table_text->timestamp('date_modify');
 			$this->table_text->string('description', 100);
 			$this->table_text->string('alias', 50);
 			$this->table_text->text('text');
