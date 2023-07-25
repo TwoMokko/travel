@@ -88,7 +88,7 @@
 
 //            $this->PrepareOnUpdate($id, $item, $data);
 //            $this->fieldsUpdate = $this->FieldsUpdate([]);
-            SendJSONSuccess(['html' => Templates\Reviews\Publish::ToVar($this, $id, $fields, $item, [], 'Публикация отзыва')]);
+//            SendJSONSuccess(['html' => Templates\Reviews\Publish::ToVar($this, $id, $fields, $item, [], 'Публикация отзыва')]);
         }
 
         #[NoReturn] public function DoPublish(): void {

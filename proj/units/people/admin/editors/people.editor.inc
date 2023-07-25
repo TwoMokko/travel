@@ -37,14 +37,7 @@
 			Controller::instance()->view->Push($this->do_create, [$this, 'DoCreate']);
 			Controller::instance()->view->Push($this->do_update, [$this, 'DoUpdate']);
 			Controller::instance()->view->Push($this->do_delete, [$this, 'DoDelete']);
-//			Controller::instance()->view->Push($this->set_state, [$this, 'SetState']);
 		}
-
-//		protected function NavigateSelect(): array {
-//            return [
-//                function () { return $this->create->GetLink('Добавить изображение', ['page' => 1]); }
-//            ];
-//        }
 
 		protected function FieldsSelect(): array {
 			return [
@@ -71,7 +64,6 @@
 				function (array $item) { return $this->update->GetLink('Изменить', array_merge(['id' => $item['id']], $this->params)); },
 				function (array $item) { return $this->browse->GetLink('Просмотреть', array_merge(['id' => $item['id']], $this->params)); },
 				function (array $item) { return $this->delete->GetLink('Удалить', array_merge(['id' => $item['id']], $this->params)); },
-//				function (array $item) { return $this->set_state->GetLink('Проверена', array_merge(['id' => $item['id'], 'state' => Consts\General::STATE_DELETE], $this->params)); }
 			];
 		}
 
@@ -101,12 +93,8 @@
 			return $this->FieldsCreateAndUpdate();
 		}
 
-		protected function PrepareDoCreate(& $data): void {
-			$data['state'] = [
-				Consts\People::STATE_DRAFT	=> 'Черновик',
-				Consts\People::STATE_ACTIVE	=> 'Активная',
-				Consts\People::STATE_INACTIVE	=> 'Не активная',
-			];
+		protected function PrepareDoCreate(array & $data, array & $params): void {
+
 		}
 
 	}

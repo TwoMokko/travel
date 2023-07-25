@@ -17,7 +17,7 @@
 
 		);
 
-		display: GetValue($default, $params, 'display_grid'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%;
+		display: GetValue($default, $params, 'display_grid'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%; grid-row-gap: 8%;
 		> div {
 			display: GetValue($default, $params, 'display_card'); width: GetValue($default, $params, 'width_card'); margin: GetValue($default, $params, 'margin_card');
 			&:last-child { margin-bottom: 0; }

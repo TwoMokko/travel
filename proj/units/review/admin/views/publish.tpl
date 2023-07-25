@@ -2,24 +2,24 @@
 
 	namespace Proj\Admin\Templates\Reviews;
 
-	use Proj\Admin\Editor;
+	use Base\Editor\Editor;
 	use Base\Templates\Template;
 	use Base\Templates\HTML\Element\Form;
 	use Base\Templates\HTML\Element\Text;
 
 	abstract class Publish {
 
-		public static function ToVar(Editor\Reviews $editor, int $id, array $fields, array $item, array $data, string $title): string {
+		public static function ToVar(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate, array $params): string {
 			Template::Start();
-			self::Render($editor, $id, $fields, $item, $data, $title);
+			self::Render($editor, $fields, $id, $item, $title, $navigate, $params);
 			return Template::Read();
 		}
 
-		public static function Render(Editor\Reviews $editor, int $id, array $fields, array $item, array $data, string $title): void {
+		public static function Render(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate, array $params): void {
             $form = new Form($data);
         ?>
             <div class = "navigate">
-                <?php foreach ($editor->navigateUpdate as $navigate) echo $navigate($editor->params); ?>
+				<?php foreach ($navigate as $func) echo $func(); ?>
             </div>
             <h1><?= $title; ?></h1>
         <?php
