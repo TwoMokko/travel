@@ -3,9 +3,9 @@
 	namespace Proj\Admin\Units;
 
 	require DIR_UNITS . 'tour/admin/tour.structure.inc';
-//	require DIR_UNITS . 'tour/admin/typeTour.editor.inc';
-//	require DIR_UNITS . 'tour/admin/tourGroup.editor.inc';
-//	require DIR_UNITS . 'tour/admin/tour.editor.inc';
+	require DIR_UNITS . 'tour/admin/editors/type/tourType.editor.inc';
+	require DIR_UNITS . 'tour/admin/editors/group/tourGroup.editor.inc';
+	require DIR_UNITS . 'tour/admin/editors/tour/tour.editor.inc';
 
 	use Base\Instance;
 	use Base\Controller;
@@ -19,18 +19,18 @@
 	class Tours extends Structure\Tour {
 		use Instance;
 
-//		private Editor\TypeTour $editor_tour_types;
-//		private Editor\TourGroup $editor_tour_group;
-//		private Editor\Tour $editor_tour;
+		private Editor\Tour\TourType $editor_tour_types;
+		private Editor\Tour\TourGroup $editor_tour_group;
+		private Editor\Tour\Tour $editor_tour;
 
 		private Action $out_menu;
 
 		private function __construct() {
 			parent::__construct();
 
-//			$this->editor_tour_types = new Editor\TypeTour(self::NAME . '_type', $this->table_types);
-//			$this->editor_tour_group = new Editor\TourGroup(self::NAME . '_group', [$this->table_group, $this->table_expense, $this->table_additional_expense]);
-//			$this->editor_tour = new Editor\Tour(self::NAME, [$this->table_tour, $this->table_program]);
+			$this->editor_tour_types = new Editor\Tour\TourType(self::NAME . '_type', $this->table_types);
+			$this->editor_tour_group = new Editor\Tour\TourGroup(self::NAME . '_group', [$this->table_group, $this->table_expense, $this->table_additional_expense]);
+			$this->editor_tour = new Editor\Tour\Tour(self::NAME, [$this->table_tour, $this->table_program]);
 
 			$this->out_menu = new Action();
 
@@ -40,22 +40,22 @@
 		public function OutMenu() {
 			Layout::instance()->menu->Push(
 				Group::ToVar('Типы туров', [
-//					$this->editor_tour_types->select->GetLink('Список типов туров', ['page' => 1]),
-//					$this->editor_tour_types->create->GetLink('Добавить тип тура')
+					$this->editor_tour_types->select->GetLink('Список типов туров', ['page' => 1]),
+					$this->editor_tour_types->create->GetLink('Добавить тип тура')
 				])
 			);
 
 			Layout::instance()->menu->Push(
 				Group::ToVar('Направление тура', [
-//					$this->editor_tour_group->select->GetLink('Список направлений тура', ['page' => 1]),
-//					$this->editor_tour_group->create->GetLink('Добавить направление тура')
+					$this->editor_tour_group->select->GetLink('Список направлений тура', ['page' => 1]),
+					$this->editor_tour_group->create->GetLink('Добавить направление тура')
 				])
 			);
 
 			Layout::instance()->menu->Push(
 				Group::ToVar('Тур', [
-//					$this->editor_tour->select->GetLink('Список туров', ['page' => 1]),
-//					$this->editor_tour->create->GetLink('Добавить тур')
+					$this->editor_tour->select->GetLink('Список туров', ['page' => 1]),
+					$this->editor_tour->create->GetLink('Добавить тур')
 				])
 			);
 		}

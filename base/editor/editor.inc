@@ -156,7 +156,7 @@
 			$state = GetInt('state');
 
 			$oldState = $this->model->GetState($id);
-			if ($this->model->AccessState($oldState, $state)) SendJSONSuccess(['message' => $this->errorAccess, 'html' => $this->GetOnSelectHTML()]);
+			if (!$this->model->AccessState($oldState, $state)) SendJSONSuccess(['message' => $this->errorAccess, 'html' => $this->GetOnSelectHTML()]);
 
 			$this->model->SetState($state, $id);
 

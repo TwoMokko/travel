@@ -21,7 +21,7 @@
 		}
 
 		public function AccessState(int $from, int $to): bool {
-			return (!isset($this->states[$from]) || !in_array($to, $this->states[$from]));
+			return (isset($this->states[$from]) && in_array($to, $this->states[$from]));
 		}
 
 		public function SelectData(int $page_current = 1, int $page_entries = 0): array {
