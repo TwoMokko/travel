@@ -90,18 +90,14 @@
 			}
 		}
 
-//		public function PrepareOnUpdate(int $id, array & $item, array & $data): void {
-//			$data['state'] = [
-//				Consts\Tour::STATE_DRAFT	=> 'Черновик',
-//				Consts\Tour::STATE_ACTIVE	=> 'Активная',
-//				Consts\Tour::STATE_INACTIVE	=> 'Не активная',
-//			];
-//
-//			$result = $this->table_expense->Select(['expense'], "`tour_id`={$id}");
-//			$item['expense'] = $this->table_expense->FetchAll($result);
-//
-//			$result = $this->table_additional_expense->Select(['additional_expense'], "`tour_id`={$id}");
-//			$item['additional_expense'] = $this->table_additional_expense->FetchAll($result);
-//		}
+		public function GetExpenseByGroupId($id): array {
+			$result = $this->table_expense->Select(['expense'], "`tour_id` = {$id}");
+			return $this->table_expense->FetchAll($result);
+		}
+
+		public function GetAdditionalExpenseByGroupId($id): array {
+			$result = $this->table_additional_expense->Select(['additional_expense'], "`tour_id` = {$id}");
+			return $this->table_additional_expense->FetchAll($result);
+		}
 
 	}

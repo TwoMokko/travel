@@ -80,6 +80,9 @@
 			];
 		}
 
+		protected function PrepareOnCreate(array & $item): void {  }
+		protected function PrepareOnUpdate(int $id, array & $item): void {  }
+
 		protected function GetOnSelectHTML(): string {
 			$page = GetInt('page', 1);
 
@@ -115,6 +118,7 @@
 		#[NoReturn] public function OnUpdate(): void {
 			$id = GetInt('id');
 			$item = $this->model->GetItem($id);
+			$this->PrepareOnUpdate($id, $item);
 
 			$fields				= $this->FieldsUpdate();
 			$navigate			= $this->NavigateUpdate();

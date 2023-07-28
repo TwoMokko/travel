@@ -60,7 +60,7 @@
 			$this->SaveProgram($program, $id);
 
 			if ($_FILES['form']['tmp_name']['cover']) {
-				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
+				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`", 'cover', "`id` = {$id}");
 				if ($old_file && file_exists(Consts\Tour::PATH_TOUR . $old_file)) unlink(Consts\Tour::PATH_TOUR . $old_file);
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
@@ -98,6 +98,11 @@
 			catch (\Exception) { return []; }
 
 			return [$hash, $ext];
+		}
+
+		public function GetDescriptionByTourId($id): array {
+			$result = $this->table_program->Select(['day', 'description'], "`tour_id`={$id}", '`day`');
+			return $this->table_program->FetchAll($result);
 		}
 
 	}

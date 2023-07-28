@@ -96,4 +96,8 @@
 		protected function FieldsUpdate(): array {
 			return $this->FieldsCreateAndUpdate();
 		}
+
+		public function PrepareOnUpdate(int $id, array & $item): void {
+			$item['program'] = $this->model->GetDescriptionByTourId($id);
+		}
 	}

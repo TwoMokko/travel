@@ -25,7 +25,7 @@
 		<?php }
 
 		private static function Item($data): void { ?>
-            <div style = "background-image: url(<?= Consts\Story::PATH_COVER_RELATIVE, $data['image']; ?>);"></div>
+            <div style = "background-image: url(<?= Consts\Story::PATH_COVER_PREVIEW_RELATIVE, $data['image']; ?>);"></div>
             <div>
                 <div><?= $data['header']; ?></div>
                 <div><?= $data['text']; ?></div>

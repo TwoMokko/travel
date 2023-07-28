@@ -20,7 +20,7 @@
                 <div class = "adventure_text">
                     <div><?= $data['text']; ?></div>
                     <div>
-                        <div data-id = "1" data-url = "<?= Consts\Story::PATH_COVER_RELATIVE . $data['image']; ?>" style = "background-image: url(<?= Consts\Story::PATH_COVER_RELATIVE . $data['image']; ?>););" onclick = "new Gallery(this);"></div>
+                        <div data-id = "1" data-url = "<?= Consts\Story::PATH_COVER_ORIGINAL_RELATIVE . $data['image']; ?>" style = "background-image: url(<?= Consts\Story::PATH_COVER_PREVIEW_RELATIVE . $data['image']; ?>););" onclick = "new Gallery(this);"></div>
 <!--                        <div data-id = "1" data-url = "css/pic/photoalbum/18.jpg" style = "background-image: url('proj/templates/site/css/pic/photoalbum/18.jpg');" onclick = "new Gallery(this);"></div>-->
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div id = "story" class = "carousel">
                    <?php foreach ($items as $item) {
-					   $url = Consts\Story::PATH_COVER_RELATIVE . $item['image'];
+					   $url = Consts\Story::PATH_COVER_PREVIEW_RELATIVE . $item['image'];
 					   echo Pages::instance()->story->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);
 					   /*Story::instance()->show->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_story', 'style' => "background-image: url('{$url}');"]);*/
 				   } ?>

@@ -58,7 +58,7 @@
 				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\Story::STATES_RU),
 				'header'    => new Skins\Browse\Text('Заголовок'),
 				'text'      => new Skins\Browse\Text('Текст'),
-                'cover'     => new Skins\Browse\Image('Картинка', Consts\Story::PATH_COVER_RELATIVE)
+                'cover'     => new Skins\Browse\Image('Картинка', Consts\Story::PATH_COVER_PREVIEW_RELATIVE)
 			];
 		}
 
@@ -120,7 +120,7 @@
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\Story::PATH_COVER . $old_file);
+				if ($old_file) unlink(Consts\Story::PATH_COVER_PREVIEW . $old_file);
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
