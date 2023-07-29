@@ -133,7 +133,7 @@
 		private function SaveFile(int $id): array {
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
-			$dir = Consts\Story::PATH_COVER;
+			$dir = Consts\Story::PATH_COVER_ORIGINAL;
 			$hash = hash_file('md5', $temp_path);
 			$info = pathinfo($temp_name);
 			$ext = $info['extension'];

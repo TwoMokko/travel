@@ -33,11 +33,13 @@ interface Photo {
 		self::STATE_DELETE				=> 'Удалена'
 	];
 
-	const PATH_COVER					= DIR_RESOURCE_IMAGE . 'photo/all/';
-	const PATH_ALL_RELATIVE				= '/proj/resource/image/photo/all/';
+	const PATH_COVER					= DIR_RESOURCE_IMAGE . 'photo/all';
+	const PATH_ALL_ORIGINAL				= DIR_RESOURCE_IMAGE . 'photo/all/original';
+	const PATH_ALL_ORIGINAL_RELATIVE	= '/proj/resource/image/photo/all/original';
+	const PATH_ALL_PREVIEW				= DIR_RESOURCE_IMAGE . 'photo/all/preview';
+	const PATH_ALL_PREVIEW_RELATIVE		= '/proj/resource/image/photo/all/preview';
 	const PATH_SHOW_ORIGINAL			= DIR_RESOURCE_IMAGE . 'photo/show/original';
 	const PATH_SHOW_PREVIEW				= DIR_RESOURCE_IMAGE . 'photo/show/preview';
-	const PATH_SHOW_RELATIVE			= '/proj/resource/image/photo/show/';
 	const PATH_SHOW_RELATIVE_ORIGINAL	= '/proj/resource/image/photo/show/original/';
 	const PATH_SHOW_RELATIVE_PREVIEW	= '/proj/resource/image/photo/show/preview/';
 }

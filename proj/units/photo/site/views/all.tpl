@@ -19,7 +19,7 @@
 			<div class = "block page_photo p">
 				<div></div>
 				<div class = "photo_albums">
-					<?php foreach ($items as $item) echo Pages::instance()->photo->GetLink(self::ItemToVar($item), ['id' => $item['id']], ['style' => 'background-image: url(' . Consts\Photo::PATH_ALL_RELATIVE . $item['image'] . ');']);
+					<?php foreach ($items as $item) echo Pages::instance()->photo->GetLink(self::ItemToVar($item), ['id' => $item['id']], ['style' => 'background-image: url(' . Consts\Photo::PATH_ALL_PREVIEW_RELATIVE . $item['image'] . ');']);
 					/* Photo::instance()->show->GetLink(self::ItemToVar($item), ['id' => $item['id']], ['style' => 'background-image: url(' . Consts\Photo::PATH_ALL_RELATIVE . $item['image'] . ');']); */ ?>
 				</div>
 			</div>

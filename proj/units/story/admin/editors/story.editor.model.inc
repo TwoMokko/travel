@@ -54,8 +54,6 @@
 		private function SaveFile(int $id): array {
 			$dir_original = Consts\Story::PATH_COVER_ORIGINAL;
 			$dir_preview = Consts\Story::PATH_COVER_PREVIEW;
-			if (!is_dir($dir_original)) mkdir($dir_original, 0777, true);
-			if (!is_dir($dir_preview)) mkdir($dir_preview, 0777, true);
 
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];

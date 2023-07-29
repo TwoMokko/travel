@@ -32,8 +32,6 @@
 			self::STATE_DELETE					=> 'Удалена'
 		];
 
-		const PATH_COVER						= DIR_RESOURCE_IMAGE . 'story/';
-		const PATH_COVER_RELATIVE				= '/proj/resource/image/story/';
 		const PATH_COVER_ORIGINAL				= DIR_RESOURCE_IMAGE . 'story/original';
 		const PATH_COVER_ORIGINAL_RELATIVE		= '/proj/resource/image/story/original/';
 		const PATH_COVER_PREVIEW				= DIR_RESOURCE_IMAGE . 'story/preview';

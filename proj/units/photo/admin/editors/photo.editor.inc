@@ -63,7 +63,7 @@
 			return [
 				'state'     => new Skins\Browse\ValueFromArray('Состояние', Consts\Photo::STATES_RU),
 				'header'    => new Skins\Browse\Text('Заголовок'),
-				'cover'     => new Skins\Browse\Image('Картинка', Consts\Photo::PATH_ALL_RELATIVE)
+				'cover'     => new Skins\Browse\Image('Картинка', Consts\Photo::PATH_ALL_PREVIEW_RELATIVE)
 			];
 		}
 

@@ -43,6 +43,8 @@
 		}
 
 		public function Save(string $path, string $name, $type = null, ?int $width = null, ?int $height = null, int $size = self::SIZE_ORIGINAL, $quality = 75): array {
+			if (!is_dir($path)) mkdir($path, 0777, true);
+
 			$this->width = $width;
 			$this->height = $height;
 			$this->size = $size;

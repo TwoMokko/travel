@@ -21,7 +21,7 @@
 				<div class = "block photo_carousel">
 					<div id = "photo_adapter" class = "carousel">
 						<?php foreach ($items as $item) { ?>
-							<div data-id = "gallery_1" data-url = "<?= Consts\Photo::PATH_ALL_RELATIVE . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_ALL_RELATIVE . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
+							<div data-id = "gallery_1" data-url = "<?= Consts\Photo::PATH_ALL_ORIGINAL_RELATIVE . $item['image']; ?>" style = "background-image: url('<?= Consts\Photo::PATH_ALL_PREVIEW_RELATIVE . $item['image']; ?>');" onclick = "new Gallery(this);"></div>
 						<?php } ?>
 					</div>
 				</div>

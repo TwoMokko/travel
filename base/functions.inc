@@ -68,6 +68,10 @@
 		return DEBUG;
 	}
 
+	function Debugs(mixed ...$vars): void {
+		foreach ($vars as $var) Debug($var);
+	}
+
 	/**
 	 * Вывод отладочной информации
 	 * @param mixed $var - Переменная для вывода
