@@ -58,7 +58,7 @@
 				'state'    	 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
 				'name'    		=> new Skins\Browse\Text('Заголовок'),
 				'description' 	=> new Skins\Browse\Text('Текст'),
-				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\Tour::PATH_TYPE_RELATIVE)
+				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\Tour::PATH_TYPE_PREVIEW_RELATIVE)
 			];
 		}
 
@@ -120,7 +120,7 @@
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\Tour::PATH_TYPE . $old_file);
+				if ($old_file) unlink(Consts\Tour::PATH_TYPE_PREVIEW . $old_file);
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
@@ -133,7 +133,7 @@
 		private function SaveFile(int $id): array {
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
-			$dir = Consts\Tour::PATH_TYPE;
+			$dir = Consts\Tour::PATH_TYPE_PREVIEW;
 			$hash = hash_file('md5', $temp_path);
 			$info = pathinfo($temp_name);
 			$ext = $info['extension'];

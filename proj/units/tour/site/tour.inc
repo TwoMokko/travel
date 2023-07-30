@@ -149,7 +149,7 @@
 
 			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `tour` WHERE `id` = '{$id}'");
 			$image = $this->db->Fetch($result)['image'];
-			$path = Consts\Tour::PATH_TOUR_RELATIVE . $image;
+			$path = Consts\Tour::PATH_TOUR_ORIGINAL_RELATIVE . $image;
 			return General\HeaderForPages::ToVar("{$path}", $item['name'], $item['date']);
         }
 
@@ -166,7 +166,7 @@
 			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `tour` WHERE `id` = '{$id}'");
 			$image = $this->db->Fetch($result)['image'];
 //			$image = $this->db->SelectOneFieldCalc(self::TABLES['tour'], "CONCAT(`hash`, '.', `id`, '.', `ext`)", 'image', "`id` = '{$id}'");
-			$path = Consts\Tour::PATH_TOUR_RELATIVE . $image;
+			$path = Consts\Tour::PATH_TOUR_ORIGINAL_RELATIVE . $image;
 			Layout::instance()->header->Push(General\HeaderForPages::ToVar("{$path}", $item['name'], $item['date']));
 		}
 

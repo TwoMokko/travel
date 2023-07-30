@@ -46,7 +46,7 @@
 
         private static function Item($tour): void { ?>
             <div>
-                <div style = "background-image: url(<?= Consts\Tour::PATH_TOUR_RELATIVE, $tour['image']; ?>);">
+                <div style = "background-image: url(<?= Consts\Tour::PATH_TOUR_PREVIEW_RELATIVE, $tour['image']; ?>);">
                     <span><?= $tour['price']; ?></span>
                 </div>
                 <div>

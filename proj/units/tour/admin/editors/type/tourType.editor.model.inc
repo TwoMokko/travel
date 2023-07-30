@@ -41,7 +41,10 @@
 		public function Update(array $data, int $id): bool {
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\Tour::PATH_TYPE . $old_file);
+				if ($old_file) {
+					if (file_exists(Consts\Tour::PATH_TYPE_ORIGINAL . $old_file)) unlink(Consts\Photo::PATH_ALL_ORIGINAL . $old_file);
+					if (file_exists(Consts\Tour::PATH_TYPE_PREVIEW . $old_file)) unlink(Consts\Photo::PATH_ALL_PREVIEW . $old_file);
+				}
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
@@ -52,8 +55,8 @@
 		}
 
 		private function SaveFile(int $id): array {
-			$dir = Consts\Tour::PATH_TYPE;
-			if (!is_dir($dir)) mkdir($dir, 0777, true);
+			$dir_original = Consts\Tour::PATH_TYPE_ORIGINAL;
+			$dir_preview = Consts\Tour::PATH_TYPE_PREVIEW;
 
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
@@ -64,7 +67,8 @@
 
 			try {
 				$IMG = new UploaderImage($temp_path, $ext);
-				$IMG->Save( $dir . '/', "{$hash}.{$id}");
+				$IMG->Save($dir_original . '/', "{$hash}.{$id}");
+				$IMG->Save($dir_preview . '/', "{$hash}.{$id}", null, 800, 800, UploaderImage::SIZE_COVER);
 			}
 			catch (\Exception) { return []; }
 

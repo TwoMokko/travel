@@ -34,7 +34,7 @@
 
 		private static function Item($data): void { ?>
 			<div>
-				<div style = "background-image: url(<?= Consts\Tour::PATH_TYPE_RELATIVE, $data['image']; ?>);"></div>
+				<div style = "background-image: url(<?= Consts\Tour::PATH_TYPE_PREVIEW_RELATIVE, $data['image']; ?>);"></div>
 				<div>
 					<div><?= $data['name']; ?></div>
 					<div><?= $data['description']; ?></div>

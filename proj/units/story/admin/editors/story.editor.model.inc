@@ -41,7 +41,10 @@
 		public function Update(array $data, int $id): bool {
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `name`", 'name', "`id` = {$id}");
-				if ($old_file) unlink(Consts\Story::PATH_COVER_PREVIEW . $old_file);
+				if ($old_file) {
+					if (file_exists(Consts\Story::PATH_COVER_ORIGINAL . $old_file)) unlink(Consts\Photo::PATH_ALL_ORIGINAL . $old_file);
+					if (file_exists(Consts\Story::PATH_COVER_PREVIEW . $old_file)) unlink(Consts\Photo::PATH_ALL_PREVIEW . $old_file);
+				}
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}

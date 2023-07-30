@@ -22,7 +22,7 @@
 				</div>
 				<div id = "other_publication">
 					<?php foreach ($items as $item) {
-						$url = Consts\Tour::PATH_TOUR_RELATIVE . $item['image'];
+						$url = Consts\Tour::PATH_TOUR_PREVIEW_RELATIVE . $item['image'];
 						echo Pages::instance()->tour->GetLink(self::Item($item), ['id' => $item['id']], ['class' => 'other_public other_tour', 'style' => "background-image: url('{$url}');"]);
 					} ?>
 				</div>

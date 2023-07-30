@@ -61,7 +61,10 @@
 
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`", 'cover', "`id` = {$id}");
-				if ($old_file && file_exists(Consts\Tour::PATH_TOUR . $old_file)) unlink(Consts\Tour::PATH_TOUR . $old_file);
+				if ($old_file) {
+					if (file_exists(Consts\Tour::PATH_TOUR_ORIGINAL . $old_file)) unlink(Consts\Photo::PATH_ALL_ORIGINAL . $old_file);
+					if (file_exists(Consts\Tour::PATH_TOUR_PREVIEW . $old_file)) unlink(Consts\Photo::PATH_ALL_PREVIEW . $old_file);
+				}
 
 				[$data['hash'], $data['ext']] = $this->SaveFile($id);
 			}
@@ -81,8 +84,8 @@
 		}
 
 		private function SaveFile(int $id): array {
-			$dir = Consts\Tour::PATH_TOUR;
-			if (!is_dir($dir)) mkdir($dir, 0777, true);
+			$dir_original = Consts\Tour::PATH_TOUR_ORIGINAL;
+			$dir_preview = Consts\Tour::PATH_TOUR_PREVIEW;
 
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
@@ -93,7 +96,8 @@
 
 			try {
 				$IMG = new UploaderImage($temp_path, $ext);
-				$IMG->Save( $dir . '/', "{$hash}.{$id}");
+				$IMG->Save($dir_original . '/', "{$hash}.{$id}");
+				$IMG->Save($dir_preview . '/', "{$hash}.{$id}", null, 610, 610, UploaderImage::SIZE_COVER);
 			}
 			catch (\Exception) { return []; }
 

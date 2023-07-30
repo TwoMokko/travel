@@ -53,7 +53,6 @@
 
 		private function SaveFile(int $id): array {
 			$dir = Consts\People::PATH_AVATAR;
-			if (!is_dir($dir)) mkdir($dir, 0777, true);
 
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];
@@ -64,7 +63,7 @@
 
 			try {
 				$IMG = new UploaderImage($temp_path, $ext);
-				$IMG->Save( $dir . '/', "{$hash}.{$id}");
+				$IMG->Save( $dir . '/', "{$hash}.{$id}", null, 400, 400, UploaderImage::SIZE_COVER);
 			}
 			catch (\Exception) { return []; }
 

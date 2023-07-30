@@ -56,7 +56,6 @@
 
 		private function SaveFile(int $id): array {
 			$dir = Consts\General::PATH_IMAGE;
-			if (!is_dir($dir)) mkdir($dir, 0777, true);
 
 			$temp_path = $_FILES['form']['tmp_name']['cover'];
 			$temp_name = $_FILES['form']['name']['cover'];

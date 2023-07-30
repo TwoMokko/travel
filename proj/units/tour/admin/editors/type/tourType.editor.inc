@@ -52,7 +52,7 @@
 				'state'    	 	=> new Skins\Browse\ValueFromArray('Состояние', Consts\Tour::STATES_RU),
 				'name'    		=> new Skins\Browse\Text('Заголовок'),
 				'description' 	=> new Skins\Browse\Text('Текст'),
-				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\Tour::PATH_TYPE_RELATIVE)
+				'cover'     	=> new Skins\Browse\Image('Картинка', Consts\Tour::PATH_TYPE_PREVIEW_RELATIVE)
 			];
 		}
 
