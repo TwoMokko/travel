@@ -1550,7 +1550,7 @@ input[type=text].footer_input::placeholder {
 }
 .gallery .photo_gallery {
   position: relative;
-  background-color: brown;
+  background-color: transparent;
   margin: auto;
   border-radius: 24px;
   background-size: cover;

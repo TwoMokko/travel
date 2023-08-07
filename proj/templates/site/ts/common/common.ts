@@ -95,6 +95,7 @@ class SelectTour {
 		let category = Number(this.$select_categories.val());
 
 		this.$select_tours.empty();
+		if (!category) return;
 		for (let i in this.data[category].tours) {
 			this.$select_tours.append(
 				$('<option/>', {value: i}).text(this.data[category].tours[i].name)
