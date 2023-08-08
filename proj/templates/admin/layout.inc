@@ -4,8 +4,6 @@
 
 	use Base\Instance;
 	use Base\Templates\Section;
-	use Base\Templates\Versions as BaseVersions;
-	use Proj\Templates\Admin\Versions as AdminVersions;
 
 	class Layout extends \Base\Templates\Layout {
 		use Instance;

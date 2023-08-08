@@ -1,10 +1,13 @@
 <?php
 
-	namespace Proj\Templates\Admin\Versions
-	{
-		const COMMON_JS							= '1.0.0000';		// "/proj/templates/admin/js/common.js":0
-		const GENERAL_JS						= '1.0.0000';		// "/proj/templates/admin/js/general.js":0
-		const FUNCTIONS_JS						= '1.0.0000';		// "/proj/templates/admin/js/functions.js":0
+	namespace Proj\Templates\Admin\Versions {
 
-		const MAIN_CSS							= '1.0.0000';		// "/proj/templates/admin/css/main.css":0
+        use Base\VersionsControl;
+
+        define("Proj\Templates\Admin\Versions\COMMON_JS", VersionsControl::instance()->Get('admin', 'COMMON_JS'));
+        define("Proj\Templates\Admin\Versions\GENERAL_JS", VersionsControl::instance()->Get('admin', 'GENERAL_JS'));
+        define("Proj\Templates\Admin\Versions\FUNCTIONS_JS", VersionsControl::instance()->Get('admin', 'FUNCTIONS_JS'));
+
+        define("Proj\Templates\Admin\Versions\MAIN_CSS", VersionsControl::instance()->Get('admin', 'MAIN_CSS'));
+        define("Proj\Templates\Admin\Versions\AUTHORIZATION_CSS", VersionsControl::instance()->Get('admin', 'AUTHORIZATION_CSS'));
 	}

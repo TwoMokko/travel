@@ -8,6 +8,7 @@
 
 	require DIR_ROOT . 'proj/site.versions.inc';
 
+    require DIR_PROJ . 'params.inc';
 	require DIR_PROJ . 'site.proj.inc';
 
 	Base\Controller::instance()->Execute();

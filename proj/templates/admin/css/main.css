@@ -73,9 +73,22 @@ body {
   flex-direction: column;
 }
 body > header {
+  position: relative;
+  display: flex;
   padding: 1rem 0.6rem;
   background-color: #23282C;
   color: #FFFFFF;
+}
+body > header > div {
+  flex: auto;
+}
+body > header > .logout {
+  flex: none;
+  width: 40px;
+  background-image: url("img/ui/white/exit.svg");
+  background-size: 19px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 body > div {
   flex: auto;

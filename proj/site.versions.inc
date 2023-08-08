@@ -1,8 +1,10 @@
 <?php
 
-	namespace Proj\Templates\Site\Versions
-	{
-		const COMMON_JS							= '1.0.0000';		// "/proj/templates/site/js/common.js":0
+	namespace Proj\Templates\Site\Versions {
 
-		const MAIN_CSS							= '1.0.0000';		// "/proj/templates/site/css/main.css":0
+        use Base\VersionsControl;
+
+        define("Proj\Templates\Site\Versions\COMMON_JS", VersionsControl::instance()->Get('site', 'COMMON_JS'));
+
+        define("Proj\Templates\Site\Versions\MAIN_CSS", VersionsControl::instance()->Get('site', 'MAIN_CSS'));
 	}

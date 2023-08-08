@@ -14,6 +14,7 @@
 	use Base\Controller;
 	use Base\Action;
 	use Proj\DBObject;
+    use Proj\Admin\Actions;
 	use Proj\Admin\Templates\Layout;
 	use Proj\Admin\Templates\General\Item;
 	use Proj\Admin\Templates\General\Group;
@@ -56,7 +57,8 @@
 		}
 
 		public function OutHead() {
-			Layout::instance()->header->Push('Привет, админ');
+            Layout::instance()->header->Push("<div>Привет, " . USER_LOGIN . "</div>");
+            Layout::instance()->header->Push(Actions\Users::$exit->GetLink('', [], ['class' => 'logout']));
 		}
 
 		public function OutMenu() {

@@ -1,5 +1,7 @@
 <?php
 
+	require DIR_UNITS . 'users/site/users.inc';
+    require DIR_UNITS . 'statistics/site/statistics.inc';
 	require DIR_UNITS . 'general/site/general.inc';
 	require DIR_UNITS . 'feedback/site/feedback.inc';
 	require DIR_UNITS . 'tour/site/tour.inc';
