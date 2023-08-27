@@ -180,6 +180,8 @@
 
             $items = $this->db->FetchAll($result);
 
+            if (!$items) return '';
+
 			return Carousel::ToVarCarousel($items);
 		}
 

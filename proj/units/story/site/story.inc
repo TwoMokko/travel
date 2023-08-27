@@ -88,6 +88,8 @@
             $result = $this->db->Select(self::TABLES['story'], ['id', 'header'], "(`state` = {$state}) AND (`id` != {$id})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
             $items = $this->db->FetchAll($result);
 
+            if (!$items) return '';
+
             return Show::ToVarCarousel($items);
         }
 
