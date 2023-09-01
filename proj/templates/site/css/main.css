@@ -2553,6 +2553,7 @@ input[type=text].footer_input::placeholder {
     background-size: cover;
     border-radius: 24px;
     height: 18rem;
+    background-position: center;
   }
   .block.team .about_text {
     display: flex;
@@ -2620,6 +2621,7 @@ input[type=text].footer_input::placeholder {
     background-size: cover;
     border-radius: 24px;
     height: 18rem;
+    background-position: center;
   }
   .block.team .about_text {
     display: flex;
@@ -2687,6 +2689,7 @@ input[type=text].footer_input::placeholder {
     background-size: cover;
     border-radius: 24px;
     height: 14rem;
+    background-position: center;
   }
   .block.team .about_text {
     display: flex;
@@ -2754,6 +2757,7 @@ input[type=text].footer_input::placeholder {
     background-size: cover;
     border-radius: 24px;
     height: 18rem;
+    background-position: center;
   }
   .block.team .about_text {
     display: flex;
@@ -2821,6 +2825,7 @@ input[type=text].footer_input::placeholder {
     background-size: cover;
     border-radius: 24px;
     height: 18rem;
+    background-position: center;
   }
   .block.team .about_text {
     display: flex;
@@ -2908,6 +2913,9 @@ input[type=text].footer_input::placeholder {
 }
 
 @media (max-width: 860px) {
+  .block.tour_photo {
+    margin-bottom: 10%;
+  }
   .block.tour_photo > div:first-child {
     text-align: center !important;
   }
@@ -2929,6 +2937,7 @@ input[type=text].footer_input::placeholder {
     padding-top: 42%;
     background-size: cover;
     height: 120px;
+    background-position: center;
   }
   .block.tour_photo .tour_mini_photo > div:hover {
     box-shadow: 0 0 7px 0px rgba(45, 44, 44, 0.1294117647);
@@ -2944,6 +2953,9 @@ input[type=text].footer_input::placeholder {
   }
 }
 @media (min-width: 861px) {
+  .block.tour_photo {
+    margin-bottom: 10%;
+  }
   .block.tour_photo > div:first-child {
     text-align: center !important;
   }
@@ -2965,6 +2977,7 @@ input[type=text].footer_input::placeholder {
     padding-top: 42%;
     background-size: cover;
     height: 120px;
+    background-position: center;
   }
   .block.tour_photo .tour_mini_photo > div:hover {
     box-shadow: 0 0 7px 0px rgba(45, 44, 44, 0.1294117647);
@@ -3223,7 +3236,7 @@ input[type=text].footer_input::placeholder {
 }
 
 .block.reviews {
-  padding: 10%;
+  padding: 0 10% 10%;
 }
 .block.reviews > div:first-child {
   display: flex;
@@ -5426,7 +5439,7 @@ input[type=text].footer_input::placeholder {
 
 @media (max-width: 480px) {
   .block.tour_take_things {
-    padding: 10%;
+    padding: 0 10% 10%;
   }
   .block.tour_take_things .print_btn {
     width: 1.5rem;
@@ -5507,7 +5520,7 @@ input[type=text].footer_input::placeholder {
 }
 @media (min-width: 481px) {
   .block.tour_take_things {
-    padding: 10%;
+    padding: 0 10% 10%;
   }
   .block.tour_take_things .print_btn {
     width: 1.5rem;

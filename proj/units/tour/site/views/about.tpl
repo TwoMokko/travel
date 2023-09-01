@@ -14,7 +14,7 @@
 
         public static function Render(array $data): void { ?>
             <div class = "about_tour block p">
-                <div><?= $data['description']; ?></div>
+                <div><?= nl2br($data['description']); ?></div>
                 <div class = "about_mini">
                     <div>
                         <div><?= $data['price']; ?> ₽</div>

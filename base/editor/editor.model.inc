@@ -5,6 +5,10 @@
 	use Base\DB\Table;
 
 	class Model {
+		protected const TRANSFORM_TRIM		= 1;
+
+		protected const VALIDATION_REQUIRED	= 1;
+
 		protected Table $table;
 		protected array $states;
 		protected array $params;
@@ -79,6 +83,36 @@
 
 		public function SetState(int $state, int $id): void {
 			$this->table->Update(['state' => $state], "`id` = {$id}");
+		}
+
+		protected function PrepareData(array & $data, array $fields): void {
+			foreach ($fields as $field => $transforms) {
+				foreach ($transforms as $transform) {
+					$data[$field] = match ($transform) {
+						self::TRANSFORM_TRIM => $this->PrepareTrim($data[$field])
+					};
+				}
+			}
+		}
+
+		private function PrepareTrim(string $value): string {
+			return trim($value);
+		}
+
+		protected function ValidationData(array $data, array $fields): bool {
+			foreach ($fields as $field => $rules) {
+				foreach ($rules as $rule) {
+					switch ($rule) {
+						case self::VALIDATION_REQUIRED: if (!$this->ValidationRequired($data[$field])) return false;
+					}
+				}
+			}
+
+			return true;
+		}
+
+		private function ValidationRequired(string $value): string {
+			return ($value !== '');
 		}
 
 	}

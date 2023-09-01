@@ -84,7 +84,7 @@
 
 			$state = self::STATE_ACTIVE;
 
-			$result = $this->db->Select(self::TABLES['photo_show'], ['id'], "(`all_id` = {$id}) AND (`state` = {$state})", '`date_create` DESC', 20, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
+			$result = $this->db->Select(self::TABLES['photo_show'], ['id'], "(`all_id` = {$id}) AND (`state` = {$state})", '`date_create` DESC', null, ["CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image`"]);
 			$data = $this->db->FetchAll($result);
 
 			return Show::ToVar($data);

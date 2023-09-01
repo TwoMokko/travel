@@ -53,6 +53,8 @@
 				display: none,
 				display_grid: grid
 		);
+
+		margin-bottom: 10%;
 		> div {
 			&:first-child { text-align: center !important; }
 			&:last-child { text-align: center; margin-top: 4%; }
@@ -61,7 +63,7 @@
 		.tour_mini_photo {
 			display: GetValue($default, $params, 'display_grid'); grid-row-gap: 1rem; grid-column-gap: 1rem; margin-bottom: 4%; grid-template-columns: repeat(3, 1fr);
 			> div {
-				background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%; background-size: cover; height: 120px;
+				background-color: $color_gray; border-radius: 24px; cursor: pointer; padding-top: 42%; background-size: cover; height: 120px; background-position: center;
 				&:hover { box-shadow: $box_shadow_white; }
 			}
 		}

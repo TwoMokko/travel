@@ -39,6 +39,16 @@
 				unset($data['additional_expense']);
 			}
 
+			$this->PrepareData($data, [
+				'name' => [self::TRANSFORM_TRIM],
+				'video' => [self::TRANSFORM_TRIM]
+			]);
+
+			$valid = $this->ValidationData($data, [
+				'name' => [self::VALIDATION_REQUIRED]
+			]);
+			if (!$valid) return false;
+
 			$id = $this->table->Insert($data);
 
 			$this->SaveExpense($expense, $id);
