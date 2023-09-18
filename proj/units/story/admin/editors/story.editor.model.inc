@@ -68,7 +68,7 @@
 			try {
 				$IMG = new UploaderImage($temp_path, $ext);
 //				$IMG->Save( $dir . '/', "{$hash}.{$id}");
-				$IMG->Save($dir_original . '/', "{$hash}.{$id}");
+				$IMG->Save($dir_original . '/', "{$hash}.{$id}", null, 2000, 2000, UploaderImage::SIZE_COVER);
 				$IMG->Save($dir_preview . '/', "{$hash}.{$id}", null, 610, 610, UploaderImage::SIZE_COVER);
 			}
 			catch (\Exception) { return []; }

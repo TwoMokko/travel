@@ -66,7 +66,6 @@ class SelectTour {
 
 	constructor(data: TypeCategory) {
 		this.data = data;
-		console.log(this.data);
 
 		this.$select_categories = $('#categories');
 		this.$select_tours = $('#tours');

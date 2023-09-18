@@ -119,9 +119,9 @@
 			$id_album = GetParam('id', 0);
 
 			$this->model->Cron();
-			$id = $this->model->PhotoLoad($uid, $id_album);
+			[$id, $error] = $this->model->PhotoLoad($uid, $id_album);
 
-			if (!$id) SendJSONSuccess(['action' => 'error', 'text' => 'Изображение не загружено']);
+			if (!$id) SendJSONSuccess(['action' => 'error', 'text' => $error]);
 
 			SendJSONSuccess(['action' => 'ok', 'id' => $id]);
 		}

@@ -35,7 +35,7 @@
 				<div>Что входит в стоимость</div>
 				<div>
 					<div>
-						<div>Цена <?= $data['price']; ?> ₽ включает:</div>
+						<div>Цена <?= MoneyFormat($data['price']); ?> ₽ включает:</div>
 						<div class = "list"><?php foreach ($expenses as $item) self::Expense($item); ?></div>
 					</div>
 					<div>

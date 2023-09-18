@@ -30,14 +30,14 @@
         private static function Navigation($data): void { ?>
             <div class = "navigation_tour">
                 <?php foreach ($data as $type) { if (!$type['tours']) continue; ?>
-                    <div><a href = "#<?= $type['alias']; ?>"><?= $type['name']; ?></a></div>
+                    <div><a href = "#type_<?= $type['id']; ?>"><?= $type['name']; ?></a></div>
                 <?php } ?>
             </div>
         <?php }
 
         private static function Type($type): void { ?>
             <div class = "block page_tours p">
-                <div class = "header" id = "<?= $type['alias']; ?>"><?= $type['name']; ?></div>
+                <div class = "header" id = "type_<?= $type['id']; ?>"><?= $type['name']; ?></div>
                 <div class = "cards_tours">
                     <?php foreach ($type['tours'] as $tour) self::Item($tour); ?>
                 </div>
@@ -47,7 +47,7 @@
         private static function Item($tour): void { ?>
             <div>
                 <div style = "background-image: url(<?= Consts\Tour::PATH_TOUR_PREVIEW_RELATIVE, $tour['image']; ?>);">
-                    <span><?= $tour['price']; ?></span>
+                    <span><?= MoneyFormat($tour['price']); ?></span>
                 </div>
                 <div>
                     <div><?= $tour['date']; ?></div>

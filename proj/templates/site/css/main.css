@@ -455,7 +455,7 @@ input[type=text].footer_input::placeholder {
 
 @media (max-width: 480px) {
   .other_publication {
-    margin-bottom: 10%;
+    margin: 10% 0;
   }
   .other_publication > div:first-child {
     text-align: center;
@@ -471,7 +471,7 @@ input[type=text].footer_input::placeholder {
 }
 @media (min-width: 481px) and (max-width: 760px) {
   .other_publication {
-    margin-bottom: 10%;
+    margin: 10% 0;
   }
   .other_publication > div:first-child {
     text-align: center;
@@ -487,7 +487,7 @@ input[type=text].footer_input::placeholder {
 }
 @media (min-width: 761px) and (max-width: 980px) {
   .other_publication {
-    margin-bottom: 10%;
+    margin: 10% 0;
   }
   .other_publication > div:first-child {
     text-align: center;
@@ -503,7 +503,7 @@ input[type=text].footer_input::placeholder {
 }
 @media (min-width: 981px) {
   .other_publication {
-    margin-bottom: 10%;
+    margin: 10% 0;
   }
   .other_publication > div:first-child {
     text-align: center;
@@ -1590,7 +1590,7 @@ input[type=text].footer_input::placeholder {
 @media (max-width: 860px) {
   .block.tour_form {
     padding: 10%;
-    margin: 0 auto 10%;
+    margin: 0 auto;
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
@@ -1652,7 +1652,7 @@ input[type=text].footer_input::placeholder {
 @media (min-width: 861px) and (max-width: 1080px) {
   .block.tour_form {
     padding: 10%;
-    margin: 0 auto 10%;
+    margin: 0 auto;
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
@@ -1714,7 +1714,7 @@ input[type=text].footer_input::placeholder {
 @media (min-width: 1081px) and (max-width: 1200px) {
   .block.tour_form {
     padding: 10%;
-    margin: 0 auto 10%;
+    margin: 0 auto;
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
@@ -1776,7 +1776,7 @@ input[type=text].footer_input::placeholder {
 @media (min-width: 1201px) {
   .block.tour_form {
     padding: 10%;
-    margin: 0 auto 10%;
+    margin: 0 auto;
     background-image: url("pic/form_tour.jpg");
     background-position: center;
   }
@@ -2566,39 +2566,13 @@ input[type=text].footer_input::placeholder {
   }
   .block.team .about_text > div:nth-of-type(1) {
     font-family: Intro, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     padding: 4% 0;
   }
   .block.team .about_text > div:nth-of-type(2) {
     flex: auto;
     padding-bottom: 8%;
-  }
-  .block.team .contact_person {
-    color: #a9a9a9;
-  }
-  .block.team .contact_person > div:nth-of-type(1) {
-    display: flex;
-    margin-bottom: 14px;
-  }
-  .block.team .contact_person > div:nth-of-type(1) > div:last-child {
-    color: #2d2c2c;
-  }
-  .block.team .contact_person > div:nth-of-type(2) {
-    display: flex;
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a {
-    width: 30px;
-    height: 30px;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a:first-child {
-    background-image: url("pic/form_vk.png");
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a:last-child {
-    background-image: url("pic/form_whatsapp.png");
   }
 }
 @media (min-width: 361px) and (max-width: 480px) {
@@ -2634,39 +2608,13 @@ input[type=text].footer_input::placeholder {
   }
   .block.team .about_text > div:nth-of-type(1) {
     font-family: Intro, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     padding: 4% 0;
   }
   .block.team .about_text > div:nth-of-type(2) {
     flex: auto;
     padding-bottom: 8%;
-  }
-  .block.team .contact_person {
-    color: #a9a9a9;
-  }
-  .block.team .contact_person > div:nth-of-type(1) {
-    display: flex;
-    margin-bottom: 14px;
-  }
-  .block.team .contact_person > div:nth-of-type(1) > div:last-child {
-    color: #2d2c2c;
-  }
-  .block.team .contact_person > div:nth-of-type(2) {
-    display: flex;
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a {
-    width: 30px;
-    height: 30px;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a:first-child {
-    background-image: url("pic/form_vk.png");
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a:last-child {
-    background-image: url("pic/form_whatsapp.png");
   }
 }
 @media (min-width: 481px) and (max-width: 680px) {
@@ -2702,39 +2650,13 @@ input[type=text].footer_input::placeholder {
   }
   .block.team .about_text > div:nth-of-type(1) {
     font-family: Intro, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     padding: 0 0 8%;
   }
   .block.team .about_text > div:nth-of-type(2) {
     flex: auto;
     padding-bottom: 16%;
-  }
-  .block.team .contact_person {
-    color: #a9a9a9;
-  }
-  .block.team .contact_person > div:nth-of-type(1) {
-    display: flex;
-    margin-bottom: 14px;
-  }
-  .block.team .contact_person > div:nth-of-type(1) > div:last-child {
-    color: #2d2c2c;
-  }
-  .block.team .contact_person > div:nth-of-type(2) {
-    display: flex;
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a {
-    width: 30px;
-    height: 30px;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a:first-child {
-    background-image: url("pic/form_vk.png");
-  }
-  .block.team .contact_person > div:nth-of-type(2) > a:last-child {
-    background-image: url("pic/form_whatsapp.png");
   }
 }
 @media (min-width: 681px) and (max-width: 980px) {
@@ -2770,7 +2692,7 @@ input[type=text].footer_input::placeholder {
   }
   .block.team .about_text > div:nth-of-type(1) {
     font-family: Intro, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     padding: 8% 0;
   }
@@ -2778,34 +2700,50 @@ input[type=text].footer_input::placeholder {
     flex: auto;
     padding-bottom: 24%;
   }
-  .block.team .contact_person {
-    color: #a9a9a9;
+}
+@media (min-width: 981px) and (max-width: 1200px) {
+  .block.team {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4%;
+    grid-row-gap: 8%;
   }
-  .block.team .contact_person > div:nth-of-type(1) {
+  .block.team > div {
     display: flex;
-    margin-bottom: 14px;
+    width: 100%;
+    margin: 0;
   }
-  .block.team .contact_person > div:nth-of-type(1) > div:last-child {
-    color: #2d2c2c;
+  .block.team > div:last-child {
+    margin-bottom: 0;
   }
-  .block.team .contact_person > div:nth-of-type(2) {
+  .block.team .about_pic {
+    width: 50%;
+    background-size: cover;
+    border-radius: 24px;
+    height: 18rem;
+    background-position: center;
+  }
+  .block.team .about_text {
     display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    width: 50%;
   }
-  .block.team .contact_person > div:nth-of-type(2) > a {
-    width: 30px;
-    height: 30px;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    cursor: pointer;
+  .block.team .about_text > div {
+    text-align: left;
   }
-  .block.team .contact_person > div:nth-of-type(2) > a:first-child {
-    background-image: url("pic/form_vk.png");
+  .block.team .about_text > div:nth-of-type(1) {
+    font-family: Intro, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0 0 8%;
   }
-  .block.team .contact_person > div:nth-of-type(2) > a:last-child {
-    background-image: url("pic/form_whatsapp.png");
+  .block.team .about_text > div:nth-of-type(2) {
+    flex: auto;
+    padding-bottom: 24%;
   }
 }
-@media (min-width: 981px) {
+@media (min-width: 1201px) {
   .block.team {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2846,30 +2784,68 @@ input[type=text].footer_input::placeholder {
     flex: auto;
     padding-bottom: 24%;
   }
-  .block.team .contact_person {
+}
+
+@media (max-width: 1080px) {
+  .contact_person {
     color: #a9a9a9;
   }
-  .block.team .contact_person > div:nth-of-type(1) {
+  .contact_person > div:nth-of-type(1) {
+    display: flex;
+    margin-bottom: 14px;
+    font-size: 1.2rem;
+  }
+  .contact_person > div:nth-of-type(1) > div:first-child {
+    margin-right: 8px;
+  }
+  .contact_person > div:nth-of-type(1) > div:last-child {
+    color: #2d2c2c;
+  }
+  .contact_person > div:nth-of-type(2) {
+    display: flex;
+  }
+  .contact_person > div:nth-of-type(2) > a {
+    width: 35px;
+    height: 35px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .contact_person > div:nth-of-type(2) > a:first-child {
+    background-image: url("pic/form_vk.png");
+  }
+  .contact_person > div:nth-of-type(2) > a:last-child {
+    background-image: url("pic/form_whatsapp.png");
+  }
+}
+@media (min-width: 1081px) {
+  .contact_person {
+    color: #a9a9a9;
+  }
+  .contact_person > div:nth-of-type(1) {
     display: flex;
     margin-bottom: 14px;
   }
-  .block.team .contact_person > div:nth-of-type(1) > div:last-child {
+  .contact_person > div:nth-of-type(1) > div:first-child {
+    margin-right: 8px;
+  }
+  .contact_person > div:nth-of-type(1) > div:last-child {
     color: #2d2c2c;
   }
-  .block.team .contact_person > div:nth-of-type(2) {
+  .contact_person > div:nth-of-type(2) {
     display: flex;
   }
-  .block.team .contact_person > div:nth-of-type(2) > a {
+  .contact_person > div:nth-of-type(2) > a {
     width: 30px;
     height: 30px;
     background-size: 80%;
     background-repeat: no-repeat;
     cursor: pointer;
   }
-  .block.team .contact_person > div:nth-of-type(2) > a:first-child {
+  .contact_person > div:nth-of-type(2) > a:first-child {
     background-image: url("pic/form_vk.png");
   }
-  .block.team .contact_person > div:nth-of-type(2) > a:last-child {
+  .contact_person > div:nth-of-type(2) > a:last-child {
     background-image: url("pic/form_whatsapp.png");
   }
 }

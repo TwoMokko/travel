@@ -35,7 +35,7 @@ body {
 menu {
 	li {
 		> span {
-			position: relative; display: block; padding: 0.6rem; cursor: pointer;
+			position: relative; display: block; padding: 0.6rem; cursor: pointer; z-index: 10;
 			> ul { position: absolute; display: none; top: 0; left: 200px; width: 200px; background-color: $color-primary; }
 			&:hover { background-color: $color-secondary; }
 		}

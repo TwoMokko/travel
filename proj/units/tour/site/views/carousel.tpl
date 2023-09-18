@@ -38,7 +38,7 @@
 			<span><?= $data['name']; ?></span>
 			<span>
 				<span><?= $data['date']; ?></span>
-				<span><?= $data['price']; ?> </span>
+				<span><?= MoneyFormat($data['price']); ?> </span>
 			</span>
 		<?php
 			return Template::Read();

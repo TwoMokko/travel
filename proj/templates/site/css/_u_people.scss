@@ -31,30 +31,9 @@
 			> div {
 				text-align: left;
 				//&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
-				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: 0.8rem; line-height: 1.5rem; padding: GetValue($default, $params, 'padding_name'); }
+				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: GetParam($params, name_size, 1rem); line-height: 1.5rem; padding: GetValue($default, $params, 'padding_name'); }
 				&:nth-of-type(2) { flex: auto; padding-bottom: GetValue($default, $params, 'padding_bottom_text'); }
 				&:nth-of-type(3) {  }
-			}
-		}
-
-
-		.contact_person {
-			color: $color_gray;
-			> div {
-				&:nth-of-type(1) {
-					display: flex; margin-bottom: 14px;
-					> div {
-						&:last-child { color: $color_text_main; }
-					}
-				}
-				&:nth-of-type(2) {
-					display: flex;
-					> a {
-						width: 30px; height: 30px; background-size: 80%; background-repeat: no-repeat; cursor: pointer;
-						&:first-child { background-image: url("pic/form_vk.png"); }
-						&:last-child { background-image: url("pic/form_whatsapp.png"); }
-					}
-				}
 			}
 		}
 	}
@@ -63,5 +42,33 @@
 	@include MixScreen($size2XS, $sizeS) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 10%, width_card: 70%, display_card: revert, width_content_card: 100%, padding_bottom_text: 8%, padding_name: 4% 0)); }
 	@include MixScreen($sizeS, $sizeL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, padding_bottom_text: 16%, height_pic: 14rem)); }
 	@include MixScreen($sizeL, $size2XL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, width_card: 70%, padding_name: 8% 0)); }
-	@include MixScreen($size2XL, null) { @include ViewAboutTeam(()); }
+	@include MixScreen($size2XL, $size4XL) { @include ViewAboutTeam(()); }
+	@include MixScreen($size4XL, null) { @include ViewAboutTeam(( name_size: 0.8rem )); }
+}
+
+.contact_person {
+	@mixin ViewContact($params: null) {
+
+		color: $color_gray;
+		> div {
+			&:nth-of-type(1) {
+				display: flex; margin-bottom: 14px; font-size: GetParam($params, number_size, null);
+				> div {
+					&:first-child { margin-right: 8px; }
+					&:last-child { color: $color_text_main; }
+				}
+			}
+			&:nth-of-type(2) {
+				display: flex;
+				> a {
+					width: GetParam($params, icon_wh, 30px); height: GetParam($params, icon_wh, 30px); background-size: 80%; background-repeat: no-repeat; cursor: pointer;
+					&:first-child { background-image: url("pic/form_vk.png"); }
+					&:last-child { background-image: url("pic/form_whatsapp.png"); }
+				}
+			}
+		}
+	}
+
+	@include MixScreen(null, $size3XL) { @include ViewContact(( icon_wh: 35px, number_size: 1.2rem )); }
+	@include MixScreen($size3XL, null) { @include ViewContact(()); }
 }

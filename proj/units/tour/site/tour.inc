@@ -120,7 +120,7 @@
         public function GetAllTours(): string {
             $state = self::STATE_ACTIVE;
 
-            $result = $this->db->Select(self::TABLES['type'], ['id', 'name', 'alias'], "`state` = {$state}");
+            $result = $this->db->Select(self::TABLES['type'], ['id', 'name'], "`state` = {$state}");
             $items = $this->db->FetchAll($result);
 
             $table_tour = self::TABLES['tour'];

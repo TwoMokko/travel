@@ -17,7 +17,7 @@
                 <div><?= nl2br($data['description']); ?></div>
                 <div class = "about_mini">
                     <div>
-                        <div><?= $data['price']; ?> ₽</div>
+                        <div><?= MoneyFormat($data['price']); ?> ₽</div>
                         <div>Стоимость</div>
                     </div>
                     <div>

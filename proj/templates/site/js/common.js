@@ -53,7 +53,6 @@ class SelectTour {
     $btn_see_tour;
     constructor(data) {
         this.data = data;
-        console.log(this.data);
         this.$select_categories = $('#categories');
         this.$select_tours = $('#tours');
         this.$btn_see_tour = $('#see_tour');

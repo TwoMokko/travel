@@ -77,7 +77,7 @@
 			try {
 				$IMG = new UploaderImage($temp_path, $ext);
 //				$IMG->Save( $dir . '/', "{$hash}.{$id}");
-				$IMG->Save($dir_original . '/', "{$hash}.{$id}");
+				$IMG->Save($dir_original . '/', "{$hash}.{$id}", null, 2000, 2000, UploaderImage::SIZE_COVER);
 				$IMG->Save($dir_preview . '/', "{$hash}.{$id}", null, 500, 500, UploaderImage::SIZE_COVER);
 			}
 			catch (\Exception) { return []; }
@@ -85,7 +85,7 @@
 			return [$hash, $ext];
 		}
 
-		public function PhotoLoad(string $uid, int $id_album): int {
+		public function PhotoLoad(string $uid, int $id_album): array {
 			$temp_path = $_FILES['file']['tmp_name'];
 			$temp_name = $_FILES['file']['name'];
 
@@ -103,12 +103,12 @@
 
 			try {
 				$IMG = new UploaderImage($temp_path, $ext);
-				$IMG->Save(Consts\Photo::PATH_SHOW_ORIGINAL . '/', "{$hash}.{$id}");
+				$IMG->Save(Consts\Photo::PATH_SHOW_ORIGINAL . '/', "{$hash}.{$id}", null, 2000, 2000, UploaderImage::SIZE_COVER);
 				$IMG->Save(Consts\Photo::PATH_SHOW_PREVIEW . '/', "{$hash}.{$id}", null, 500, 500, UploaderImage::SIZE_COVER);
 			}
-			catch (\Exception) { return 0; }
+			catch (\Exception $e) { return [0, $e->getMessage()]; }
 
-			return $id;
+			return [$id, ''];
 		}
 
 		public function PhotoDel(int $id): void {

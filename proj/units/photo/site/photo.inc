@@ -60,6 +60,7 @@
 			$state = self::STATE_ACTIVE;
 
 			$item = $this->db->SelectOne(self::TABLES['photo_all'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
+			if (!$item) die;//TODO 404
 
 //			$result = $this->db->Query("SELECT CONCAT(`hash`, '.', `id`, '.', `ext`) AS `image` FROM `photo_all` WHERE `id` = '{$id}'");
 //			$image = $this->db->Fetch($result)['image'];

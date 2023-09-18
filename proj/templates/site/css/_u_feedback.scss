@@ -68,7 +68,7 @@
 
 		);
 
-		padding: 10%; margin: 0 auto  10%; background-image: url("pic/form_tour.jpg"); background-position: center;
+		padding: 10%; margin: 0 auto; background-image: url("pic/form_tour.jpg"); background-position: center;
 		> * {
 			margin: GetValue($default, $params, 'margin');
 			&:first-child { text-align: center !important; }

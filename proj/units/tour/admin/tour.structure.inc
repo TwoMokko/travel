@@ -29,7 +29,6 @@
 			$this->table_types->timestamp('date_create');
 			$this->table_types->timestamp('date_modify');
 			$this->table_types->string('name', 50);
-			$this->table_types->string('alias', 50);
 			$this->table_types->string('hash', 32);
 			$this->table_types->string('ext', 6);
 			$this->table_types->text('description');
