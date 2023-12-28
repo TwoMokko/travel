@@ -40,6 +40,8 @@
 		protected string $errorAccess = 'Доступ запрещён';
 		protected string $errorSave = 'Ошибка сохранения';
 
+		protected string $btnUpdate = 'Изменить';
+
 		protected array $params = [];
 
 		protected int $page_entries = 50;
@@ -123,7 +125,7 @@
 			$fields				= $this->FieldsUpdate();
 			$navigate			= $this->NavigateUpdate();
 
-			SendJSONSuccess(['html' => Update::ToVar($this, $fields, $id, $item, "{$this->titleUpdate} #{$id}", $navigate, $this->params)]);
+			SendJSONSuccess(['html' => Update::ToVar($this, $fields, $id, $item, "{$this->titleUpdate} #{$id}", $navigate, $this->params, $this->btnUpdate)]);
 		}
 
 		protected function PrepareDoCreate(array & $data, array & $params): void {  }

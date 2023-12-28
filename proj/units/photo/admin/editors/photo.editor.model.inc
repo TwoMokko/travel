@@ -71,7 +71,7 @@
 			$temp_name = $_FILES['form']['name']['cover'];
 
 			$info = pathinfo($temp_name);
-			$ext = $info['extension'];
+			$ext = strtolower($info['extension']);
 			$hash = hash_file('md5', $temp_path);
 
 			try {

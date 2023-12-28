@@ -18,16 +18,27 @@
 
 		protected function Init(): void {
 			$this->querySelect = new Select();
+            $tableTour = $this->table->GetName();
+            $tableTourGroup = Consts\Tour::TABLES['group'];
 			$this->querySelect
-				->calc("*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`")
-				->table($this->table->GetName())
-				->where('`state` != ' . Consts\Tour::STATES['delete'])
-				->order('date_create', 'DESC')
-				->order('id');
+				->calc("`t1`.*, `t2`.`name`")
+				->table($tableTour, 't1')
+                ->join('LEFT JOIN', $tableTourGroup, 't2', "(`t1`.`gid` = `t2`.`id`)")
+				->where('`t1`.`state` != ' . Consts\Tour::STATES['delete'])
+				->order('`t1`.`date_create`', 'DESC', false)
+				->order('`t1`.`id`', 'ASC', false);
 		}
 
 		public function GetItemForBrowse(int $id): array {
-			return $this->table->SelectOne(null, "(`id` = {$id})", null, null, ["*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"]);
+            $tableTour = $this->table->GetName();
+            $tableTourGroup = Consts\Tour::TABLES['group'];
+            $result = $this->table->Query("
+                SELECT `tour`.*, CONCAT(`tour`.`hash`, '.', `tour`.`id`, '.', `tour`.`ext`) AS `cover`, `group`.`name`
+                FROM `{$tableTour}` `tour`
+                LEFT JOIN `{$tableTourGroup}` `group` ON (`tour`.`gid` = `group`.`id`)
+                WHERE (`tour`.`id` = {$id})
+            ");
+            return $this->table->Fetch($result);
 		}
 
 		public function Create(array $data, array $params): bool {

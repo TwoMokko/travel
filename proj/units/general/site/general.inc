@@ -57,7 +57,12 @@
 //			Controller::instance()->view->Push($this->footer, [$this, 'Footer']);
 		}
 
-		public function GetHeader(): string { return TPL\HeaderForMain::ToVar(); }
+		public function GetHeader(): string {
+            $main_header1 = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_header1')") ?: '';
+            $main_header2 = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_header2')") ?: '';
+            $main_header3 = $this->db->SelectOneField(self::TABLES['text'], 'text', "(`alias` = 'main_header3')") ?: '';
+            return TPL\HeaderForMain::ToVar($main_header1, $main_header2, $main_header3);
+        }
 		public function Footer(): string { return TPL\Footer::ToVar(); }
 		public function ScrollTop(): string { return TPL\Other::ScrollTop(); }
 

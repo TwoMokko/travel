@@ -31,7 +31,7 @@
 			$this->source_path = $path_img;
 
 			if ($type) {
-				$this->source_type = $type;
+				$this->source_type = strtolower($type);
 			} else {
 				$info = pathinfo($this->source_path);
 				$this->source_type = strtolower($info['extension']);

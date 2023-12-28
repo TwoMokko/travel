@@ -35,7 +35,13 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 560px) {
+  html, input {
+    font-family: SourceSansPro, sans-serif;
+    font-size: 20px;
+  }
+}
+@media (min-width: 561px) and (max-width: 1080px) {
   html, input {
     font-family: SourceSansPro, sans-serif;
     font-size: 14px;
@@ -270,7 +276,7 @@ input[type=text].footer_input::placeholder {
 @media (max-width: 560px) {
   .header {
     font-family: Intro, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     padding-bottom: 4%;
   }
 }
@@ -2124,7 +2130,7 @@ input[type=text].footer_input::placeholder {
   .block.hat.main > div:last-child > div:nth-of-type(3) {
     font-family: Intro, sans-serif;
     width: 100%;
-    font-size: 16px;
+    font-size: 18px;
   }
   .block.hat.main > div:last-child > div:nth-of-type(4) > span {
     margin-top: 2%;

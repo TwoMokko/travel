@@ -620,8 +620,8 @@ class Menu {
 		let $page2 = $('<a/>', {class: 'page2', text: 'Путешествия', href: '/tours'});
 		let $page3 = $('<a/>', {class: 'page3', text: 'О нас', href: '/about'});
 		let $page4 = $('<a/>', {class: 'page4', text: 'Наши истории', href: '/stories'});
-		let $page5 = $('<a/>', {class: 'page5', text: 'Фотографии', href: '/photo'});
-		let $page6 = $('<a/>', {class: 'page5', text: 'Отзывы', href: '/review'});
+		let $page5 = $('<a/>', {class: 'page5', text: 'Отзывы', href: '/review'});
+		let $page6 = $('<a/>', {class: 'page5', text: 'Фотографии', href: '/photo'});
 
 		/* Building DOM */
 		$('body').append(

@@ -22,4 +22,9 @@
 				->order('id');
 		}
 
+        public function Update(array $data, int $id): bool {
+            $data['state'] = Consts\Reviews::STATE_VERIFIED;
+            return parent::Update($data, $id);
+        }
+
 	}

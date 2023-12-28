@@ -8,13 +8,13 @@
 
     abstract class Update {
 
-        public static function ToVar(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate, array $params): string {
+        public static function ToVar(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate, array $params, string $btnUpdate): string {
             Buffering::Start();
-            self::Render($editor, $fields, $id, $item, $title, $navigate, $params);
+            self::Render($editor, $fields, $id, $item, $title, $navigate, $params, $btnUpdate);
             return Buffering::Read();
         }
 
-        public static function Render(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate, array $params): void { ?>
+        public static function Render(Editor $editor, array $fields, int $id, array $item, string $title, array $navigate, array $params, string $btnUpdate): void { ?>
             <div class = "navigate">
                 <?php foreach ($navigate as $func) echo $func(); ?>
             </div>
@@ -35,7 +35,7 @@
                     <?php } ?>
                     </tbody>
                 </table>
-                <input type = "submit" value = "Изменить" onclick = "<?= $editor->do_create->GetClick(); ?>">
+                <input type = "submit" value = "<?= $btnUpdate; ?>" onclick = "<?= $editor->do_create->GetClick(); ?>">
             </form>
         <?php }
 

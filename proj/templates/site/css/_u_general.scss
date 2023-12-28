@@ -109,7 +109,7 @@
 		}
 	}
 
-	@include MixScreen(null, $sizeM) { @include ViewHat((fontsize_hat: 1.5rem, fontsize_3: 16px)); }
+	@include MixScreen(null, $sizeM) { @include ViewHat((fontsize_hat: 1.5rem, fontsize_3: 18px)); }
 	@include MixScreen($sizeM, $sizeXL) { @include ViewHat((fontsize_3: 1rem)); }
 	//@include MixScreen($sizeM, $size3XL) { @include ViewHat((fontsize_3: 18px)); }
 	//@include MixScreen($size3XL, $size4XL) { @include ViewHat((fontsize_3: 20px)); }

@@ -121,7 +121,7 @@
 			$this->model->Cron();
 			[$id, $error] = $this->model->PhotoLoad($uid, $id_album);
 
-			if (!$id) SendJSONSuccess(['action' => 'error', 'text' => $error]);
+			if (!$id) SendJSONSuccess(['action' => 'error', 'text' => "Изображение не загружено ({$error})"]);
 
 			SendJSONSuccess(['action' => 'ok', 'id' => $id]);
 		}

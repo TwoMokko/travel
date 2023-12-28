@@ -5,7 +5,6 @@
 
 
 
-
 html { height: 100%; scroll-behavior: smooth; }
 html, input {
 	@mixin ViewHTML-input($params:null) {
@@ -16,8 +15,8 @@ html, input {
 		font-family: SourceSansPro, sans-serif; font-size: GetValue($default, $params, 'font-size');
 	}
 
-	//@include MixScreen(null, $sizeM) { @include ViewHTML-input((font-size: 16px)); }
-	@include MixScreen(null, $size3XL) { @include ViewHTML-input((font-size: 14px)); }
+	@include MixScreen(null, $sizeM) { @include ViewHTML-input((font-size: 20px)); }
+	@include MixScreen($sizeM, $size3XL) { @include ViewHTML-input((font-size: 14px)); }
 	@include MixScreen($size3XL, $size4XL) { @include ViewHTML-input((font-size: 16px)); }
 	@include MixScreen($size4XL, null) { @include ViewHTML-input(); }
 }
@@ -80,7 +79,7 @@ input[type="text"] {
 
 		font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'head_fontsize'); padding-bottom: 4%;
 	}
-	@include MixScreen(null, $sizeM) { @include ViewHeader((head_fontsize: 16px)); }
+	@include MixScreen(null, $sizeM) { @include ViewHeader((head_fontsize: 18px)); }
 	@include MixScreen($sizeM, $sizeXL) { @include ViewHeader((head_fontsize: 18px)); }
 	@include MixScreen($sizeXL, $size4XL) { @include ViewHeader((head_fontsize: 20px)); }
 	@include MixScreen($size4XL, null) { @include ViewHeader(()); }

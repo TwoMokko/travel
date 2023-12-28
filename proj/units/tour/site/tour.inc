@@ -190,7 +190,7 @@
         }
 
 		public function SetSeoForItem($id) {
-			$tour = $this->db->SelectOne(self::TABLES['tour'], ['description', 'gid'], "`id` = {$id}");;
+			$tour = $this->db->SelectOne(self::TABLES['tour'], ['description', 'gid'], "`id` = {$id}");
 			$name = $this->db->SelectOneField(self::TABLES['group'], 'name', "`id` = {$tour['gid']}");
 
 			Template::instance()->SetTitle("{$name}");
