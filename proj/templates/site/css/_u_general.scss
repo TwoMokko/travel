@@ -176,7 +176,7 @@
 				width: GetValue($default, $params, 'width_text'); margin: GetValue($default, $params, 'margin');
 				> div {
 					text-align: left; display: flex; flex-direction: column;
-					&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
+					&:nth-of-type(1) { color: $color_main_green; padding-bottom: 2%; }
 					&:nth-of-type(2) {
 						padding-bottom: GetValue($default, $params, 'padding_bottom');
 						> div { font-family: Intro, sans-serif; font-size: GetValue($default, $params, 'font_size'); padding-bottom: 0.7rem; }
@@ -186,7 +186,7 @@
 			}
 			&:last-child { width: GetValue($default, $params, 'width_pic'); background-color: $color_gray; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); background-size: cover; background-position: center; }
 		}
-		.right_text { padding-left: GetValue($default, $params, 'padding_left'); }
+		//.right_text { padding-left: GetValue($default, $params, 'padding_left'); }
 	}
 
 	//.right_text { width: 60%; margin: 0 0 0 auto; }

@@ -18,7 +18,10 @@
 
 		public static function ProgramItem($item): void { ?>
 			<div>
-				<div><?= $item['day']; ?></div>
+				<div>
+					<div><?= $item['day']; ?></div>
+					<div>день</div>
+				</div>
 				<div><?= $item['description']; ?></div>
 			</div>
 		<?php }

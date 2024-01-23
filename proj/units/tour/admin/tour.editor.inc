@@ -87,7 +87,7 @@
 				'gid' 			    => new Skins\Edit\Select('Заголовок', 'form[gid]', Units\Tours::instance()->GetGroupTour()),
 				'date' 				=> new Skins\Edit\Text('Дата', 'form[date]'),
 				'description' 		=> new Skins\Edit\TextArea('Описание', 'form[description]'),
-				'tid' 				=> new Skins\Edit\Select('Тип тура', 'form[tid]', Units\Tours::instance()->GetTypes()),
+				'tid' 				=> new Skins\Edit\Select('Вид тура', 'form[tid]', Units\Tours::instance()->GetTypes()),
 				'price' 			=> new Skins\Edit\Text('Цена', 'form[price]'),
 				'duration' 			=> new Skins\Edit\Text('Длительность (цифрой)', 'form[duration]'),
 				'cover' 			=> new Skins\Edit\File('Фотография', 'form[cover]', 'Выберите фотографию', '.jpg, .jpeg, .png'),

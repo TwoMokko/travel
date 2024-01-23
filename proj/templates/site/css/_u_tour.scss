@@ -328,7 +328,9 @@
 			display: flex;
 			> div {
 				&:first-child {
-					width: GetValue($default, $params, 'width_number'); text-align: right; position: relative; padding-right: 20px; font-size: GetValue($default, $params, 'fontsize_number'); color: $color_gray;
+					> div:first-child { font-size: GetValue($default, $params, 'fontsize_number');  }
+					> div:last-child { font-size: 12px; }
+					width: GetValue($default, $params, 'width_number'); text-align: center; position: relative; padding-right: 20px; color: $color_gray;
 					&:before { content: ""; position: absolute; width: 8px; height: 8px; background-color: $color_gray; border-radius: 50%; right: -4px; top: 0;
 					}
 				}

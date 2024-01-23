@@ -16,7 +16,7 @@
 		public static function Render($items): void { ?>
 			<div class = "block tours p">
 				<div>
-					<div class = "header">Типы путешествий</div>
+					<div class = "header">Виды путешествий</div>
 					<div class = "switch_menu">
 						<?php foreach ($items as $item) { ?>
 							<div><?= $item['name']; ?></div>

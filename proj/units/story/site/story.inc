@@ -40,8 +40,9 @@
 		}
 
         public function HeaderForAll(): string {
-			$image = Site\Units\General::instance()->GetImage('story');
-			return General\HeaderForPages::ToVar("{$image}", 'Истории', 'Возможно, текст');
+            $image = Site\Units\General::instance()->GetImage('story');
+            $subhead_stories = \Proj\Site\Units\General::instance()->GetText('subhead_stories');
+            return General\HeaderForPages::ToVar("{$image}", 'Дневник путешествий', $subhead_stories);
         }
 
         public function HeaderForItem(): string {
@@ -50,8 +51,9 @@
 			$state = self::STATE_ACTIVE;
             $item = $this->db->SelectOne(self::TABLES['story'], ['header'], "(`id` = {$id}) AND (`state` = {$state})");
 
-			$image = Site\Units\General::instance()->GetImage('story');
-			return General\HeaderForPages::ToVar("{$image}", $item['header'], 'Возможно, текст');
+            $image = Site\Units\General::instance()->GetImage('story');
+            $subhead_one_story = \Proj\Site\Units\General::instance()->GetText('subhead_one_story');
+            return General\HeaderForPages::ToVar("{$image}", $item['header'], $subhead_one_story);
 
 //            $state = self::STATE_ACTIVE;
 //

@@ -32,7 +32,8 @@
 
         public function Header(): string {
 			$image = Units\General::instance()->GetImage('about');
-            return General\HeaderForPages::ToVar("{$image}", 'О нас', 'Возможно, текст');
+            $subhead_about = \Proj\Site\Units\General::instance()->GetText('subhead_about');
+            return General\HeaderForPages::ToVar("{$image}", 'О нас', $subhead_about);
         }
 
 		public function Team(): string {

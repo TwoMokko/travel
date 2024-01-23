@@ -75,12 +75,13 @@
 			$result = $this->db->Select(self::TABLES['review'], ['id', 'name', 'text', 'avatar'], "`state` = {$state}", '`date_create` DESC', 20);
 			$items = $this->db->FetchAll($result);
 
-			return Lists::ToVarGrid($items);
+			return Lists::ToVarGrid($items, Consts\Reviews::AVATARS);
 		}
 
 		public function Header(): string {
 			$image = Site\Units\General::instance()->GetImage('review');
-			return General\HeaderForPages::ToVar("{$image}", 'Отзывы', 'Возможно, текст');
+            $subhead_review = \Proj\Site\Units\General::instance()->GetText('subhead_review');
+			return General\HeaderForPages::ToVar("{$image}", 'Отзывы', $subhead_review);
 		}
 
 		#[NoReturn] public function OnReview(): void {

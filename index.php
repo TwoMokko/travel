@@ -41,11 +41,11 @@
 				<form>
 					<div>
 						<div>
-							<div>Выберите категорию</div>
+							<div>Выберите вид путешествий</div>
 							<select id = "categories"></select>
 						</div>
 						<div>
-							<div>Выберите путешествие</div>
+							<div>Выберите вид путешествий</div>
 							<select id = "tours"></select>
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 
 		<div class = "block tours p">
 			<div>
-				<div class = "header">Типы путешествий</div>
+				<div class = "header">Виды путешествий</div>
 				<div class = "switch_menu">
 					<div>Основные путешествия</div>
 					<div>Индивидуальное сопровождение</div>
@@ -141,7 +141,7 @@
 
 		<div class = "block adventure">
             <div>
-                <div class = "header">Наши приключения</div>
+                <div class = "header">Дневник</div>
                 <div>Истории из наших путешествий,
                     <br>рассказанные участниками</div>
 				<a class = "button semi_white" href = "/adventures">Читать</a>

@@ -16,7 +16,7 @@
 
 		public static function Carousel($items, $avatars): void { ?>
 			<div class = "block p reviews">
-				<div>
+				<div class = "leave_review">
 					<a class = "header" onclick = "window.location.href = '<?= Units\Pages::instance()->review->GetPath(); ?>';" href = "<?= Units\Pages::instance()->review->GetPath(); ?>">Отзывы</a>
 					<span onclick = 'LeaveReview(<?= json_encode($avatars); ?>);' title = "оставить отзыв"></span>
 				</div>
@@ -29,14 +29,19 @@
 			</script>
 		<?php }
 
-		public static function ToVarGrid(array $items): string {
+		public static function ToVarGrid(array $items, array $avatars): string {
 			Template::Start();
-			self::Grid($items);
+			self::Grid($items, $avatars);
 			return Template::Read();
 		}
 
-        public static function Grid($items): void { ?>
+        public static function Grid($items, $avatars): void { ?>
+
             <div class = "block p page_reviews">
+				<div class = "leave_review" onclick = 'LeaveReview(<?= json_encode($avatars); ?>);' title = "оставить отзыв">
+					<a class = "header">Отавить отзыв</a>
+					<span></span>
+				</div>
                 <div class = "review_cards">
 					<?php foreach ($items as $item) self::Item($item); ?>
                 </div>
@@ -47,9 +52,9 @@
             <div class = "review_card" onclick = "GetReview('<?= Units\Reviews::instance()->get->GetPath(); ?>', <?= $data['id']; ?>);">
                 <div class = "review_person">
                     <div style = "background-image: url(<?= Consts\Reviews::AVATARS[$data['avatar']] ?>);"></div>
-                    <div><?= $data['name']; ?></div>
+                    <div><?= htmlspecialchars($data['name']); ?></div>
                 </div>
-                <div class = "review_text"><?= $data['text']; ?></div>
+                <div class = "review_text"><?= htmlspecialchars($data['text']); ?></div>
             </div>
         <?php }
 

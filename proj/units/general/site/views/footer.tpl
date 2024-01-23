@@ -35,9 +35,9 @@
 							<div><a href = "/">Главная</a></div>
 							<div><a href = "<?= Units\Pages::instance()->tours->GetPath(); ?>">Путешествия</a></div>
 							<div><a href = "<?= Units\Pages::instance()->about->GetPath(); ?>">О нас</a></div>
-							<div><a href = "<?= Units\Pages::instance()->stories->GetPath(); ?>">Наши истории</a></div>
+							<div><a href = "<?= Units\Pages::instance()->stories->GetPath(); ?>">Дневник путешествий</a></div>
                             <div><a href = "<?= Units\Pages::instance()->review->GetPath(); ?>">Отзывы</a></div>
-                            <div><a href = "<?= Units\Pages::instance()->photos->GetPath(); ?>">Фотографии</a></div>
+                            <div><a href = "<?= Units\Pages::instance()->photos->GetPath(); ?>">Фотоальбомы</a></div>
 						</div>
 					</div>
 					<form action = "/feedback">

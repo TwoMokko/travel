@@ -136,7 +136,8 @@
 
         public function GetHeaderForAll(): string {
 			$image = Site\Units\General::instance()->GetImage('tour');
-			return General\HeaderForPages::ToVar("{$image}", 'Путешествия', 'Возможно, текст');
+            $subhead_tours = \Proj\Site\Units\General::instance()->GetText('subhead_tours');
+			return General\HeaderForPages::ToVar("{$image}", 'Путешествия', $subhead_tours);
         }
 
         public function GetHeaderForItem($id): string {

@@ -39,9 +39,9 @@
 
 		public function OutMenu() {
 			Layout::instance()->menu->Push(
-				Group::ToVar('Типы туров', [
-					$this->editor_tour_types->select->GetLink('Список типов туров', ['page' => 1]),
-					$this->editor_tour_types->create->GetLink('Добавить тип тура')
+				Group::ToVar('Виды туров', [
+					$this->editor_tour_types->select->GetLink('Список видов туров', ['page' => 1]),
+					$this->editor_tour_types->create->GetLink('Добавить вид тура')
 				])
 			);
 

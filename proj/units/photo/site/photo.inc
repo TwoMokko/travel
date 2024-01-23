@@ -51,7 +51,8 @@
 
 		public function HeaderForAll(): string {
 			$image = Site\Units\General::instance()->GetImage('photo');
-			return General\HeaderForPages::ToVar("{$image}", 'Фотографии', 'Возможно, текст');
+            $subhead_photo = \Proj\Site\Units\General::instance()->GetText('subhead_photo');
+			return General\HeaderForPages::ToVar("{$image}", 'Фотоальбомы', $subhead_photo);
 		}
 
 		public function HeaderForItem(): string {

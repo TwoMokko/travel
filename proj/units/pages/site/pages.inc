@@ -126,7 +126,7 @@
 		}
 
 		public function Photos(): void {
-			Template::instance()->SetTitle('Фотографии');
+			Template::instance()->SetTitle('Фотоальбомы');
 			Template::instance()->SetDescription('');
 			Layout::instance()->header->Push(Photo::instance()->HeaderForAll());
 			Layout::instance()->main->Push(Photo::instance()->All());

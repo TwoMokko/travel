@@ -3,17 +3,11 @@
 @use "variable" as *;
 @use "func" as *;
 
-.page_reviews { padding: 10%; }
+.page_reviews { margin: 4% 0 10%; }
 
 .block.reviews {
 	padding: 0 10% 10%;
 	> div:first-child {
-		display: flex; justify-content: center;
-		> a {
-			text-decoration: none; color: $color_text_main; cursor: pointer;
-			&:hover { color: $color_main_green; }
-		}
-		> span { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/chat_gray.png"); background-size: cover; }
 
 	}
 	//> div:last-child { display: flex; align-items: center; }
@@ -25,6 +19,7 @@
 		$default: (
 			grid_columns: 2,
 		);
+		margin-top: 4%;
 		display: grid;
 		grid-template-columns: repeat(GetValue($default, $params, 'grid_columns'), 1fr);
 		grid-column-gap: 2%;
@@ -55,4 +50,14 @@
 	> label { cursor: pointer; }
 	.ava { background-size: cover; width: 60px; height: 60px; margin: 2px; border-radius: 50%; opacity: 50%; }
 	.active { opacity: 100%; }
+}
+
+.leave_review {
+	display: flex; justify-content: center;
+	> a {
+		text-decoration: none; color: $color_text_main; cursor: pointer; box-sizing: border-box;
+		&:hover { color: $color_main_green; }
+	}
+	> span { width: 1.5rem; height: 1.5rem; margin-left: 1rem; cursor: pointer; background-image: url("pic/chat_gray.png"); background-size: cover; }
+
 }

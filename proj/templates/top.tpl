@@ -23,10 +23,10 @@
 				<a href = "../../site.php">О нас</a>
 			</div>
 			<div>
-				<a href = "../../site.php">Наши приключения</a>
+				<a href = "../../site.php">Дневник Путешествий</a>
 			</div>
 			<div>
-				<a href = "../../site.php">Фотографии</a>
+				<a href = "../../site.php">Фотоальбомы</a>
 			</div>
         </div>
 		<?php

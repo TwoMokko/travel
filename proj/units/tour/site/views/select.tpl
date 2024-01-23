@@ -18,7 +18,7 @@
                     <form>
                         <div>
                             <div>
-                                <div>Выберите категорию</div>
+                                <div>Выберите вид путешествий</div>
                                 <select id = "categories"></select>
                             </div>
                             <div>

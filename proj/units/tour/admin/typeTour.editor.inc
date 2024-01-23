@@ -35,14 +35,14 @@
 		}
 
 		protected function RegTitles(): void {
-			$this->titleSelect = 'Список типов тура';
-			$this->titleCreate = 'Добавить тип тура';
-			$this->titleUpdate = 'Редактирование типа тура';
-			$this->titleDelete = 'Удалить тип тура?';
+			$this->titleSelect = 'Список видов тура';
+			$this->titleCreate = 'Добавить вид тура';
+			$this->titleUpdate = 'Редактирование вида тура';
+			$this->titleDelete = 'Удалить вид тура?';
 
-			$this->titleDoCreate = 'Тип тура добавлена';
-			$this->titleDoUpdate = 'Тип тура изменена';
-			$this->titleDoDelete = 'Тип тура удалена';
+			$this->titleDoCreate = 'Вид тура добавлена';
+			$this->titleDoUpdate = 'Вид тура изменена';
+			$this->titleDoDelete = 'Вид тура удалена';
 		}
 
 		protected function FieldsSelect(array $params): array {

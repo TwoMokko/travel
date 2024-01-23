@@ -6,30 +6,46 @@
 .block.team {
 	@mixin ViewAboutTeam($params: null) {
 		$default: (
-				display_grid: grid,
+				display_flex: flex,
 				margin_card: 0,
 				width_card: 100%,
 				display_card: flex,
-				height_pic: 18rem,
-				width_content_card: 50%,
-				padding_bottom_text: 24%,
-				padding_name: 0 0 8%
+				height_pic: auto,
+				margin_pic: 0,
+				width_content_card: 70%,
+				width_pic_card: 30%,
+				padding_bottom_text: 2rem,
+				padding_name: 0 0 1rem
 
 		);
 
-		display: GetValue($default, $params, 'display_grid'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%; grid-row-gap: 8%;
+		//display: GetValue($default, $params, 'display_grid'); grid-template-columns: repeat(2, 1fr); grid-column-gap: 4%; grid-row-gap: 8%;
+
 		> div {
-			display: GetValue($default, $params, 'display_card'); width: GetValue($default, $params, 'width_card'); margin: GetValue($default, $params, 'margin_card');
+			display: GetValue($default, $params, 'display_flex');
+			min-height: 320px; margin-bottom: 3rem; gap: 2rem;
+			width: GetValue($default, $params, 'width_card');
+			//margin: GetValue($default, $params, 'margin_card');
+			&:nth-child(even) {
+				flex-direction: row-reverse;
+				.about_text > div:nth-of-type(1) { text-align: end; }
+				.about_text > div:nth-of-type(3) > div { justify-content: end; }
+			}
 			&:last-child { margin-bottom: 0; }
 		}
 
-		.about_pic { width: GetValue($default, $params, 'width_content_card'); background-size: cover; border-radius: 24px; height: GetValue($default, $params, 'height_pic'); background-position: center; }
+		.about_pic {
+			width: GetValue($default, $params, 'width_pic_card'); background-size: cover; border-radius: 24px;
+			height: GetValue($default, $params, 'height_pic');
+			margin-bottom: GetValue($default, $params, 'margin_pic');
+			background-position: center;
+		}
 		.about_text {
-			display: flex; flex-direction: column; padding-left: 5%; width: GetValue($default, $params, 'width_content_card');
+			display: flex; flex-direction: column; width: GetValue($default, $params, 'width_content_card');
 			//&:not(:last-child) { margin-right: 5%; }
 			//&:last-child { margin-left: 5%; }
 			> div {
-				text-align: left;
+				text-align: justify;
 				//&:nth-of-type(1) { color: $color_main_green; padding-bottom: 3%; }
 				&:nth-of-type(1) { font-family: Intro, sans-serif; font-size: GetParam($params, name_size, 1rem); line-height: 1.5rem; padding: GetValue($default, $params, 'padding_name'); }
 				&:nth-of-type(2) { flex: auto; padding-bottom: GetValue($default, $params, 'padding_bottom_text'); }
@@ -38,11 +54,11 @@
 		}
 	}
 
-	@include MixScreen(null, $size2XS) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 10%, display_card: revert, width_content_card: 100%, padding_bottom_text: 8%, padding_name: 4% 0)); }
-	@include MixScreen($size2XS, $sizeS) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 10%, width_card: 70%, display_card: revert, width_content_card: 100%, padding_bottom_text: 8%, padding_name: 4% 0)); }
-	@include MixScreen($sizeS, $sizeL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, padding_bottom_text: 16%, height_pic: 14rem)); }
-	@include MixScreen($sizeL, $size2XL) { @include ViewAboutTeam((display_grid: revert, margin_card: 0 auto 4%, width_card: 70%, padding_name: 8% 0)); }
-	@include MixScreen($size2XL, $size4XL) { @include ViewAboutTeam(()); }
+	@include MixScreen(null, $size2XS) { @include ViewAboutTeam((display_flex: revert, margin_card: 0 auto 10%, display_card: revert, width_content_card: 100%, width_pic_card: 100%, height_pic: 14rem, margin_pic: 1rem)); }
+	@include MixScreen($size2XS, $sizeS) { @include ViewAboutTeam((display_flex: revert, margin_card: 0 auto 10%, display_card: revert, width_content_card: 100%, width_pic_card: 100%, height_pic: 14rem, margin_pic: 1rem)); }
+	@include MixScreen($sizeS, $sizeL) { @include ViewAboutTeam((display_flex: revert, margin_card: 0 auto 4%, padding_bottom_text: 16%, height_pic: 24rem, width_content_card: 100%, width_pic_card: 100%, margin_pic: 1rem)); }
+	//@include MixScreen($sizeL, $size2XL) { @include ViewAboutTeam((display_flex: revert, margin_card: 0 auto 4%, width_content_card: 100%, height_pic: 30rem, width_pic_card: 100%, margin_pic: 1rem)); }
+	@include MixScreen($sizeL, $size4XL) { @include ViewAboutTeam(()); }
 	@include MixScreen($size4XL, null) { @include ViewAboutTeam(( name_size: 0.8rem )); }
 }
 
