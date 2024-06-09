@@ -322,7 +322,7 @@
 		padding: 120px 10%;
 		> div {
 			&:first-child { text-align: center !important; }
-			&:last-child { display: GetValue($default, $params, 'display'); min-height: 720px; }
+			&:last-child { display: GetValue($default, $params, 'display'); }
 		}
 		.days > div {
 			display: flex;

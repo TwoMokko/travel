@@ -2,21 +2,20 @@
 
 	namespace Proj\Admin\Structure;
 
-	require DIR_UNITS . 'general/consts.inc';
+	require DIR_UNITS . 'general/admin/general.actions.inc';
 
-	use Base\Units;
 	use Base\DB\MySQLi\Table;
-	use Proj\Units\Consts;
+	use Proj\Admin\Actions;
 	use Proj\DBObject;
 
-	class General extends Units implements Consts\General {
+	class General extends Actions\General {
 		private DBObject $db;
 
 		protected Table $table_text;
 		protected Table $table_image;
 
-		protected function __construct() {
-			parent::__construct(self::ID, self::NAME);
+		protected function __construct(string $file) {
+			parent::__construct($file);
 			$this->db = DBObject::instance();
 
 			$this->table_text = new Table(self::TABLES['text'], $this->db);

@@ -1,0 +1,19 @@
+<?php
+
+	namespace Proj\[Route]\Units;
+
+    [REQUIRE][REQUIRE_MODEL]
+
+	use Base\Instance;
+	use [USE];[USE_CONSTS][USE_MODEL]
+
+	class <Sample> extends [EXTENDS][IMPLEMENTS] {
+		use Instance;[PROPERTY_MODEL]
+
+		private function __construct() {
+			parent::__construct([PARAM_ID][PARAM_NAME][PARAM_TITLE]__FILE__);[INSTANCE_MODEL]
+		}
+
+	}
+
+	<Sample>::init();

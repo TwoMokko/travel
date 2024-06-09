@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: AlegreyaSansSC;
   src: url("font/AlegreyaSansSC/AlegreyaSansSC-Regular.ttf") format("truetype");
@@ -16,8 +17,8 @@
 
 html {
   height: 100%;
-  font-family: AlegreyaSansSC, sans-serif;
-  font-size: 16px;
+  font-family: AjarSans, sans-serif;
+  font-size: 14px;
   color: #000000;
 }
 
@@ -46,10 +47,10 @@ a {
 
 input {
   outline: none;
-  font-family: AlegreyaSansSC, sans-serif;
+  font-family: AjarSans, sans-serif;
   font-size: 1rem;
 }
-input[type=submit], input[type=button] {
+input[type=submit] {
   padding: 0.6rem 1.6rem;
   border: 0.2rem solid #006E95;
   border-radius: 0.4rem;
@@ -57,13 +58,17 @@ input[type=submit], input[type=button] {
   color: #FFFFFF;
   cursor: pointer;
 }
-input[type=submit]:hover, input[type=button]:hover {
+input[type=submit]:hover {
   border-color: #00506C;
   background-color: #00506C;
 }
-input[type=submit]:focus-visible, input[type=submit]:active, input[type=button]:focus-visible, input[type=button]:active {
+input[type=submit]:focus-visible, input[type=submit]:active {
   border-color: #00506C;
   background-color: #007fAD;
+}
+
+.hide {
+  display: none;
 }
 
 body {
@@ -75,12 +80,16 @@ body {
 body > header {
   position: relative;
   display: flex;
-  padding: 1rem 0.6rem;
   background-color: #23282C;
   color: #FFFFFF;
+  background-image: url("img/logo/logo.png");
+  background-size: 26px;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
 }
 body > header > div {
   flex: auto;
+  padding: 1rem 0.6rem 1rem 3.5rem;
 }
 body > header > .logout {
   flex: none;
@@ -90,11 +99,16 @@ body > header > .logout {
   background-position: center;
   background-repeat: no-repeat;
 }
+body > header > .logout:hover {
+  background-color: #3E4246;
+}
 body > div {
   flex: auto;
   display: flex;
 }
 body > div menu {
+  position: relative;
+  z-index: 10;
   flex: none;
   margin: 0;
   padding: 0;
@@ -107,19 +121,29 @@ body > div menu a {
 }
 body > div main {
   flex: auto;
+  position: relative;
 }
 body > footer {
+  position: relative;
   padding: 1rem 0.6rem;
+  text-align: center;
   background-color: #23282C;
   color: #FFFFFF;
 }
 
+menu hr {
+  margin: 0;
+  border-color: #23282C;
+}
+menu .head {
+  padding: 0.6rem;
+  color: #23282C;
+}
 menu li > span {
   position: relative;
   display: block;
   padding: 0.6rem;
   cursor: pointer;
-  z-index: 10;
 }
 menu li > span > ul {
   position: absolute;
@@ -136,7 +160,7 @@ menu li > a {
   display: block;
   padding: 0.6rem;
 }
-menu li > a:hover {
+menu li:hover {
   background-color: #006E95;
 }
 menu li:hover > span > ul {
@@ -171,75 +195,615 @@ main table.select > tbody > tr:hover {
 main table.select > tbody > tr > td {
   padding: 0.6rem;
 }
-main table.create > tbody > tr > th, main table.update > tbody > tr > th {
+main table.create > tbody > tr > th, main table.update > tbody > tr > th, main table.browse > tbody > tr > th {
   padding: 0.6rem;
   text-align: left;
   font-weight: 700;
-  vertical-align: top;
-}
-main table.browse th {
-  vertical-align: top;
 }
 
-div.uploader_photo > input {
-  display: none;
+.pagination {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
 }
-div.uploader_photo div.upload_space {
-  border: 1px dashed #006E95;
-  border-radius: 4px;
-  padding: 24px;
-  cursor: pointer;
+.pagination > a {
   display: inline-block;
-  width: 424px;
-  text-align: center;
+  padding: 0.5rem;
 }
-div.uploader_photo div.upload_space.active {
-  border-color: #00506C;
-  background-color: #C3C3C3;
+.pagination > a:not(.current):hover {
+  background-color: #d9d9d9;
 }
-div.uploader_photo div.img_container {
+.pagination > a.current {
+  color: #000000;
+}
+
+.view.general.notices {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 300;
+  display: grid;
+  gap: 1rem;
+}
+.view.general.notices > .instance {
   display: flex;
-  gap: 8px;
-  padding: 12px 0;
-  max-width: 500px;
-  flex-wrap: wrap;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #FFFFFF;
+  background-color: #FFFFFF;
 }
-div.uploader_photo div.img_container div.img {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: flex-end;
-  background-size: cover;
+.view.general.notices > .instance.ok {
+  border-color: #3E4246;
+}
+.view.general.notices > .instance.ok > .type {
+  background-image: url("img/ui/notice/ok.svg");
+}
+.view.general.notices > .instance.info {
+  border-color: #C3C3C3;
+}
+.view.general.notices > .instance.info > .type {
+  background-image: url("img/ui/notice/info.svg");
+}
+.view.general.notices > .instance.error {
+  border-color: #950000;
+}
+.view.general.notices > .instance.error > .type {
+  background-image: url("img/ui/notice/error.svg");
+}
+.view.general.notices > .instance > .type {
+  width: 3rem;
+  background-size: 1.5rem;
+  background-position: 1rem 1rem;
+  background-repeat: no-repeat;
+}
+.view.general.notices > .instance > .notice {
+  flex: auto;
+  padding: 1.2rem;
+}
+.view.general.notices > .instance > .close > div {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("img/ui/primary/close.svg");
+  background-size: 1rem;
   background-position: center;
-}
-div.uploader_photo div.img_container div.img:hover > div.delete.active {
-  display: block;
-}
-div.uploader_photo div.img_container div.img div.delete {
-  display: none;
-  background-color: brown;
-  width: 24px;
-  height: 24px;
-  border-radius: 0 4px;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
-div.uploader_photo div.img_container div.img div.wait {
-  display: none;
+.view.general.notices > .instance > .close > div:hover {
+  background-image: url("img/ui/primary_light/close.svg");
 }
-div.uploader_photo div.img_container div.img div.wait.active {
-  background-repeat: no-repeat;
-  display: block;
-  background-image: url("svg/loader-icon.svg");
-  background-color: rgba(0, 127, 173, 0.1607843137);
-  background-size: 60%;
+
+#structure {
+  position: absolute;
+  top: 3.6rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
+  left: 0.2rem;
+  overflow: auto;
+}
+#structure > div {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#structure > div.panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  border: 1px solid #006E95;
+  box-shadow: #3E4246 0 0 2px;
+  user-select: none;
+  z-index: 2;
+}
+#structure > div.panel > a {
+  padding: 5px;
+  cursor: pointer;
+}
+#structure > div.table {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  border: 1px solid #006E95;
+  box-shadow: #3E4246 0 0 2px;
+  cursor: default;
+  user-select: none;
+}
+#structure > div.table > .drag {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  cursor: grab;
+}
+#structure > div.table > .header {
+  display: flex;
+  padding-top: 20px;
+  background-color: #006E95;
+  color: #FFFFFF;
+}
+#structure > div.table > .header > .title {
+  flex: auto;
+  padding: 5px;
+  font-weight: bold;
+}
+#structure > div.table > .header > .menu {
+  padding: 5px;
+  cursor: pointer;
+}
+#structure > div.table > .rows > div {
+  display: flex;
+  align-items: end;
+  padding: 5px;
+}
+#structure > div.table > .rows > div > .type {
+  min-width: 70px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #006E95;
+}
+#structure > div.table > .rows > div > .name, #structure > div.table > .rows > div > .description {
+  flex: auto;
+  white-space: nowrap;
+}
+#structure > div.table > .rows > div > .key {
+  margin-left: 20px;
+  color: #C3C3C3;
+}
+#structure > div.table > .rows > div:hover {
+  background-color: #d9d9d9;
+}
+#structure > div.table > .rows > div:hover > .key {
+  color: #006E95;
+}
+#structure > div.table > .rows > div.primary, #structure > div.table > .rows > div.foreign, #structure > div.table > .rows > div.references {
+  font-weight: 600;
+}
+#structure > div.table > .rows > div.foreign, #structure > div.table > .rows > div.references {
+  position: relative;
+}
+#structure > div.table > .rows > div.foreign:before, #structure > div.table > .rows > div.references:before {
   position: absolute;
   top: 0;
-  left: 0;
+  content: "";
+  width: 50px;
+  height: 25px;
+  background-position: 0 center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#structure > div.table > .rows > div.foreign:before {
+  right: -50px;
+}
+#structure > div.table > .rows > div.foreign.one:before {
+  background-image: url("img/ui/relationship/from_one.svg");
+}
+#structure > div.table > .rows > div.foreign.many:before {
+  background-image: url("img/ui/relationship/from_many.svg");
+}
+#structure > div.table > .rows > div.foreign.only_one:before {
+  background-image: url("img/ui/relationship/from_only_one.svg");
+}
+#structure > div.table > .rows > div.foreign.zero_or_one:before {
+  background-image: url("img/ui/relationship/from_zero_or_one.svg");
+}
+#structure > div.table > .rows > div.foreign.one_or_many:before {
+  background-image: url("img/ui/relationship/from_one_or_many.svg");
+}
+#structure > div.table > .rows > div.foreign.zero_or_many:before {
+  background-image: url("img/ui/relationship/from_zero_or_many.svg");
+}
+#structure > div.table > .rows > div.references:before {
+  left: -50px;
+}
+#structure > div.table > .rows > div.references.one:before {
+  background-image: url("img/ui/relationship/to_one.svg");
+}
+#structure > div.table > .rows > div.references.many:before {
+  background-image: url("img/ui/relationship/to_many.svg");
+}
+#structure > div.table > .rows > div.references.only_one:before {
+  background-image: url("img/ui/relationship/to_only_one.svg");
+}
+#structure > div.table > .rows > div.references.zero_or_one:before {
+  background-image: url("img/ui/relationship/to_zero_or_one.svg");
+}
+#structure > div.table > .rows > div.references.one_or_many:before {
+  background-image: url("img/ui/relationship/to_one_or_many.svg");
+}
+#structure > div.table > .rows > div.references.zero_or_many:before {
+  background-image: url("img/ui/relationship/to_zero_or_many.svg");
+}
+#structure > div.table > .keys > div {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+#structure > div.table > .keys > div > .key_type {
+  flex: auto;
+  font-size: 10px;
+}
+#structure > div.table > .keys > div > .key_name {
+  margin-left: 20px;
+  color: #C3C3C3;
+  font-weight: 600;
+}
+#structure > div.table > .keys > div:first-child {
+  border-top: 1px dashed #006E95;
+}
+#structure > div.table > .keys > div:hover {
+  background-color: #d9d9d9;
+}
+#structure > div.table > .keys > div:hover > .name {
+  color: #006E95;
+}
+#structure > div.table > .keys > div.active {
+  background-color: #C3C3C3;
+}
+#structure > div.table > .keys > div.active > .name {
+  color: #006E95;
+}
+#structure.display_name .name {
+  display: none;
+}
+#structure.display_name .description {
+  display: block;
+}
+#structure.display_name > div.panel > .display:before {
+  content: "D";
+}
+#structure.display_description .name {
+  display: block;
+}
+#structure.display_description .description {
+  display: none;
+}
+#structure.display_description > div.panel > .display:before {
+  content: "N";
+}
+
+body.div.debugger {
+  display: block;
+}
+
+.debugger {
+  position: fixed;
   right: 0;
   bottom: 0;
+  left: 0;
+  z-index: 20;
+  color: #FFFFFF;
+}
+.debugger > .manager {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+}
+.debugger > .manager > .toggle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  border-radius: 0.2rem;
+  background-image: url("img/ui/debuger/gear.svg");
+  background-size: 20px;
   background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.debugger > .manager > .toggle:hover {
+  box-shadow: 0 0 6px #3E4246;
+}
+.debugger > .manager > .setting {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  background-color: #23282C;
+}
+.debugger > .manager > .setting > a {
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  display: block;
+  border-radius: 0.2rem;
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.debugger > .manager > .setting > a.record {
+  background-image: url("img/ui/debuger/record.svg");
+}
+.debugger > .manager > .setting > a.record.active {
+  background-image: url("img/ui/debuger/stop.svg");
+}
+.debugger > .manager > .setting > a.track {
+  background-image: url("img/ui/debuger/track.svg");
+}
+.debugger > .manager > .setting > a.track.active {
+  background-image: url("img/ui/debuger/intrack.svg");
+}
+.debugger > .manager > .setting > a.clear {
+  background-image: url("img/ui/debuger/trash.svg");
+}
+.debugger > .manager > .setting > a:hover {
+  box-shadow: 0 0 6px #3E4246;
+}
+.debugger > .manager:hover > .setting {
+  display: block;
+}
+.debugger > .work {
+  width: 100%;
+  background-color: #23282C;
+}
+.debugger > .work > .drag {
+  height: 2px;
+  background-color: #23282C;
+  cursor: n-resize;
+}
+.debugger > .work > .spaces {
+  padding: 5px;
+  height: 200px;
+  overflow: auto;
+  background-color: #3E4246;
+}
+.debugger > .work > .panel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 40px;
+  height: 40px;
+}
+.debugger > .work > .panel > a {
+  padding: 5px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.debugger > .work > .panel > a:hover, .debugger > .work > .panel > a.active {
+  background-color: #3E4246;
+}
+.debugger .link {
+  cursor: pointer;
+}
+.debugger .link:hover {
+  color: #007fAD;
+}
+.debugger .table {
+  display: table;
+  border-collapse: collapse;
+}
+.debugger .table > div {
+  display: table-row;
+}
+.debugger .table > div > div {
+  display: table-cell;
+}
+.debugger .table > div > div:not(:last-child) {
+  border-right: 10px solid rgba(255, 0, 0, 0);
+}
+.debugger .table > div:not(:last-child) {
+  border-bottom: 10px solid rgba(255, 0, 0, 0);
+}
+.debugger .table .head {
+  font-weight: bold;
+  color: #dd5e00;
+}
+.debugger .dump {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #C3C3C3;
+}
+.debugger .dump > .title {
+  margin-bottom: 4px;
+}
+.debugger .dump .variable {
+  display: flex;
+  gap: 10px;
+}
+.debugger .dump .variable > .type {
+  font-weight: bold;
+  color: #dd5e00;
+}
+.debugger .dump .variable.integer > .value, .debugger .dump .variable.double > .value {
+  color: #13b900;
+}
+.debugger .dump .variable.string > .value {
+  color: #0095b9;
+}
+.debugger .dump .variable.NULL > .value {
+  color: #FFFFFF;
+}
+.debugger .dump .variable.array > .value > .more + .elems {
+  display: none;
+}
+.debugger .dump .variable.array > .value > .more + .elems > div {
+  display: flex;
+  gap: 10px;
+}
+.debugger .dump .variable.array > .value > .more + .elems > div > .key.number > span {
+  color: #13b900;
+}
+.debugger .dump .variable.array > .value > .more + .elems > div > .key.string > span {
+  color: #0095b9;
+}
+.debugger .dump .variable.array > .value > .more:before {
+  content: "▶";
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.debugger .dump .variable.array > .value > .more.open:before {
+  content: "▼";
+}
+.debugger .dump .variable.array > .value > .more.open + .elems {
+  display: block;
+}
+.debugger .dump .variable.object > .value {
+  display: flex;
+}
+.debugger .dump .variable.object > .value > .more + .info {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+}
+.debugger .dump .variable.object > .value > .more:before {
+  content: "▶";
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.debugger .dump .variable.object > .value > .more.open:before {
+  content: "▼";
+}
+.debugger .dump .variable.object > .value > .more.open + .info {
+  display: flex;
+}
+.debugger .dump .variable.object .namespace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.debugger .dump .variable.object .namespace .icon {
+  background-image: url("img/ui/debuger/namespace.svg"), url("img/ui/debuger/rhombus.svg");
+}
+.debugger .dump .variable.object .class {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.debugger .dump .variable.object .class .icon {
+  background-image: url("img/ui/debuger/class.svg"), url("img/ui/debuger/circle.svg");
+}
+.debugger .dump .variable.object .constants {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.debugger .dump .variable.object .constants > div {
+  display: flex;
+  gap: 10px;
+}
+.debugger .dump .variable.object .constants > div > .icon.public {
+  background-image: url("img/ui/debuger/constant.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .constants > div > .icon.private {
+  background-image: url("img/ui/debuger/constant.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .constants > div > .icon.protected {
+  background-image: url("img/ui/debuger/constant.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .constants > div > .icon.final.public {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/constant.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .constants > div > .icon.final.private {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/constant.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .constants > div > .icon.final.protected {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/constant.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .constants > div > .name {
+  margin-top: 4px;
+}
+.debugger .dump .variable.object .constants > div > .variable {
+  margin-top: 4px;
+}
+.debugger .dump .variable.object .properties {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.debugger .dump .variable.object .properties > div {
+  display: flex;
+  gap: 10px;
+}
+.debugger .dump .variable.object .properties > div > .icon.public {
+  background-image: url("img/ui/debuger/field.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .properties > div > .icon.private {
+  background-image: url("img/ui/debuger/field.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .properties > div > .icon.protected {
+  background-image: url("img/ui/debuger/field.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .properties > div > .icon.static.public {
+  background-image: url("img/ui/debuger/static.svg"), url("img/ui/debuger/field.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .properties > div > .icon.static.private {
+  background-image: url("img/ui/debuger/static.svg"), url("img/ui/debuger/field.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .properties > div > .icon.static.protected {
+  background-image: url("img/ui/debuger/static.svg"), url("img/ui/debuger/field.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .properties > div > .name {
+  margin-top: 4px;
+}
+.debugger .dump .variable.object .properties > div > .variable {
+  margin-top: 4px;
+}
+.debugger .dump .variable.object .methods {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.debugger .dump .variable.object .methods > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.debugger .dump .variable.object .methods > div > .icon.public {
+  background-image: url("img/ui/debuger/method.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.private {
+  background-image: url("img/ui/debuger/method.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.protected {
+  background-image: url("img/ui/debuger/method.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.static.public {
+  background-image: url("img/ui/debuger/static.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.static.private {
+  background-image: url("img/ui/debuger/static.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.static.protected {
+  background-image: url("img/ui/debuger/static.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.final.public {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.final.private {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.final.protected {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.final.static.public {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/static.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/public.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.final.static.private {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/static.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/private.svg");
+}
+.debugger .dump .variable.object .methods > div > .icon.final.static.protected {
+  background-image: url("img/ui/debuger/final.svg"), url("img/ui/debuger/static.svg"), url("img/ui/debuger/method.svg"), url("img/ui/debuger/protected.svg");
+}
+.debugger .dump .variable.object .icon {
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cn-mb-1 {
+  margin-bottom: 1rem;
+}
+
+.cn-center {
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -2,9 +2,9 @@
 
 	namespace Base\Editor\Skins\Browse;
 
-    use Base\Editor\Skins\SkinBrowse;
+	use Base\Editor\Skins\SkinBrowse;
 
-    class Int2IP extends SkinBrowse {
+	class Int2IP extends SkinBrowse {
 
 		public function __construct(string $title) {
 			parent::__construct($title);

@@ -2,17 +2,16 @@
 
 	namespace Proj\Site\Templates\Photo;
 
-	use Base\Templates\Template;
-	use Proj\Site\Units\Photo;
-	use Proj\Site\Units\Pages;
+	use Base\Templates\Buffering;
+	use Proj\Site\Actions\Pages;
 	use Proj\Units\Consts;
 
 	abstract class ForMain {
 
 		public static function ToVar(array $items): string {
-			Template::Start();
+			Buffering::Start();
 			self::Render($items);
-			return Template::Read();
+			return Buffering::Read();
 		}
 
 		public static function Render($items): void { ?>
@@ -26,7 +25,7 @@
 					</div>
 				</div>
 				<div>
-					<?= Pages::instance()->photos->GetLink('Перейти к альбомам', [], ['class' => 'button']); ?>
+					<?= Pages::$albums->GetLinkHref('Перейти к альбомам', [], ['class' => 'button']); ?>
 				</div>
 			</div>
 			<script>

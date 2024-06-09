@@ -2,24 +2,22 @@
 
 	namespace Proj\Site\Templates\Story;
 
-	use Base\Templates\Template;
-	use Proj\Site\Units\Pages;
-	use Proj\Site\Units\Story;
+	use Base\Templates\Buffering;
 	use Proj\Units\Consts;
+	use Proj\Site\Actions;
 
     abstract class All {
 
 		public static function ToVar(array $items): string {
-			Template::Start();
+			Buffering::Start();
 			self::Render($items);
-			return Template::Read();
+			return Buffering::Read();
 		}
 
 		public static function Render($items): void { ?>
 			<div class = "block page_adventure p">
 				<div class = "cards_adventure">
-					<?php foreach ($items as $item) echo Pages::instance()->story->GetLink(self::ItemToVar($item), ['id' => $item['id']]);
-					/* Story::instance()->show->GetLink(self::ItemToVar($item), ['id' => $item['id']]);*/ ?>
+					<?php foreach ($items as $item) echo Actions\Pages::$story->GetLinkHref(self::ItemToVar($item), ['id' => $item['id']]); ?>
 				</div>
 			</div>
 		<?php }
@@ -29,14 +27,13 @@
             <div>
                 <div><?= $data['header']; ?></div>
                 <div><?= $data['text']; ?></div>
-                <!--					<div>Читать дальше</div>-->
             </div>
 		<?php }
 
         public static function ItemToVar(array $item): string {
-			Template::Start();
+			Buffering::Start();
             self::Item($item);
-            return Template::Read();
+            return Buffering::Read();
         }
 
 	}

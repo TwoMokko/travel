@@ -2,20 +2,19 @@
 
 	namespace Proj\Admin\Structure;
 
-	require DIR_UNITS . 'feedback/consts.inc';
+	require DIR_UNITS . 'feedback/admin/feedback.actions.inc';
 
-	use Base\Units;
 	use Base\DB\MySQLi\Table;
-	use Proj\Units\Consts;
+	use Proj\Admin\Actions;
 	use Proj\DBObject;
 
-	class Feedback extends Units implements Consts\Feedback {
+	class Feedback extends Actions\Feedback {
 		private DBObject $db;
 
 		protected Table $table_feedback;
 
-		protected function __construct() {
-			parent::__construct(self::ID, self::NAME);
+		protected function __construct(string $file) {
+			parent::__construct($file);
 			$this->db = DBObject::instance();
 
 			$this->table_feedback = new Table(self::TABLES['feedback'], $this->db);

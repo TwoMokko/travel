@@ -2,20 +2,19 @@
 
 	namespace Proj\Site\Templates\Photo;
 
-	use Base\Templates\Template;
-	use Proj\Site\Units\Pages;
-	use Proj\Site\Units\Photo;
+	use Base\Templates\Buffering;
 	use Proj\Units\Consts;
+	use Proj\Site\Actions;
 
 	abstract class ForTour {
 
-		public static function ToVar(array $items, $photo_id): string {
-			Template::Start();
-			self::Render($items, $photo_id);
-			return Template::Read();
+		public static function ToVar(array $items, $albumId): string {
+			Buffering::Start();
+			self::Render($items, $albumId);
+			return Buffering::Read();
 		}
 
-		public static function Render($items, $photo_id): void { ?>
+		public static function Render($items, $albumId): void { ?>
 			<div class = "tour_photo block p">
 				<div class = "header">Фотографии</div>
 				<div class = "block tour_mini_photo">
@@ -31,7 +30,7 @@
 					</div>
 				</div>
 				<div>
-					<?= Pages::instance()->photo->GetLink('Смотреть альбом', ['id' => $photo_id], ['class' => 'button']); ?>
+					<?= Actions\Pages::$album->GetLinkHref('Смотреть альбом', ['id' => $albumId], ['class' => 'button']); ?>
 				</div>
 			</div>
 			<script>

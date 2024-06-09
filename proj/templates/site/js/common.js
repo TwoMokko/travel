@@ -107,7 +107,7 @@ function Switcher(selector_menu, selector_list) {
  * @constructor
  */
 function ToDrive(tour_id) {
-    let $form = $('<form/>', { class: '', action: '/feedback' });
+    let $form = $('<form/>', { class: '', action: '/feedback/add' });
     let $name = $('<input/>', { name: 'name', class: '', type: 'text', placeholder: 'Имя*', minlength: '3', maxlength: '50' });
     let $call = $('<input/>', { name: 'contact', class: '', type: 'text', placeholder: 'Способ связи*', minlength: '3', maxlength: '50' });
     let $send = $('<a/>', { class: 'button', text: 'Отправить' });
@@ -127,7 +127,6 @@ function ToDrive(tour_id) {
  * @constructor
  */
 function LeaveReview(avatars) {
-    console.log(avatars);
     let $form = $('<form/>', { class: '', action: '/review/add' });
     let $name = $('<input/>', { name: 'name', class: '', type: 'text', placeholder: 'Имя*', minlength: '3', maxlength: '50' });
     let $text_container = $('<div/>', { class: '' });
@@ -591,5 +590,10 @@ class Carousel {
                 break;
         }
     }
+}
+function IsEmpty(obj) {
+    for (const objKey in obj)
+        return false;
+    return true;
 }
 //# sourceMappingURL=common.js.map

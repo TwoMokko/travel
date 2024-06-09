@@ -2,20 +2,19 @@
 
 	namespace Proj\Admin\Structure;
 
-	require DIR_UNITS . 'story/consts.inc';
+	require DIR_UNITS . 'story/admin/story.actions.inc';
 
-	use Base\Units;
 	use Base\DB\MySQLi\Table;
-	use Proj\Units\Consts;
+	use Proj\Admin\Actions;
 	use Proj\DBObject;
 
-	class Story extends Units implements Consts\Story {
+	class Story extends Actions\Story {
 		private DBObject $db;
 
 		protected Table $table_story;
 
-		protected function __construct() {
-			parent::__construct(self::ID, self::NAME);
+		protected function __construct(string $file) {
+			parent::__construct($file);
 			$this->db = DBObject::instance();
 
 			$this->table_story = new Table(self::TABLES['story'], $this->db);

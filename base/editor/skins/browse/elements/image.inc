@@ -3,7 +3,7 @@
     namespace Base\Editor\Skins\Browse;
 
     use Base\Editor\Skins\SkinBrowse;
-    use Base\Templates\Template;
+    use Base\Templates\Buffering;
 
     class Image extends SkinBrowse {
         private string $path;
@@ -20,11 +20,11 @@
         }
 
         public function ToVar(mixed $value) : string {
-            Template::Start();
+			Buffering::Start();
         ?>
             <div style = "background-image: url('<?= $this->path, $value; ?>'); width: <?= $this->width; ?>px; height: <?= $this->height; ?>px; background-size: <?= $this->bg_size; ?>; background-repeat: no-repeat; background-position: center; border: 1px solid #007fAD;"></div>
         <?php
-            return Template::Read();
+            return Buffering::Read();
         }
 
     }

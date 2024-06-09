@@ -1,42 +1,45 @@
 <?php
 
-    namespace Proj\Site\Model;
+	namespace Proj\Site\Model;
 
-    use Base\Instance;
-    use Proj\Units\Consts;
-    use Proj\DBQuery;
+	use Base\Model;
+	use Base\Instance;
+	use Proj\Units\Consts;
+	use Proj\DBQuery;
 
-    class Statistics {
-        use Instance;
+	class Statistics extends Model {
+		use Instance;
 
-        private DBQuery $db;
+		private DBQuery $db;
 
-        private function __construct() {
-            $this->db = DBQuery::instance();
-        }
+		private function __construct() {
+			parent::__construct(__FILE__);
 
-        public function Collect(): void {
-            $ip = GetUserIP();
-            $ipv6 = ip2long($ip);
-            $uri = explode('?', $_SERVER['REQUEST_URI']);
+			$this->db = DBQuery::instance();
+		}
 
-            $this->db->Insert(Consts\Statistics::TABLES['ip'], [
-                'uid' 			=> Users::GetUID(),
-                'ip'			=> $ipv6,
-                'path' 			=> $uri[0],
-                'params' 		=> $uri[1] ?? '',
-            ]);
-        }
+		public function Collect(): void {
+			$ip = GetUserIP();
+			$ipv6 = ip2long($ip);
+			$uri = explode('?', $_SERVER['REQUEST_URI']);
 
-        public function InsertAct($uid, $object, $action, $params): void {
-            $this->db->Insert(Consts\Statistics::TABLES['act'], [
-                'uid' => $uid,
-                'object' => $object,
-                'action' => $action,
-                'params' => $params ? json_encode($params, JSON_UNESCAPED_UNICODE) : ''
-            ]);
-        }
+			$this->db->Insert(Consts\Statistics::TABLES['ip'], [
+				'cid' 			=> Users::GetCID(),
+				'ip'			=> $ipv6,
+				'path' 			=> $uri[0],
+				'params' 		=> $uri[1] ?? '',
+			]);
+		}
 
-    }
+		public function InsertAct($uid, $object, $action, $params): void {
+			$this->db->Insert(Consts\Statistics::TABLES['act'], [
+				'cid' => $uid,
+				'object' => $object,
+				'action' => $action,
+				'params' => $params ? json_encode($params, JSON_UNESCAPED_UNICODE) : ''
+			]);
+		}
 
-    Statistics::init();
+	}
+
+	Statistics::init();

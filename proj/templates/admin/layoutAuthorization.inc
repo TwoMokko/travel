@@ -1,25 +1,25 @@
 <?php
 
-    namespace Proj\Admin\Templates;
+	namespace Proj\Admin\Templates;
 
-    use Base\Instance;
-    use Base\Templates\Section;
+	use Base\Instance;
+	use Base\Templates\Section;
 
-    class LayoutAuthorization extends \Base\Templates\Layout {
-        use Instance;
+	class LayoutAuthorization extends \Base\Templates\Layout {
+		use Instance;
 
-        public Section $header;
-        public Section $main;
-        public Section $footer;
+		public Section $header;
+		public Section $main;
+		public Section $footer;
 
-        public function __construct() {
-            parent::__construct();
+		public function __construct() {
+			parent::__construct();
 
-            $this->header = new Section();
-            $this->main = new Section();
-            $this->footer = new Section();
-        }
+			$this->header = new Section();
+			$this->main = new Section();
+			$this->footer = new Section();
+		}
 
-    }
+	}
 
-    LayoutAuthorization::init();
+	LayoutAuthorization::init();

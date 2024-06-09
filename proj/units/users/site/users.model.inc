@@ -1,53 +1,56 @@
 <?php
 
-    namespace Proj\Site\Model;
+	namespace Proj\Site\Model;
 
-    use Base\Instance;
-    use Proj\Units\Consts;
-    use Proj\DBQuery;
+	use Base\Model;
+	use Base\Instance;
+	use Proj\Units\Consts;
+	use Proj\DBQuery;
 
-    class Users {
-        use Instance;
+	class Users extends Model {
+		use Instance;
 
-        private DBQuery $db;
+		private DBQuery $db;
 
-        private static string | null $uid = null;
+		private static string | null $cid = null;
 
-        private function __construct() {
-            $this->db = DBQuery::instance();
+		private function __construct() {
+			parent::__construct(__FILE__);
 
-            $this->Identification();
-        }
+			$this->db = DBQuery::instance();
 
-        private function Identification(): void {
-            switch (isset($_SESSION['USERS']['UID'])) {
-                case true:
-                    self::$uid = $_SESSION['USERS']['UID'];
-                    break;
-                case false:
-                    if (isset($_COOKIE['USERS_HASH'])) {
-                        $user_hash = $this->db->Escaping($_COOKIE['USERS_HASH']);
-                        $user = $this->db->SelectOne(Consts\Users::TABLES['users'], ['hash', 'id'], "`hash` = '$user_hash'");
-                        if ($user && $_COOKIE['USERS_HASH'] === $user['hash']) {
-                            self::$uid = $user['id'];
-                        }
-                    }
-                    break;
-            }
+			$this->Identification();
+		}
 
-            $hash = bin2hex(random_bytes(32));
+		private function Identification(): void {
+			switch (isset($_SESSION['CLIENT']['CID'])) {
+				case true:
+					self::$cid = $_SESSION['CLIENT']['CID'];
+					break;
+				case false:
+					if (isset($_COOKIE['CLIENT_HASH'])) {
+						$client_hash = $this->db->Escaping($_COOKIE['CLIENT_HASH']);
+						$client = $this->db->SelectOne(Consts\Users::TABLES['clients'], ['hash', 'id'], "`hash` = '$client_hash'");
+						if ($client && $_COOKIE['CLIENT_HASH'] === $client['hash']) {
+							self::$cid = $client['id'];
+						}
+					}
+					break;
+			}
 
-            if (self::$uid) $this->db->Update(Consts\Users::TABLES['users'], ['hash' => $hash], '`id` = ' . self::$uid);
-            else self::$uid = $this->db->Insert(Consts\Users::TABLES['users'], ['fic' => 1, 'hash' => $hash]);
+			$hash = bin2hex(random_bytes(32));
 
-            $_SESSION['USERS']['UID'] = self::$uid;
-            setcookie('USERS_HASH', $hash, time() + 86400000, '/');
-        }
+			if (self::$cid) $this->db->Update(Consts\Users::TABLES['clients'], ['hash' => $hash], '`id` = ' . self::$cid);
+			else self::$cid = $this->db->Insert(Consts\Users::TABLES['clients'], ['hash' => $hash]);
 
-        public static function GetUID(): int {
-            return self::$uid;
-        }
+			$_SESSION['CLIENT']['CID'] = self::$cid;
+			setcookie('CLIENT_HASH', $hash, time() + 86400000, '/');
+		}
 
-    }
+		public static function GetCID(): int {
+			return self::$cid;
+		}
 
-    Users::init();
+	}
+
+	Users::init();

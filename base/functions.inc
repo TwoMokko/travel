@@ -1,45 +1,5 @@
 <?php
 
-	use JetBrains\PhpStorm\NoReturn;
-
-	/**
-	 * Отправка JSON данных
-	 * @param string $string - Строка JSON
-	 * @return void
-	 */
-	#[NoReturn] function SendJSON(string $string): void {
-		header("Cache-Control: no-cache, no-store, must-revalidate");
-		header('Content-Type: application/json; charset=utf-8');
-		die($string);
-	}
-
-	/**
-	 * Кодирование и отправка данных JSON
-	 * @param array $data - Данные для кодирования
-	 * @return void
-	 */
-	#[NoReturn] function SendJSONData(array $data): void {
-		SendJSON(json_encode($data));
-	}
-
-	/**
-	 * Отправка положительного ответа
-	 * @param mixed $data - Данные
-	 * @return void
-	 */
-	#[NoReturn] function SendJSONSuccess(mixed $data): void {
-		SendJSONData(['state' => 'ok', 'data' => $data]);
-	}
-
-	/**
-	 * Отправка положительного ответа
-	 * @param string $message - Сообщение об ошибке
-	 * @return void
-	 */
-	#[NoReturn] function SendJSONError(string $message): void {
-		SendJSONData(['state' => 'message', 'data' => ['type' => 'error', 'text' => $message]]);
-	}
-
 	/**
 	 * Возвращает значение параметра запроса
 	 * @param string $key - Ключ POST/GET параметра
@@ -58,32 +18,6 @@
 	 */
 	function GetInt(string $key, int $default = 0): int {
 		return (int)GetParam($key, $default);
-	}
-
-	/**
-	 * Проверяет можно ли выводить отладочную информацию
-	 * @return bool
-	 */
-	function CheckDebugger(): bool {
-		return DEBUG;
-	}
-
-	function Debugs(mixed ...$vars): void {
-		foreach ($vars as $var) Debug($var);
-	}
-
-	/**
-	 * Вывод отладочной информации
-	 * @param mixed $var - Переменная для вывода
-	 * @param string $title - Заголовок
-	 * @return void
-	 */
-	function Debug(mixed $var, string $title = ''): void {
-		if (!CheckDebugger()) return;
-
-		echo "<b>{$title}</b><pre>";
-		var_dump($var);
-		echo "</pre>";
 	}
 
 	/**

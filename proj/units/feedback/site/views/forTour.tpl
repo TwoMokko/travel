@@ -1,15 +1,13 @@
 <?php
 
-namespace Proj\Site\Templates\Feedback;
+	namespace Proj\Site\Templates\Feedback;
 
     use Base\Templates\Template;
-    use Proj\Site\Units\Feedback;
-    use Proj\Site\Units\Tour;
+    use Proj\Site\Actions;
 
     abstract class ForTour {
 
-        public static function ToVar(int $id): string
-        {
+        public static function ToVar(int $id): string {
             Template::Start();
             self::Render($id);
             return Template::Read();
@@ -18,7 +16,7 @@ namespace Proj\Site\Templates\Feedback;
         public static function Render(int $id): void { ?>
             <div class = "block tour_form">
                 <div class = "header">Оставить заявку</div>
-                <form action = "<?= Feedback::instance()->feedback->GetPath(); ?>">
+                <form action = "<?= Actions\Feedback::$feedback_add->GetPath(); ?>">
                     <input name = "tour_id" type = "hidden" value = "<?= $id; ?>">
                     <div>
                         <div>
@@ -33,7 +31,6 @@ namespace Proj\Site\Templates\Feedback;
                     </div>
                     <div>
                         <a class = "button" onclick = "if (Validation.Form($(this).closest('form'))) Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Оставить заявку</a>
-<!--                        <a class = "button" onclick = "Base.Common.Query.SendForm($(this).closest('form'), AfterSend);">Оставить заявку</a>-->
                     </div>
                 </form>
             </div>

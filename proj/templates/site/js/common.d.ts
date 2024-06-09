@@ -192,3 +192,4 @@ declare class Carousel {
     private GetNext;
     private GetActive;
 }
+declare function IsEmpty(obj: object): boolean;

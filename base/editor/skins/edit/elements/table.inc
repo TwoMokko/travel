@@ -3,7 +3,7 @@
     namespace Base\Editor\Skins\Edit;
 
     use Base\Editor\Skins\SkinEdit;
-    use Base\Templates\Template;
+    use Base\Templates\Buffering;
 
     class Table extends SkinEdit {
         private string $name;
@@ -17,13 +17,13 @@
         }
 
         public function ToVar(mixed $value = []): string {
-            Template::Start();
+			Buffering::Start();
             $uid = uniqid('skin_table_');
         ?>
             <div id = "<?= $uid; ?>"></div>
             <script> new Base.Skins.Table('#<?= $uid; ?>', '<?= $this->name; ?>', <?= json_encode($this->column); ?>, <?= json_encode($value); ?>); </script>
         <?php
-            return Template::Read();
+            return Buffering::Read();
         }
 
     }

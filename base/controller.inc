@@ -2,35 +2,48 @@
 
 	namespace Base;
 
-	class Controller {
-		use Instance;
+	abstract class Controller {
+		const ENTRY_HTML		= 'html';
+		const ENTRY_XHR			= 'xhr';
 
-		public Stage $void;
-		public Stage $work;
-		public Stage $view;
+		public static Stage $init;
+		public static Stage $void;
+		public static Stage $work;
+		public static Stage $view;
 
-		static public string $area = 'null';
-		static public string $part = 'null';
+		private static string $entry = 'null';
 
-		public function __construct() {
-			$this->void = new Stage();
-			$this->work = new Stage();
-			$this->view = new Stage();
+		public static string $area = 'null';
+		public static string $part = 'null';
 
-            self::$area = GetParam('__a', 'null');
-            self::$part = GetParam('__p', 'null');
+		/**
+		 * Старт контроллера
+		 * @param string $entry - Точка входа
+		 * @return void
+		 */
+		public static function Start(string $entry): void {
+			self::$entry = $entry;
+
+			self::$init = new Stage();
+			self::$void = new Stage();
+			self::$work = new Stage();
+			self::$view = new Stage();
+
+			self::$area = GetParam('__a', 'null');
+			self::$part = GetParam('__p', 'null');
 		}
 
 		/**
 		 * Выполнить контроллер
 		 * @return void
 		 */
-		public function Execute(): void {
-			$this->void->Execute(Controller::$area, Controller::$part);
-			$this->work->Execute(Controller::$area, Controller::$part);
-			$this->view->Execute(Controller::$area, Controller::$part);
+		public static function Execute(): void {
+			self::$init->Execute(self::$entry, self::$area, self::$part);
+			self::$void->Execute(self::$entry, self::$area, self::$part);
+			self::$work->Execute(self::$entry, self::$area, self::$part);
+			self::$view->Execute(self::$entry, self::$area, self::$part);
 		}
 
 	}
 
-	Controller::init();
+	Controller::Start(ENTRY);

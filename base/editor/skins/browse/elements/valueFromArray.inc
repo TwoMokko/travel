@@ -2,9 +2,9 @@
 
 	namespace Base\Editor\Skins\Browse;
 
-    use Base\Editor\Skins\SkinBrowse;
+	use Base\Editor\Skins\SkinBrowse;
 
-    class ValueFromArray extends SkinBrowse {
+	class ValueFromArray extends SkinBrowse {
 		private array $array;
 
 		public function __construct(string $title, array $array) {
@@ -13,7 +13,7 @@
 			$this->array = $array;
 		}
 
-		public function ToVar(mixed $value) : string {
+		public function ToVar(mixed $value): string {
 			return $this->array[$value] ?? '';
 		}
 

@@ -2269,9 +2269,6 @@ input[type=text].footer_input::placeholder {
   .page_about_us > div:nth-of-type(2) {
     padding: 0;
   }
-  .page_about_us > div:nth-of-type(3) {
-    padding: 10%;
-  }
 }
 @media (min-width: 681px) and (max-width: 860px) {
   .page_about_us > div:nth-of-type(1) {
@@ -2281,9 +2278,6 @@ input[type=text].footer_input::placeholder {
   .page_about_us > div:nth-of-type(2) {
     padding: 0;
   }
-  .page_about_us > div:nth-of-type(3) {
-    padding: 10%;
-  }
 }
 @media (min-width: 861px) {
   .page_about_us > div:nth-of-type(1) {
@@ -2292,9 +2286,6 @@ input[type=text].footer_input::placeholder {
   }
   .page_about_us > div:nth-of-type(2) {
     padding: 0 10%;
-  }
-  .page_about_us > div:nth-of-type(3) {
-    padding: 10%;
   }
 }
 
@@ -2522,6 +2513,9 @@ input[type=text].footer_input::placeholder {
   font-weight: 400;
 }
 @media (max-width: 360px) {
+  .block.team {
+    padding: 10%;
+  }
   .block.team > div {
     display: revert;
     min-height: 320px;
@@ -2569,6 +2563,9 @@ input[type=text].footer_input::placeholder {
   }
 }
 @media (min-width: 361px) and (max-width: 480px) {
+  .block.team {
+    padding: 10%;
+  }
   .block.team > div {
     display: revert;
     min-height: 320px;
@@ -2616,6 +2613,9 @@ input[type=text].footer_input::placeholder {
   }
 }
 @media (min-width: 481px) and (max-width: 680px) {
+  .block.team {
+    padding: 10%;
+  }
   .block.team > div {
     display: revert;
     min-height: 320px;
@@ -2663,6 +2663,9 @@ input[type=text].footer_input::placeholder {
   }
 }
 @media (min-width: 681px) and (max-width: 1200px) {
+  .block.team {
+    padding: 10%;
+  }
   .block.team > div {
     display: flex;
     min-height: 320px;
@@ -2710,6 +2713,9 @@ input[type=text].footer_input::placeholder {
   }
 }
 @media (min-width: 1201px) {
+  .block.team {
+    padding: 10%;
+  }
   .block.team > div {
     display: flex;
     min-height: 320px;
@@ -5211,7 +5217,6 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: revert;
-    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;
@@ -5262,7 +5267,6 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: revert;
-    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;
@@ -5313,7 +5317,6 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: flex;
-    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;
@@ -5364,7 +5367,6 @@ input[type=text].footer_input::placeholder {
   }
   .block.tour_program > div:last-child {
     display: flex;
-    min-height: 720px;
   }
   .block.tour_program .days > div {
     display: flex;

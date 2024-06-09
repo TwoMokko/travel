@@ -5,10 +5,6 @@
 	use Base\DB\Table;
 
 	class Model {
-		protected const TRANSFORM_TRIM		= 1;
-
-		protected const VALIDATION_REQUIRED	= 1;
-
 		protected Table $table;
 		protected array $states;
 		protected array $params;
@@ -57,62 +53,41 @@
 			return $this->table->SelectOne(null, "(`id` = {$id})");
 		}
 
-		public function GetItemForBrowse(int $id): array {
-			return $this->GetItem($id);
-		}
-
 		public function GetState(int $id): int {
 			return (int)$this->table->SelectOneField('state', "`id` = {$id}");
 		}
 
-		public function Create(array $data, array $params): bool {
+		protected function PrepareCreate(array & $data, array & $params = []): void {  }
+		protected function PrepareUpdate(array & $data, int $id): void {  }
+		protected function PrepareDelete(int $id): void {  }
+		protected function PrepareSetState(int & $state, int $id): void {  }
+
+		public function Create(array $data, array $params = []): bool {
+			$this->PrepareCreate($data, $params);
 			$this->table->Insert($data);
 
 			return true;
 		}
 
 		public function Update(array $data, int $id): bool {
+			$this->PrepareUpdate($data, $id);
 			$this->table->Update($data, "`id` = {$id}");
 
 			return true;
 		}
 
-		public function Delete(int $id): void {
+		public function Delete(int $id): bool {
+			$this->PrepareDelete($id);
 			$this->table->Update(['state' => 100], "`id` = {$id}");
-		}
-
-		public function SetState(int $state, int $id): void {
-			$this->table->Update(['state' => $state], "`id` = {$id}");
-		}
-
-		protected function PrepareData(array & $data, array $fields): void {
-			foreach ($fields as $field => $transforms) {
-				foreach ($transforms as $transform) {
-					$data[$field] = match ($transform) {
-						self::TRANSFORM_TRIM => $this->PrepareTrim($data[$field])
-					};
-				}
-			}
-		}
-
-		private function PrepareTrim(string $value): string {
-			return trim($value);
-		}
-
-		protected function ValidationData(array $data, array $fields): bool {
-			foreach ($fields as $field => $rules) {
-				foreach ($rules as $rule) {
-					switch ($rule) {
-						case self::VALIDATION_REQUIRED: if (!$this->ValidationRequired($data[$field])) return false;
-					}
-				}
-			}
 
 			return true;
 		}
 
-		private function ValidationRequired(string $value): string {
-			return ($value !== '');
+		public function SetState(int $state, int $id): bool {
+			$this->PrepareSetState($state, $id);
+			$this->table->Update(['state' => $state], "`id` = {$id}");
+
+			return true;
 		}
 
 	}

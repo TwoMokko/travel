@@ -2,21 +2,20 @@
 
 	namespace Proj\Admin\Structure;
 
-	require DIR_UNITS . 'photo/consts.inc';
+	require DIR_UNITS . 'photo/admin/photo.actions.inc';
 
-	use Base\Units;
 	use Base\DB\MySQLi\Table;
-	use Proj\Units\Consts;
+	use Proj\Admin\Actions;
 	use Proj\DBObject;
 
-	class Photo extends Units implements Consts\Photo {
+	class Photo extends Actions\Photo {
 		private DBObject $db;
 
 		protected Table $table_photo_all;
 		protected Table $table_photo_show;
 
-		protected function __construct() {
-			parent::__construct(self::ID, self::NAME);
+		protected function __construct(string $file) {
+			parent::__construct($file);
 			$this->db = DBObject::instance();
 
 			$this->table_photo_all = new Table(self::TABLES['photo_all'], $this->db);
@@ -35,7 +34,6 @@
 			$this->table_photo_show->uint8('state');
 			$this->table_photo_show->timestamp('date_create');
 			$this->table_photo_show->timestamp('date_modify');
-//			$this->table_photo_show->string('header', 50);
 			$this->table_photo_show->string('hash', 32);
 			$this->table_photo_show->string('ext', 6);
 

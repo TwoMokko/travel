@@ -3,7 +3,6 @@
     namespace Proj\Site\Templates\People;
 
     use Base\Templates\Template;
-//	use Proj\Site\Templates\Template;
 	use Proj\Units\Consts;
 
     abstract class Team {
@@ -15,7 +14,7 @@
         }
 
         public static function Team($items): void { ?>
-            <div class = "block p team">
+            <div class = "block team">
                 <?php foreach ($items as $item) self::Item($item); ?>
             </div>
         <?php }
@@ -24,7 +23,6 @@
             <div>
                 <div class = "about_pic" style = "background-image: url(<?= Consts\People::PATH_AVATAR_RELATIVE, $data['image']; ?>);"></div>
                 <div class = "about_text">
-                    <!--						<div>Организатор</div>-->
                     <div><?= $data['name']; ?></div>
                     <div><?= $data['text']; ?></div>
                     <div class = "contact_person">

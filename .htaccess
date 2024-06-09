@@ -6,31 +6,56 @@
 	RewriteBase /
 
     RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule ^(.*)\.(tpl|inc|htaccess)$ 404.inc [R=404,NC,L]
+    RewriteRule ^(.*)\.(htaccess|inc|tpl|db|ts|sample)$ 404.inc [R=404,NC,L]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^admin/?$ admin.php [QSA,NC,L]
+	RewriteRule ^admin/xhr/?$ admin.xhr.php [QSA,NC,L]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^admin/([0-9a-z-_]+)/?$ admin.php?__a=$1 [QSA,NC,L]
+	RewriteRule ^admin/xhr/([0-9a-z-_]+)/?$ admin.xhr.php?__a=$1 [QSA,NC,L]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^admin/([0-9a-z-_]+)/([0-9a-z-_]+)/?$ admin.php?__a=$1&__p=$2 [QSA,NC,L]
+	RewriteRule ^admin/xhr/([0-9a-z-_]+)/([0-9a-z-_]+)/?$ admin.xhr.php?__a=$1&__p=$2 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^admin/?$ admin.html.php [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^admin/([0-9a-z-_]+)/?$ admin.html.php?__a=$1 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^admin/([0-9a-z-_]+)/([0-9a-z-_]+)/?$ admin.html.php?__a=$1&__p=$2 [QSA,NC,L]
+
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^xhr/?$ site.xhr.php [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^xhr/([0-9a-z-_]+)/?$ site.xhr.php?__a=$1 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^xhr/([0-9a-z-_]+)/([0-9a-z-_]+)/?$ site.xhr.php?__a=$1&__p=$2 [QSA,NC,L]
 
 #	RewriteCond %{REQUEST_FILENAME} !-f
 #	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^$ site.php [QSA,NC,L]
+	RewriteRule ^$ site.html.php [QSA,NC,L]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^([0-9a-z-_]+)/?$ site.php?__a=$1 [QSA,NC,L]
+	RewriteRule ^([0-9a-z-_]+)/?$ site.html.php?__a=$1 [QSA,NC,L]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^([0-9a-z-_]+)/([0-9a-z-_]+)/?$ site.php?__a=$1&__p=$2 [QSA,NC,L]
+	RewriteRule ^([0-9a-z-_]+)/([0-9a-z-_]+)/?$ site.html.php?__a=$1&__p=$2 [QSA,NC,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

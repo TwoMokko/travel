@@ -2,27 +2,17 @@
 
 	namespace Base\Templates;
 
-	abstract class Template {
+	abstract class Template extends Buffering {
 		private array $stylesheets = [];
 		private array $scripts = [];
 
 		private string $title = '';
 		private string $description = '';
+		private string $keywords = '';
 
 		private array $data = [];
 
 		protected function __construct() {  }
-
-		public static function Start(): void {
-			ob_start();
-		}
-
-		public static function Read(): string {
-			$val = ob_get_contents();
-			ob_end_clean();
-
-			return $val !== false ? $val : '';
-		}
 
 		public function AddScript(string $name, string $src) : void {
 			if (isset($this->scripts[$name])) die("Script «{$name}» exists");
@@ -46,6 +36,7 @@
 
 		public function SetTitle(string $title): void { $this->title = $title; }
 		public function SetDescription(string $description): void { $this->description = $description; }
+		public function SetKeywords(string $keywords): void { $this->keywords = $keywords; }
 
 		public function SetData(string $name, string $value): void { $this->data[$name] = $value; }
 		public function SetDataPage(string $value): void { $this->SetData('page', $value); }
@@ -63,6 +54,7 @@
 			$this->BrowseStylesheets();
 			if ($this->title) ?><title><?= $this->title; ?></title><?php
 			if ($this->description) ?><meta name = "description" content = "<?= $this->description; ?>"><?php
+			if ($this->keywords) ?><meta name = "keywords" content = "<?= $this->keywords; ?>"><?php
 		}
 
 		public function BrowseData(): void {

@@ -19,19 +19,25 @@
 				->calc("*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`")
 				->table($this->table->GetName())
 				->where('`state` = ' . Consts\General::STATE_ACTIVE)
-				->order('id');
+				->order('alias')
+				->order('id', 'DESC');
 		}
 
-		public function GetItemForBrowse(int $id): array {
-			return $this->table->SelectOne(null, "(`id` = {$id})", null, null, ["*, CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"]);
+		public function GetItem(int $id): array {
+			return $this->table->SelectOne(null, "(`id` = {$id})", null, null, ["*", "CONCAT(`hash`, '.', `id`, '.', `ext`) AS `cover`"]);
 		}
 
-		public function Create(array $data, array $params): bool {
+		protected function PrepareCreate(array & $data, array & $params = []): void {
+			$data['state'] = Consts\General::STATE_ACTIVE;
+		}
+
+		public function Create(array $data, array $params = []): bool {
+			$this->PrepareCreate($data);
+
 			$id = $this->table->Insert($data);
 
 			if ($_FILES['form']['tmp_name']['cover']) {
-				$data_file = [$hash, $ext] = $this->SaveFile($id);
-				if (!$data_file) return false;
+				[$hash, $ext] = $this->SaveFile($id);
 				$this->table->Update(['hash' => $hash, 'ext' => $ext], "`id` = {$id}");
 			}
 
@@ -39,12 +45,12 @@
 		}
 
 		public function Update(array $data, int $id): bool {
+			$this->PrepareUpdate($data, $id);
 			if ($_FILES['form']['tmp_name']['cover']) {
 				$old_file = $this->table->SelectOneFieldCalc("CONCAT(`hash`, '.', `id`, '.', `ext`) AS `alias`", 'alias', "`id` = {$id}");
 				if ($old_file) unlink(Consts\General::PATH_IMAGE . $old_file);
 
-				$data_file = [$hash, $ext] = $this->SaveFile($id);
-				if (!$data_file) return false;
+				[$hash, $ext] = $this->SaveFile($id);
 				$data['hash'] = $hash;
 				$data['ext'] = $ext;
 			}

@@ -2,10 +2,10 @@
 
 	namespace Proj\Admin\Templates;
 
-	use Base\Templates;
+	use Base\Debugger;use Base\Templates;
 	use Base\Instance;
 	use Base\Templates\Versions as BaseVersions;
-	use Proj\Templates\Admin\Versions as AdminVersions;
+use Proj\DBObject;use Proj\Templates\Admin\Versions as AdminVersions;
 
 	class Template extends Templates\Template {
 		use Instance;
@@ -15,10 +15,8 @@
 
 			$this->AddScript('jq', 'https://code.jquery.com/jquery-3.6.1.min.js');
 			$this->AddVersionScript('base_common', '/base/template/js/common', BaseVersions\COMMON_JS);
-			$this->AddVersionScript('base_skin', '/base/template/js/skins', BaseVersions\SKINS_JS);
 			$this->AddVersionScript('admin_common', '/proj/templates/admin/js/common', AdminVersions\COMMON_JS);
 			$this->AddVersionScript('admin_general', '/proj/templates/admin/js/general', AdminVersions\GENERAL_JS);
-			$this->AddVersionScript('admin_functions', '/proj/templates/admin/js/functions', AdminVersions\FUNCTIONS_JS);
 
 			$this->AddVersionStylesheet('main', DIR_REL_TPL . 'admin/css/main', AdminVersions\MAIN_CSS);
 		}
@@ -35,19 +33,11 @@
 					<meta charset = "UTF-8">
 					<meta name = "viewport" content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 					<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
-					<title>Travel</title>
-					<?php
-						Template::$instance->BrowseHead();
-					?>
+					<link type = "image/x-icon" href = "<?= DIR_REL_FILES_IMAGE; ?>favicon.ico" rel = "icon">
+					<?php Template::$instance->BrowseHead(); ?>
 				</head>
 				<body>
 					<?php self::RenderSections(); ?>
-					<script>
-						$(function() {
-							Base.Common.GlobalParams.Set('request', '<?= \REQUEST; ?>');
-							Admin.Common.Layout.Initialization();
-						});
-					</script>
 				</body>
 			</html>
 		<?php }
@@ -59,6 +49,19 @@
 				<main><?php Layout::instance()->main->Browse(); ?></main>
 			</div>
 			<footer><?php Layout::instance()->footer->Browse(); ?></footer>
+			<script>
+				<?php Layout::instance()->js_global->Browse(); ?>
+				$(() => {
+					Base.Common.GlobalParams.Set('request', '<?= \REQUEST; ?>');
+					Base.Common.GlobalParams.Set('xhr', '<?= \XHR; ?>');
+					getContent('admin');
+					Base.Common.History.Initialization();
+					Admin.Common.Layout.Initialization();
+					Base.Common.Debugger.Initialization();
+					Base.Common.Debugger.Append(<?= json_encode(Debugger::Get()); ?>);
+				<?php Layout::instance()->js_loaded->Browse(); ?>
+				});
+			</script>
 		<?php }
 
 	}
